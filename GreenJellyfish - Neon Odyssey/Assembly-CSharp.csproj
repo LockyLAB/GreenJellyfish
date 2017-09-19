@@ -118,7 +118,6 @@
      <None Include="Assets\3rdParty\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
-     <None Include="Assets\Models\New.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
      <None Include="Assets\3rdParty\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
