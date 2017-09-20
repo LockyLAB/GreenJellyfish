@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 8fd9473c2094152488ca3f82604f81de
-timeCreated: 1505802521
-licenseType: Free
+timeCreated: 1505871177
+licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -9,7 +9,8 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Urn_001_Crypt_001_Large
+    4300000: Vases:Anubis_Jar
+    4300002: Urn_001_Crypt_001_Large
     9500000: //RootNode
   materials:
     importMaterials: 1
