@@ -111,7 +111,7 @@
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
-     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
+     <None Include="Assets\3rdParty\XInput\XInputDotNet\MITLicense.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_VertexPicker.shader" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_HideVertices.shader" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
@@ -207,7 +207,7 @@
  <HintPath>D:/LAB/Unity/Projects/Green Jellyfish/trunk/GreenJellyfish - Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>D:/LAB/Unity/Projects/Green Jellyfish/trunk/GreenJellyfish - Neon Odyssey/Assets/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ <HintPath>D:/LAB/Unity/Projects/Green Jellyfish/trunk/GreenJellyfish - Neon Odyssey/Assets/3rdParty/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
