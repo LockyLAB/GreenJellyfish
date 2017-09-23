@@ -54,11 +54,11 @@ public class Player : MonoBehaviour {
     {
    
         
-        Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX), XCI.GetAxisRaw(XboxAxis.LeftStickY));
-
+        Vector2 leftInput = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX), XCI.GetAxisRaw(XboxAxis.LeftStickY));
+        Vector2 rightInput = new Vector2(XCI.GetAxisRaw(XboxAxis.RightStickX), XCI.GetAxisRaw(XboxAxis.RightStickY));
         int wallDirX = (m_Controller.m_CollisionInfo.left)? -1 : 1;
 
-        float targetVelocityX = input.x * moveSpeed;
+        float targetVelocityX = leftInput.x * moveSpeed;
         m_Velocity.x = Mathf.SmoothDamp(m_Velocity.x, targetVelocityX, ref velocityXSmoothing, (m_Controller.m_CollisionInfo.bottom) ? accelerationTime : accelerationTimeAir);
 
 
@@ -69,14 +69,6 @@ public class Player : MonoBehaviour {
             m_Velocity.y = 0;
         }
 
-
-
-
-
-
-      
-
-   
 
 
         m_Velocity.y += gravity * Time.deltaTime;
@@ -101,13 +93,13 @@ public class Player : MonoBehaviour {
             {
                 
 
-                if ((wallDirX < 0 && input.x < 0) || (wallDirX > 0 && input.x > 0))
+                if ((wallDirX < 0 && leftInput.x < 0) || (wallDirX > 0 && leftInput.x > 0))
                 {
                     m_Velocity.x = -wallDirX * wallClimb.x;
                     m_Velocity.y = wallClimb.y;
                     wallDropTime = 0.0f;
                 }
-                else if (input.x == 0)
+                else if (leftInput.x == 0)
                 {
                     m_Velocity.x = -wallDirX * wallDrop.x;
                     m_Velocity.y = wallDrop.y;
@@ -153,6 +145,15 @@ public class Player : MonoBehaviour {
         }
 
         m_Controller.Move(m_Velocity * Time.deltaTime);
+
+        Vector2 Aim;
+        if (rightInput.x != 0 || rightInput.y != 0)
+        {
+            Aim.x = -rightInput.x;
+            Aim.y = rightInput.y;
+            Aim.Normalize();
+            Debug.DrawRay(this.transform.position, Aim);
+        }
 
 
 

@@ -484,7 +484,7 @@ MonoBehaviour:
   gravity: -35
   jumpVelocity: 10
   wallClimb: {x: 7.5, y: 14}
-  wallDrop: {x: 4, y: 5}
+  wallDrop: {x: 8, y: 5}
   wallLeap: {x: 8, y: 14}
   cam1: {fileID: 0}
   redPlayer: {fileID: 0}
