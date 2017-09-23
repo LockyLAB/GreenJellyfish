@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: e4042a09baa92754cbf87fae34b022bb
-timeCreated: 1505873326
-licenseType: Pro
+timeCreated: 1506148822
+licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -10,6 +10,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Ground_001_Crypt_001_Standard
+    4300002: Ground_001_Crypt_001_Standard4
     9500000: //RootNode
   materials:
     importMaterials: 1
