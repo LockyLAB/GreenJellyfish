@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class IsTargetCloseEnough : BehaviourBase
 {
-    private float m_targetDistance = 0.0f;
-
-    public void SetDistance(float targetDistance)
-    {
-        m_targetDistance = targetDistance;
-    }
+    public float m_targetDistance = 0.0f;
 
     //--------------------------------------------------------------------------------------
     // Update behaviours - Get the distance to an object
@@ -19,6 +14,7 @@ public class IsTargetCloseEnough : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
+        Debug.Log("Checking if its close enough");
         if ((transform.position - GetComponent<Enemy>().m_target.transform.position).magnitude < m_targetDistance)
             return BehaviourStatus.SUCCESS;
         return BehaviourStatus.FAILURE;

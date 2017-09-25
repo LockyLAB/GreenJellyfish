@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		
-	}
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        BehaviourBase.BehaviourStatus State = m_initalBehaviour.Execute();
+    }
 }
