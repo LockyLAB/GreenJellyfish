@@ -13,10 +13,10 @@ public class BehaviourSequence : BehaviourComposite
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        //Run through each child, similar to OR operation.
         if (!m_pendingBranch)
             m_branchNumber = 0;
         m_pendingBranch = false;
+
         //Requires only one child to succeed
         while (m_branchNumber < m_behaviourBranches.Count)
         {

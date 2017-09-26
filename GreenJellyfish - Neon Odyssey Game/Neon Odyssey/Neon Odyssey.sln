@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon Odyssey", "Neon Odyssey.csproj", "{1457D523-7B83-1931-B1EE-D29CBFA3376B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon Odyssey.Editor", "Neon Odyssey.Editor.csproj", "{0AF31DDE-1DC1-8B4B-8237-EB31F687BB94}"

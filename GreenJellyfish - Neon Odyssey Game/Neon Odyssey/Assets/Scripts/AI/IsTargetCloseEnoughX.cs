@@ -14,7 +14,6 @@ public class IsTargetCloseEnoughX : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        Debug.Log("Checking if its close enough" + m_targetDistance);
         if (Mathf.Abs(transform.position.x - GetComponent<Enemy>().m_target.transform.position.x) < m_targetDistance)
             return BehaviourStatus.SUCCESS;
         return BehaviourStatus.FAILURE;

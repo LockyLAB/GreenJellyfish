@@ -10,4 +10,13 @@ public class Bullet : MonoBehaviour {
     {
         Destroy(this.gameObject, m_lifetime);
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            Debug.Log("player hit");
+            Destroy(this);
+        }
+    }
 }
