@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d9080cb6b62634f8d12914e62e27d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_bullet: {fileID: 1605323409003338, guid: 35b3719eadac59641972ea72fd97b6ec, type: 2}
   m_numberOfBullets: 4
   m_bulletSpeed: 5
@@ -136,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0629e85a3757d4847a0a0f92b118c884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_targetDistance: 5
 --- !u!114 &114275107503547428
 MonoBehaviour:
@@ -148,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471e959d3af289e4b8d2559dd547d566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_behaviourBranches:
   - {fileID: 114584024973343098}
   - {fileID: 114846972723885134}
@@ -165,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad22b9333006065489ec3cbac6cdf691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_laserbeam: {fileID: 1692959971988142, guid: 0a5968cba25ef6b4f850caa781f6e2ee,
     type: 2}
   m_chargeRate: 2
@@ -193,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af7642bd792e314b8c54bb4f287dd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_coolDown: 2
 --- !u!114 &114487316938770114
 MonoBehaviour:
@@ -205,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6896d717ce63c24d8dbc369c4b2ee8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
 --- !u!114 &114487696697080038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0629e85a3757d4847a0a0f92b118c884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_targetDistance: 10
 --- !u!114 &114500529853626182
 MonoBehaviour:
@@ -228,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af7642bd792e314b8c54bb4f287dd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_coolDown: 3
 --- !u!114 &114584024973343098
 MonoBehaviour:
@@ -240,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b0fd55e634e45b9e0b40e15db98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_behaviourBranches:
   - {fileID: 114916620324281576}
   - {fileID: 114200609025939504}
@@ -257,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b0fd55e634e45b9e0b40e15db98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_behaviourBranches:
   - {fileID: 114487696697080038}
   - {fileID: 114487316938770114}
@@ -273,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2b0fd55e634e45b9e0b40e15db98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_behaviourBranches:
   - {fileID: 114256852051199042}
   - {fileID: 114290072729420826}
@@ -290,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0629e85a3757d4847a0a0f92b118c884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nameOfComponent: 
   m_targetDistance: 4
 --- !u!136 &136036417377602378
 CapsuleCollider:
