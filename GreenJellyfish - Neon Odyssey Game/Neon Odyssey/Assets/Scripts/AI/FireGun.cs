@@ -23,8 +23,6 @@ public class FireGun : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        Debug.Log("Firing");
-
         if (m_behaviourSetup)
         {
             //Start numbers of bullets to fire
@@ -32,7 +30,7 @@ public class FireGun : BehaviourBase
             m_time = m_rateOfFire;
             m_behaviourSetup = false;
         }
-
+	
         m_time -= Time.deltaTime;
 
         if (m_time < 0.0f)

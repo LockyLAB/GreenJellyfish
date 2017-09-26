@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6939a399a4df0514cab9d97a335e9d6f
-timeCreated: 1506148537
+timeCreated: 1506392500
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -12,7 +12,7 @@ ModelImporter:
     4300000: Ground_001_Crypt_001_Arch90deg
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
