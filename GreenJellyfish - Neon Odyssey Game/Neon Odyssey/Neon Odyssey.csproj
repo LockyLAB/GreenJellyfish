@@ -156,23 +156,29 @@
     <Compile Include="Assets\3rdParty\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviourBase.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviourComposite.cs" />
+    <Compile Include="Assets\Scripts\AI\BehaviourParallel.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviourSelector.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviourSequence.cs" />
     <Compile Include="Assets\Scripts\AI\Bullet.cs" />
     <Compile Include="Assets\Scripts\AI\CoolDown.cs" />
-    <Compile Include="Assets\Scripts\AI\Enemies\EnemyBeetle.cs" />
     <Compile Include="Assets\Scripts\AI\Enemy.cs" />
     <Compile Include="Assets\Scripts\AI\FireCone.cs" />
     <Compile Include="Assets\Scripts\AI\FireGun.cs" />
+    <Compile Include="Assets\Scripts\AI\FireLaserbeam.cs" />
     <Compile Include="Assets\Scripts\AI\FleeTarget.cs" />
+    <Compile Include="Assets\Scripts\AI\GetTargetEasy.cs" />
+    <Compile Include="Assets\Scripts\AI\GetTargetHard.cs" />
+    <Compile Include="Assets\Scripts\AI\GetTargetMedium.cs" />
     <Compile Include="Assets\Scripts\AI\IsTargetCloseEnough.cs" />
     <Compile Include="Assets\Scripts\AI\IsTargetCloseEnoughX.cs" />
     <Compile Include="Assets\Scripts\AI\MoveTowardsTarget.cs" />
     <Compile Include="Assets\Scripts\AI\MoveTowardsTargetX.cs" />
+    <Compile Include="Assets\Scripts\AI\NeedNewTarget.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
+    <Compile Include="Assets\Scripts\Player\BulletController.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\BulletController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\GreenBullet.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\PurpleBullet.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\RedBullet.cs" />
@@ -180,11 +186,11 @@
     <Compile Include="Assets\Scripts\Scripts - ed\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Enemy\EnemyShield.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Player\CharController.cs" />
-    <Compile Include="Assets\Scripts\Scripts - ed\Player\ColourController.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Player\CrosshairColour.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Player\P1ColourController.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Player\P2ColourController.cs" />
-    <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShield.cs" />
+    <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShooter.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\test_Delete.cs" />
   </ItemGroup>
   <ItemGroup>

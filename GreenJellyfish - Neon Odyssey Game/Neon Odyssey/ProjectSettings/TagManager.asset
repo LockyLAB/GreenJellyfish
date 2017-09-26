@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - playerRed
+  - playerGreen
+  - playerYellow
+  - playerPurple
+  - yellow
+  - red
+  - green
+  - purple
   layers:
   - Default
   - TransparentFX
