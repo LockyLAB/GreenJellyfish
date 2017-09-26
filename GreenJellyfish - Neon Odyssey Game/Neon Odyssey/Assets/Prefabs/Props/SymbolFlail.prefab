@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4501159651564386}
+  - component: {fileID: 64034904537500090}
   m_Layer: 0
   m_Name: SymbolFlail
   m_TagString: Untagged
@@ -51,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1170707246643370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.50882876, y: -1.3179134, z: 6.558093}
+  m_LocalPosition: {x: 35.675114, y: 1.9931066, z: -0.5183594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4626214385491108}
@@ -109,6 +110,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495695767739646}
+  m_Mesh: {fileID: 4300000, guid: 5ef4120a47dda564290b2a8de27089d8, type: 3}
+--- !u!64 &64034904537500090
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170707246643370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5ef4120a47dda564290b2a8de27089d8, type: 3}
 --- !u!95 &95603397667205710
 Animator:
