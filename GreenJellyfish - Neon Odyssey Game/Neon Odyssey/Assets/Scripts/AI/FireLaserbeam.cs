@@ -52,8 +52,13 @@ public class FireLaserbeam : BehaviourBase
     void FireLaser(Vector3 laserDir, float laserMagnitude)
     {
         // Make ray cast to check if hit
-        if (Physics.Raycast(transform.position, laserDir, laserMagnitude))
-            Debug.Log("player hit");
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, laserDir, out hit, laserMagnitude))
+        {
+            if (hit.collider.tag == "Player")
+                Debug.Log("player hit");
+        }
         Destroy(m_laserbeamHolder);
     }
 }

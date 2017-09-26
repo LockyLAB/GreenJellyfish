@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BehaviourComposite : BehaviourBase
 {
+    public string m_nameOfComponent = "";
+
     public List<BehaviourBase> m_behaviourBranches;
     [HideInInspector]
     public int m_branchNumber = 0;

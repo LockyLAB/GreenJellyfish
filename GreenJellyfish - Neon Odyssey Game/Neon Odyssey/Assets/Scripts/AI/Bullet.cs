@@ -11,8 +11,9 @@ public class Bullet : MonoBehaviour {
         Destroy(this.gameObject, m_lifetime);
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
+        Debug.Log("Collidered");
         if (col.gameObject.tag == "Player")
         {
             Debug.Log("player hit");

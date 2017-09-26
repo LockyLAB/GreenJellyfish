@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class BehaviourBase : MonoBehaviour
 {
-
-    public string m_nameOfComponent = "";
-
     //types of return status
     [HideInInspector]
     public enum BehaviourStatus {SUCCESS, FAILURE, PENDING };

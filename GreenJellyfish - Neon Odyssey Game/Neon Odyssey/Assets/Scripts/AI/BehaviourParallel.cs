@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BehaviourParallel : BehaviourComposite
 {
-
     [HideInInspector]
     public List<BehaviourBase> m_behaviourBranchesPending;
 

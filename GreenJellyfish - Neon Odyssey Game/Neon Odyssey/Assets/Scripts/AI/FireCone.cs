@@ -31,7 +31,7 @@ public class FireCone : BehaviourBase
         {
             //Start numbers of bullets to fire
             m_bulletCount = 0;
-            m_time = m_rateOfFire;
+            m_time = 0.0f;
             m_behaviourSetup = false;
         }
 
@@ -59,7 +59,7 @@ public class FireCone : BehaviourBase
 
     void FireBullet(Vector3 bulletDir)
     {
-        GameObject newBullet = Instantiate(m_bullet, this.transform.position, Quaternion.Euler(bulletDir));
+        GameObject newBullet = Instantiate(m_bullet, this.transform.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
     }
 }
