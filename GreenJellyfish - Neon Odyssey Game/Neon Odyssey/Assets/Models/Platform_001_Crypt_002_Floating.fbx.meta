@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f72dcd843f3b897419399b7c8e4f4b7f
+guid: e7b93afa78389594181c10b008682b55
 timeCreated: 1506405268
 licenseType: Free
 ModelImporter:
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Platform_001_Crypt_001_Floating
+    4300000: Platform_001_Crypt_002_Floating
     9500000: //RootNode
   materials:
     importMaterials: 0
