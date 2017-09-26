@@ -10,11 +10,11 @@ public class Player : MonoBehaviour {
     public float jumpVelocity = 10;
 
 
-    public Vector2 wallClimb;
-    public Vector2 wallDrop;
-    public Vector2 wallLeap;
+    public Vector2 wallClimb = new Vector2(7.5f, 14);
+    public Vector2 wallDrop = new Vector2(8, 5);
+    public Vector2 wallLeap = new Vector2(8, 14);
 
-    bool isFalling = false;
+    bool isFalling;
     bool isSticking = false;
     float wallDropTime = 0.0f;
 
@@ -25,28 +25,17 @@ public class Player : MonoBehaviour {
 
     Vector2 m_Velocity;
 
-    public Camera cam1;
-
-    public Material redPlayer;
-    public Material bluePlayer;
-
     bool isRed = true;
 
     int health = 4;
-
-
 
 	PlayerController m_Controller;
 
 	void Start()
     {
         m_Controller = GetComponent<PlayerController> ();
-        cam1 = GetComponent<Camera>();
 
-        GetComponent<Renderer>().material = redPlayer;
-        
-
-        
+       
     }
  
 
@@ -55,7 +44,7 @@ public class Player : MonoBehaviour {
    
         
         Vector2 leftInput = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX), XCI.GetAxisRaw(XboxAxis.LeftStickY));
-        Vector2 rightInput = new Vector2(XCI.GetAxisRaw(XboxAxis.RightStickX), XCI.GetAxisRaw(XboxAxis.RightStickY));
+        
         int wallDirX = (m_Controller.m_CollisionInfo.left)? -1 : 1;
 
         float targetVelocityX = leftInput.x * moveSpeed;
@@ -76,7 +65,7 @@ public class Player : MonoBehaviour {
        
 
 
-        if ((m_Controller.m_CollisionInfo.left || m_Controller.m_CollisionInfo.right) && !m_Controller.m_CollisionInfo.bottom && m_Velocity.y != 0)
+        if ((m_Controller.m_CollisionInfo.left || m_Controller.m_CollisionInfo.right) && !m_Controller.m_CollisionInfo.bottom && m_Velocity.y != 0 && !isFalling)
         {
             isSticking = true;
             m_Velocity.y = 0;
@@ -120,10 +109,14 @@ public class Player : MonoBehaviour {
 
         }
 
+        if (m_Controller.m_CollisionInfo.bottom)
+        {
+            isFalling = false;
+        }
+
         if (isSticking)
         {
-
-
+           
             wallDropTime += 1.0f * Time.deltaTime;
 
             if (wallDropTime >= 1)
@@ -139,21 +132,11 @@ public class Player : MonoBehaviour {
         }
 
 
-        if (m_Controller.m_CollisionInfo.bottom)
-        {
-            isFalling = false;
-        }
-
+       
+        
         m_Controller.Move(m_Velocity * Time.deltaTime);
 
-        Vector2 Aim;
-        if (rightInput.x != 0 || rightInput.y != 0)
-        {
-            Aim.x = -rightInput.x;
-            Aim.y = rightInput.y;
-            Aim.Normalize();
-            Debug.DrawRay(this.transform.position, Aim);
-        }
+       
 
 
 

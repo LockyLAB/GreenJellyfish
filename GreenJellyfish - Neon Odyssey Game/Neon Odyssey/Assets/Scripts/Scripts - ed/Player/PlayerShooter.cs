@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour {
+public class PlayerShooter : MonoBehaviour {
 
     P1ColourController pcc1;
     P2ColourController pcc2;

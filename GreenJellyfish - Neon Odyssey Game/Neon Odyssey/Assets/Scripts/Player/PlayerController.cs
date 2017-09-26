@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Mathf.Abs(Velocity.x) < skinWidth)
         {
-            rayLength = 2 * skinWidth;
+            rayLength = 12 * skinWidth;
         }
 
 
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour {
     void VerticalCollisions(ref Vector3 Velocity)
     {
         float dirY = Mathf.Sign(Velocity.y);
-        float rayLength = Mathf.Abs(Velocity.y) + skinWidth;
+        float rayLength = Mathf.Abs(Velocity.y) + skinWidth * 12;
 
 
 

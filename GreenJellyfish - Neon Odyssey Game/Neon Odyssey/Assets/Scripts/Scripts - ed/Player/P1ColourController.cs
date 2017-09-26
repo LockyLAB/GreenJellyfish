@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using XboxCtrlrInput;
 public class P1ColourController : MonoBehaviour {
 
     public enum Colours
@@ -9,6 +9,8 @@ public class P1ColourController : MonoBehaviour {
         Red = 1,
         Green = 2
     }
+
+    bool isRed = true;
 
     public int switchColour = 1;
     // Use this for initialization
@@ -18,16 +20,23 @@ public class P1ColourController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if(isRed)
         {
-            switchColour = (int)Colours.Red;
+            if (XCI.GetButtonDown(XboxButton.LeftBumper))
+            {
+                switchColour = (int)Colours.Red;
+                isRed = false;
+            }
+        }
+        else
+        {
+            if (XCI.GetButtonDown(XboxButton.LeftBumper))
+            {
+                switchColour = (int)Colours.Green;
+                isRed = true;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            switchColour = (int)Colours.Green;
-        }
 
     }
 }

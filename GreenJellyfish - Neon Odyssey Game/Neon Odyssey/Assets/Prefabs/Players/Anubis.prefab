@@ -19,13 +19,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4677055811501498}
-  - component: {fileID: 65592797344352476}
   - component: {fileID: 136667335935115044}
-  - component: {fileID: 114063717599689856}
   - component: {fileID: 114897127616792674}
-  m_Layer: 0
+  - component: {fileID: 114359385417168232}
+  - component: {fileID: 114299941728015874}
+  - component: {fileID: 23716253999753644}
+  m_Layer: 10
   m_Name: Anubis
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +42,7 @@ GameObject:
   - component: {fileID: 33226919242219774}
   - component: {fileID: 23599128263920918}
   - component: {fileID: 95518183110102374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Character_001_Anubis_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +68,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815184724769192}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.8679, y: -3.0289497, z: 1.2573851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -45.8679, y: -2.967, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4525171221818952}
@@ -107,6 +108,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23716253999753644
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815184724769192}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!33 &33226919242219774
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -114,18 +147,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831929735235498}
   m_Mesh: {fileID: 4300000, guid: 794b238afced3e944a463bfa8ac0fa9c, type: 3}
---- !u!65 &65592797344352476
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1815184724769192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.8012505, z: 1}
-  m_Center: {x: 0, y: 0.8989301, z: 0}
 --- !u!95 &95518183110102374
 Animator:
   serializedVersion: 3
@@ -143,7 +164,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114063717599689856
+--- !u!114 &114299941728015874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815184724769192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0612020af9ffc749bf26c45b9363b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFiring: 1
+  bulletSpeed: 12
+  timeBetweenShots: 0.01
+  bullet: {fileID: 114062706167835084, guid: a20eda18f53e4b44a88befa513f79d24, type: 2}
+--- !u!114 &114359385417168232
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -156,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   isRed: 0
   HorizontalRays: 4
   VerticalRays: 4
@@ -173,13 +209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   gravity: -35
-  jumpVelocity: 10
-  wallClimb: {x: 0, y: 0}
-  wallDrop: {x: 0, y: 0}
-  wallLeap: {x: 0, y: 0}
-  cam1: {fileID: 0}
-  redPlayer: {fileID: 0}
-  bluePlayer: {fileID: 0}
+  jumpVelocity: 15
+  wallClimb: {x: 7.5, y: 14}
+  wallDrop: {x: 8, y: 5}
+  wallLeap: {x: 8, y: 14}
 --- !u!136 &136667335935115044
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -190,6 +223,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 1.8059456
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.8959547, z: 0}
