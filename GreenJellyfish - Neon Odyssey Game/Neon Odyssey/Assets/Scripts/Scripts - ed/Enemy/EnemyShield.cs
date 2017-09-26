@@ -21,7 +21,8 @@ public class EnemyShield : MonoBehaviour {
 
         Instantiate(shieldList[Random.Range(0, shieldList.Length - 1)], 
                     shieldPos.position, 
-                    shieldPos.rotation);      
+                    shieldPos.rotation,
+                    transform);      
 	}
 	
 	// Update is called once per frame

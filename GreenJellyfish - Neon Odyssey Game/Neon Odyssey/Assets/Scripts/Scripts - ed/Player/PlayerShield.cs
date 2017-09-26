@@ -10,8 +10,10 @@ public class PlayerShield : MonoBehaviour {
     public GameObject[] shield = new GameObject[2];
 
     public Transform shieldPos;
-    private bool redShieldOn;
-    private bool greenShieldOn;
+    private bool shieldOn = false;
+    //private bool greenShieldOn;
+
+    private float shieldTimer;
 
     // Use this for initialization
     void Start () {
@@ -21,15 +23,42 @@ public class PlayerShield : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Fire2"))
+		if (Input.GetButtonDown("Fire2") && shieldOn == false)
         {
+            shieldOn = true;
             playerShield();
+            shieldTimer = 5.0f;
         }
+
+        while(shieldOn == true)
+        {
+            shieldTimer -= Time.deltaTime;
+            if (shieldTimer <= 0)
+            {
+                shieldOn = false;
+                break;
+            }
+        }
+        
+
 	}
 
     void playerShield()
     {
-        //if (pcc1.switchColour == 1)
+        if (pcc1.switchColour == 1)
+        {
+            Instantiate(shield[Random.Range(0, shield.Length - 1)],
+            shieldPos.position,
+            shieldPos.rotation,
+            transform);
+        }
+
+     //if (pcc2.switchColour == 2)
+     //{
+     //    Instantiate(shield[Random.Range(0, shield.Length - 1)],
+     //    shieldPos.position,
+     //    shieldPos.rotation);s
+     //}
         //{
         //    var bulletShot = (GameObject)Instantiate(
         //        bullet1,
