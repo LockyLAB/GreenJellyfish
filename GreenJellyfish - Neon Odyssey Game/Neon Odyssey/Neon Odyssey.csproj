@@ -170,6 +170,7 @@
     <Compile Include="Assets\Scripts\AI\GetTargetEasy.cs" />
     <Compile Include="Assets\Scripts\AI\GetTargetHard.cs" />
     <Compile Include="Assets\Scripts\AI\GetTargetMedium.cs" />
+    <Compile Include="Assets\Scripts\AI\GetTargetSinglePlayer.cs" />
     <Compile Include="Assets\Scripts\AI\IsTargetCloseEnough.cs" />
     <Compile Include="Assets\Scripts\AI\IsTargetCloseEnoughX.cs" />
     <Compile Include="Assets\Scripts\AI\MoveTowardsTarget.cs" />

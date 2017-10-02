@@ -37,6 +37,17 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4959751873079954}
+  - component: {fileID: 114246754608305274}
+  - component: {fileID: 114282994163605450}
+  - component: {fileID: 114119772577109118}
+  - component: {fileID: 114160383158571236}
+  - component: {fileID: 114212962530660592}
+  - component: {fileID: 114403934687391566}
+  - component: {fileID: 114819960578913828}
+  - component: {fileID: 114485451332902726}
+  - component: {fileID: 114303876143416978}
+  - component: {fileID: 114928535096978816}
+  - component: {fileID: 114716381324698044}
   m_Layer: 0
   m_Name: Enemy_Wasp
   m_TagString: Untagged
@@ -63,14 +74,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762125067990238}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4649997, y: -2.914821, z: -12.509344}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 5.67, y: 4.89, z: -5.9888945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4799102811145634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!23 &23177287586076112
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -127,3 +138,158 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114119772577109118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471e959d3af289e4b8d2559dd547d566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_nameOfComponent: 
+  m_behaviourBranches:
+  - {fileID: 114403934687391566}
+  - {fileID: 114212962530660592}
+  m_branchNumber: 0
+  m_pendingBranch: 0
+--- !u!114 &114160383158571236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e2d1b4723ac8f44a2928580292e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetDistance: 10
+--- !u!114 &114212962530660592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a15d9685c5c7af4dac2cc0f35d79a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114246754608305274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea2b0fd55e634e45b9e0b40e15db98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_nameOfComponent: 
+  m_behaviourBranches:
+  - {fileID: 114282994163605450}
+  - {fileID: 114119772577109118}
+  m_branchNumber: 0
+  m_pendingBranch: 0
+--- !u!114 &114282994163605450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff435bdbb682db47a6ebf35ecde1d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114303876143416978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f649a1ad0403ae4281d13aed582045c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fleeDistance: 6
+  m_maxFleeDuration: 4
+--- !u!114 &114403934687391566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea2b0fd55e634e45b9e0b40e15db98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_nameOfComponent: 
+  m_behaviourBranches:
+  - {fileID: 114819960578913828}
+  - {fileID: 114485451332902726}
+  - {fileID: 114303876143416978}
+  - {fileID: 114928535096978816}
+  m_branchNumber: 0
+  m_pendingBranch: 0
+--- !u!114 &114485451332902726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fca76f65c751e345a44a5aa49b96900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bullet: {fileID: 0}
+  m_numberOfBullets: 5
+  m_bulletSpeed: 15
+  m_rateOfFire: 2
+  m_fireCone: 40
+--- !u!114 &114716381324698044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d105534c5b002474d99d2c3eefc44066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_forwardSpeed: 5
+  m_initalBehaviour: {fileID: 114246754608305274}
+  m_target: {fileID: 0}
+  m_symbol: 1
+--- !u!114 &114819960578913828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e2d1b4723ac8f44a2928580292e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetDistance: 5
+--- !u!114 &114928535096978816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af7642bd792e314b8c54bb4f287dd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_coolDown: 3
