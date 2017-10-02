@@ -177,7 +177,6 @@
     <Compile Include="Assets\Scripts\AI\MoveTowardsTargetX.cs" />
     <Compile Include="Assets\Scripts\AI\NeedNewTarget.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
-    <Compile Include="Assets\Scripts\Player\BulletController.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />

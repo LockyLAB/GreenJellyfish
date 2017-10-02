@@ -8,10 +8,11 @@ public class PlayerShoot : MonoBehaviour {
     public bool isFiring;
 
     public float bulletSpeed;
-    public float timeBetweenShots;
+    public float timeBetweenShots = 0;
+    public float fireRate = 2;
+
     private float shotCounter;
 
-    public BulletController bullet;
 
     public Player player;
 
@@ -55,35 +56,33 @@ public class PlayerShoot : MonoBehaviour {
 
             Debug.DrawRay(this.transform.position + up, Aim);
 
+            timeBetweenShots += Time.deltaTime;
+
             if (isFiring)
             {
                 if (pcc1.switchColour == 1)
                 {
-                    if (shotCounter <= timeBetweenShots)
+                    if (timeBetweenShots >= fireRate)
                     {
-                        shotCounter = timeBetweenShots;
                         GameObject newBullet = Instantiate(bullet1, Aim + player.transform.position + up, Quaternion.Euler(Aim)) as GameObject;
-                        
                         newBullet.GetComponent<Rigidbody>().AddForce(Aim * bulletSpeed);
+
+                        timeBetweenShots = 0;
+
                     }
-                    else
-                    {
-                        shotCounter = 0;
-                    }
+                    
                 }
                 if (pcc1.switchColour == 2)
                 {
-                    if (shotCounter <= timeBetweenShots)
+                    if (timeBetweenShots >= fireRate)
                     {
-                        shotCounter = timeBetweenShots;
+                        
                         GameObject newBullet = Instantiate(bullet2, Aim + player.transform.position + up, Quaternion.Euler(Aim)) as GameObject;
                         
                         newBullet.GetComponent<Rigidbody>().AddForce(Aim * bulletSpeed);
+                        timeBetweenShots = 0;
                     }
-                    else
-                    {
-                        shotCounter = 0;
-                    }
+               
                 }
             }
 
