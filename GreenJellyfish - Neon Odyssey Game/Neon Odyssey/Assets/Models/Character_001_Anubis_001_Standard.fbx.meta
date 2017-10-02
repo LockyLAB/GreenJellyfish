@@ -1,14 +1,18 @@
 fileFormatVersion: 2
 guid: 794b238afced3e944a463bfa8ac0fa9c
-timeCreated: 1506409834
-licenseType: Free
+timeCreated: 1506910083
+licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Character_001_Anubis_001_Standard
     400000: //RootNode
+    400002: Character_001_Anubis_001_Standard
     2300000: //RootNode
+    2300002: Character_001_Anubis_001_Standard
     3300000: //RootNode
+    3300002: Character_001_Anubis_001_Standard
     4300000: Character_001_Anubis_001_Standard
     9500000: //RootNode
   materials:

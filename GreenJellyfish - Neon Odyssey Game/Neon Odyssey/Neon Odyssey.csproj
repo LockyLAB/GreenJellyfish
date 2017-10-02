@@ -161,6 +161,7 @@
     <Compile Include="Assets\Scripts\AI\BehaviourSequence.cs" />
     <Compile Include="Assets\Scripts\AI\Bullet.cs" />
     <Compile Include="Assets\Scripts\AI\CoolDown.cs" />
+    <Compile Include="Assets\Scripts\AI\Custom Editors\BehaviourCustomEditor.cs" />
     <Compile Include="Assets\Scripts\AI\Enemy.cs" />
     <Compile Include="Assets\Scripts\AI\FireCone.cs" />
     <Compile Include="Assets\Scripts\AI\FireGun.cs" />

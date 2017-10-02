@@ -1,15 +1,20 @@
 fileFormatVersion: 2
 guid: 74ca3e114ff089a4aaff9f3099e29340
-timeCreated: 1505802521
-licenseType: Free
+timeCreated: 1506916585
+licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Sarcophagus_001_Crypt_001_Standard1
     400000: //RootNode
+    400002: Sarcophagus_001_Crypt_001_Standard1
     2300000: //RootNode
+    2300002: Sarcophagus_001_Crypt_001_Standard1
     3300000: //RootNode
+    3300002: Sarcophagus_001_Crypt_001_Standard1
     4300000: Sarcophagus_001_Crypt_001_Standard
+    4300002: Sarcophagus_001_Crypt_001_Standard1
     9500000: //RootNode
   materials:
     importMaterials: 0
