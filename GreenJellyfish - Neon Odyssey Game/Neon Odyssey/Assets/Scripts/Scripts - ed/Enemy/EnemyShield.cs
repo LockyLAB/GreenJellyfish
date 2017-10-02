@@ -22,7 +22,9 @@ public class EnemyShield : MonoBehaviour {
         Instantiate(shieldList[Random.Range(0, shieldList.Length - 1)], 
                     shieldPos.position, 
                     shieldPos.rotation,
-                    transform);      
+                    transform);
+        
+        Debug.Log("enemyShield");
 	}
 	
 	// Update is called once per frame

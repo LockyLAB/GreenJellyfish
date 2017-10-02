@@ -8,57 +8,97 @@ public class PlayerShield : MonoBehaviour {
     P2ColourController pcc2;
 
     public GameObject[] shield = new GameObject[2];
+    protected GameObject currentShield;
 
     public Transform shieldPos;
-    private bool shieldOn = false;
-    //private bool greenShieldOn;
 
-    private float shieldTimer;
+    private bool P1shieldOn;
+    //private bool P2shieldOn;
+    
+    //private float shieldTimer;
 
     // Use this for initialization
     void Start () {
         pcc1 = GetComponent<P1ColourController>();
         pcc2 = GetComponent<P2ColourController>();
+
+       
+        toggleShield();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Fire2") && shieldOn == false)
+
+        if (gameObject.GetComponent<P1ColourController>().isToggled == true)
         {
-            shieldOn = true;
-            playerShield();
-            shieldTimer = 5.0f;
+            toggleShield();
         }
 
-        while(shieldOn == true)
-        {
-            shieldTimer -= Time.deltaTime;
-            if (shieldTimer <= 0)
-            {
-                shieldOn = false;
-                break;
-            }
-        }
-        
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    toggleShield();
+        //}
 
-	}
+        //if (pcc2.switchColour == 1)
+        //{
+        //    Instantiate(shield[1],
+        //    shieldPos.position,
+        //    shieldPos.rotation,
+        //    transform);
+        //}
+    
+        //if (pcc2.switchColour == 2)
+        //{
+        //    Instantiate(shield[2],
+        //    shieldPos.position,
+        //    shieldPos.rotation,
+        //    transform);
+        //}
 
-    void playerShield()
+        //toggle shield
+        //if (Input.GetButtonDown("Fire2") && shieldOn == false)
+        //{
+        //    shieldOn = true;
+        //    playerShield();
+        //    shieldTimer = 5.0f;
+        //}
+
+        //while(shieldOn == true)
+        //{
+        //    shieldTimer -= Time.deltaTime;
+        //    if (shieldTimer <= 0)
+        //    {
+        //        shieldOn = false;
+        //        break;
+        //    }
+        //}
+
+    }
+
+    void toggleShield()
     {
+        Destroy(currentShield);
         if (pcc1.switchColour == 1)
         {
-            Instantiate(shield[Random.Range(0, shield.Length - 1)],
+            currentShield = (GameObject)Instantiate(
+            shield[0],
             shieldPos.position,
             shieldPos.rotation,
             transform);
+            Debug.Log("player shielded red");
+        }
+    
+        else if (pcc1.switchColour == 2 )
+        {
+            currentShield = (GameObject)Instantiate(
+            shield[1],
+            shieldPos.position,
+            shieldPos.rotation,
+            transform);
+            Debug.Log("player shielded green");
         }
 
-     //if (pcc2.switchColour == 2)
-     //{
-     //    Instantiate(shield[Random.Range(0, shield.Length - 1)],
-     //    shieldPos.position,
-     //    shieldPos.rotation);s
-     //}
+
         //{
         //    var bulletShot = (GameObject)Instantiate(
         //        bullet1,
@@ -68,7 +108,7 @@ public class PlayerShield : MonoBehaviour {
         //    Destroy(bulletShot, 4.0f);
         //    Debug.Log("REDSHOT");
         //}
-        //
+        
         //if (pcc1.switchColour == 2)
         //{
         //    var bulletShot = (GameObject)Instantiate(
@@ -80,6 +120,6 @@ public class PlayerShield : MonoBehaviour {
         //    Debug.Log("REDSHOT");
         //}
 
-        Debug.Log("SHIELD UP");
+    Debug.Log("SHIELD UP");
     }
 }

@@ -38,28 +38,28 @@ public class PlayerShooter : MonoBehaviour {
     public void testShot()
     {
        //CHECK P1 COLOUR
-       if (pcc1.switchColour == 1)
-       {
-           var bulletShot = (GameObject)Instantiate(
-               bullet1,
-               bulletSpawn1.position,
-               bulletSpawn1.rotation) as GameObject;
-           bulletShot.GetComponent<Rigidbody>().velocity = bulletShot.transform.forward * bulletSpeed;
-           Destroy(bulletShot, 4.0f);
-           Debug.Log("REDSHOT");
-       }
-      
-       if (pcc1.switchColour == 2)
-       {
-           var bulletShot = (GameObject)Instantiate(
-               bullet2,
-               bulletSpawn1.position,
-               bulletSpawn1.rotation) as GameObject;
-       
-           bulletShot.GetComponent<Rigidbody>().velocity = bulletShot.transform.forward * bulletSpeed;
-           Destroy(bulletShot, 4.0f);
-           Debug.Log("GREENSHOT");
-       }
+        if (pcc1.switchColour == 1)
+        {
+            var bulletShot = (GameObject)Instantiate(
+                bullet1,
+                bulletSpawn1.position,
+                bulletSpawn1.rotation) as GameObject;
+            bulletShot.GetComponent<Rigidbody>().velocity = bulletShot.transform.forward * bulletSpeed;
+            Destroy(bulletShot, 4.0f);
+            Debug.Log("REDSHOT");
+        }
+        
+        if (pcc1.switchColour == 2)
+        {
+            var bulletShot = (GameObject)Instantiate(
+                bullet2,
+                bulletSpawn1.position,
+                bulletSpawn1.rotation) as GameObject;
+        
+            bulletShot.GetComponent<Rigidbody>().velocity = bulletShot.transform.forward * bulletSpeed;
+            Destroy(bulletShot, 4.0f);
+            Debug.Log("GREENSHOT");
+        }
 
         //CHECK P2 COLOUR
       //if (pcc2.switchColour == 1)
