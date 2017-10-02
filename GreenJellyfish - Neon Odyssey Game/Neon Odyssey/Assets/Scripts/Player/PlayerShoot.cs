@@ -7,9 +7,9 @@ public class PlayerShoot : MonoBehaviour {
 
     public bool isFiring;
 
-    public float bulletSpeed;
-    public float timeBetweenShots = 0;
-    public float fireRate = 2;
+    public float bulletSpeed = 1000;
+    private float timeBetweenShots = 0;
+    public float fireRate = 0.2f;
 
     private float shotCounter;
 
