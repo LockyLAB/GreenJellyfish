@@ -55,6 +55,8 @@ public class PlayerShooter : MonoBehaviour {
                 bullet2,
                 bulletSpawn1.position,
                 bulletSpawn1.rotation) as GameObject;
+
+            //bulletShot.GetComponent<Material>().mainTexture
         
             bulletShot.GetComponent<Rigidbody>().velocity = bulletShot.transform.forward * bulletSpeed;
             Destroy(bulletShot, 4.0f);

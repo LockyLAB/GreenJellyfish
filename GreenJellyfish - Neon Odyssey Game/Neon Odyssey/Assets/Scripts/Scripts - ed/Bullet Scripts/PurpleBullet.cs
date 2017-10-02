@@ -25,6 +25,12 @@ public class PurpleBullet : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        //if bullet collides with objects under "collision" layer, destroy bullet
+        if (col.gameObject.layer == 8)
+        {
+            Destroy(gameObject);
+        }
+
         //if enemy is not bullet colour, destroy bullet
         else if (col.gameObject.tag == "yellow")
         {

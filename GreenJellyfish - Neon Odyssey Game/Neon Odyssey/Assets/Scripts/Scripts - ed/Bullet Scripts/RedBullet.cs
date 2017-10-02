@@ -16,12 +16,19 @@ public class RedBullet : MonoBehaviour {
 
     }
 
+    //function called when object collides
     void OnTriggerEnter(Collider col)
     {
         //if bullet is same colour as enemy, destroy enemy, destroy bullet
         if (col.gameObject.tag == "red")
         {
             Destroy(col.gameObject);
+            Destroy(gameObject);
+        }
+
+        //if bullet collides with objects under "collision" layer, destroy bullet
+        if (col.gameObject.layer == 8)
+        {
             Destroy(gameObject);
         }
 
