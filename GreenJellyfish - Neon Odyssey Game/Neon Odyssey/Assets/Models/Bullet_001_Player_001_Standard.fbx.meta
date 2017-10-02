@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3152d5c6c49059b40ab6cdc7f30f0380
-timeCreated: 1506983282
+guid: ea0da5dfefb854d4783469ced0f6eb87
+timeCreated: 1506924120
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: HoloFire_001_Crypt_001_Ceilingholder
+    4300000: Bullet_001_Player_001_Standard
     9500000: //RootNode
   materials:
     importMaterials: 0
