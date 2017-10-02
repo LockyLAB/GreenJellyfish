@@ -21,22 +21,14 @@ public class CameraMove : MonoBehaviour {
 
         if(players.Length == 1)
         {
-            if (players[0].GetComponent<P1ColourController>() != null)
-                m_player1 = players[0];
+            m_player1 = players[0];
         }
         else if(players.Length == 2)
         {
-            //Assign player 1
-            if (players[0].GetComponent<P1ColourController>() != null)
-                m_player1 = players[0];
-            else if (players[1].GetComponent<P1ColourController>() != null)
-                m_player1 = players[1];
+ 
+            m_player1 = players[0];
 
-            //Assign player 1
-            if (players[0].GetComponent<P2ColourController>() != null)
-                m_player2 = players[0];
-            else if (players[1].GetComponent<P2ColourController>() != null)
-                m_player2 = players[1];
+            m_player2 = players[1];
         }
 
         if (m_player2 == null)
@@ -46,10 +38,6 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Debug.Log(m_singlePlayer);
-
-        //Zoom in offset
-
         //Single player
         if(m_singlePlayer)
             transform.position = m_player1.transform.position + offset;
@@ -59,7 +47,7 @@ public class CameraMove : MonoBehaviour {
             //Zoom in offset
             float offsetZ = -(m_player1.transform.position - m_player2.transform.position).magnitude - 10;
             offsetZ = Mathf.Clamp(offsetZ, -20, -10);
-            Debug.Log(offsetZ);
+
             offset.z = offsetZ;
             transform.position = (m_player1.transform.position + m_player2.transform.position) / 2 + offset;
         }
