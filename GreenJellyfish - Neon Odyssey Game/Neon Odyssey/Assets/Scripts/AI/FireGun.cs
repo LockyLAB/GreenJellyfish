@@ -14,6 +14,8 @@ public class FireGun : BehaviourBase
     public float m_rateOfFire = 0.0f;
     private float m_time = 0.0f;
 
+    public float m_maxDis = 0.0f;
+
     private bool m_behaviourSetup = true;
     //--------------------------------------------------------------------------------------
     // Update behaviours - Fire Towards target

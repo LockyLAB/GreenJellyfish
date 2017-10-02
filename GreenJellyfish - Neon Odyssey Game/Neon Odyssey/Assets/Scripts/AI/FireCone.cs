@@ -16,6 +16,8 @@ public class FireCone : BehaviourBase
 
     public float m_fireCone = 0.0f;
 
+    public float m_maxDis = 0.0f;
+
     private bool m_behaviourSetup = true;
     //--------------------------------------------------------------------------------------
     // Update behaviours - Cone Fire Towards target
@@ -49,6 +51,9 @@ public class FireCone : BehaviourBase
             FireBullet(Quaternion.Euler(0, 0, -m_fireCone) * bulletDir);
         }
 
+        if(!CloseEnough())
+            return BehaviourStatus.FAILURE;
+
         if (m_bulletCount < m_numberOfBullets)
             return BehaviourStatus.PENDING;
 
@@ -61,5 +66,10 @@ public class FireCone : BehaviourBase
     {
         GameObject newBullet = Instantiate(m_bullet, this.transform.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
+    }
+
+    bool CloseEnough()
+    {
+        return (Mathf.Abs(transform.position.x - GetComponent<Enemy>().m_target.transform.position.x) < m_maxDis);
     }
 }
