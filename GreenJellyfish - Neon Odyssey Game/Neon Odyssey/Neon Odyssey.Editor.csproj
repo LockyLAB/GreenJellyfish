@@ -236,7 +236,6 @@
     <None Include="Assets\3rdParty\XInput\XInputDotNet\MITLicense.txt" />
     <None Include="Assets\Animations\New.txt" />
     <None Include="Assets\Audio\New.txt" />
-    <None Include="Assets\Scripts\AI\New.txt" />
     <None Include="Assets\Textures\New.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
