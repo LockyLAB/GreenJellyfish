@@ -14,10 +14,7 @@ public class GetTargetSinglePlayer : BehaviourBase
         players = GameObject.FindGameObjectsWithTag("Player");
 
         //Assign player 1
-        if (players[0].GetComponent<P1ColourController>() != null)
-            m_player1 = players[0];
-        else if (players[1].GetComponent<P1ColourController>() != null)
-            m_player1 = players[1];
+        m_player1 = players[0];
     }
 
     //--------------------------------------------------------------------------------------

@@ -12,6 +12,11 @@ public class BehaviourComposite : BehaviourBase
     [HideInInspector]
     public bool m_pendingBranch = false;
 
+    void Awake()
+    {
+        m_behaviourBranches = new List<BehaviourBase>();
+    }
+
     public void AddBranch(BehaviourBase behaviour)
     {
         m_behaviourBranches.Add(behaviour);

@@ -39,15 +39,15 @@ public class GetTargetEasy : BehaviourBase
     public override BehaviourBase.BehaviourStatus Execute()
     {
         Enemy enemyClass = GetComponent<Enemy>();
-        switch (enemyClass.m_symbol)
+        switch (enemyClass.m_colour)
         {
-            case Enemy.Symbol.Ankh:
-            case Enemy.Symbol.Flail:
+            case Enemy.Colour.Yellow:
+            case Enemy.Colour.Purple:
                 enemyClass.m_target = m_player1;
                 break;
 
-            case Enemy.Symbol.Lotus:
-            case Enemy.Symbol.Shen:
+            case Enemy.Colour.Red:
+            case Enemy.Colour.Green:
                 enemyClass.m_target = m_player2;
                 break;
         }

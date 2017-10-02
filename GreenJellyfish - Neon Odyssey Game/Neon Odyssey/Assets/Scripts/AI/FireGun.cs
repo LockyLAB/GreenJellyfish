@@ -11,10 +11,8 @@ public class FireGun : BehaviourBase
     private int m_bulletCount = 0;
     public float m_bulletSpeed = 0.0f;
 
-    public float m_rateOfFire = 0.0f;
+    public float m_timeBetweenShots = 0.0f;
     private float m_time = 0.0f;
-
-    public float m_maxDis = 0.0f;
 
     private bool m_behaviourSetup = true;
     //--------------------------------------------------------------------------------------
@@ -37,7 +35,7 @@ public class FireGun : BehaviourBase
 
         if (m_time < 0.0f)
         {
-            m_time = m_rateOfFire;
+            m_time = m_timeBetweenShots;
             m_bulletCount++;
 
             //Fire bullet

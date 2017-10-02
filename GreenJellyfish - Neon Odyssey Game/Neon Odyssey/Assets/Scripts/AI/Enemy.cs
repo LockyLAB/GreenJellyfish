@@ -6,24 +6,19 @@ public class Enemy : MonoBehaviour {
 
     public float m_forwardSpeed = 0.0f;
 
+    [HideInInspector]
     public BehaviourBase m_initalBehaviour;
     [HideInInspector]
     public GameObject m_target = null;
-    public enum Symbol
+    public enum Colour
     {
-        Ankh = 1,
-        Flail = 2,
-        Lotus = 3,
-        Shen = 4
+        Red = 0,
+        Green = 1,
+        Yellow = 2,
+        Purple = 3
     }
 
-    public Symbol m_symbol = Symbol.Ankh;
-
-    // Use this for initialization
-    void Awake ()
-    {
-
-    }
+    public Colour m_colour = Colour.Red;
 	
 	// Update is called once per frame
 	void Update ()
