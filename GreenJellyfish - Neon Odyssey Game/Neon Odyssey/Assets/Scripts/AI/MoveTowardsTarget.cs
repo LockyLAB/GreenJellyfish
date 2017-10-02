@@ -12,7 +12,6 @@ public class MoveTowardsTarget : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        Debug.Log("Moving towards");
         Vector3 velocity = (GetComponent<Enemy>().m_target.transform.position - transform.position).normalized * GetComponent<Enemy>().m_forwardSpeed;
         GetComponent<Rigidbody>().velocity = velocity;
 
