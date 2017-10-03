@@ -85,7 +85,7 @@ public class PlayerShield : MonoBehaviour {
             shieldPos.position,
             shieldPos.rotation,
             transform);
-            Debug.Log("player shielded red");
+            Debug.Log("player shielded pink");
         }
     
         else if (pcc1.switchColour == 2 )
@@ -95,7 +95,7 @@ public class PlayerShield : MonoBehaviour {
             shieldPos.position,
             shieldPos.rotation,
             transform);
-            Debug.Log("player shielded green");
+            Debug.Log("player shielded yellow");
         }
 
 

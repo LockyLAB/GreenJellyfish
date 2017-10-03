@@ -33,12 +33,12 @@ public class GreenBullet : MonoBehaviour
         }
 
         //if enemy is not bullet colour, destroy bullet
-        else if (col.gameObject.tag == "purple")
+        else if (col.gameObject.tag == "pink")
         {
             Destroy(gameObject);
         }
 
-        else if (col.gameObject.tag == "red")
+        else if (col.gameObject.tag == "orange")
         {
             Destroy(gameObject);
         }

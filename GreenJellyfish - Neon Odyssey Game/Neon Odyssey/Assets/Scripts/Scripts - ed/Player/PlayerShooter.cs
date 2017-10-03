@@ -46,7 +46,7 @@ public class PlayerShooter : MonoBehaviour {
                 bulletSpawn1.rotation) as GameObject;
             bulletShot.GetComponent<Rigidbody>().velocity = bulletShot.transform.forward * bulletSpeed;
             Destroy(bulletShot, 4.0f);
-            Debug.Log("REDSHOT");
+            Debug.Log("pink shot");
         }
         
         if (pcc1.switchColour == 2)
@@ -60,7 +60,7 @@ public class PlayerShooter : MonoBehaviour {
         
             bulletShot.GetComponent<Rigidbody>().velocity = bulletShot.transform.forward * bulletSpeed;
             Destroy(bulletShot, 4.0f);
-            Debug.Log("GREENSHOT");
+            Debug.Log("yellow shot");
         }
 
         //CHECK P2 COLOUR
