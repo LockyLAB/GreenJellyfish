@@ -115,7 +115,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 298d63fb8dfc45e40a88a50e06aaba46, type: 2}
+  - {fileID: 2100000, guid: 78567de9fbc921a43b2d49246e47e40c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,5 +185,5 @@ MonoBehaviour:
   m_bulletSpeed: 4
   m_timeBetweenShots: 0.2
   m_cooldown: 2
-  m_bullet: {fileID: 1337315320725428, guid: 3d2d30a0dbad74d45bfc3f4afec26944, type: 2}
+  m_bullet: {fileID: 1337315320725428, guid: 0dce85bf8a1ef3f4dbd0ede5fc54eaac, type: 2}
   m_firingArc: 60
