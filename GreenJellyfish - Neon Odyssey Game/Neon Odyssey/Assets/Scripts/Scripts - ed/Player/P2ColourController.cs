@@ -43,7 +43,7 @@ public class P2ColourController : MonoBehaviour
         if (isDefault)
         {
             timeToSwitch += Time.deltaTime;
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0 && timeToSwitch >= 0.3)
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
             {
                 
            
@@ -58,7 +58,7 @@ public class P2ColourController : MonoBehaviour
         else
         {
             timeToSwitch += Time.deltaTime;
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0 && timeToSwitch >= 0.3)
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
             {
                 switchColour = (int)Colours.Green;
                 isDefault = true;
