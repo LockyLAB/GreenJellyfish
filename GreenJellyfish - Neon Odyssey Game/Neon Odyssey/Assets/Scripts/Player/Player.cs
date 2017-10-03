@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
             isSticking = false;
         }
 
-        if (XCI.GetButtonDown(XboxButton.RightBumper, controller) || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1 || XCI.GetButtonDown(XboxButton.A, controller))
+        if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) == 1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1)
         {
             if (isSticking && !isFalling)
             {
