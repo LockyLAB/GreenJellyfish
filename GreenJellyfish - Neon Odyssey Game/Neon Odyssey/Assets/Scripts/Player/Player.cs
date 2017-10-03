@@ -5,9 +5,17 @@ using XboxCtrlrInput;
 [RequireComponent (typeof (PlayerController))]
 public class Player : MonoBehaviour {
 
+    private float maxJumpHeight = 4;
+    private float minJumpHeight = 1;
+    private float timeToJumpApex = 0.4f;
+
+
+
     public float moveSpeed = 10;
-    public float gravity = -35;
-    public float jumpVelocity = 10;
+    public float gravity;
+
+    public float maxJumpVelocity = 10;
+    private float minJumpVelocity;
 
 
     public Vector2 wallClimb = new Vector2(7.5f, 14);
@@ -36,6 +44,10 @@ public class Player : MonoBehaviour {
 	void Start()
     {
         m_Controller = GetComponent<PlayerController> ();
+
+        gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
        
     }
@@ -102,11 +114,14 @@ public class Player : MonoBehaviour {
                     m_Velocity.y = wallLeap.y;
                     wallDropTime = 0.0f;
                 }
+
+
+         
             }
 
             if (m_Controller.m_CollisionInfo.bottom)
             {
-                m_Velocity.y = jumpVelocity;
+                m_Velocity.y = maxJumpVelocity;
             }
 
         }
@@ -132,7 +147,7 @@ public class Player : MonoBehaviour {
             }
 
         }
-
+        
 
        
         

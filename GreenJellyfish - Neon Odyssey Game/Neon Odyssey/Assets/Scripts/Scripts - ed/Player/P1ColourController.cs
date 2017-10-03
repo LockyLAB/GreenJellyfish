@@ -41,7 +41,7 @@ public class P1ColourController : MonoBehaviour
         //XBOX CONTROLS
         if (isRed)
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper) || XCI.GetAxisRaw(XboxAxis.LeftTrigger) == 1)
+            if (XCI.GetButtonDown(XboxButton.LeftBumper) || XCI.GetAxisRaw(XboxAxis.LeftTrigger) != 0)
             {
                 switchColour = (int)Colours.Red;
                 isRed = false;
@@ -51,7 +51,7 @@ public class P1ColourController : MonoBehaviour
         }
         else
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper) || XCI.GetAxisRaw(XboxAxis.LeftTrigger) == 1)
+            if (XCI.GetButtonDown(XboxButton.LeftBumper) || XCI.GetAxisRaw(XboxAxis.LeftTrigger) != 0)
             {
                 switchColour = (int)Colours.Green;
                 isRed = true;
