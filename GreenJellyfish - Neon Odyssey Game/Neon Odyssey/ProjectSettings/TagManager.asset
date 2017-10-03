@@ -9,9 +9,9 @@ TagManager:
   - playerYellow
   - playerPurple
   - yellow
-  - red
   - green
   - purple
+  - pink
   layers:
   - Default
   - TransparentFX
