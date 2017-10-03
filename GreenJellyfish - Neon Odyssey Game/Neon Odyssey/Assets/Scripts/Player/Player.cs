@@ -37,9 +37,19 @@ public class Player : MonoBehaviour {
 
     bool isRed = true;
 
-    int health = 4;
+    public int health = 4;
+    public bool isDead = false;
 
 	PlayerController m_Controller;
+
+
+
+    float reviveTimer = 0;
+    public float reviveTime = 3;
+
+    public bool isReviving = false;
+
+    public Player otherPlayer;
 
 	void Start()
     {
@@ -49,14 +59,23 @@ public class Player : MonoBehaviour {
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
-       
+
     }
  
 
     void Update()
     {
-   
-        
+
+        if (health <= 0)
+        {
+            isDead = true;
+        }
+        else
+        {
+            isDead = false;
+        }
+
+
         Vector2 leftInput = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
         
         int wallDirX = (m_Controller.m_CollisionInfo.left)? -1 : 1;
@@ -79,7 +98,7 @@ public class Player : MonoBehaviour {
        
 
 
-        if ((m_Controller.m_CollisionInfo.left || m_Controller.m_CollisionInfo.right) && !m_Controller.m_CollisionInfo.bottom && m_Velocity.y != 0 && !isFalling)
+        if ((m_Controller.m_CollisionInfo.left || m_Controller.m_CollisionInfo.right) && !m_Controller.m_CollisionInfo.bottom && m_Velocity.y != 0 && !isFalling && !isDead)
         {
             isSticking = true;
             m_Velocity.y = 0;
@@ -90,7 +109,7 @@ public class Player : MonoBehaviour {
             isSticking = false;
         }
 
-        if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) == 1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1)
+        if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) == 1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1 && !isDead)
         {
             if (isSticking && !isFalling)
             {
@@ -131,7 +150,7 @@ public class Player : MonoBehaviour {
             isFalling = false;
         }
 
-        if (isSticking)
+        if (isSticking && !isDead)
         {
            
             wallDropTime += 1.0f * Time.deltaTime;
@@ -147,9 +166,8 @@ public class Player : MonoBehaviour {
             }
 
         }
-        
 
-       
+      
         
         m_Controller.Move(m_Velocity * Time.deltaTime);
 
@@ -159,7 +177,10 @@ public class Player : MonoBehaviour {
 
     }
 
+   
 
+
+    
 
 
 }

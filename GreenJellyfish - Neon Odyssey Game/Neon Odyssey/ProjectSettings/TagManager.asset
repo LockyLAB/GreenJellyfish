@@ -12,6 +12,8 @@ TagManager:
   - green
   - purple
   - pink
+  - red
+  - Revive
   layers:
   - Default
   - TransparentFX
