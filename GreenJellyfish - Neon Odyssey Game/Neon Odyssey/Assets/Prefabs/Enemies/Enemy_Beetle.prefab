@@ -87,7 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f462222343129d04dbd349942f3bcda9, type: 2}
+  - {fileID: 2100000, guid: e2a98f978bd5ef04f825735856142319, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,13 +160,13 @@ MonoBehaviour:
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
   m_colour: 0
-  m_moveTowardsDistance: 12
+  m_moveTowardsRange: 15
   m_gunFireDistance: 10
-  m_gunNumberOfShots: 2
+  m_gunNumberOfShots: 3
   m_gunBulletSpeed: 10
   m_gunTimeBetweenShots: 0.1
   m_gunCooldown: 1
-  m_bulletPrefab: {fileID: 1337315320725428, guid: 3d2d30a0dbad74d45bfc3f4afec26944,
+  m_bulletPrefab: {fileID: 1075775001187784, guid: 2390efecccba3324d99100bc5f220256,
     type: 2}
   m_laserFireDistance: 6
   m_laserChargeTime: 1

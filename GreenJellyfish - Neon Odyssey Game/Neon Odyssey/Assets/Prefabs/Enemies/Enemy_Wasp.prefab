@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762125067990238}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 5.67, y: 4.89, z: -5.9888945}
+  m_LocalPosition: {x: 1.6, y: 3.07, z: -5.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4799102811145634}
@@ -156,20 +156,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8c92c872a8ee84bb5a8036829ffb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_forwardSpeed: 0
+  m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
   m_colour: 0
-  m_moveTowardsDistance: 0
-  m_coneFireDistance: 0
-  m_coneNumberOfBursts: 0
-  m_coneBulletSpeed: 0
-  m_coneTimeBetweenShots: 0
-  m_coneAngle: 0
-  m_coneCooldown: 0
-  m_bulletPrefab: {fileID: 0}
-  m_fleeDistance: 0
-  m_fleeMaxTime: 0
+  m_moveTowardsRange: 0
+  m_coneFireDistance: 8
+  m_coneNumberOfBursts: 3
+  m_coneBulletSpeed: 10
+  m_coneTimeBetweenShots: 1
+  m_coneAngle: 30
+  m_coneCooldown: 1
+  m_bulletPrefab: {fileID: 1337315320725428, guid: 3d2d30a0dbad74d45bfc3f4afec26944,
+    type: 2}
+  m_fleeDistance: 6
+  m_fleeMaxTime: 3
 --- !u!135 &135373856072766148
 SphereCollider:
   m_ObjectHideFlags: 1
