@@ -6,7 +6,7 @@ using XboxCtrlrInput;
 public class P2ColourController : MonoBehaviour
 {
     public XboxController controller;
-
+    float timeToSwitch = 0;
     //INPUT P2 CHAR COLOUR 1 + 2
     public Material[] playerMaterial = new Material[2];
 
@@ -42,24 +42,30 @@ public class P2ColourController : MonoBehaviour
         //XBOX CONTROLS
         if (isDefault)
         {
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            timeToSwitch += Time.deltaTime;
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0 && timeToSwitch >= 0.3)
             {
+                
+           
                 switchColour = (int)Colours.Orange;
                 isDefault = false;
                 isToggled = true;
                 switchColour = 1;
                 changeMaterial();
+                timeToSwitch = 0;
             }
         }
         else
         {
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            timeToSwitch += Time.deltaTime;
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0 && timeToSwitch >= 0.3)
             {
                 switchColour = (int)Colours.Green;
                 isDefault = true;
                 isToggled = true;
                 switchColour = 2;
                 changeMaterial();
+                timeToSwitch = 0;
             }
         }
     }
