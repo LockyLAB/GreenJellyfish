@@ -6,7 +6,7 @@ public class EnemyWasp : Enemy {
 
     //Varibles
     //Movement
-    public float m_moveTowardsDistance = 0.0f;
+    public float m_moveTowardsRange = 0.0f;
 
     //Gun
     public float m_coneFireDistance = 0.0f;
@@ -78,7 +78,7 @@ public class EnemyWasp : Enemy {
         m_actionFireCone.m_bullet = m_bulletPrefab;
 
         //Movement
-        m_actionGetDisMovement.m_targetDistance = m_moveTowardsDistance;
+        m_actionGetDisMovement.m_targetDistance = m_moveTowardsRange;
 
         //Set up branches
         m_sequenceTop.m_behaviourBranches.Add(m_actionGetTarget as BehaviourBase);

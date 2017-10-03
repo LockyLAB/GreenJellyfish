@@ -12,13 +12,13 @@ public class Enemy : MonoBehaviour {
     public GameObject m_target = null;
     public enum Colour
     {
-        Red = 0,
-        Green = 1,
-        Yellow = 2,
-        Purple = 3
+        Pink = 0,
+        Yellow = 1,
+        Green = 2,
+        Orange = 3
     }
 
-    public Colour m_colour = Colour.Red;
+    public Colour m_colour = Colour.Pink;
 	
 	// Update is called once per frame
 	void Update ()

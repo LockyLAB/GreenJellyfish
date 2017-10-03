@@ -7,7 +7,7 @@ public class EnemyBeetle : Enemy
     //Varibles
 
     //Movement
-    public float m_moveTowardsDistance = 0.0f;
+    public float m_moveTowardsRange = 0.0f;
 
     //Gun
     public float m_gunFireDistance = 0.0f;
@@ -89,7 +89,7 @@ public class EnemyBeetle : Enemy
         m_actionFireLaser.m_laserbeam = m_laserPrefab;
 
         //Movement
-        m_actionGetDisMovement.m_targetDistance = m_moveTowardsDistance;
+        m_actionGetDisMovement.m_targetDistance = m_moveTowardsRange;
 
         //Set up branches
         m_sequenceTop.m_behaviourBranches.Add(m_actionGetTarget as BehaviourBase);
