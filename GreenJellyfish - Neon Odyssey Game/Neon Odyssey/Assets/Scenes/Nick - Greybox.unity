@@ -6606,6 +6606,33 @@ Prefab:
       propertyPath: isFiring
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114260451510849958, guid: 1b23e69efe3f06e4fbafbec79c76960a,
+        type: 2}
+      propertyPath: characterModel
+      value: 
+      objectReference: {fileID: 1727258174}
+    - target: {fileID: 114260451510849958, guid: 1b23e69efe3f06e4fbafbec79c76960a,
+        type: 2}
+      propertyPath: playerMaterial.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26f8f9e0ff488ad4caf282e1c2361913, type: 2}
+    - target: {fileID: 114260451510849958, guid: 1b23e69efe3f06e4fbafbec79c76960a,
+        type: 2}
+      propertyPath: playerMaterial.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a545e4652f80f043baed8315bc753e6, type: 2}
+    - target: {fileID: 114476393375563576, guid: 1b23e69efe3f06e4fbafbec79c76960a,
+        type: 2}
+      propertyPath: bullet1
+      value: 
+      objectReference: {fileID: 1663955225978508, guid: f3c61c15d29dac541ae4687fce33d916,
+        type: 2}
+    - target: {fileID: 114476393375563576, guid: 1b23e69efe3f06e4fbafbec79c76960a,
+        type: 2}
+      propertyPath: bullet2
+      value: 
+      objectReference: {fileID: 1159306765388126, guid: a348c262119729944bad136219c62c69,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b23e69efe3f06e4fbafbec79c76960a, type: 2}
   m_IsPrefabParent: 0
@@ -49068,6 +49095,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4907994168462700, guid: 58a2cef0f70b0074f88d7288a260d3cd,
     type: 2}
   m_PrefabInternal: {fileID: 1720318908}
+--- !u!1 &1727258174 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1831929735235498, guid: 1b23e69efe3f06e4fbafbec79c76960a,
+    type: 2}
+  m_PrefabInternal: {fileID: 253682714}
 --- !u!1001 &1728334589
 Prefab:
   m_ObjectHideFlags: 0

@@ -4,13 +4,18 @@ using UnityEngine;
 using XboxCtrlrInput;
 public class P1ColourController : MonoBehaviour
 {
+
+    public XboxController controller;
+
     //INPUT CHAR COLOUR 1 + 2
     public Material[] playerMaterial = new Material[2];
 
-    //INPUT CHARACTER MODEL
+    
+//INPUT CHARACTER MODEL
     public GameObject characterModel;
 
     //P1 COLOURS
+
     public enum Colours
     {
         Pink = 1,
@@ -39,23 +44,23 @@ public class P1ColourController : MonoBehaviour
         //TOGGLE PLAYER COLOUR
         if (isDefault)
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper) || XCI.GetAxisRaw(XboxAxis.LeftTrigger) != 0)
+            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
             {
                 switchColour = (int)Colours.Pink;
                 isDefault = false;
                 isToggled = true;
-                switchColour = 1;
+                switchColour = 2;
                 changeMaterial();
             }
         }
-        if (!isDefault)
+        else
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper) || XCI.GetAxisRaw(XboxAxis.LeftTrigger) != 0)
+            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
             {
                 switchColour = (int)Colours.Yellow;
                 isDefault = true;
                 isToggled = true;
-                switchColour = 2;
+                switchColour = 1;
                 changeMaterial();
             }
         }

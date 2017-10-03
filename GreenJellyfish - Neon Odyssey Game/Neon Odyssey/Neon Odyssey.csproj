@@ -180,9 +180,13 @@
     <Compile Include="Assets\Scripts\AI\NeedNewTarget.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Player\Player1Shoot.cs" />
+    <Compile Include="Assets\Scripts\Player\Player2Shoot.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\GreenBullet.cs" />
+    <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\OrangeBullet.cs" />
+    <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\PinkBullet.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\PurpleBullet.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\RedBullet.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\YellowBullet.cs" />

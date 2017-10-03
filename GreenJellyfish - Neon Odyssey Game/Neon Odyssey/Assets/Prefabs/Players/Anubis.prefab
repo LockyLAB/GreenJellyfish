@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 136667335935115044}
   - component: {fileID: 114897127616792674}
   - component: {fileID: 114359385417168232}
-  - component: {fileID: 114299941728015874}
   - component: {fileID: 23716253999753644}
+  - component: {fileID: 114476393375563576}
+  - component: {fileID: 114260451510849958}
   m_Layer: 10
   m_Name: Anubis
   m_TagString: Player
@@ -55,13 +56,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831929735235498}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4677055811501498}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4677055811501498
 Transform:
   m_ObjectHideFlags: 1
@@ -164,7 +165,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114299941728015874
+--- !u!114 &114260451510849958
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -172,13 +173,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1815184724769192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0612020af9ffc749bf26c45b9363b56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aa7a44d3ea2f014f816b6198fd3b361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFiring: 1
-  bulletSpeed: 12
-  timeBetweenShots: 0.01
-  bullet: {fileID: 114062706167835084, guid: a20eda18f53e4b44a88befa513f79d24, type: 2}
+  controller: 1
+  isToggled: 0
+  switchColour: 1
 --- !u!114 &114359385417168232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,6 +196,27 @@ MonoBehaviour:
   isRed: 0
   HorizontalRays: 4
   VerticalRays: 4
+--- !u!114 &114476393375563576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815184724769192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0612020af9ffc749bf26c45b9363b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFiring: 0
+  bulletSpeed: 1000
+  fireRate: 0.2
+  player: {fileID: 114897127616792674}
+  Aim: {x: 0, y: 0, z: 0}
+  bullet1: {fileID: 1741245887801600, guid: 1e78d4a6a4e75574e85e25fed3b75f71, type: 2}
+  bullet2: {fileID: 1907821953620608, guid: aa9657225187e754aafcfd1fd89b66f8, type: 2}
+  bullet3: {fileID: 1159306765388126, guid: a348c262119729944bad136219c62c69, type: 2}
+  bullet4: {fileID: 1404809492693540, guid: 11bc7c776e3316e41bb55281880b3480, type: 2}
+  controller: 1
 --- !u!114 &114897127616792674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,10 +230,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   gravity: -35
-  jumpVelocity: 15
-  wallClimb: {x: 7.5, y: 14}
+  maxJumpVelocity: 20
+  wallClimb: {x: 7.5, y: 18}
   wallDrop: {x: 8, y: 5}
-  wallLeap: {x: 8, y: 14}
+  wallLeap: {x: 8, y: 20}
+  controller: 1
 --- !u!136 &136667335935115044
 CapsuleCollider:
   m_ObjectHideFlags: 1

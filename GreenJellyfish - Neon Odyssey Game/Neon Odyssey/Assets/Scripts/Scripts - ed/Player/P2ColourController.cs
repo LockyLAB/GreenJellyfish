@@ -1,32 +1,75 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class P2ColourController : MonoBehaviour {
-
+using XboxCtrlrInput;
+public class P2ColourController : MonoBehaviour
+{
+    public XboxController controller;
     public enum Colours
     {
-        Yellow = 1,
-        Purple = 2
+        Pink = 1,
+        Yellow = 2
     }
+
+    bool isRed = true;
+    public bool isToggled;
 
     public int switchColour = 1;
+
     // Use this for initialization
-    void Start () {
-       
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+    void Start()
+    {
+
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        isToggled = false;
+        //    if (Input.GetKeyDown(KeyCode.Alpha1))
+        //    {
+        //        switchColour = (int)Colours.Red;
+        //        isToggled = true;
+        //    }
+
+        //    if (Input.GetKeyDown(KeyCode.Alpha2))
+        //    {
+        //        switchColour = (int)Colours.Green;
+        //        isToggled = true;
+
+        //XBOX CONTROLS
+        if (isRed)
         {
-            switchColour = (int)Colours.Yellow;
+            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            {
+                switchColour = (int)Colours.Pink;
+                isRed = false;
+                isToggled = true;
+                switchColour = 1;
+            }
+        }
+        else
+        {
+            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            {
+                switchColour = (int)Colours.Yellow;
+                isRed = true;
+                isToggled = true;
+                switchColour = 2;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            switchColour = (int)Colours.Purple;
-        }
+
+
+
+
+
     }
+
 }
+
+
+
+
+
