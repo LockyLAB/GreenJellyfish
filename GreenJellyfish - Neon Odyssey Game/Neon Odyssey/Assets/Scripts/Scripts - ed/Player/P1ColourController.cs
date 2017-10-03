@@ -38,27 +38,27 @@ public class P1ColourController : MonoBehaviour
     void Update()
     {
 
-        isToggled = false;
+        //isToggled = false;
 
         //TOGGLE PLAYER COLOUR
         if (isDefault)
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
             {
                 switchColour = (int)Colours.Pink;
                 isDefault = false;
-                isToggled = true;
+                //isToggled = true;
                 switchColour = 2;
                 changeMaterial();
             }
         }
         else
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
             {
                 switchColour = (int)Colours.Yellow;
                 isDefault = true;
-                isToggled = true;
+                //isToggled = true;
                 switchColour = 1;
                 changeMaterial();
             }

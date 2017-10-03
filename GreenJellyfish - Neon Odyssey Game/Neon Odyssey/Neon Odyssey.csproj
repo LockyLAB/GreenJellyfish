@@ -183,7 +183,6 @@
     <Compile Include="Assets\Scripts\Player\Player1Shoot.cs" />
     <Compile Include="Assets\Scripts\Player\Player2Shoot.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\GreenBullet.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\OrangeBullet.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\PinkBullet.cs" />
@@ -198,7 +197,6 @@
     <Compile Include="Assets\Scripts\Scripts - ed\Player\P2ColourController.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShield.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShooter.cs" />
-    <Compile Include="Assets\Scripts\Scripts - ed\test_Delete.cs" />
     <Compile Include="Assets\Scripts\Traps\TrapArc.cs" />
     <Compile Include="Assets\Scripts\Traps\TrapBase.cs" />
     <Compile Include="Assets\Scripts\Traps\TrapSingle.cs" />

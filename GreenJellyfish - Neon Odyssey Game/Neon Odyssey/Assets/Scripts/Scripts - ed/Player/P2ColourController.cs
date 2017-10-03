@@ -42,22 +42,24 @@ public class P2ColourController : MonoBehaviour
         //XBOX CONTROLS
         if (isDefault)
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
             {
                 switchColour = (int)Colours.Orange;
                 isDefault = false;
                 isToggled = true;
                 switchColour = 1;
+                changeMaterial();
             }
         }
         else
         {
-            if (XCI.GetButtonDown(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
+            if (XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) != 0)
             {
                 switchColour = (int)Colours.Green;
                 isDefault = true;
                 isToggled = true;
                 switchColour = 2;
+                changeMaterial();
             }
         }
     }
