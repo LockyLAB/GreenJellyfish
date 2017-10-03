@@ -41,13 +41,13 @@ public class GetTargetEasy : BehaviourBase
         Enemy enemyClass = GetComponent<Enemy>();
         switch (enemyClass.m_colour)
         {
-            case Enemy.Colour.Yellow:
-            case Enemy.Colour.Purple:
+            case Enemy.Colour.Green:
+            case Enemy.Colour.Orange:
                 enemyClass.m_target = m_player1;
                 break;
 
-            case Enemy.Colour.Red:
-            case Enemy.Colour.Green:
+            case Enemy.Colour.Pink:
+            case Enemy.Colour.Yellow:
                 enemyClass.m_target = m_player2;
                 break;
         }
