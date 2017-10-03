@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 136667335935115044}
   - component: {fileID: 114897127616792674}
   - component: {fileID: 114359385417168232}
-  - component: {fileID: 23716253999753644}
   - component: {fileID: 114476393375563576}
   - component: {fileID: 114260451510849958}
+  - component: {fileID: 23015509032485108}
   m_Layer: 10
   m_Name: Anubis
   m_TagString: Player
@@ -70,19 +70,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815184724769192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.8679, y: -2.967, z: 0.5}
+  m_LocalPosition: {x: -41.92, y: -2.94, z: 0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4525171221818952}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23599128263920918
+--- !u!23 &23015509032485108
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1831929735235498}
+  m_GameObject: {fileID: 1815184724769192}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -90,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c101a260cfbbe2a4fab885e07bb04885, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,12 +109,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23716253999753644
+--- !u!23 &23599128263920918
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1815184724769192}
+  m_GameObject: {fileID: 1831929735235498}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -122,7 +122,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: c101a260cfbbe2a4fab885e07bb04885, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,6 +177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
+  playerMaterial:
+  - {fileID: 2100000, guid: c101a260cfbbe2a4fab885e07bb04885, type: 2}
+  - {fileID: 2100000, guid: 1285760098b64eb48bf8ca5ef6e88b3d, type: 2}
+  characterModel: {fileID: 1831929735235498}
   isToggled: 0
   switchColour: 1
 --- !u!114 &114359385417168232
@@ -212,10 +216,10 @@ MonoBehaviour:
   fireRate: 0.2
   player: {fileID: 114897127616792674}
   Aim: {x: 0, y: 0, z: 0}
-  bullet1: {fileID: 1741245887801600, guid: 1e78d4a6a4e75574e85e25fed3b75f71, type: 2}
-  bullet2: {fileID: 1907821953620608, guid: aa9657225187e754aafcfd1fd89b66f8, type: 2}
-  bullet3: {fileID: 1159306765388126, guid: a348c262119729944bad136219c62c69, type: 2}
-  bullet4: {fileID: 1404809492693540, guid: 11bc7c776e3316e41bb55281880b3480, type: 2}
+  bullet1: {fileID: 1768293918512196, guid: b5bb55d480dcb2a42a8c8ccb9fa6c205, type: 2}
+  bullet2: {fileID: 1280432890904092, guid: 01936c2fe197c934f91dcb27aa3e3aff, type: 2}
+  bullet3: {fileID: 0}
+  bullet4: {fileID: 0}
   controller: 1
 --- !u!114 &114897127616792674
 MonoBehaviour:
@@ -228,12 +232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9d398e937405040a818aac0ab65356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 12
   gravity: -35
   maxJumpVelocity: 20
-  wallClimb: {x: 7.5, y: 18}
-  wallDrop: {x: 8, y: 5}
-  wallLeap: {x: 8, y: 20}
+  wallClimb: {x: 13, y: 18}
+  wallDrop: {x: 3, y: 5}
+  wallLeap: {x: 8, y: 14}
   controller: 1
 --- !u!136 &136667335935115044
 CapsuleCollider:
@@ -245,6 +249,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.8059456
+  m_Height: 1.8878684
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8959547, z: 0}
+  m_Center: {x: 0, y: 0.9301841, z: 0}

@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 114249338827471874}
   - component: {fileID: 114506491581157826}
   - component: {fileID: 23363043714320092}
-  - component: {fileID: 114442201179931440}
   - component: {fileID: 114865642968860448}
+  - component: {fileID: 114467180804331538}
   m_Layer: 10
   m_Name: Horus
   m_TagString: Player
@@ -56,8 +56,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1415984492196472}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.31806, y: 2.0926323, z: -28.810387}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -43.86, y: -3.0489497, z: 0.9373851}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862275499271010}
@@ -90,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c101a260cfbbe2a4fab885e07bb04885, type: 2}
+  - {fileID: 2100000, guid: e592b7707667030469b6124908fbb930, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -179,11 +179,11 @@ MonoBehaviour:
   moveSpeed: 10
   gravity: -35
   maxJumpVelocity: 20
-  wallClimb: {x: 7.5, y: 18}
-  wallDrop: {x: 8, y: 5}
-  wallLeap: {x: 8, y: 20}
+  wallClimb: {x: 13, y: 18}
+  wallDrop: {x: 3, y: 5}
+  wallLeap: {x: 8, y: 14}
   controller: 2
---- !u!114 &114442201179931440
+--- !u!114 &114467180804331538
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1415984492196472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0612020af9ffc749bf26c45b9363b56, type: 3}
+  m_Script: {fileID: 11500000, guid: d980e4d3426ef524eaa53c36131799cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFiring: 0
@@ -199,8 +199,8 @@ MonoBehaviour:
   fireRate: 0.2
   player: {fileID: 114249338827471874}
   Aim: {x: 0, y: 0, z: 0}
-  bullet1: {fileID: 1741245887801600, guid: 1e78d4a6a4e75574e85e25fed3b75f71, type: 2}
-  bullet2: {fileID: 1907821953620608, guid: aa9657225187e754aafcfd1fd89b66f8, type: 2}
+  bullet1: {fileID: 1066155163369194, guid: ff65fb142c1313543948d521ca1f87b4, type: 2}
+  bullet2: {fileID: 1751041828633744, guid: d7042728081d43f4d83e222b1b0f614c, type: 2}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   controller: 2
@@ -232,11 +232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd501ea77ef6b4882f9e9d2d1608a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: 0
+  controller: 2
   playerMaterial:
-  - {fileID: 0}
-  - {fileID: 0}
-  characterModel: {fileID: 0}
+  - {fileID: 2100000, guid: e9fc554b2c2c2da46bf946cae6be9f1c, type: 2}
+  - {fileID: 2100000, guid: e592b7707667030469b6124908fbb930, type: 2}
+  characterModel: {fileID: 1716509294702576}
   isToggled: 0
   switchColour: 1
 --- !u!136 &136313997084750406
