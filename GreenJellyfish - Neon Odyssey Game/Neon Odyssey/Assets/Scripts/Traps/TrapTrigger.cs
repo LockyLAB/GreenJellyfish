@@ -12,7 +12,7 @@ public class TrapTrigger : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            foreach(TrapBase trap in m_traps)
+            foreach (TrapBase trap in m_traps)
             {
                 trap.ActivateTrap();
             }

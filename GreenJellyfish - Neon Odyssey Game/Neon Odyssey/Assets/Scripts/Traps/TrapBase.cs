@@ -17,12 +17,6 @@ public class TrapBase : MonoBehaviour {
     private float m_cooldownTimer = 0.0f;
 
     public GameObject m_bullet = null;
-
-    // Use this for initialization
-    void Start ()
-    {
-        
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -37,6 +31,7 @@ public class TrapBase : MonoBehaviour {
                 {
                     //Fire bullet
                     FireTrap();
+                    Debug.Log("Firing Trap");
                     m_firingTimer = m_timeBetweenShots;
                     m_bulletCount--;
                 }
