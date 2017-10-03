@@ -32,9 +32,7 @@ public class FireLaserbeam : BehaviourBase
 
             //Fire bullet
             laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);
-            m_laserbeamHolder = Instantiate(m_laserbeam, this.transform.position + laserDir / 2, Quaternion.Euler(laserDir));
-            Vector3 scale = new Vector3(laserDir.magnitude * 0.9f, 1, 1);
-            m_laserbeamHolder.transform.localScale = scale;
+            m_laserbeamHolder = Instantiate(m_laserbeam, this.transform.position, Quaternion.Euler(laserDir) * Quaternion.Euler(0, -90, 0));
         }
 
         m_time -= Time.deltaTime;

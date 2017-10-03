@@ -27,7 +27,6 @@ public class FireCone : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        Debug.Log("Firing");
 
         if (m_behaviourSetup)
         {
