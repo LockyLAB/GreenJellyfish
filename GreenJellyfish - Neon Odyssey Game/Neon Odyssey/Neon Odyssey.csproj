@@ -154,6 +154,8 @@
     <Compile Include="Assets\3rdParty\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
     <Compile Include="Assets\3rdParty\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
     <Compile Include="Assets\3rdParty\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
+    <Compile Include="Assets\Scripts\AI\AI Code\EnemyBeetle.cs" />
+    <Compile Include="Assets\Scripts\AI\AI Code\EnemyWasp.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviourBase.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviourComposite.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviourParallel.cs" />
@@ -193,6 +195,10 @@
     <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShield.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShooter.cs" />
     <Compile Include="Assets\Scripts\Scripts - ed\test_Delete.cs" />
+    <Compile Include="Assets\Scripts\Traps\TrapArc.cs" />
+    <Compile Include="Assets\Scripts\Traps\TrapBase.cs" />
+    <Compile Include="Assets\Scripts\Traps\TrapSingle.cs" />
+    <Compile Include="Assets\Scripts\Traps\TrapTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
