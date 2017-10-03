@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
+
 public class P1ColourController : MonoBehaviour
 {
-
     public XboxController controller;
 
-    //INPUT CHAR COLOUR 1 + 2
+    //INPUT P1 CHAR COLOUR 1 + 2
     public Material[] playerMaterial = new Material[2];
 
     
-//INPUT CHARACTER MODEL
+    //INPUT CHARACTER MODEL
     public GameObject characterModel;
 
     //P1 COLOURS
-
     public enum Colours
     {
         Pink = 1,
