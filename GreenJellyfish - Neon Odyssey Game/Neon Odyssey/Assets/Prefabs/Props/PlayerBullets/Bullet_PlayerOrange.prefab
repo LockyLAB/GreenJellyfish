@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4383479574551630}
   - component: {fileID: 54158309065927322}
   - component: {fileID: 135622050851156310}
-  - component: {fileID: 114664109157467302}
+  - component: {fileID: 114815458004246388}
   m_Layer: 0
   m_Name: Bullet_PlayerOrange
   m_TagString: Untagged
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751041828633744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.057608, y: 4.9143925, z: -32.570343}
+  m_LocalPosition: {x: 5.575597, y: 1.9959037, z: -0.8444843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4945912175280348}
@@ -145,7 +145,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114664109157467302
+--- !u!114 &114815458004246388
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1751041828633744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f28ad877f3e8944c9ccc1ecac1a8f10, type: 3}
+  m_Script: {fileID: 11500000, guid: c31ba514957195a45857462f8f76c84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135622050851156310
