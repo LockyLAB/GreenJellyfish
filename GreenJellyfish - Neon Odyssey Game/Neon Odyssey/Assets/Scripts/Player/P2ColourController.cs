@@ -7,6 +7,7 @@ public class P2ColourController : MonoBehaviour
 {
     public XboxController controller;
     float timeToSwitch = 0;
+
     //INPUT P2 CHAR COLOUR 1 + 2
     public Material[] playerMaterial = new Material[2];
 
@@ -30,28 +31,22 @@ public class P2ColourController : MonoBehaviour
     {
         isDefault = true;
         switchColour = 1;
-        changeMaterial();
+        toggleMaterial();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        isToggled = false;
-
-        //XBOX CONTROLS
+        //TOGGLE PLAYER COLOUR
         if (isDefault)
         {
             timeToSwitch += Time.deltaTime;
             if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
             {
-                
-           
                 switchColour = (int)Colours.Orange;
                 isDefault = false;
-                isToggled = true;
                 switchColour = 1;
-                changeMaterial();
+                toggleMaterial();
                 timeToSwitch = 0;
             }
         }
@@ -62,16 +57,15 @@ public class P2ColourController : MonoBehaviour
             {
                 switchColour = (int)Colours.Green;
                 isDefault = true;
-                isToggled = true;
                 switchColour = 2;
-                changeMaterial();
+                toggleMaterial();
                 timeToSwitch = 0;
             }
         }
     }
 
-        //CHANGES MATERIAL OF CHARACTER
-    void changeMaterial()
+    //TOGGLES CHARACTER MATERIAL
+    void toggleMaterial()
     {
         if(switchColour == 1)
         {
@@ -81,7 +75,21 @@ public class P2ColourController : MonoBehaviour
         {
             characterModel.GetComponent<MeshRenderer>().material = playerMaterial[1];
         }
-    }     
+    }
+
+    //TOGGLES CHARACTER TAG
+    void toggleTag()
+    {
+        if (switchColour == 1)
+        {
+            gameObject.tag = "playerOrange";
+        }
+
+        if (switchColour == 2)
+        {
+            gameObject.tag = "playerGreen";
+        }
+    }
 }
 
 

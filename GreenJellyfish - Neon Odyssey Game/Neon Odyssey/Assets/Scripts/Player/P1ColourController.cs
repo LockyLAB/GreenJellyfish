@@ -32,15 +32,12 @@ public class P1ColourController : MonoBehaviour
     {
         isDefault = true;
         switchColour = 1;
-        changeMaterial();
+        toggleMaterial();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //isToggled = false;
-
         //TOGGLE PLAYER COLOUR
         if (isDefault)
         {
@@ -49,9 +46,8 @@ public class P1ColourController : MonoBehaviour
             {
                 switchColour = (int)Colours.Pink;
                 isDefault = false;
-                //isToggled = true;
                 switchColour = 2;
-                changeMaterial();
+                toggleMaterial();
                 timeToSwitch = 0;
             }
         }
@@ -62,26 +58,40 @@ public class P1ColourController : MonoBehaviour
             {
                 switchColour = (int)Colours.Yellow;
                 isDefault = true;
-                //isToggled = true;
-                switchColour = 1; 
-                changeMaterial();
+                switchColour = 1;
+                toggleMaterial();
                 timeToSwitch = 0;
             }
         }
     }
 
-    //CHANGES MATERIAL OF CHARACTER
-    void changeMaterial()
+    //TOGGLES CHARACTER MATERIAL
+    void toggleMaterial()
     {
         if(switchColour == 1)
         {
             characterModel.GetComponent<MeshRenderer>().material = playerMaterial[0];
         }
+
         if (switchColour == 2)
         {
             characterModel.GetComponent<MeshRenderer>().material = playerMaterial[1];
         }
     }       
+
+    //TOGGLES CHARACTER TAG
+    void toggleTag()
+    {
+        if(switchColour == 1)
+        {
+            gameObject.tag = "playerPink";
+        }
+
+        if(switchColour == 2)
+        {
+            gameObject.tag = "playerYellow";
+        }
+    }
 
 
 }

@@ -15,12 +15,15 @@ public class PlayerShooter : MonoBehaviour {
     public int bulletSpeed = 10;
     public Transform bulletSpawn1;
 
+    bool tagSwitched;
 
 
     // Use this for initialization
     void Start () {
         pcc1 = GetComponent<P1ColourController>();
         pcc2 = GetComponent<P2ColourController>();
+
+        tagSwitched = true;
 
         //pcc1.switchColour = 1;
         //pcc1.switchColour = 2;
@@ -32,6 +35,11 @@ public class PlayerShooter : MonoBehaviour {
         {
            //shootBullet();
             testShot(); 
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            switchTag();
         }
     }
 
@@ -87,5 +95,19 @@ public class PlayerShooter : MonoBehaviour {
       //    Debug.Log("PURPLESHOT");
       //}
 
+    }
+
+    void switchTag()
+    {
+        if(tagSwitched)
+        {
+            gameObject.tag = "playerPink";
+            tagSwitched = false;
+        }
+        else
+        {
+            gameObject.tag = "playerYellow";
+            tagSwitched = true;
+        }
     }
 }

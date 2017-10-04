@@ -5381,7 +5381,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 253682716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.83, y: -1.45, z: 1.23}
+  m_LocalPosition: {x: -43.83, y: -1.78, z: 1.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1508030719}
@@ -5400,11 +5400,11 @@ GameObject:
   m_Component:
   - component: {fileID: 253682715}
   - component: {fileID: 253682720}
+  - component: {fileID: 253682725}
   - component: {fileID: 253682721}
   - component: {fileID: 253682722}
   - component: {fileID: 253682717}
   - component: {fileID: 253682718}
-  - component: {fileID: 253682724}
   - component: {fileID: 253682719}
   - component: {fileID: 253682723}
   m_Layer: 0
@@ -5439,10 +5439,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa7a44d3ea2f014f816b6198fd3b361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   playerMaterial:
   - {fileID: 2100000, guid: 26f8f9e0ff488ad4caf282e1c2361913, type: 2}
   - {fileID: 2100000, guid: 2a545e4652f80f043baed8315bc753e6, type: 2}
-  characterModel: {fileID: 0}
+  characterModel: {fileID: 1508030718}
   isToggled: 0
   switchColour: 1
 --- !u!114 &253682719
@@ -5541,18 +5542,19 @@ MonoBehaviour:
   bullet4: {fileID: 1907821953620608, guid: aa9657225187e754aafcfd1fd89b66f8, type: 2}
   bulletSpeed: 10
   bulletSpawn1: {fileID: 306544687}
---- !u!114 &253682724
-MonoBehaviour:
+--- !u!136 &253682725
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 253682716}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fd501ea77ef6b4882f9e9d2d1608a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchColour: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.887868
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &260053310
 Prefab:
   m_ObjectHideFlags: 0
@@ -42990,6 +42992,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd501ea77ef6b4882f9e9d2d1608a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
+  playerMaterial:
+  - {fileID: 0}
+  - {fileID: 0}
+  characterModel: {fileID: 0}
+  isToggled: 0
   switchColour: 1
 --- !u!114 &1936836978
 MonoBehaviour:
