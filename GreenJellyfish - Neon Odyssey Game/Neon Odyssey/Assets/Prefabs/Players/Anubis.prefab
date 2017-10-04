@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: 1
   playerMaterial:
-  - {fileID: 2100000, guid: c101a260cfbbe2a4fab885e07bb04885, type: 2}
+  - {fileID: 2100000, guid: 96f2333b7af678b469bb66beb4bb2dd5, type: 2}
   - {fileID: 2100000, guid: 1285760098b64eb48bf8ca5ef6e88b3d, type: 2}
   characterModel: {fileID: 1156441380287144}
   isToggled: 0
