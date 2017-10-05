@@ -44,10 +44,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity2017/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity2017/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -103,44 +103,56 @@
      <Compile Include="Assets\3rdParty\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
      <Compile Include="Assets\3rdParty\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
      <Compile Include="Assets\3rdParty\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
-     <Compile Include="Assets\Scripts\AI\BehaviourBase.cs" />
-     <Compile Include="Assets\Scripts\AI\BehaviourComposite.cs" />
-     <Compile Include="Assets\Scripts\AI\BehaviourParallel.cs" />
-     <Compile Include="Assets\Scripts\AI\BehaviourSelector.cs" />
-     <Compile Include="Assets\Scripts\AI\BehaviourSequence.cs" />
-     <Compile Include="Assets\Scripts\AI\Bullet.cs" />
-     <Compile Include="Assets\Scripts\AI\CoolDown.cs" />
-     <Compile Include="Assets\Scripts\AI\Enemy.cs" />
-     <Compile Include="Assets\Scripts\AI\FireCone.cs" />
-     <Compile Include="Assets\Scripts\AI\FireGun.cs" />
-     <Compile Include="Assets\Scripts\AI\FireLaserbeam.cs" />
-     <Compile Include="Assets\Scripts\AI\FleeTarget.cs" />
-     <Compile Include="Assets\Scripts\AI\GetTargetEasy.cs" />
-     <Compile Include="Assets\Scripts\AI\GetTargetHard.cs" />
-     <Compile Include="Assets\Scripts\AI\GetTargetMedium.cs" />
-     <Compile Include="Assets\Scripts\AI\IsTargetCloseEnough.cs" />
-     <Compile Include="Assets\Scripts\AI\IsTargetCloseEnoughX.cs" />
-     <Compile Include="Assets\Scripts\AI\MoveTowardsTarget.cs" />
-     <Compile Include="Assets\Scripts\AI\MoveTowardsTargetX.cs" />
-     <Compile Include="Assets\Scripts\AI\NeedNewTarget.cs" />
+     <Compile Include="Assets\Scripts\AI\AI Code\EnemyBeetle.cs" />
+     <Compile Include="Assets\Scripts\AI\AI Code\EnemyWasp.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\BehaviourBase.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\BehaviourComposite.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\BehaviourParallel.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\BehaviourSelector.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\BehaviourSequence.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\CoolDown.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\FireCone.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\FireGun.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\FireLaserbeam.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\FleeTarget.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\GetTargetEasy.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\GetTargetHard.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\GetTargetMedium.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\GetTargetSinglePlayer.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\IsTargetCloseEnough.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\IsTargetCloseEnoughX.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\MoveTowardsTarget.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\MoveTowardsTargetX.cs" />
+     <Compile Include="Assets\Scripts\AI\AI single scripts\NeedNewTarget.cs" />
+     <Compile Include="Assets\Scripts\AI\Custom Editors\BehaviourCustomEditor.cs" />
+     <Compile Include="Assets\Scripts\AI\Enemy Components\EnemyShield.cs" />
+     <Compile Include="Assets\Scripts\Bullet\enemyGreenBullet.cs" />
+     <Compile Include="Assets\Scripts\Bullet\enemyOrangeBullet.cs" />
+     <Compile Include="Assets\Scripts\Bullet\enemyPinkBullet.cs" />
+     <Compile Include="Assets\Scripts\Bullet\enemyYellowBullet.cs" />
+     <Compile Include="Assets\Scripts\Bullet\GreenBullet.cs" />
+     <Compile Include="Assets\Scripts\Bullet\OrangeBullet.cs" />
+     <Compile Include="Assets\Scripts\Bullet\PinkBullet.cs" />
+     <Compile Include="Assets\Scripts\Bullet\YellowBullet.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
-     <Compile Include="Assets\Scripts\Player\BulletController.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Player\Keyboard Testing controls\CamMouseLook.cs" />
+     <Compile Include="Assets\Scripts\Player\Keyboard Testing controls\CharController.cs" />
+     <Compile Include="Assets\Scripts\Player\Keyboard Testing controls\PlayerShooter.cs" />
+     <Compile Include="Assets\Scripts\Player\P1ColourController.cs" />
+     <Compile Include="Assets\Scripts\Player\P2ColourController.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\Player1Health.cs" />
+     <Compile Include="Assets\Scripts\Player\Player1Shoot.cs" />
+     <Compile Include="Assets\Scripts\Player\Player2Health.cs" />
+     <Compile Include="Assets\Scripts\Player\Player2Shoot.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\GreenBullet.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\PurpleBullet.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\RedBullet.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Bullet Scripts\YellowBullet.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\CamMouseLook.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Enemy\EnemyShield.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Player\CharController.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Player\CrosshairColour.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Player\P1ColourController.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Player\P2ColourController.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShield.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\Player\PlayerShooter.cs" />
-     <Compile Include="Assets\Scripts\Scripts - ed\test_Delete.cs" />
+     <Compile Include="Assets\Scripts\Traps\TrapArc.cs" />
+     <Compile Include="Assets\Scripts\Traps\TrapBase.cs" />
+     <Compile Include="Assets\Scripts\Traps\TrapSingle.cs" />
+     <Compile Include="Assets\Scripts\Traps\TrapTrigger.cs" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
@@ -162,50 +174,49 @@
      <None Include="Assets\3rdParty\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
      <None Include="Assets\3rdParty\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
-     <None Include="Assets\Scripts\AI\New.txt" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
      <None Include="Assets\3rdParty\ProCore\ProBuilder\readme.txt" />
      <None Include="Assets\Animations\New.txt" />
      <None Include="Assets\Textures\New.txt" />
      <None Include="Assets\Audio\New.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Timeline">
- <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>C:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
- <HintPath>C:/Users/s167759/Documents/SVN(GREENJELLYFISH)/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ <HintPath>D:/LAB/Unity/Projects/GreenJellyfish/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/s167759/Documents/SVN(GREENJELLYFISH)/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ <HintPath>D:/LAB/Unity/Projects/GreenJellyfish/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="KdTreeLib">
- <HintPath>C:/Users/s167759/Documents/SVN(GREENJELLYFISH)/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+ <HintPath>D:/LAB/Unity/Projects/GreenJellyfish/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
  </Reference>
  <Reference Include="pb_Stl">
- <HintPath>C:/Users/s167759/Documents/SVN(GREENJELLYFISH)/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+ <HintPath>D:/LAB/Unity/Projects/GreenJellyfish/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
  </Reference>
  <Reference Include="Poly2Tri">
- <HintPath>C:/Users/s167759/Documents/SVN(GREENJELLYFISH)/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+ <HintPath>D:/LAB/Unity/Projects/GreenJellyfish/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/s167759/Documents/SVN(GREENJELLYFISH)/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ <HintPath>D:/LAB/Unity/Projects/GreenJellyfish/trunk/GreenJellyfish - Neon Odyssey Game/Neon Odyssey/Assets/3rdParty/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
