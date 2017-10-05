@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9e036a9b1ea0c2a40af7035986d6f143
-timeCreated: 1507203293
+guid: 5e7c1d0847d850d479ea71e7b2c83e64
+timeCreated: 1507204202
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Pillar_001_Crypt_001_Base
+    4300000: Enemy_001_Scorpion_001_Standard
     9500000: //RootNode
   materials:
     importMaterials: 0
