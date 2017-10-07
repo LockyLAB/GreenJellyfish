@@ -12,15 +12,11 @@ public class CameraMove : MonoBehaviour {
 
     public Vector3 offset = new Vector3(0, 1.0f, -10);
 
-    public GameObject m_cameraWall = null;
-    private float m_wallRightOffset = 10.0f;
-    private float m_wallUpOffset = 6.0f;
-    // T = top, B = Bottom, R = Right, L = Left 
+    private float m_zoomMin = 10.0f;
+    private float m_zoomSpeed = 0.02f;
 
-    private GameObject m_cameraWallR;
-    private GameObject m_cameraWallL;
-    private GameObject m_cameraWallT;
-    private GameObject m_cameraWallB;
+    public float m_maxHorizontalDistance = 20.0f;
+    public float m_maxVerticalDistance = 14.0f;
 
     // Use this for initialization
     void Awake ()
@@ -44,20 +40,6 @@ public class CameraMove : MonoBehaviour {
         if (m_player2 == null)
             m_singlePlayer = true;
 
-        //Create camera walls
-        if (m_cameraWall != null)
-        {
-            m_cameraWallR = Instantiate(m_cameraWall, Vector3.right * m_wallRightOffset, Quaternion.identity);
-            m_cameraWallL = Instantiate(m_cameraWall, Vector3.left * m_wallRightOffset, Quaternion.identity);
-            m_cameraWallT = Instantiate(m_cameraWall, Vector3.up * m_wallUpOffset, Quaternion.identity);
-            m_cameraWallB = Instantiate(m_cameraWall, Vector3.down * m_wallUpOffset, Quaternion.identity);
-
-            m_cameraWallT.transform.localScale = new Vector3(2 * m_wallRightOffset, 1.0f, 1.0f);
-            m_cameraWallB.transform.localScale = new Vector3(2 * m_wallRightOffset, 1.0f, 1.0f);
-
-            m_cameraWallL.transform.localScale = new Vector3(1.0f, 2 * m_wallUpOffset, 1.0f);
-            m_cameraWallR.transform.localScale = new Vector3(1.0f, 2 * m_wallUpOffset, 1.0f);
-        }
     }
 	
 	// Update is called once per frame
@@ -70,21 +52,25 @@ public class CameraMove : MonoBehaviour {
         else
         {
             //Zoom in offset
-            float offsetZ = -0.5f * (m_player1.transform.position - m_player2.transform.position).magnitude - 10;
-            offsetZ = Mathf.Clamp(offsetZ, -20, -10);
+            float x = (m_player1.transform.position - m_player2.transform.position).magnitude;
+            float offsetZ = -m_zoomSpeed*(x * x) - m_zoomMin;
 
             offset.z = offsetZ;
             transform.position = (m_player1.transform.position + m_player2.transform.position) / 2 + offset;
 
-            if (m_cameraWall != null)
-            {
-                //Move walls
-                m_cameraWallR.transform.position = transform.position + Vector3.right * m_wallRightOffset + Vector3.forward * -offsetZ;
-                m_cameraWallL.transform.position = transform.position + Vector3.left * m_wallRightOffset + Vector3.forward * -offsetZ;
+            //Group players together X-Axis
+            if (m_player1.transform.position.x - m_player2.transform.position.x > m_maxHorizontalDistance)
+                m_player1.transform.position -= Vector3.right * (m_player1.transform.position.x - m_player2.transform.position.x - m_maxHorizontalDistance);
 
-                m_cameraWallT.transform.position = transform.position + Vector3.up * m_wallUpOffset + Vector3.forward * -offsetZ;
-                m_cameraWallB.transform.position = transform.position + Vector3.down * m_wallUpOffset + Vector3.forward * -offsetZ;
-            }
+            if (m_player2.transform.position.x - m_player1.transform.position.x > m_maxHorizontalDistance)
+                m_player2.transform.position -= Vector3.right * (m_player2.transform.position.x - m_player1.transform.position.x - m_maxHorizontalDistance);
+
+            //Group players together Y-Axis
+            if (m_player1.transform.position.y - m_player2.transform.position.y > m_maxHorizontalDistance)
+                m_player1.transform.position -= Vector3.up * (m_player1.transform.position.y - m_player2.transform.position.y - m_maxVerticalDistance);
+
+            if (m_player2.transform.position.y - m_player1.transform.position.y > m_maxHorizontalDistance)
+                m_player2.transform.position -= Vector3.up * (m_player2.transform.position.y - m_player1.transform.position.y - m_maxVerticalDistance);
         }
     }
 }
