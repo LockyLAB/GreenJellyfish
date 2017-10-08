@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4162414562596950}
   - component: {fileID: 54716398397405484}
   - component: {fileID: 135931956812236908}
+  - component: {fileID: 114415277846207328}
   m_Layer: 0
   m_Name: Bullet_Enemy_Green
   m_TagString: Untagged
@@ -144,6 +145,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114415277846207328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119797018185560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8af51ae529f62649bf9fe41a94e6674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135931956812236908
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -4,16 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - playerRed
-  - playerGreen
-  - playerYellow
-  - playerPurple
-  - yellow
-  - green
-  - purple
-  - pink
-  - red
   - Revive
+  - PlayerPurple
+  - PlayerPink
+  - PlayerOrange
+  - PlayerGreen
+  - EnemyPurple
+  - EnemyPink
+  - EnemyOrange
+  - EnemyGreen
   layers:
   - Default
   - TransparentFX

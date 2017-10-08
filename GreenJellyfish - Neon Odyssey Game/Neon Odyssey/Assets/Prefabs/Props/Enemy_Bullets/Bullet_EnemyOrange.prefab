@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4478341114323948}
   - component: {fileID: 54433997213316656}
+  - component: {fileID: 114864641336561520}
   m_Layer: 0
   m_Name: Bullet_EnemyOrange
   m_TagString: Untagged
@@ -173,6 +174,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114864641336561520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337315320725428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140d4d241a9ddf149af93e4b9d9db9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136028638166623770
 CapsuleCollider:
   m_ObjectHideFlags: 1

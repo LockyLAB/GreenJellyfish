@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4959883255353772}
   - component: {fileID: 54159040784823920}
   - component: {fileID: 135949245955595800}
+  - component: {fileID: 114741207524268258}
   m_Layer: 0
   m_Name: Bullet_Enemy_Yellow
   m_TagString: Untagged
@@ -144,6 +145,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114741207524268258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950105795595210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06d6126d30977a4ba499ef5161fd7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135949245955595800
 SphereCollider:
   m_ObjectHideFlags: 1

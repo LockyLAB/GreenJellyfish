@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114054398466173894}
   m_Layer: 0
   m_Name: Enemy_BeetlePink
-  m_TagString: pink
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
-  m_colour: 0
+  m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10
   m_gunNumberOfShots: 3

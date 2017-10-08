@@ -10,15 +10,6 @@ public class Enemy : MonoBehaviour {
     public BehaviourBase m_initalBehaviour;
     [HideInInspector]
     public GameObject m_target = null;
-    public enum Colour
-    {
-        Pink = 0,
-        Yellow = 1,
-        Green = 2,
-        Orange = 3
-    }
-
-    public Colour m_colour = Colour.Pink;
 
     public enum Difficulty
     {

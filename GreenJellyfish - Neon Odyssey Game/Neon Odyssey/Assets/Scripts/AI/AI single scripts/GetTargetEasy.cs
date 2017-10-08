@@ -39,20 +39,12 @@ public class GetTargetEasy : BehaviourBase
     public override BehaviourBase.BehaviourStatus Execute()
     {
         Enemy enemyClass = GetComponent<Enemy>();
-        switch (enemyClass.m_colour)
-        {
-            case Enemy.Colour.Green:
-            case Enemy.Colour.Orange:
-                enemyClass.m_target = m_player1;
-                break;
+        if (enemyClass.CompareTag("Purple") || enemyClass.CompareTag("Pink"))
+            enemyClass.m_target = m_player1;
+        if (enemyClass.CompareTag("Orange") || enemyClass.CompareTag("Green"))
+            enemyClass.m_target = m_player2;
 
-            case Enemy.Colour.Pink:
-            case Enemy.Colour.Yellow:
-                enemyClass.m_target = m_player2;
-                break;
-        }
-
-        if(enemyClass.m_target!=null)
+        if (enemyClass.m_target != null)
             return BehaviourStatus.SUCCESS;
         return BehaviourStatus.FAILURE;
     }
