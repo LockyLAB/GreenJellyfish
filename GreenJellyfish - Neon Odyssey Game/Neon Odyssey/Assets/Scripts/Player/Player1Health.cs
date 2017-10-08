@@ -22,7 +22,7 @@ public class Player1Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        otherPlayerHealth.health = 2;
+   
         
 
 	    if(health <= 0)

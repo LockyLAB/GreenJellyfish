@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4405774880821028}
   - component: {fileID: 114132238423922718}
   m_Layer: 10
-  m_Name: Health
+  m_Name: HorusHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 114395703970050262}
   - component: {fileID: 114010045140245792}
   - component: {fileID: 23360530735777392}
-  - component: {fileID: 114089000109552988}
   - component: {fileID: 114088592804260364}
   - component: {fileID: 114477387855416888}
   m_Layer: 10
@@ -234,20 +233,6 @@ MonoBehaviour:
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   controller: 2
---- !u!114 &114089000109552988
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1645321335930210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 200097d88ddbb8e498f3e9514abd2d00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 4
-  player: {fileID: 0}
-  otherPlayerHealth: {fileID: 0}
 --- !u!114 &114132238423922718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,6 +282,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 903b30eb6f6a2df43aa20faee15cbb90, type: 2}
   - {fileID: 2100000, guid: e592b7707667030469b6124908fbb930, type: 2}
   characterModel: {fileID: 1851657293237850}
+  player: {fileID: 114395703970050262}
   isToggled: 0
   switchColour: 1
 --- !u!136 &136315765292325554

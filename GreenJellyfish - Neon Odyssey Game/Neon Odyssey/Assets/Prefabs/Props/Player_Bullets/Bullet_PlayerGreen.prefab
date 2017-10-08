@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54989701501447564}
   - component: {fileID: 135865681067045180}
   - component: {fileID: 114668640901943110}
+  - component: {fileID: 114315719157824016}
   m_Layer: 0
   m_Name: Bullet_PlayerGreen
   m_TagString: Untagged
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 33311465191259734}
   - component: {fileID: 23624483763354774}
   - component: {fileID: 95003397694978560}
+  - component: {fileID: 114456108682913772}
   m_Layer: 0
   m_Name: Bullet_001_Player_001_Standard
   m_TagString: Untagged
@@ -54,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1066155163369194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.057608, y: 4.9143925, z: -32.570343}
+  m_LocalPosition: {x: 4.495224, y: 1.0714672, z: -1.0127192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4824565400119754}
@@ -145,6 +147,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114315719157824016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1066155163369194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080bee280182fa47af06fb848fd3d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114456108682913772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390878237132164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080bee280182fa47af06fb848fd3d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114668640901943110
 MonoBehaviour:
   m_ObjectHideFlags: 1

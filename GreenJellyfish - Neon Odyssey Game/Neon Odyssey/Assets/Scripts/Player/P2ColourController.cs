@@ -14,6 +14,8 @@ public class P2ColourController : MonoBehaviour
     //INPUT CHARACTER MODEL
     public GameObject characterModel;
 
+    public Player player;
+
     //P2 COLOURS
     public enum Colours
     {
@@ -37,29 +39,33 @@ public class P2ColourController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TOGGLE PLAYER COLOUR
-        if (isDefault)
+
+        if (!player.isDead)
         {
-            timeToSwitch += Time.deltaTime;
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
+            //TOGGLE PLAYER COLOUR
+            if (isDefault)
             {
-                switchColour = (int)Colours.Orange;
-                isDefault = false;
-                switchColour = 1;
-                toggleMaterial();
-                timeToSwitch = 0;
+                timeToSwitch += Time.deltaTime;
+                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
+                {
+                    switchColour = (int)Colours.Orange;
+                    isDefault = false;
+                    switchColour = 1;
+                    toggleMaterial();
+                    timeToSwitch = 0;
+                }
             }
-        }
-        else
-        {
-            timeToSwitch += Time.deltaTime;
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
+            else
             {
-                switchColour = (int)Colours.Green;
-                isDefault = true;
-                switchColour = 2;
-                toggleMaterial();
-                timeToSwitch = 0;
+                timeToSwitch += Time.deltaTime;
+                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
+                {
+                    switchColour = (int)Colours.Green;
+                    isDefault = true;
+                    switchColour = 2;
+                    toggleMaterial();
+                    timeToSwitch = 0;
+                }
             }
         }
     }

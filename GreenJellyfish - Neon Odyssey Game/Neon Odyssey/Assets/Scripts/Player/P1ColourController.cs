@@ -15,6 +15,8 @@ public class P1ColourController : MonoBehaviour
     //INPUT CHARACTER MODEL
     public GameObject characterModel;
 
+    public Player player;
+
     //P1 COLOURS
     public enum Colours
     {
@@ -38,29 +40,32 @@ public class P1ColourController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TOGGLE PLAYER COLOUR
-        if (isDefault)
+        if (!player.isDead)
         {
-            timeToSwitch += Time.deltaTime;
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
+            //TOGGLE PLAYER COLOUR
+            if (isDefault)
             {
-                switchColour = (int)Colours.Pink;
-                isDefault = false;
-                switchColour = 2;
-                toggleMaterial();
-                timeToSwitch = 0;
+                timeToSwitch += Time.deltaTime;
+                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
+                {
+                    switchColour = (int)Colours.Pink;
+                    isDefault = false;
+                    switchColour = 2;
+                    toggleMaterial();
+                    timeToSwitch = 0;
+                }
             }
-        }
-        else
-        {
-            timeToSwitch += Time.deltaTime;
-            if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
+            else
             {
-                switchColour = (int)Colours.Yellow;
-                isDefault = true;
-                switchColour = 1;
-                toggleMaterial();
-                timeToSwitch = 0;
+                timeToSwitch += Time.deltaTime;
+                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
+                {
+                    switchColour = (int)Colours.Yellow;
+                    isDefault = true;
+                    switchColour = 1;
+                    toggleMaterial();
+                    timeToSwitch = 0;
+                }
             }
         }
     }

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33366919251687590}
   - component: {fileID: 23853783810694298}
   - component: {fileID: 95417690688151058}
+  - component: {fileID: 114047266517675066}
   m_Layer: 0
   m_Name: Bullet_001_Player_001_Standard
   m_TagString: Untagged
@@ -39,7 +40,7 @@ GameObject:
   - component: {fileID: 4383479574551630}
   - component: {fileID: 54158309065927322}
   - component: {fileID: 135622050851156310}
-  - component: {fileID: 114664109157467302}
+  - component: {fileID: 114308639821435318}
   m_Layer: 0
   m_Name: Bullet_PlayerOrange
   m_TagString: Untagged
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751041828633744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.057608, y: 4.9143925, z: -32.570343}
+  m_LocalPosition: {x: 5.1898003, y: 1.0893648, z: -1.0127192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4945912175280348}
@@ -145,7 +146,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114664109157467302
+--- !u!114 &114047266517675066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278584473229238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31ba514957195a45857462f8f76c84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114308639821435318
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -153,7 +165,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1751041828633744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f28ad877f3e8944c9ccc1ecac1a8f10, type: 3}
+  m_Script: {fileID: 11500000, guid: c31ba514957195a45857462f8f76c84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135622050851156310
