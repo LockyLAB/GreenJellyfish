@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33903045488934552}
   - component: {fileID: 23869401322594354}
   - component: {fileID: 95518091985480616}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_001_Beetle_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 54678120985753112}
   - component: {fileID: 135367324661595218}
   - component: {fileID: 114452001620808558}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_BeetleOrange
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

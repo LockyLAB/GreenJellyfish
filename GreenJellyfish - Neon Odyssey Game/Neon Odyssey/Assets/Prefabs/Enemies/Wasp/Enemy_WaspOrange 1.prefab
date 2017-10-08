@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114418782921596602}
   - component: {fileID: 135779261445404790}
   m_Layer: 0
-  m_Name: Enemy_WaspOrange 1
+  m_Name: Enemy_WaspOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 135326351268410916}
   - component: {fileID: 114504505609184542}
   m_Layer: 0
-  m_Name: Enemy_BeetleYellow
+  m_Name: Enemy_BeetlePurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

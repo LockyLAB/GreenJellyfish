@@ -37,9 +37,9 @@ public class GetTargetHard : BehaviourBase
     public override BehaviourBase.BehaviourStatus Execute()
     {
         Enemy enemyClass = GetComponent<Enemy>();
-        if (enemyClass.CompareTag("Purple") || enemyClass.CompareTag("Pink"))
+        if (enemyClass.CompareTag("EnemyPurple") || enemyClass.CompareTag("EnemyPink"))
             enemyClass.m_target = m_player2;
-        if (enemyClass.CompareTag("Orange") || enemyClass.CompareTag("Green"))
+        if (enemyClass.CompareTag("EnemyOrange") || enemyClass.CompareTag("EnemyGreen"))
             enemyClass.m_target = m_player1;
 
         if (enemyClass.m_target != null)

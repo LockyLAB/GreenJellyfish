@@ -5,14 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Revive
-  - PlayerPurple
-  - PlayerPink
-  - PlayerOrange
-  - PlayerGreen
-  - EnemyPurple
-  - EnemyPink
-  - EnemyOrange
-  - EnemyGreen
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -23,10 +16,10 @@ TagManager:
   - 
   - 
   - Collisions
-  - 
-  - 
-  - 
-  - 
+  - Purple
+  - Pink
+  - Orange
+  - Green
   - 
   - 
   - 
