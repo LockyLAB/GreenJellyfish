@@ -12,8 +12,8 @@ public class CameraMove : MonoBehaviour {
 
     public Vector3 offset = new Vector3(0, 1.0f, -10);
 
-    private float m_zoomMin = 10.0f;
-    private float m_zoomSpeed = 0.02f;
+    public float m_zoomMin = 10.0f;
+    public float m_zoomSpeed = 0.02f;
 
     public float m_maxHorizontalDistance = 20.0f;
     public float m_maxVerticalDistance = 14.0f;
