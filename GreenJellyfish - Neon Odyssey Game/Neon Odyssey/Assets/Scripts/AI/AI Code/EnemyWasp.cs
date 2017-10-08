@@ -25,7 +25,7 @@ public class EnemyWasp : Enemy {
     //Nodes
     private BehaviourSequence m_sequenceTop;
 
-    private GetTargetSinglePlayer m_actionGetTarget;
+    private GetTargetEasy m_actionGetTarget;
 
     private BehaviourSelector m_selectorActions;
 
@@ -46,7 +46,7 @@ public class EnemyWasp : Enemy {
         //Set up varibles
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 
-        m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
+        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
 
         m_selectorActions = gameObject.AddComponent<BehaviourSelector>();
 

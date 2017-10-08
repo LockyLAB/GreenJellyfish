@@ -34,7 +34,7 @@ public class EnemyBeetle : Enemy
     private BehaviourSequence m_sequenceGun;
     private BehaviourSequence m_sequenceMove;
 
-    private GetTargetSinglePlayer m_actionGetTarget;
+    private GetTargetEasy m_actionGetTarget;
 
     private IsTargetCloseEnough m_actionGetDisLaser;
     private FireLaserbeam m_actionFireLaser;
@@ -53,7 +53,7 @@ public class EnemyBeetle : Enemy
         //Set up varibles
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 
-        m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
+        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
 
         m_selectorActions = gameObject.AddComponent<BehaviourSelector>();
 

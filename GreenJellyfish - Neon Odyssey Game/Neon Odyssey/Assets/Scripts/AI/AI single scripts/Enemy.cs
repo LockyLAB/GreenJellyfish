@@ -19,9 +19,18 @@ public class Enemy : MonoBehaviour {
     }
 
     public Colour m_colour = Colour.Pink;
-	
-	// Update is called once per frame
-	void Update ()
+
+    public enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard
+    }
+
+    public Difficulty m_difficulty = Difficulty.Easy;
+
+    // Update is called once per frame
+    void Update ()
     {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         BehaviourBase.BehaviourStatus State = m_initalBehaviour.Execute();
