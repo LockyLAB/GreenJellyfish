@@ -26,17 +26,22 @@ public class PurpleBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //if BULLET collides with other coloured ENEMY, destroy bullet
+        //if BULLET collides with other coloured ENEMY, destroy bullet
+        if (col.gameObject.tag == "Enemy" && (col.gameObject.layer == 10 || //pink 
+                                              col.gameObject.layer == 11 || //orange
+                                              col.gameObject.layer == 12))  //green
+        {
+            Destroy(gameObject);
+        }
+
         //if BULLET collides with WALLS, destroy bullet
         if (col.gameObject.layer == 8)
         {
             Destroy(gameObject);
         }
 
-        //if BULLET collides with other PLAYER, destroy bullet
-        else if (col.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
+
     }
 
 }

@@ -31,21 +31,21 @@ public class enemyGreenBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //if enemy is not bullet colour, destroy bullet
+        //if ENEMY is not BULLET colour, destroy BULLET
         else if (col.gameObject.tag == "Player" && (col.gameObject.layer == 9 ||  //purple
                                                     col.gameObject.layer == 10 || //pink
                                                     col.gameObject.layer == 11))  //green
         {
              //if collision with PLAYER 1, deal damage
-             if (col.gameObject.GetComponent<Player1Health>() != null)
+             if (col.gameObject.GetComponentInChildren<Player1Health>() != null)
              {
-                 col.gameObject.GetComponent<Player1Health>().health -= 1;
+                 col.gameObject.GetComponentInChildren<Player1Health>().health -= 1;
              }
              
              //if collision with PLAYER 2, deal damage
-             if (col.gameObject.GetComponent<Player2Health>() != null)
+             if (col.gameObject.GetComponentInChildren<Player2Health>() != null)
              {
-                 col.gameObject.GetComponent<Player2Health>().health -= 1;
+                 col.gameObject.GetComponentInChildren<Player2Health>().health -= 1;
              }
              
              Destroy(gameObject);
@@ -53,8 +53,4 @@ public class enemyGreenBullet : MonoBehaviour
 
     }
 
-    private void dealDamage()
-    {
-        
-    }
 }
