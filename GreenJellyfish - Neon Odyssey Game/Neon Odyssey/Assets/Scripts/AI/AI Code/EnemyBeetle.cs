@@ -34,7 +34,7 @@ public class EnemyBeetle : Enemy
     private BehaviourSequence m_sequenceGun;
     private BehaviourSequence m_sequenceMove;
 
-    private GetTargetEasy m_actionGetTarget;
+    private BehaviourBase m_actionGetTarget;
 
     private IsTargetCloseEnough m_actionGetDisLaser;
     private FireLaserbeam m_actionFireLaser;

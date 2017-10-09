@@ -38,20 +38,37 @@ public class GetTargetMedium : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-
         Enemy enemyClass = GetComponent<Enemy>();
 
-        //Get closest target
-        float player1Dis = (transform.position - m_player1.transform.position).magnitude;
-        float player2Dis = (transform.position - m_player2.transform.position).magnitude;
+        //Set target based off prefered target and distance
+        float player1TargetRank = 1.0f;
+        float player2TargetRank = 1.0f;
 
-        if(player1Dis> player2Dis)
-            enemyClass.m_target = m_player2;
-        else
+        float player1Distance = (transform.position - m_player1.transform.position).magnitude;
+        float player2Distance = (transform.position - m_player2.transform.position).magnitude;
+
+        //Make sure enemy can see player
+        if (Physics.Raycast(transform.position + transform.up * 0.5f, (m_player1.transform.position - transform.position).normalized, player1Distance, LayerMask.GetMask("Collisions")))
+            player1TargetRank = -100.0f;
+
+        //Make sure enemy can see player
+        if (Physics.Raycast(transform.position + transform.up * 0.5f, (m_player2.transform.position - transform.position).normalized, player2Distance, LayerMask.GetMask("Collisions")))
+            player2TargetRank = -100.0f;
+
+        player1TargetRank = player1TargetRank / player1Distance;
+        player2TargetRank = player2TargetRank / player2Distance;
+
+        if (player1TargetRank > player2TargetRank)
             enemyClass.m_target = m_player1;
+        else
+            enemyClass.m_target = m_player2;
+
+        if (player1TargetRank < 0 && player2TargetRank < 0)
+            enemyClass.m_target = null;
 
         if (enemyClass.m_target != null)
             return BehaviourStatus.SUCCESS;
+
         return BehaviourStatus.FAILURE;
     }
 }
