@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4160878542109342}
   - component: {fileID: 114835522473289584}
   m_Layer: 0
-  m_Name: TrapStraight_Yellow
+  m_Name: TrapStraight_Purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,4 +185,5 @@ MonoBehaviour:
   m_bulletSpeed: 10
   m_timeBetweenShots: 0.2
   m_cooldown: 3
+  m_bulletOffset: {x: 0, y: 0, z: 0}
   m_bullet: {fileID: 1950105795595210, guid: 3248be26e468bcd4e9eb930976279c89, type: 2}

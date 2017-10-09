@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33379231636583908}
   - component: {fileID: 23538824900243714}
   - component: {fileID: 95274805604945020}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Character_001_Anubis_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,9 +38,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4583042861767590}
   - component: {fileID: 114019468663735052}
-  m_Layer: 10
+  - component: {fileID: 65331498055623366}
+  - component: {fileID: 54530661344544710}
+  m_Layer: 0
   m_Name: AnubisHealth
-  m_TagString: Untagged
+  m_TagString: Player1Revive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +61,7 @@ GameObject:
   - component: {fileID: 114352113972512410}
   - component: {fileID: 114765216121973752}
   - component: {fileID: 23091910786250416}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Anubis
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -73,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544876029445698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4606218476384174}
@@ -86,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41, y: -3.01, z: 0.96}
+  m_LocalPosition: {x: -41.620003, y: -2.9399998, z: 0.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4680599972317566}
@@ -178,6 +180,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1156441380287144}
   m_Mesh: {fileID: 4300000, guid: 794b238afced3e944a463bfa8ac0fa9c, type: 3}
+--- !u!54 &54530661344544710
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1544876029445698}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
+--- !u!65 &65331498055623366
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1544876029445698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5796337, y: 1.5699492, z: 1}
+  m_Center: {x: -0.071950436, y: 0.28497458, z: 0}
 --- !u!95 &95274805604945020
 Animator:
   serializedVersion: 3
@@ -247,8 +276,6 @@ MonoBehaviour:
   Aim: {x: 0, y: 0, z: 0}
   bullet1: {fileID: 1402376252437178, guid: ff1eb85ffbe8d984a9902af7cb2cc5b3, type: 2}
   bullet2: {fileID: 1006975616837836, guid: 28ca2db300e869d4e802f5f798b8f441, type: 2}
-  bullet3: {fileID: 0}
-  bullet4: {fileID: 0}
   controller: 1
 --- !u!114 &114633135974184984
 MonoBehaviour:

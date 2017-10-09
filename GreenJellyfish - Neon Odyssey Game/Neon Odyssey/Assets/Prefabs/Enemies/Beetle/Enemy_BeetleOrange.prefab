@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 54855556784023296}
   - component: {fileID: 135887279709481850}
   - component: {fileID: 114832413519137930}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Enemy_BeetleOrange
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33195051154850408}
   - component: {fileID: 23451229893515022}
   - component: {fileID: 95311334200199966}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Enemy_001_Beetle_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765858083342218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.406481, y: -0.3854215, z: -5.3189}
+  m_LocalPosition: {x: 58.47319, y: -0.3854215, z: -5.1088943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4277507863713856}
