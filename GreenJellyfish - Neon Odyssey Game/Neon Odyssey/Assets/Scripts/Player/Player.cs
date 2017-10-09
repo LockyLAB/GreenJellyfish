@@ -89,7 +89,8 @@ public class Player : MonoBehaviour {
 
 
 
-
+        if (!isDead)
+        {
             if ((m_Controller.m_CollisionInfo.left || m_Controller.m_CollisionInfo.right) && !m_Controller.m_CollisionInfo.bottom && m_Velocity.y != 0 && !isFalling && !isDead)
             {
                 isSticking = true;
@@ -160,5 +161,6 @@ public class Player : MonoBehaviour {
             }
 
             m_Controller.Move(m_Velocity * Time.deltaTime);
+        }
         }
 }
