@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using XboxCtrlrInput;
 public class Player1Health : MonoBehaviour {
 
     public int health = 4;
@@ -10,10 +10,16 @@ public class Player1Health : MonoBehaviour {
 
     public Player2Health otherPlayerHealth; 
 
+    public bool isReviving = false;
+
+    public float reviveTime = 2;
+
+    public float timer = 0;
+
 	// Use this for initialization
 	void Start ()
     {
-
+        isReviving = false;
         player = player.GetComponent<Player>();
         otherPlayerHealth = otherPlayerHealth.GetComponent<Player2Health>();
 
@@ -33,7 +39,52 @@ public class Player1Health : MonoBehaviour {
         {
             player.isDead = false;
         }
-        
-        	
-	}
-}
+
+
+        if (isReviving && XCI.GetButton(XboxButton.A))
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= reviveTime)
+            {
+                otherPlayerHealth.health = 2;
+            }
+
+
+
+        }
+
+        if (XCI.GetButtonUp(XboxButton.A))
+        {
+            timer = 0;
+        }
+
+
+
+    }
+  
+        void OnTriggerEnter(Collider other)
+    {
+            if (other.gameObject.tag == "Player2Revive" && otherPlayerHealth.health <= 0)
+            {
+                isReviving = true;
+            }
+
+
+
+        }
+        void OnTriggerExit(Collider other)
+    {
+            if (other.gameObject.tag == "Player2Revive" && otherPlayerHealth.health <= 0)
+            {
+            isReviving = false;
+            }
+        }
+
+
+
+    }
+
+
+
+
