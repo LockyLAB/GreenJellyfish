@@ -20,14 +20,14 @@ public class P1ColourController : MonoBehaviour
     //P1 COLOURS
     public enum Colours
     {
-        Pink = 1,
-        Yellow = 2
+        Purple = 1,
+        Orange = 2
     }
 
     //MISC VARIABLES
-    bool isDefault ;
+    private bool isDefault;
     public bool isToggled;
-    public int switchColour;
+    public int switchColour = 1;
 
     // Use this for initialization
     void Start()
@@ -35,6 +35,7 @@ public class P1ColourController : MonoBehaviour
         isDefault = true;
         switchColour = 1;
         toggleMaterial();
+        toggleLayer();
     }
 
     // Update is called once per frame
@@ -48,10 +49,10 @@ public class P1ColourController : MonoBehaviour
                 timeToSwitch += Time.deltaTime;
                 if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
                 {
-                    switchColour = (int)Colours.Pink;
+                    switchColour = (int)Colours.Purple;
                     isDefault = false;
-                    switchColour = 2;
                     toggleMaterial();
+                    toggleLayer();
                     timeToSwitch = 0;
                 }
             }
@@ -60,10 +61,10 @@ public class P1ColourController : MonoBehaviour
                 timeToSwitch += Time.deltaTime;
                 if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
                 {
-                    switchColour = (int)Colours.Yellow;
+                    switchColour = (int)Colours.Orange;
                     isDefault = true;
-                    switchColour = 1;
                     toggleMaterial();
+                    toggleLayer();
                     timeToSwitch = 0;
                 }
             }
@@ -84,20 +85,19 @@ public class P1ColourController : MonoBehaviour
         }
     }       
 
-    //TOGGLES CHARACTER TAG
-    void toggleTag()
+    //TOGGLES CHARACTER LAYER
+    void toggleLayer()
     {
         if(switchColour == 1)
         {
-            gameObject.tag = "playerPink";
+            gameObject.layer = 9;
         }
 
         if(switchColour == 2)
         {
-            gameObject.tag = "playerYellow";
+            gameObject.layer = 11;
         }
     }
-
 
 }
 

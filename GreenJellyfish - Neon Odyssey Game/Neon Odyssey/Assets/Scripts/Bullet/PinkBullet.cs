@@ -17,33 +17,24 @@ public class PinkBullet : MonoBehaviour {
     //function called when object collides
     void OnTriggerEnter(Collider col)
     {
-        //if bullet is same colour as enemy, destroy enemy, destroy bullet
-        if (col.gameObject.tag == "pink")
+        //if BULLET is same colour as ENEMY, destroy ENEMY and BULLET
+        if (col.gameObject.tag == "Enemy" && col.gameObject.layer == 10)
         {
             Destroy(col.gameObject);
             Destroy(gameObject);
         }
 
-        //if bullet collides with objects under "collision" layer, destroy bullet
+        //if BULLET collides with WALLS, destroy bullet
         if (col.gameObject.layer == 8)
         {
             Destroy(gameObject);
         }
 
-        //if enemy is not bullet colour, destroy bullet
-        else if (col.gameObject.tag == "green")
-        {
-            Destroy(gameObject);
-        }
-
-        else if (col.gameObject.tag == "orange")
-        {
-            Destroy(gameObject);
-        }
-
-        else if (col.gameObject.tag == "yellow")
+        //if BULLET collides with other PLAYER, destroy bullet
+        else if (col.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }
     }
+
 }

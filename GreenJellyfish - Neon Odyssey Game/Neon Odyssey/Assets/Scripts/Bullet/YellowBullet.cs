@@ -19,7 +19,7 @@ public class YellowBullet : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
         //if bullet is same colour as enemy, destroy enemy, destroy bullet
-        if (col.gameObject.tag == "yellow")
+        if (col.gameObject.tag == "Enemy" && col.gameObject.layer == 12)
         {
             Destroy(col.gameObject);
             Destroy(gameObject);
@@ -32,7 +32,7 @@ public class YellowBullet : MonoBehaviour {
         }
 
         //if enemy is not bullet colour, destroy bullet
-        else if (col.gameObject.tag == "pink")
+        else if (col.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
         }

@@ -22,9 +22,7 @@ public class Player1Shoot : MonoBehaviour {
 
     public GameObject bullet1;
     public GameObject bullet2;
-    public GameObject bullet3;
-    public GameObject bullet4;
-
+ 
     public XboxController controller;
 
 

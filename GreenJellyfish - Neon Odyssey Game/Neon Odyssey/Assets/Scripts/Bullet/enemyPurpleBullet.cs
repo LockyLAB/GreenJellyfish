@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyGreenBullet : MonoBehaviour
-{
+public class enemyPurpleBullet : MonoBehaviour {
 
-    // Use this for initialization
-    void Start()
-    {
+	// Use this for initialization
+	void Start () {
+       
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
     void OnTriggerEnter(Collider col)
     {
         //if BULLET is same colour as PLAYER, destroy BULLET
-        if (col.gameObject.tag == "Player" && col.gameObject.layer == 12)
+        if (col.gameObject.tag == "Player" && col.gameObject.layer == 9)
         {
             Destroy(gameObject);
         }
@@ -32,29 +29,28 @@ public class enemyGreenBullet : MonoBehaviour
         }
 
         //if enemy is not bullet colour, destroy bullet
-        else if (col.gameObject.tag == "Player" && (col.gameObject.layer == 9 ||  //purple
-                                                    col.gameObject.layer == 10 || //pink
-                                                    col.gameObject.layer == 11))  //green
+        else if (col.gameObject.tag == "Player" && (col.gameObject.layer == 10 || //pink
+                                                    col.gameObject.layer == 11 || //orange
+                                                    col.gameObject.layer == 12))  //green
         {
              //if collision with PLAYER 1, deal damage
              if (col.gameObject.GetComponent<Player1Health>() != null)
              {
                  col.gameObject.GetComponent<Player1Health>().health -= 1;
              }
-             
-             //if collision with PLAYER 2, deal damage
+
+            //if collision with PLAYER 2 deal damage
              if (col.gameObject.GetComponent<Player2Health>() != null)
              {
                  col.gameObject.GetComponent<Player2Health>().health -= 1;
              }
-             
+
              Destroy(gameObject);
         }
-
     }
 
     private void dealDamage()
     {
-        
+
     }
 }

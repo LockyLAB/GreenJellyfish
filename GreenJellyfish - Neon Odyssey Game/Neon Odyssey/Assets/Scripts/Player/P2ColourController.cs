@@ -19,8 +19,8 @@ public class P2ColourController : MonoBehaviour
     //P2 COLOURS
     public enum Colours
     {
-        Orange = 1,
-        Green = 2
+        Green = 1,
+        Pink = 2
     }
 
     //MISC VARIABLES
@@ -34,6 +34,7 @@ public class P2ColourController : MonoBehaviour
         isDefault = true;
         switchColour = 1;
         toggleMaterial();
+        toggleLayer();
     }
 
     // Update is called once per frame
@@ -48,10 +49,10 @@ public class P2ColourController : MonoBehaviour
                 timeToSwitch += Time.deltaTime;
                 if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
                 {
-                    switchColour = (int)Colours.Orange;
+                    switchColour = (int)Colours.Green;
                     isDefault = false;
-                    switchColour = 1;
                     toggleMaterial();
+                    toggleLayer();
                     timeToSwitch = 0;
                 }
             }
@@ -60,10 +61,10 @@ public class P2ColourController : MonoBehaviour
                 timeToSwitch += Time.deltaTime;
                 if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
                 {
-                    switchColour = (int)Colours.Green;
+                    switchColour = (int)Colours.Pink;
                     isDefault = true;
-                    switchColour = 2;
                     toggleMaterial();
+                    toggleLayer();
                     timeToSwitch = 0;
                 }
             }
@@ -83,19 +84,20 @@ public class P2ColourController : MonoBehaviour
         }
     }
 
-    //TOGGLES CHARACTER TAG
-    void toggleTag()
+    //TOGGLES CHARACTER LAYER
+    void toggleLayer()
     {
         if (switchColour == 1)
         {
-            gameObject.tag = "playerOrange";
+            gameObject.layer = 12;
         }
 
         if (switchColour == 2)
         {
-            gameObject.tag = "playerGreen";
+            gameObject.layer = 10;
         }
     }
+
 }
 
 

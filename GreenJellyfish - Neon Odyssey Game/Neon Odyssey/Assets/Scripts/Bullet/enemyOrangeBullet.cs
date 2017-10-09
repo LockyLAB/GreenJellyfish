@@ -17,33 +17,42 @@ public class enemyOrangeBullet : MonoBehaviour {
     //function called when object collides
     void OnTriggerEnter(Collider col)
     {
-        //if bullet is same colour as enemy, destroy enemy, destroy bullet
-        if (col.gameObject.tag == "playerOrange")
+        //if BULLET is same colour as PLAYER, destroy BULLET
+        if (col.gameObject.tag == "Player" && col.gameObject.layer == 11)
         {
-            Destroy(col.gameObject);
             Destroy(gameObject);
         }
 
-        //if bullet collides with objects under "collision" layer, destroy bullet
+        //if BULLET collides with WALLS, destroy bullet
         if (col.gameObject.layer == 8)
         {
             Destroy(gameObject);
         }
 
         //if enemy is not bullet colour, destroy bullet
-        else if (col.gameObject.tag == "playerGreen")
+        else if (col.gameObject.tag == "Player" && (col.gameObject.layer == 9 ||  //purple
+                                                    col.gameObject.layer == 10 || //pink
+                                                    col.gameObject.layer == 12))  //green
         {
+             //if collision with PLAYER 1, deal damage
+             if (col.gameObject.GetComponent<Player1Health>() != null)
+             {
+                 col.gameObject.GetComponent<Player1Health>().health -= 1;
+             }
+             
+             //if collision with PLAYER 2, deal damage
+             if (col.gameObject.GetComponent<Player2Health>() != null)
+             {
+                 col.gameObject.GetComponent<Player2Health>().health -= 1;
+             }
+
             Destroy(gameObject);
         }
 
-        else if (col.gameObject.tag == "playerPink")
-        {
-            Destroy(gameObject);
-        }
+    }
 
-        else if (col.gameObject.tag == "playerYellow")
-        {
-            Destroy(gameObject);
-        }
+    private void dealDamage()
+    {
+
     }
 }

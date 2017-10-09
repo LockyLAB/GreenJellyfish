@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenBullet : MonoBehaviour
+public class PurpleBullet : MonoBehaviour
 {
 
     // Use this for initialization
@@ -16,11 +16,11 @@ public class GreenBullet : MonoBehaviour
     {
 
     }
-    
+
     void OnTriggerEnter(Collider col)
     {
         //if BULLET is same colour as ENEMY, destroy ENEMY and BULLET
-        if (col.gameObject.tag == "Enemy" && col.gameObject.layer == 12)
+        if (col.gameObject.tag == "Enemy" && col.gameObject.layer == 9)
         {
             Destroy(col.gameObject);
             Destroy(gameObject);
