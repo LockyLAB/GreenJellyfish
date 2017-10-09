@@ -42,7 +42,13 @@ GameObject:
   - component: {fileID: 114452001620808558}
   m_Layer: 11
   m_Name: Enemy_BeetleOrange
+<<<<<<< .mine
+  m_TagString: Orange
+||||||| .r89
+  m_TagString: pink
+=======
   m_TagString: Enemy
+>>>>>>> .r94
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920314605547214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4606037, y: 6.733999, z: -16.043774}
+  m_LocalPosition: {x: 15.737411, y: 3.3604097, z: -15.064192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4233283210054378}

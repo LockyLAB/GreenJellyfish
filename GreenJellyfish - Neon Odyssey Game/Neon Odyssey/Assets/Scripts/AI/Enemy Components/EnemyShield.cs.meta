@@ -1,5 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< .mine
+guid: ff75314468a511c4f8d6399da52bcd59
+||||||| .r84
+guid: 7ac4842dcf0ffc245bc567287288aecf
+=======
 guid: 5dd1e2e69cca30d4c9f1c01eff1236cc
+>>>>>>> .r89
 timeCreated: 1506391259
 licenseType: Pro
 MonoImporter:

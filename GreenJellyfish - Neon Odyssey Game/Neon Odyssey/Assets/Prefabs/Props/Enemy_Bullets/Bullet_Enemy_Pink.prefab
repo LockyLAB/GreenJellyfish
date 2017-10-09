@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4576276630293510}
   - component: {fileID: 54399179623875996}
-  - component: {fileID: 135289259415923482}
+  - component: {fileID: 136917114473519390}
   - component: {fileID: 114703693916138580}
   m_Layer: 0
   m_Name: Bullet_Enemy_Pink
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075775001187784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.008095264, y: 4.362786, z: -21.467638}
+  m_LocalPosition: {x: 48.225773, y: 8.086587, z: -24.404129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076445452688742}
@@ -145,6 +145,13 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+<<<<<<< .mine
+--- !u!136 &136917114473519390
+CapsuleCollider:
+||||||| .r89
+--- !u!135 &135289259415923482
+SphereCollider:
+=======
 --- !u!114 &114703693916138580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,13 +165,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!135 &135289259415923482
 SphereCollider:
+>>>>>>> .r94
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075775001187784}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.24194765
-  m_Center: {x: 0, y: 0.25805235, z: 0}
+  m_Radius: 0.078733444
+  m_Height: 0.5307641
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.25, z: 0}
