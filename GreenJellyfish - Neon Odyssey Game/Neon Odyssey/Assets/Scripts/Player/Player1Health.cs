@@ -82,6 +82,7 @@ public class Player1Health : MonoBehaviour {
             if (other.gameObject.tag == "Player2Revive" && otherPlayerHealth.health <= 0)
             {
             isReviving = false;
+            timer = 0;
             }
         }
 

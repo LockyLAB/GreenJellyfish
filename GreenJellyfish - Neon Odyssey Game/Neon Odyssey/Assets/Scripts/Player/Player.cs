@@ -162,5 +162,5 @@ public class Player : MonoBehaviour {
 
             m_Controller.Move(m_Velocity * Time.deltaTime);
         }
-        }
+    }
 }
