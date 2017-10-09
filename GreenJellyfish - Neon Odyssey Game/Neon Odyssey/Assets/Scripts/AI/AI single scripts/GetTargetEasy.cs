@@ -16,6 +16,7 @@ public class GetTargetEasy : BehaviourBase
         GameObject[] players;
         players = GameObject.FindGameObjectsWithTag("Player");
 
+        Debug.Log(players.Length);
         //Assign player 1
         if (players[0].GetComponent<P1ColourController>() != null)
             m_player1 = players[0];
@@ -27,6 +28,8 @@ public class GetTargetEasy : BehaviourBase
             m_player2 = players[0];
         else if (players[1].GetComponent<P2ColourController>() != null)
             m_player2 = players[1];
+
+
     }
 
     //--------------------------------------------------------------------------------------
@@ -46,6 +49,8 @@ public class GetTargetEasy : BehaviourBase
 
         if (enemyClass.m_target != null)
             return BehaviourStatus.SUCCESS;
+
+        Debug.Log("Cant find a target");
         return BehaviourStatus.FAILURE;
     }
 }
