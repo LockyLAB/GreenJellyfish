@@ -12,11 +12,7 @@ public class enemyPinkBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //if (gameObject.GetComponent<Renderer>().isVisible == false)
-        //{
-        //    Destroy(gameObject);
-        //}
-
+        //Destroy(gameObject, 4.0f);
     }
 
     //function called when object collides
@@ -35,9 +31,9 @@ public class enemyPinkBullet : MonoBehaviour {
         }
 
         //if ENEMY is not BULLET colour, destroy BULLET
-        else if (col.gameObject.tag == "Player" && (col.gameObject.layer == 9 ||  //purple
-                                                    col.gameObject.layer == 11 || //orange
-                                                    col.gameObject.layer == 12))  //green
+        if (col.gameObject.tag == "Player" && (col.gameObject.layer == 9 ||  //purple
+                                               col.gameObject.layer == 11 || //orange
+                                               col.gameObject.layer == 12))  //green
         {
             //if collision with PLAYER 1, deal damage
              if (col.gameObject.GetComponentInChildren<Player1Health>() != null)
