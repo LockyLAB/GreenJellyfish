@@ -65,9 +65,7 @@ public class Player : MonoBehaviour {
     {
 
 
-        if (!isDead)
-        {
-            
+        
 
             Vector2 leftInput = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
 
@@ -103,7 +101,7 @@ public class Player : MonoBehaviour {
                 isSticking = false;
             }
 
-            if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) == 1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1 && !isDead)
+            if (XCI.GetAxis(XboxAxis.LeftTrigger, controller) > 0.1 || XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1 && !isDead)
             {
                 if (isSticking && !isFalling)
                 {
@@ -161,22 +159,6 @@ public class Player : MonoBehaviour {
 
             }
 
-
-           
-
             m_Controller.Move(m_Velocity * Time.deltaTime);
         }
-
-       
-
-
-
-    }
-
-   
-
-
-    
-
-
 }

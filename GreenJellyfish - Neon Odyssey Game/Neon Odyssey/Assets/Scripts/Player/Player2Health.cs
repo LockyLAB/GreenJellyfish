@@ -34,11 +34,13 @@ public class Player2Health : MonoBehaviour {
         if (health <= 0)
         {
             player.isDead = true;
-            
+            player.gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 90.0f));
+
         }
         else
         {
             player.isDead = false;
+            player.gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
         }
 
 

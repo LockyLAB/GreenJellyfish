@@ -16,6 +16,8 @@ public class Player1Health : MonoBehaviour {
 
     public float timer = 0;
 
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -34,10 +36,12 @@ public class Player1Health : MonoBehaviour {
 	    if(health <= 0)
         {
             player.isDead = true;
+            player.gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 90.0f));
         }
         else
         {
             player.isDead = false;
+            player.gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
         }
 
 

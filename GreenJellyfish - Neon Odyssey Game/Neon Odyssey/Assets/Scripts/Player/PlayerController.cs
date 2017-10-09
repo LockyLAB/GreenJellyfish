@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour {
 
         if (velocity.y <= climbVelocityY)
         {
-            velocity.y = climbVelocityY;
+           // velocity.y = climbVelocityY;
             velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
             m_CollisionInfo.bottom = true;
             m_CollisionInfo.climbingSlope = true;
@@ -274,7 +274,7 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-
+    
 
 	struct Raycast
     {
