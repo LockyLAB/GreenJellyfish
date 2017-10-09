@@ -12,11 +12,11 @@ public class PinkBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (gameObject.GetComponent<Renderer>().isVisible == false)
-        {
-            Debug.Log("bullet out of screen");
-            Destroy(gameObject);
-        }
+        //if (gameObject.GetComponent<Renderer>().isVisible == false)
+        //{
+        //    Debug.Log("bullet out of screen");
+        //    Destroy(gameObject);
+        //}
     }
 
     //function called when object collides

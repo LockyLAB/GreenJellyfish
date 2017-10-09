@@ -12,10 +12,10 @@ public class enemyPurpleBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (gameObject.GetComponent<Renderer>().isVisible == false)
-        {
-            Destroy(gameObject);
-        }
+       // if (gameObject.GetComponent<Renderer>().isVisible == false)
+       // {
+       //     Destroy(gameObject);
+       // }
     }
 
     void OnTriggerEnter(Collider col)
