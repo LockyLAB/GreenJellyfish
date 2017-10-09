@@ -38,7 +38,6 @@ public class CameraMove : MonoBehaviour {
 
         if (m_player2 == null)
             m_singlePlayer = true;
-
     }
 	
 	// Update is called once per frame
@@ -56,20 +55,6 @@ public class CameraMove : MonoBehaviour {
 
             offset.z = offsetZ;
             transform.position = (m_player1.transform.position + m_player2.transform.position) / 2 + offset;
-
-            ////Group players together X-Axis
-            //if (m_player1.transform.position.x - m_player2.transform.position.x > m_maxHorizontalDistance)
-            //    m_player1.transform.position -= Vector3.right * (m_player1.transform.position.x - m_player2.transform.position.x - m_maxHorizontalDistance);
-
-            //if (m_player2.transform.position.x - m_player1.transform.position.x > m_maxHorizontalDistance)
-            //    m_player2.transform.position -= Vector3.right * (m_player2.transform.position.x - m_player1.transform.position.x - m_maxHorizontalDistance);
-
-            ////Group players together Y-Axis
-            //if (m_player1.transform.position.y - m_player2.transform.position.y > m_maxHorizontalDistance)
-            //    m_player1.transform.position -= Vector3.up * (m_player1.transform.position.y - m_player2.transform.position.y - m_maxVerticalDistance);
-
-            //if (m_player2.transform.position.y - m_player1.transform.position.y > m_maxHorizontalDistance)
-            //    m_player2.transform.position -= Vector3.up * (m_player2.transform.position.y - m_player1.transform.position.y - m_maxVerticalDistance);
         }
     }
 }
