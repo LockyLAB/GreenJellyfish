@@ -10,9 +10,13 @@ public class enemyOrangeBullet : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (gameObject.GetComponent<Renderer>().isVisible == false)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     //function called when object collides
     void OnTriggerEnter(Collider col)
