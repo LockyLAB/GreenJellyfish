@@ -4,35 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< .mine
-  - playerRed
-  - playerGreen
-  - playerYellow
-  - playerPurple
-  - green
-  - purple
-  - pink
-||||||| .r89
-  - playerRed
-  - playerGreen
-  - playerYellow
-  - playerPurple
-  - yellow
-  - green
-  - purple
-  - pink
-  - red
-=======
->>>>>>> .r94
-  - Revive
-<<<<<<< .mine
-  - Orange
-  - orange
-  - yellow
-||||||| .r89
-=======
   - Enemy
->>>>>>> .r94
+  - purple
   layers:
   - Default
   - TransparentFX

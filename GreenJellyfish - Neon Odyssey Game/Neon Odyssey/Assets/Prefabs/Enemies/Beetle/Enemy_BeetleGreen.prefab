@@ -166,7 +166,7 @@ MonoBehaviour:
   m_gunBulletSpeed: 10
   m_gunTimeBetweenShots: 0.1
   m_gunCooldown: 1
-  m_bulletPrefab: {fileID: 1119797018185560, guid: 79a453ea498b0594a95cb04791d34c40,
+  m_bulletPrefab: {fileID: 1860497910865120, guid: 79a453ea498b0594a95cb04791d34c40,
     type: 2}
   m_laserFireDistance: 6
   m_laserChargeTime: 1

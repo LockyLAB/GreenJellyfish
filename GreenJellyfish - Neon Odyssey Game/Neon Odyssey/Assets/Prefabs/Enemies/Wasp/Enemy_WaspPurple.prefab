@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33443882055663720}
   - component: {fileID: 23177287586076112}
   - component: {fileID: 95238487459316384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_001_Wasp_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 54233940650650176}
   - component: {fileID: 114125273484475702}
   - component: {fileID: 135373856072766148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_WaspPurple
-  m_TagString: purple
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762125067990238}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 55.97, y: 2.9, z: -5.2988944}
+  m_LocalPosition: {x: 38.94951, y: 7.1914716, z: -5.480441}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4799102811145634}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
-  m_colour: 0
+  m_difficulty: 0
   m_moveTowardsRange: 10
   m_coneFireDistance: 6
   m_coneNumberOfBursts: 3
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_coneTimeBetweenShots: 1
   m_coneAngle: 30
   m_coneCooldown: 1
-  m_bulletPrefab: {fileID: 1075775001187784, guid: 2390efecccba3324d99100bc5f220256,
+  m_bulletPrefab: {fileID: 1006975616837836, guid: 28ca2db300e869d4e802f5f798b8f441,
     type: 2}
   m_fleeDistance: 6
   m_fleeMaxTime: 3

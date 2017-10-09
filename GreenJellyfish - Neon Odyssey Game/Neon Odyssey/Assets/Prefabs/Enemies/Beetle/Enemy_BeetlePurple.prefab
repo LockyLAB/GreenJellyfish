@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33681220033310624}
   - component: {fileID: 23110516808503272}
   - component: {fileID: 95120700267859548}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_001_Beetle_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 54748953644359696}
   - component: {fileID: 135326351268410916}
   - component: {fileID: 114504505609184542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_BeetlePurple
-  m_TagString: purple
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
-  m_colour: 1
+  m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10
   m_gunNumberOfShots: 3

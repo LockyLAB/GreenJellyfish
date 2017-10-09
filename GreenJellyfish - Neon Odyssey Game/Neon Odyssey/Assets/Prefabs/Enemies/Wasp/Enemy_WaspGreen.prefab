@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33260179264786206}
   - component: {fileID: 23761389708151378}
   - component: {fileID: 95057637891589306}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy_001_Wasp_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 54519154148594814}
   - component: {fileID: 114710135191337722}
   - component: {fileID: 135583271768345370}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy_WaspGreen
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
