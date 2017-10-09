@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrapArc : TrapBase
 {
     public float m_firingArc = 0.0f;
+
     public override void FireTrap()
     {
         Vector3 bulletDir = transform.up ;
@@ -15,7 +16,8 @@ public class TrapArc : TrapBase
 
     void FireBullet(Vector3 bulletDir)
     {
-        GameObject newBullet = Instantiate(m_bullet, this.transform.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(m_bullet, this.transform.position + m_bulletOffset, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
+
     }
 }

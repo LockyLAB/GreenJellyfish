@@ -8,7 +8,7 @@ public class TrapSingle : TrapBase
     {
         Vector3 bulletDir = transform.up;
 
-        GameObject newBullet = Instantiate(m_bullet, this.transform.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(m_bullet, this.transform.position + m_bulletOffset, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
     }
 }

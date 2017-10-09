@@ -16,10 +16,17 @@ public class TrapBase : MonoBehaviour {
     public float m_cooldown = 0.0f;
     private float m_cooldownTimer = 0.0f;
 
+    public Vector3 m_bulletOffset = Vector3.zero;
+
     public GameObject m_bullet = null;
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void Awake()
+    {
+        m_bulletOffset = transform.up * 0.5f;
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if(m_triggered)
         {
