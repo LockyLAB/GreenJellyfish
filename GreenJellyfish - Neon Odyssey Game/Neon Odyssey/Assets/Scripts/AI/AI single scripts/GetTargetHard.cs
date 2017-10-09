@@ -37,9 +37,9 @@ public class GetTargetHard : BehaviourBase
     public override BehaviourBase.BehaviourStatus Execute()
     {
         Enemy enemyClass = GetComponent<Enemy>();
-        if (enemyClass.CompareTag("EnemyPurple") || enemyClass.CompareTag("EnemyPink"))
+        if (gameObject.layer == LayerMask.NameToLayer("Purple") || gameObject.layer == LayerMask.NameToLayer("Orange"))
             enemyClass.m_target = m_player2;
-        if (enemyClass.CompareTag("EnemyOrange") || enemyClass.CompareTag("EnemyGreen"))
+        if (gameObject.layer == LayerMask.NameToLayer("Pink") || gameObject.layer == LayerMask.NameToLayer("Green"))
             enemyClass.m_target = m_player1;
 
         if (enemyClass.m_target != null)
