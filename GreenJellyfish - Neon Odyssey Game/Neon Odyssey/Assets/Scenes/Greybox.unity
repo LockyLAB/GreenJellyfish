@@ -59477,6 +59477,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114504505609184542, guid: aba7f6c1d738b1544aad179a10d35603,
+        type: 2}
+      propertyPath: m_moveTowardsRange
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504505609184542, guid: aba7f6c1d738b1544aad179a10d35603,
+        type: 2}
+      propertyPath: m_gunTimeBetweenShots
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504505609184542, guid: aba7f6c1d738b1544aad179a10d35603,
+        type: 2}
+      propertyPath: m_gunBulletSpeed
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aba7f6c1d738b1544aad179a10d35603, type: 2}
   m_IsPrefabParent: 0
