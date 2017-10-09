@@ -37,7 +37,7 @@ public class OrangeBullet : MonoBehaviour {
         }
 
         //if bullet collides with objects under "collision" layer, destroy bullet
-        if (col.gameObject.layer == 8)
+        if (col.gameObject.layer == 8 && col.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }

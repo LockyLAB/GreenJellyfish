@@ -39,7 +39,7 @@ public class PurpleBullet : MonoBehaviour
         }
 
         //if BULLET collides with WALLS, destroy bullet
-        if (col.gameObject.layer == 8)
+        if (col.gameObject.layer == 8 && col.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }

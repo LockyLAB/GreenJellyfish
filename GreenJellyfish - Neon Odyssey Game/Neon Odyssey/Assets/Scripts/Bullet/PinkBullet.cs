@@ -14,6 +14,7 @@ public class PinkBullet : MonoBehaviour {
     {
         if (gameObject.GetComponent<Renderer>().isVisible == false)
         {
+            Debug.Log("bullet out of screen");
             Destroy(gameObject);
         }
     }
@@ -37,7 +38,7 @@ public class PinkBullet : MonoBehaviour {
         }
 
         //if BULLET collides with WALLS, destroy bullet
-        if (col.gameObject.layer == 8)
+        if (col.gameObject.layer == 8 && col.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }

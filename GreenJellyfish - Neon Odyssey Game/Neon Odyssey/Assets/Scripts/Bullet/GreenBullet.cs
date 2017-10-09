@@ -38,7 +38,7 @@ public class GreenBullet : MonoBehaviour
         }
 
         //if BULLET collides with WALLS, destroy bullet
-        else if (col.gameObject.layer == 8)
+        else if (col.gameObject.layer == 8 && col.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }

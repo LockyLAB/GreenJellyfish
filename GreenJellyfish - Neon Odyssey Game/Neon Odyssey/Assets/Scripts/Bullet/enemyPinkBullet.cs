@@ -16,6 +16,7 @@ public class enemyPinkBullet : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
     }
 
     //function called when object collides
