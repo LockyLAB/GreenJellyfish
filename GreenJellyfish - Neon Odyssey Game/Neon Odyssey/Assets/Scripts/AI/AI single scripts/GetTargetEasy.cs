@@ -16,7 +16,6 @@ public class GetTargetEasy : BehaviourBase
         GameObject[] players;
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        Debug.Log(players.Length);
         //Assign player 1
         if (players[0].GetComponent<P1ColourController>() != null)
             m_player1 = players[0];
