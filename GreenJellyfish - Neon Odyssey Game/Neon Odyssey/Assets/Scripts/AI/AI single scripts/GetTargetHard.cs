@@ -37,13 +37,28 @@ public class GetTargetHard : BehaviourBase
     public override BehaviourBase.BehaviourStatus Execute()
     {
         Enemy enemyClass = GetComponent<Enemy>();
+
+        //Set target based off prefered target and distance
+        float player1TargetRank = 1.0f;
+        float player2TargetRank = 1.0f;
+
         if (gameObject.layer == LayerMask.NameToLayer("Purple") || gameObject.layer == LayerMask.NameToLayer("Orange"))
-            enemyClass.m_target = m_player2;
+            player2TargetRank = 2.0f;
         if (gameObject.layer == LayerMask.NameToLayer("Pink") || gameObject.layer == LayerMask.NameToLayer("Green"))
+            player1TargetRank = 2.0f;
+
+        player1TargetRank = 1 / Mathf.Abs(transform.position.x - m_player1.transform.position.x) * player1TargetRank;
+        player2TargetRank = 1 / Mathf.Abs(transform.position.x - m_player2.transform.position.x) * player2TargetRank;
+
+        if (player1TargetRank > player2TargetRank)
             enemyClass.m_target = m_player1;
+        else
+            enemyClass.m_target = m_player2;
 
         if (enemyClass.m_target != null)
             return BehaviourStatus.SUCCESS;
+
+        Debug.Log("Cant find a target");
         return BehaviourStatus.FAILURE;
     }
 }
