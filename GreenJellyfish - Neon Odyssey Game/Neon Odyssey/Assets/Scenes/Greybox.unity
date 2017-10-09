@@ -3231,7 +3231,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4841156729888612, guid: f225cb4cad170b44ab886ec3ab4e82dd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 14.599283
+      value: 7.45
       objectReference: {fileID: 0}
     - target: {fileID: 4841156729888612, guid: f225cb4cad170b44ab886ec3ab4e82dd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7252,12 +7252,6 @@ Prefab:
       propertyPath: otherPlayerHealth
       value: 
       objectReference: {fileID: 736557804}
-    - target: {fileID: 114352113972512410, guid: 1b23e69efe3f06e4fbafbec79c76960a,
-        type: 2}
-      propertyPath: bullet2
-      value: 
-      objectReference: {fileID: 1006975616837836, guid: 28ca2db300e869d4e802f5f798b8f441,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b23e69efe3f06e4fbafbec79c76960a, type: 2}
   m_IsPrefabParent: 0
@@ -42520,22 +42514,6 @@ Prefab:
       propertyPath: otherPlayerHealth
       value: 
       objectReference: {fileID: 62606418}
-    - target: {fileID: 1645321335930210, guid: e6efb4ca927ab0740adcaad6c7f84de3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114088592804260364, guid: e6efb4ca927ab0740adcaad6c7f84de3,
-        type: 2}
-      propertyPath: bullet1
-      value: 
-      objectReference: {fileID: 1930249082307060, guid: f8b447f7b9971674bb49ce16237d3259,
-        type: 2}
-    - target: {fileID: 114088592804260364, guid: e6efb4ca927ab0740adcaad6c7f84de3,
-        type: 2}
-      propertyPath: bullet2
-      value: 
-      objectReference: {fileID: 1655723321941524, guid: 34379b2b9f3dde647a8c34c2bfda7eba,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6efb4ca927ab0740adcaad6c7f84de3, type: 2}
   m_IsPrefabParent: 0
@@ -59447,7 +59425,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4776457349590648, guid: aba7f6c1d738b1544aad179a10d35603, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.621599
+      value: 4.19
       objectReference: {fileID: 0}
     - target: {fileID: 4776457349590648, guid: aba7f6c1d738b1544aad179a10d35603, type: 2}
       propertyPath: m_LocalPosition.y
@@ -59475,7 +59453,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4776457349590648, guid: aba7f6c1d738b1544aad179a10d35603, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114504505609184542, guid: aba7f6c1d738b1544aad179a10d35603,
         type: 2}
