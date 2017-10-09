@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4959883255353772}
   - component: {fileID: 54159040784823920}
   - component: {fileID: 136238592093209964}
+  - component: {fileID: 114952940446452618}
   m_Layer: 0
   m_Name: Bullet_Enemy_Purple
   m_TagString: Untagged
@@ -144,6 +145,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114952940446452618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950105795595210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b267ec39efe5594c9d9e8b132fafdba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136238592093209964
 CapsuleCollider:
   m_ObjectHideFlags: 1

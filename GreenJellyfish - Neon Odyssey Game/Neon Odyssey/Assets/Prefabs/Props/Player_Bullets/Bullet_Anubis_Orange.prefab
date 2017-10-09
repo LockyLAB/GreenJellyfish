@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4238164629168344}
   - component: {fileID: 54127596912807830}
   - component: {fileID: 135792052101930802}
+  - component: {fileID: 114520447554773842}
   m_Layer: 0
   m_Name: Bullet_Anubis_Orange
   m_TagString: Untagged
@@ -144,6 +145,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114520447554773842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402376252437178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31ba514957195a45857462f8f76c84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135792052101930802
 SphereCollider:
   m_ObjectHideFlags: 1

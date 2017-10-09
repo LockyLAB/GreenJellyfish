@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762125067990238}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 38.94951, y: 7.1914716, z: -5.480441}
+  m_LocalPosition: {x: 54.577835, y: 3.3614717, z: -5.5088944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4799102811145634}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_coneTimeBetweenShots: 1
   m_coneAngle: 30
   m_coneCooldown: 1
-  m_bulletPrefab: {fileID: 1006975616837836, guid: 28ca2db300e869d4e802f5f798b8f441,
+  m_bulletPrefab: {fileID: 1950105795595210, guid: 3248be26e468bcd4e9eb930976279c89,
     type: 2}
   m_fleeDistance: 6
   m_fleeMaxTime: 3

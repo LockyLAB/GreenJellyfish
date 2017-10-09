@@ -167,7 +167,7 @@ MonoBehaviour:
   m_coneTimeBetweenShots: 1
   m_coneAngle: 30
   m_coneCooldown: 1
-  m_bulletPrefab: {fileID: 1119797018185560, guid: 79a453ea498b0594a95cb04791d34c40,
+  m_bulletPrefab: {fileID: 1860497910865120, guid: 79a453ea498b0594a95cb04791d34c40,
     type: 2}
   m_fleeDistance: 6
   m_fleeMaxTime: 3

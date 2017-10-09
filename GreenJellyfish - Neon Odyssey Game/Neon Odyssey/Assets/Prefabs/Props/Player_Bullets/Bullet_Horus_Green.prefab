@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4947123217481884}
   - component: {fileID: 54084250841743798}
   - component: {fileID: 65377960573364404}
+  - component: {fileID: 114595829493168574}
   m_Layer: 0
   m_Name: Bullet_Horus_Green
   m_TagString: Untagged
@@ -156,3 +157,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114595829493168574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569081994923078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080bee280182fa47af06fb848fd3d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

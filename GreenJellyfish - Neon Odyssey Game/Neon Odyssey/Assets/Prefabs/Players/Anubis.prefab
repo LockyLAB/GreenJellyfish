@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.92, y: -2.94, z: 0.86}
+  m_LocalPosition: {x: -41, y: -3.01, z: 0.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4680599972317566}
@@ -209,6 +209,9 @@ MonoBehaviour:
   health: 4
   player: {fileID: 114633135974184984}
   otherPlayerHealth: {fileID: 0}
+  isReviving: 0
+  reviveTime: 2
+  timer: 0
 --- !u!114 &114239747044172402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,8 +245,8 @@ MonoBehaviour:
   fireRate: 0.2
   player: {fileID: 114633135974184984}
   Aim: {x: 0, y: 0, z: 0}
-  bullet1: {fileID: 1751041828633744, guid: d7042728081d43f4d83e222b1b0f614c, type: 2}
-  bullet2: {fileID: 1280432890904092, guid: 01936c2fe197c934f91dcb27aa3e3aff, type: 2}
+  bullet1: {fileID: 1402376252437178, guid: ff1eb85ffbe8d984a9902af7cb2cc5b3, type: 2}
+  bullet2: {fileID: 1006975616837836, guid: 28ca2db300e869d4e802f5f798b8f441, type: 2}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   controller: 1

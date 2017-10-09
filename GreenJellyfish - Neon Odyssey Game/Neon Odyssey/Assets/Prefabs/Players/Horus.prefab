@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1851657293237850
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,8 +228,8 @@ MonoBehaviour:
   fireRate: 0.2
   player: {fileID: 114395703970050262}
   Aim: {x: 0, y: 0, z: 0}
-  bullet1: {fileID: 1066155163369194, guid: ff65fb142c1313543948d521ca1f87b4, type: 2}
-  bullet2: {fileID: 1768293918512196, guid: b5bb55d480dcb2a42a8c8ccb9fa6c205, type: 2}
+  bullet1: {fileID: 1569081994923078, guid: ba6cd111465f9434c9b00647aa138d1c, type: 2}
+  bullet2: {fileID: 1848934301281392, guid: f84540e5c7fb0124eb60dbc8f923ae76, type: 2}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   controller: 2
@@ -247,6 +247,9 @@ MonoBehaviour:
   health: 4
   player: {fileID: 114395703970050262}
   otherPlayerHealth: {fileID: 0}
+  isReviving: 0
+  reviveTime: 2
+  timer: 0
 --- !u!114 &114395703970050262
 MonoBehaviour:
   m_ObjectHideFlags: 1

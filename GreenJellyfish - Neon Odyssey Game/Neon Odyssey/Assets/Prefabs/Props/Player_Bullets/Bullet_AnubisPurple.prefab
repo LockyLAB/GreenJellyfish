@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4602927042519798}
   - component: {fileID: 135139345075424458}
   - component: {fileID: 54382816432208798}
+  - component: {fileID: 114113641841858374}
   m_Layer: 0
   m_Name: Bullet_AnubisPurple
   m_TagString: Untagged
@@ -144,6 +145,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114113641841858374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006975616837836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397bc93241230fa40996d3fbece66260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135139345075424458
 SphereCollider:
   m_ObjectHideFlags: 1
