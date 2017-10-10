@@ -31,21 +31,21 @@ public class Player2Health : MonoBehaviour {
     {
     
 
-        //if (health <= 0)
-        //{
-        //    player.isDead = true;
-        //    player.gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 90.0f));
+        if (health <= 0)
+        {
+            player.isDead = true;
+            
 
-        //}
-        //else
-        //{
-        //    player.isDead = false;
-        //    player.gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
-        //}
+        }
+        else
+        {
+            player.isDead = false;
+            
+        }
 
 
 
-        if(isReviving && XCI.GetButton(XboxButton.A))
+        if(isReviving && XCI.GetButton(XboxButton.A) && !player.isDead)
         {
             timer += Time.deltaTime;
 

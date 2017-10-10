@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
 	Raycast m_Raycast;
     public CollisionInfo m_CollisionInfo;
 
+
+
     void Start ()
     {
         m_Collider = GetComponent<CapsuleCollider>();
@@ -247,7 +249,7 @@ public class PlayerController : MonoBehaviour {
         if (transform.position.y + Velocity.y - m_otherPlayer.transform.position.y < -m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance)
             Velocity.y -= transform.position.y + Velocity.y - m_otherPlayer.transform.position.y + m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance;
         //////////////////
-
+       
         transform.Translate(Velocity);
     }
 
