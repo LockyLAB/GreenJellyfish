@@ -12,7 +12,6 @@ public class enemyPurpleBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Destroy(gameObject, 1.75f);
         if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
         {
             Destroy(gameObject);

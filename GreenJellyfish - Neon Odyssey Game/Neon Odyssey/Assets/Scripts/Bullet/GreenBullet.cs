@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GreenBullet : MonoBehaviour
 {
-
+    public float BulletTimer = 2.0f;
     // Use this for initialization
     void Start()
     {
@@ -14,6 +14,7 @@ public class GreenBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Destroy(gameObject, BulletTimer);
         if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
         {
             Destroy(gameObject);

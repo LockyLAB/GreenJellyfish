@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PurpleBullet : MonoBehaviour
 {
-
+    public float BulletTimer = 2.0f;
     // Use this for initialization
     void Start()
     {
@@ -14,7 +14,7 @@ public class PurpleBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 1.75f);
+        Destroy(gameObject, BulletTimer);
         if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
         {
             Destroy(gameObject);

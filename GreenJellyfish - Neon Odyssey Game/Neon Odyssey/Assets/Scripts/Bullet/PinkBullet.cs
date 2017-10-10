@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PinkBullet : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public float BulletTimer = 2.0f;
+    // Use this for initialization
+    void Start () {
    
 	}
 	
 	// Update is called once per frame
 	void Update()
     {
-        Destroy(gameObject, 1.75f);
+        Destroy(gameObject, BulletTimer);
         if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
         {
             Destroy(gameObject);
