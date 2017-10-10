@@ -17,6 +17,9 @@ public class Player2Health : MonoBehaviour {
 
     public float timer = 0;
 
+    public int healthGivenByPickup = 3;
+
+
     // Use this for initialization
     void Start()
     {
@@ -71,7 +74,11 @@ public class Player2Health : MonoBehaviour {
         {
             isReviving = true;
         }
-
+        if (other.gameObject.tag == "HealthPickup")
+        {
+            Destroy(other.gameObject);
+            health += healthGivenByPickup;
+        }
 
 
     }

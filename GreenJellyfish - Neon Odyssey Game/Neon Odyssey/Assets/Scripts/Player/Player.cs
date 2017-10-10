@@ -6,16 +6,16 @@ using XboxCtrlrInput;
 public class Player : MonoBehaviour {
 
     private float maxJumpHeight = 4;
-    private float minJumpHeight = 1;
+
     private float timeToJumpApex = 0.4f;
 
-
+    
 
     public float moveSpeed = 10;
     public float gravity;
 
     public float maxJumpVelocity = 10;
-    private float minJumpVelocity;
+   
 
 
     public Vector2 wallClimb = new Vector2(7.5f, 14);
@@ -35,15 +35,13 @@ public class Player : MonoBehaviour {
 
     Vector2 m_Velocity;
 
-    bool isRed = true;
-
-
+   
     public bool isDead = false;
 
     PlayerController m_Controller;
 
 
-
+    
 
 
 
@@ -55,7 +53,7 @@ public class Player : MonoBehaviour {
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+        
 
 
     }
@@ -161,21 +159,23 @@ public class Player : MonoBehaviour {
             }
 
         }
-    
-    m_Controller.Move(m_Velocity * Time.deltaTime);
 
-    }
 
-    void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.layer == 13 && m_Controller.m_CollisionInfo.bottom)
+
+        if (Physics.Raycast(this.transform.position, Vector3.down, LayerMask.GetMask("Platform")))
         {
-            m_Velocity.y = 0;
+            if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1)
+            {
+                this.transform.Translate(Vector3.down * 0.2f);
+            }
         }
-
-
-
+        
+        
+    m_Controller.Move(m_Velocity * Time.deltaTime);
+   
     }
+    
+
 
 
 }

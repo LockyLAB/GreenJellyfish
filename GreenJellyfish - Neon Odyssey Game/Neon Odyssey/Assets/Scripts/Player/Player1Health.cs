@@ -16,10 +16,11 @@ public class Player1Health : MonoBehaviour {
 
     public float timer = 0;
 
+    public int healthGivenByPickup = 3;
 
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         isReviving = false;
         player = player.GetComponent<Player>();
@@ -31,10 +32,18 @@ public class Player1Health : MonoBehaviour {
 	void Update ()
     {
    
-        
+        if(health > 4)
+        {
+            health = 4;
+        }
+        if(health < 0)
+        {
+            health = 0;
+        }
 
 	    if(health <= 0)
        {
+           health = 0;
            player.isDead = true;
        }
        else
@@ -65,16 +74,23 @@ public class Player1Health : MonoBehaviour {
 
     }
   
-        void OnTriggerEnter(Collider other)
-    {
-            if (other.gameObject.tag == "Player2Revive" && otherPlayerHealth.health <= 0)
-            {
-                isReviving = true;
-            }
-
-
-
+   void OnTriggerEnter(Collider other)
+   {
+        if (other.gameObject.tag == "Player2Revive" && otherPlayerHealth.health <= 0)
+        {
+            isReviving = true;
         }
+
+        if (other.gameObject.tag == "HealthPickup")
+        {
+            Destroy(other.gameObject);
+            health += healthGivenByPickup;
+        }
+
+
+
+    }
+
         void OnTriggerExit(Collider other)
     {
             if (other.gameObject.tag == "Player2Revive" && otherPlayerHealth.health <= 0)
