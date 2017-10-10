@@ -65,11 +65,11 @@ public class PlayerController : MonoBehaviour {
     {
 		Bounds boundingBox = m_Collider.bounds;
 		boundingBox.Expand (skinWidth * -2);
-
-		m_Raycast.bottomLeft = new Vector3 (boundingBox.min.x, boundingBox.min.y);
-        m_Raycast.bottomRight = new Vector3 (boundingBox.max.x, boundingBox.min.y);
-        m_Raycast.topLeft = new Vector3 (boundingBox.min.x, boundingBox.max.y);
-        m_Raycast.topRight = new Vector3 (boundingBox.max.x, boundingBox.max.y);
+        
+		m_Raycast.bottomLeft = new Vector3 (boundingBox.min.x, boundingBox.min.y, boundingBox.center.z);
+        m_Raycast.bottomRight = new Vector3 (boundingBox.max.x, boundingBox.min.y, boundingBox.center.z);
+        m_Raycast.topLeft = new Vector3 (boundingBox.min.x, boundingBox.max.y, boundingBox.center.z);
+        m_Raycast.topRight = new Vector3 (boundingBox.max.x, boundingBox.max.y, boundingBox.center.z);
 	}
 
     void HorizontalCollisions(ref Vector3 Velocity)
