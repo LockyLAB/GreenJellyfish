@@ -15827,6 +15827,10 @@ Prefab:
       propertyPath: playerMaterial.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 7fd9b2be5ff28e5418e5ce9a878669fe, type: 2}
+    - target: {fileID: 1920528652086176, guid: f1fbd285a8520894591720637555a5a0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1fbd285a8520894591720637555a5a0, type: 2}
   m_IsPrefabParent: 0
@@ -25182,10 +25186,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5765eef10121c0f4ea421ede5587c741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_singlePlayer: 0
+  m_player1: {fileID: 0}
+  m_player2: {fileID: 0}
   offset: {x: 1, y: 3, z: -10}
   m_zoomMin: 10
   m_zoomSpeed: 0.02
-  m_maxHorizontalDistance: 50
+  m_maxHorizontalDistance: 20
   m_maxVerticalDistance: 14
 --- !u!1001 &852931939
 Prefab:
@@ -33011,6 +33018,10 @@ Prefab:
       propertyPath: playerMaterial.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 03148e9ed2ab8994696667024a326805, type: 2}
+    - target: {fileID: 1525007290887786, guid: 2c857fe68673c5946b5ae6f0c8d7a6d1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c857fe68673c5946b5ae6f0c8d7a6d1, type: 2}
   m_IsPrefabParent: 0
