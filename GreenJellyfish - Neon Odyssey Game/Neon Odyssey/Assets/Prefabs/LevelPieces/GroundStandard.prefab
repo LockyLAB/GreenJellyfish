@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4907994168462700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundStandard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866682242126648}
   - component: {fileID: 65159927512582898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 33245447208475876}
   - component: {fileID: 23661843141747172}
   - component: {fileID: 95801191004139994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground_001_Crypt_001_Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

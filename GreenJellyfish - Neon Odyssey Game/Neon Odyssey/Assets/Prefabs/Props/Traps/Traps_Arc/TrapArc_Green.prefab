@@ -67,15 +67,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104497668380602}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 16.915152, y: 6.076207, z: -33.905373}
+  m_LocalRotation: {x: -0, y: -0, z: 0.000000104308114, w: 1}
+  m_LocalPosition: {x: 147.59, y: 10.98, z: 0.853}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4561424734455726}
   - {fileID: 4538300540784130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4538300540784130
 Transform:
   m_ObjectHideFlags: 1
@@ -149,7 +149,7 @@ BoxCollider:
   m_GameObject: {fileID: 1319537631906742}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -185,5 +185,6 @@ MonoBehaviour:
   m_bulletSpeed: 4
   m_timeBetweenShots: 0.2
   m_cooldown: 2
-  m_bullet: {fileID: 1119797018185560, guid: 79a453ea498b0594a95cb04791d34c40, type: 2}
+  m_bulletOffset: {x: 0, y: 0, z: 0}
+  m_bullet: {fileID: 1860497910865120, guid: 79a453ea498b0594a95cb04791d34c40, type: 2}
   m_firingArc: 60
