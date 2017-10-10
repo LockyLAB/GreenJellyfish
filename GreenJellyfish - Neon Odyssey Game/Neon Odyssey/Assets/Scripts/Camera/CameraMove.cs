@@ -48,13 +48,6 @@ public class CameraMove : MonoBehaviour {
             transform.position = m_player1.transform.position + offset;
         //Multiplayer
         else
-        {
-            //Zoom in offset
-            float x = (m_player1.transform.position - m_player2.transform.position).magnitude;
-            float offsetZ = -m_zoomSpeed*(x * x) - m_zoomMin;
-
-            offset.z = offsetZ;
             transform.position = (m_player1.transform.position + m_player2.transform.position) / 2 + offset;
-        }
     }
 }

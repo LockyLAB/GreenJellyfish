@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using XboxCtrlrInput;
 
@@ -48,6 +49,10 @@ public class GameManager : MonoBehaviour
             else
                 Time.timeScale = 1.0f;
         }
+
+        //Reset Scene
+        if (XCI.GetButtonDown(XboxButton.Back))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         //User interface updates
         //Player1
