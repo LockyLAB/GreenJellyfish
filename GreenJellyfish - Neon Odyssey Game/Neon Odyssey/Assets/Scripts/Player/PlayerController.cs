@@ -36,24 +36,6 @@ public class PlayerController : MonoBehaviour {
         RayWidth();
 
         ///////////////////
-        GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        if (GetComponent<P1ColourController>() != null) // this is player 1
-        {
-            if (players[0].GetComponent<P2ColourController>() != null)
-                m_otherPlayer = players[0];
-            else if (players[1].GetComponent<P2ColourController>() != null)
-                m_otherPlayer = players[1];
-        }
-        if (GetComponent<P2ColourController>() != null) // this is player 2
-        {
-            if (players[0].GetComponent<P1ColourController>() != null)
-                m_otherPlayer = players[0];
-            else if (players[1].GetComponent<P1ColourController>() != null)
-                m_otherPlayer = players[1];
-        }
-
         m_mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         ////////////////////
     }
@@ -235,19 +217,22 @@ public class PlayerController : MonoBehaviour {
         }
 
         ///////////////////
-        //Group players together X-Axis
-        if (transform.position.x + Velocity.x - m_otherPlayer.transform.position.x > m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance)
-            Velocity.x -= transform.position.x + Velocity.x - m_otherPlayer.transform.position.x - m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance;
+        if (!m_mainCamera.GetComponent<CameraMove>().m_singlePlayer)
+        {
+            //Group players together X-Axis
+            if (transform.position.x + Velocity.x - m_otherPlayer.transform.position.x > m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance)
+                Velocity.x -= transform.position.x + Velocity.x - m_otherPlayer.transform.position.x - m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance;
 
-        if (transform.position.x + Velocity.x - m_otherPlayer.transform.position.x < -m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance)
-            Velocity.x -= transform.position.x + Velocity.x - m_otherPlayer.transform.position.x + m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance;
+            if (transform.position.x + Velocity.x - m_otherPlayer.transform.position.x < -m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance)
+                Velocity.x -= transform.position.x + Velocity.x - m_otherPlayer.transform.position.x + m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance;
 
-        //Group players together Y-Axis
-        if (transform.position.y + Velocity.y - m_otherPlayer.transform.position.y > m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance)
-            Velocity.y -= transform.position.y + Velocity.y - m_otherPlayer.transform.position.y - m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance;
+            //Group players together Y-Axis
+            if (transform.position.y + Velocity.y - m_otherPlayer.transform.position.y > m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance)
+                Velocity.y -= transform.position.y + Velocity.y - m_otherPlayer.transform.position.y - m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance;
 
-        if (transform.position.y + Velocity.y - m_otherPlayer.transform.position.y < -m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance)
-            Velocity.y -= transform.position.y + Velocity.y - m_otherPlayer.transform.position.y + m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance;
+            if (transform.position.y + Velocity.y - m_otherPlayer.transform.position.y < -m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance)
+                Velocity.y -= transform.position.y + Velocity.y - m_otherPlayer.transform.position.y + m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance;
+        }
         //////////////////
        
         transform.Translate(Velocity);

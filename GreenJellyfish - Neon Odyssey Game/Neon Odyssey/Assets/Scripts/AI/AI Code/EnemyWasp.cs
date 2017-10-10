@@ -25,7 +25,7 @@ public class EnemyWasp : Enemy {
     //Nodes
     private BehaviourSequence m_sequenceTop;
 
-    private GetTargetEasy m_actionGetTarget;
+    private BehaviourBase m_actionGetTarget;
 
     private BehaviourSelector m_selectorActions;
 
@@ -46,8 +46,6 @@ public class EnemyWasp : Enemy {
         //Set up varibles
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 
-        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
-
         m_selectorActions = gameObject.AddComponent<BehaviourSelector>();
 
         m_sequenceCone = gameObject.AddComponent<BehaviourSequence>();
@@ -60,6 +58,15 @@ public class EnemyWasp : Enemy {
 
         m_actionGetDisMovement = gameObject.AddComponent<IsTargetCloseEnoughX>();
         m_actionMovetowards = gameObject.AddComponent<MoveTowardsTargetX>();
+
+        //Set up get target
+        GameObject[] players;
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        if (players.Length == 1)
+            m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
+        else
+            m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
 
         //Cone
         m_actionGetDisCone.m_targetDistance = m_coneFireDistance;

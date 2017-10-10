@@ -53,8 +53,6 @@ public class EnemyBeetle : Enemy
         //Set up varibles
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 
-        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
-
         m_selectorActions = gameObject.AddComponent<BehaviourSelector>();
 
         m_sequenceLaser = gameObject.AddComponent<BehaviourSequence>();
@@ -71,6 +69,15 @@ public class EnemyBeetle : Enemy
 
         m_actionGetDisMovement = gameObject.AddComponent<IsTargetCloseEnough>();
         m_actionMovetowards = gameObject.AddComponent<MoveTowardsTarget>();
+
+        //Set up get target
+        GameObject[] players;
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        if (players.Length == 1)
+            m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
+        else
+            m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
 
         //Gun
         m_actionGetDisGun.m_targetDistance = m_gunFireDistance;

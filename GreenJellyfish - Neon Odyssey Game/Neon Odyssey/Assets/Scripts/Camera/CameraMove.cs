@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour {
 
-    private bool m_singlePlayer = false;
+    public bool m_singlePlayer = false;
 
-    private GameObject m_player1 = null;
+    public GameObject m_player1 = null;
 
-    private GameObject m_player2 = null;
+    public GameObject m_player2 = null;
 
     public Vector3 offset = new Vector3(0, 1.0f, -10);
 
