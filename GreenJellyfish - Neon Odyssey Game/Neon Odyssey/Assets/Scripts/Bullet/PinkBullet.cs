@@ -12,9 +12,9 @@ public class PinkBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
     {
+        Destroy(gameObject, 1.75f);
         if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
         {
-            Debug.Log("bullet out of camera");
             Destroy(gameObject);
         }
     }

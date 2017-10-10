@@ -22,7 +22,6 @@ public class FireLaserbeam : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        Debug.Log("Firing Laser");
 
         if (m_behaviourSetup)
         {

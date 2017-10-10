@@ -17,7 +17,6 @@ public class CoolDown : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        Debug.Log("Cooldown");
 
         if (m_behaviourSetup)
         {
