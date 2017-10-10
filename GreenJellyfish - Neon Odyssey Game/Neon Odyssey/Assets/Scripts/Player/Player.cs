@@ -162,13 +162,13 @@ public class Player : MonoBehaviour {
 
 
 
-        if (Physics.Raycast(this.transform.position, Vector3.down, LayerMask.GetMask("Platform")))
-        {
-            if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1)
-            {
-                this.transform.Translate(Vector3.down * 0.2f);
-            }
-        }
+        //if (Physics.Raycast(this.transform.position, Vector3.down, LayerMask.GetMask("Platform")))
+        //{
+        //    if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1)
+        //    {
+        //        this.transform.Translate(Vector3.down * 0.2f);
+        //    }
+        //}
         
         
     m_Controller.Move(m_Velocity * Time.deltaTime);
