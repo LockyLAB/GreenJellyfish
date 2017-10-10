@@ -22,7 +22,7 @@ public class TrapBase : MonoBehaviour {
 
     private void Awake()
     {
-        m_bulletOffset = transform.up * 0.5f;
+        m_bulletOffset = transform.up * 1.0f;
     }
 
     // Update is called once per frame
