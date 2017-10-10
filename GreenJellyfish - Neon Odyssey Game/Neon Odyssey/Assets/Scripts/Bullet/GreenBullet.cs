@@ -14,7 +14,10 @@ public class GreenBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Destroy(gameObject, 4.0f);
+        if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider col)

@@ -14,7 +14,11 @@ public class PurpleBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Destroy(gameObject, 4.0f);
+        if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
+        {
+            Debug.Log("bullet out of camera");
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider col)

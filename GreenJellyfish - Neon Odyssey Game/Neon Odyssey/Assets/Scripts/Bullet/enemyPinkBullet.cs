@@ -10,9 +10,12 @@ public class enemyPinkBullet : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void Update()
     {
-        //Destroy(gameObject, 4.0f);
+        if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //function called when object collides
@@ -24,7 +27,7 @@ public class enemyPinkBullet : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //if BULLET collides with WALLS, destroy bullet
+        //if BULLET collides with WALLS, destroy BULLET
         if (col.gameObject.layer == 8)
         {
             Destroy(gameObject);

@@ -20,7 +20,8 @@ public class CharController : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         Cursor.lockState = CursorLockMode.Locked;
         //bc = GetComponentInChildren<BulletController>();
         //img = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Image>();

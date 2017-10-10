@@ -12,7 +12,10 @@ public class enemyPurpleBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //Destroy(gameObject, 4.0f);
+        if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider col)
@@ -23,7 +26,7 @@ public class enemyPurpleBullet : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //if BULLET collides with WALLS, destroy bullet
+        //if BULLET collides with WALLS, destroy BULLET
         if (col.gameObject.layer == 8)
         {
             Destroy(gameObject);

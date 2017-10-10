@@ -12,7 +12,10 @@ public class enemyOrangeBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //Destroy(gameObject, 4.0f);
+        if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //function called when object collides
@@ -24,7 +27,7 @@ public class enemyOrangeBullet : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //if BULLET collides with WALLS, destroy bullet
+        //if BULLET collides with WALLS, destroy BULLET
         if (col.gameObject.layer == 8)
         {
             Destroy(gameObject);
