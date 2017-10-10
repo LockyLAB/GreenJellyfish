@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyPurpleBullet : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class enemyPurpleBullet : MonoBehaviour
+{
+    // Use this for initialization
+	void Start ()
+    {
        
 	}
 	

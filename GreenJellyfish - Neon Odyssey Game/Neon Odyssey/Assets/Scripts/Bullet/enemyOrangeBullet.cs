@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyOrangeBullet : MonoBehaviour {
-
+public class enemyOrangeBullet : MonoBehaviour
+{ 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
