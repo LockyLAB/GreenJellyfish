@@ -42,18 +42,20 @@ public class PlayerController : MonoBehaviour {
         GameObject[] players;
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        if(players.Length > 1)
-        //Assign player 1
-        if (players[0].GetComponent<P1ColourController>() != null)
+        if (players.Length > 1)
+        {
+            //Assign player 1
+            if (players[0].GetComponent<P1ColourController>() != null)
                 m_otherPlayer = players[1];
-        else if (players[1].GetComponent<P1ColourController>() != null)
+            else if (players[1].GetComponent<P1ColourController>() != null)
                 m_otherPlayer = players[0];
 
-        //Assign player 1
-        if (players[0].GetComponent<P2ColourController>() != null)
-            m_otherPlayer = players[1];
-        else if (players[1].GetComponent<P2ColourController>() != null)
-            m_otherPlayer = players[0];
+            //Assign player 2
+            if (players[0].GetComponent<P2ColourController>() != null)
+                m_otherPlayer = players[1];
+            else if (players[1].GetComponent<P2ColourController>() != null)
+                m_otherPlayer = players[0];
+        }
         ////////////////////
     }
 
