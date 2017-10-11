@@ -5,16 +5,16 @@ using XboxCtrlrInput;
 [RequireComponent(typeof(PlayerController))]
 public class Player : MonoBehaviour {
 
-    private float maxJumpHeight = 4;
+    public float maxJumpHeight = 4;
 
-    private float timeToJumpApex = 0.4f;
+    public float timeToJumpApex = 0.4f;
 
     
 
     public float moveSpeed = 10;
     public float gravity;
 
-    public float maxJumpVelocity = 10;
+    private float maxJumpVelocity = 10;
    
 
 
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
 
     bool isFalling;
     bool isSticking = false;
-    float wallDropTime = 0.0f;
+    public float wallDropTime = 0.0f;
 
 
     float accelerationTime = 0.1f;
