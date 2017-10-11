@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645321335930210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.915571, y: -8.224096, z: 0}
+  m_LocalPosition: {x: -32.615555, y: -8.224098, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4640441216817618}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFiring: 0
   bulletSpeed: 1000
-  fireRate: 0.2
+  fireRate: 0.1
   player: {fileID: 114395703970050262}
   Aim: {x: 0, y: 0, z: 0}
   bullet1: {fileID: 1569081994923078, guid: ba6cd111465f9434c9b00647aa138d1c, type: 2}
@@ -289,12 +289,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9d398e937405040a818aac0ab65356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxJumpHeight: 4
+  timeToJumpApex: 0.4
   moveSpeed: 12
   gravity: -35
-  maxJumpVelocity: 20
   wallClimb: {x: 0, y: 0}
   wallDrop: {x: 3, y: 5}
   wallLeap: {x: 14, y: 20}
+  wallDropTime: 10
   controller: 2
   isDead: 0
 --- !u!114 &114477387855416888
