@@ -45,16 +45,22 @@ public class PlayerController : MonoBehaviour {
         if (players.Length > 1)
         {
             //Assign player 1
-            if (players[0].GetComponent<P1ColourController>() != null)
-                m_otherPlayer = players[1];
-            else if (players[1].GetComponent<P1ColourController>() != null)
-                m_otherPlayer = players[0];
+            if (this.GetComponent<P1ColourController>() != null)
+            {
+                if (players[0].GetComponent<P2ColourController>() != null)
+                    m_otherPlayer = players[0];
+                if (players[1].GetComponent<P2ColourController>() != null)
+                    m_otherPlayer = players[1];
+            }
 
             //Assign player 2
-            if (players[0].GetComponent<P2ColourController>() != null)
-                m_otherPlayer = players[1];
-            else if (players[1].GetComponent<P2ColourController>() != null)
-                m_otherPlayer = players[0];
+            if (this.GetComponent<P2ColourController>() != null)
+            {
+                if (players[0].GetComponent<P1ColourController>() != null)
+                    m_otherPlayer = players[0];
+                if (players[1].GetComponent<P1ColourController>() != null)
+                    m_otherPlayer = players[1];
+            }
         }
         ////////////////////
     }
