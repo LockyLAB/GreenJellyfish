@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33573106091960364}
   - component: {fileID: 23467101985483550}
   - component: {fileID: 95254581016292772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trap_001_Crypt_001_Arc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4913858184070258}
   - component: {fileID: 65961998046352878}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4149229563659498}
   - component: {fileID: 114994127008665518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TrapArc_Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

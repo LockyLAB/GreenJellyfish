@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4673968672448812}
   - component: {fileID: 114922494777546156}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TrapStraight_Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33496355262693146}
   - component: {fileID: 23285326523569912}
   - component: {fileID: 95855016405277554}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trap_001_Crypt_001_Straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4599317060474984}
   - component: {fileID: 65871329597183276}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

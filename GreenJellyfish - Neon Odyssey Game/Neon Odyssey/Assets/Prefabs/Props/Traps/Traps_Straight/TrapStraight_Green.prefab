@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4883308950983134}
   - component: {fileID: 114257591058215814}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TrapStraight_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33265023538692248}
   - component: {fileID: 23448347039904416}
   - component: {fileID: 95506518557699536}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trap_001_Crypt_001_Straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
