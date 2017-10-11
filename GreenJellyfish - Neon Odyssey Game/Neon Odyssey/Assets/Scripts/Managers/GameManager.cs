@@ -9,6 +9,7 @@ using XboxCtrlrInput;
 public class GameManager : MonoBehaviour
 {
     public Canvas m_pauseCanvas;
+    public Canvas m_gameoverCanvas;
 
     private Player1Health m_playerRef;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
             m_playerRef = players[1].GetComponentInChildren<Player1Health>();
 
         m_pauseCanvas.gameObject.SetActive(m_menuVis);
+        m_gameoverCanvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         //Reset Scene
         if (XCI.GetButtonDown(XboxButton.Back))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ReloadCurrentScene();
 
         //User interface updates
         //Player1
@@ -92,5 +94,19 @@ public class GameManager : MonoBehaviour
                 m_player2HealthImage[i].GetComponent<CanvasRenderer>().SetAlpha(1.0f);
             }
         }
+
+        //Gameover State
+
+        if(m_player1Health <=0.0f && m_player2Health <=0.0f)
+        {
+            m_gameoverCanvas.gameObject.SetActive(true);
+            Invoke("ReloadCurrentScene", 3.0f);
+        }
     }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }
