@@ -8,8 +8,8 @@ using XboxCtrlrInput;
 
 public class GameManager : MonoBehaviour
 {
-    public Canvas m_pauseCanvas;
-    public Canvas m_gameoverCanvas;
+    public GameObject m_pausePanel;
+    public GameObject m_gameoverPanel;
 
     private Player1Health m_playerRef;
 
@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     private int m_player1Health = 4;
     private int m_player2Health = 4;
 
-    private bool m_menuVis = false;
 
     // Use this for initialization
     void Awake()
@@ -33,29 +32,13 @@ public class GameManager : MonoBehaviour
         else if (players[1].GetComponentInChildren<Player1Health>() != null)
             m_playerRef = players[1].GetComponentInChildren<Player1Health>();
 
-        m_pauseCanvas.gameObject.SetActive(m_menuVis);
-        m_gameoverCanvas.gameObject.SetActive(false);
+        m_pausePanel.SetActive(false);
+        m_gameoverPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Pausing Screen
-        if (Input.GetKeyDown(KeyCode.Escape) || XCI.GetButtonDown(XboxButton.Start))
-        {
-            m_menuVis = !m_menuVis;
-            m_pauseCanvas.gameObject.SetActive(m_menuVis);
-
-            if (m_menuVis)
-                Time.timeScale = 0.0f;
-            else
-                Time.timeScale = 1.0f;
-        }
-
-        //Reset Scene
-        if (XCI.GetButtonDown(XboxButton.Back))
-            ReloadCurrentScene();
-
         //User interface updates
         //Player1
         if (m_player1Health != m_playerRef.health)
@@ -96,17 +79,21 @@ public class GameManager : MonoBehaviour
         }
 
         //Gameover State
-
         if(m_player1Health <=0.0f && m_player2Health <=0.0f)
         {
-            m_gameoverCanvas.gameObject.SetActive(true);
-            Invoke("ReloadCurrentScene", 3.0f);
+            m_gameoverPanel.SetActive(true);
+            Time.timeScale = 0.0f;
         }
-    }
 
-    public void ReloadCurrentScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+        //Pausing Screen
+        if (Input.GetKeyDown(KeyCode.Escape) || XCI.GetButtonDown(XboxButton.Start))
+        {
+            m_pausePanel.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
 
+        //Reset Scene
+        if (XCI.GetButtonDown(XboxButton.Back))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
