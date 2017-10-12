@@ -29,9 +29,9 @@ public class Enemy : MonoBehaviour {
         BehaviourBase.BehaviourStatus State = m_initalBehaviour.Execute();
     }
 
-    void PlayDeath()
+    public void PlayDeath()
     {
-        if(m_deathEffect !=null)
+        if (m_deathEffect !=null)
         {
             Instantiate(m_deathEffect, transform.position, Quaternion.identity);
             Destroy(this);
