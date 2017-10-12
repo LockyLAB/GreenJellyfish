@@ -16,10 +16,10 @@ public class GameManager : MonoBehaviour
     public List<Image> m_player1HealthImage;
     public List<Image> m_player2HealthImage;
 
-    private int m_player1Health = 4;
-    private int m_player2Health = 4;
+    private int m_player1Health = 0;
+    private int m_player2Health = 0;
 
-
+    private bool m_singlePlayer = false;
     // Use this for initialization
     void Awake()
     {
@@ -27,10 +27,18 @@ public class GameManager : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
 
         //Assign player 1
-        if (players[0].GetComponentInChildren<Player1Health>() != null)
+        if (players.Length > 1)
+        {
+            if (players[0].GetComponentInChildren<Player1Health>() != null)
+                m_playerRef = players[0].GetComponentInChildren<Player1Health>();
+            else if (players[1].GetComponentInChildren<Player1Health>() != null)
+                m_playerRef = players[1].GetComponentInChildren<Player1Health>();
+        }
+        else
+        {
             m_playerRef = players[0].GetComponentInChildren<Player1Health>();
-        else if (players[1].GetComponentInChildren<Player1Health>() != null)
-            m_playerRef = players[1].GetComponentInChildren<Player1Health>();
+            m_singlePlayer = true;
+        }
 
         m_pausePanel.SetActive(false);
         m_gameoverPanel.SetActive(false);
@@ -59,22 +67,25 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //Player2
-        if (m_player2Health != m_playerRef.otherPlayerHealth.health)
+        if (!m_singlePlayer)
         {
-            m_player2Health = m_playerRef.otherPlayerHealth.health;
-
-            //Set all to be blacked out
-            foreach (Image healthBar in m_player2HealthImage)
+            //Player2
+            if (m_player2Health != m_playerRef.otherPlayerHealth.health)
             {
-                healthBar.GetComponent<CanvasRenderer>().SetAlpha(0.0f);
-            }
+                m_player2Health = m_playerRef.otherPlayerHealth.health;
+
+                //Set all to be blacked out
+                foreach (Image healthBar in m_player2HealthImage)
+                {
+                    healthBar.GetComponent<CanvasRenderer>().SetAlpha(0.0f);
+                }
 
 
-            //Set correct number to be coloured
-            for (int i = 0; i < m_player2Health; i++)
-            {
-                m_player2HealthImage[i].GetComponent<CanvasRenderer>().SetAlpha(1.0f);
+                //Set correct number to be coloured
+                for (int i = 0; i < m_player2Health; i++)
+                {
+                    m_player2HealthImage[i].GetComponent<CanvasRenderer>().SetAlpha(1.0f);
+                }
             }
         }
 
