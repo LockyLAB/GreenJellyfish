@@ -26,6 +26,7 @@ public class GreenBullet : MonoBehaviour
         //if BULLET is same colour as ENEMY, destroy ENEMY and BULLET
         if (col.gameObject.tag == "Enemy" && col.gameObject.layer == 12)
         {
+            col.GetComponent<Enemy>().PlayDeath();
             Destroy(col.gameObject);
             Destroy(gameObject);
         }

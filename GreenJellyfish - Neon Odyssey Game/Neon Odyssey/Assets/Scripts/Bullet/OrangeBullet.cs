@@ -26,6 +26,7 @@ public class OrangeBullet : MonoBehaviour {
         //if bullet is same colour as enemy, destroy enemy, destroy bullet
         if (col.gameObject.tag == "Enemy" && col.gameObject.layer == 11)
         {
+            col.GetComponent<Enemy>().PlayDeath();
             Destroy(col.gameObject);
             Destroy(gameObject);
         }
