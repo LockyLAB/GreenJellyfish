@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour {
     [HideInInspector]
     public GameObject m_target = null;
 
+    public GameObject m_deathEffect = null;
+
     public enum Difficulty
     {
         Easy,
@@ -25,5 +27,14 @@ public class Enemy : MonoBehaviour {
     {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         BehaviourBase.BehaviourStatus State = m_initalBehaviour.Execute();
+    }
+
+    void PlayDeath()
+    {
+        if(m_deathEffect !=null)
+        {
+            Instantiate(m_deathEffect, transform.position, Quaternion.identity);
+            Destroy(this);
+        }
     }
 }

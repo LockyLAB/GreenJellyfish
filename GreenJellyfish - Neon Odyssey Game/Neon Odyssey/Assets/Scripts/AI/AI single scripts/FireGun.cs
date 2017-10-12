@@ -53,7 +53,7 @@ public class FireGun : BehaviourBase
 
     void FireBullet(Vector3 bulletDir)
     {
-        GameObject newBullet = Instantiate(m_bullet, this.transform.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(m_bullet, this.transform.position + transform.up * 0.5f, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
     }
 }
