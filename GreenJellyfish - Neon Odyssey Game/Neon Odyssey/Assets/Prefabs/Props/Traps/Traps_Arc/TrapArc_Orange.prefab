@@ -186,5 +186,5 @@ MonoBehaviour:
   m_timeBetweenShots: 0.2
   m_cooldown: 2
   m_bulletOffset: {x: 0, y: 0, z: 0}
-  m_bullet: {fileID: 1009553057990302, guid: 1d51beb89870da6498c9d03700c89c32, type: 2}
+  m_bullet: {fileID: 1421251104800472, guid: f2c7bbc96bb126b47900bc02c9876485, type: 2}
   m_firingArc: 60

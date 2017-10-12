@@ -276,7 +276,7 @@ MonoBehaviour:
   player: {fileID: 114633135974184984}
   Aim: {x: 0, y: 0, z: 0}
   bullet1: {fileID: 1006975616837836, guid: 28ca2db300e869d4e802f5f798b8f441, type: 2}
-  bullet2: {fileID: 1402376252437178, guid: ff1eb85ffbe8d984a9902af7cb2cc5b3, type: 2}
+  bullet2: {fileID: 1574509985164978, guid: a223a94b4c551334496283bb18184c78, type: 2}
   controller: 1
 --- !u!114 &114633135974184984
 MonoBehaviour:
