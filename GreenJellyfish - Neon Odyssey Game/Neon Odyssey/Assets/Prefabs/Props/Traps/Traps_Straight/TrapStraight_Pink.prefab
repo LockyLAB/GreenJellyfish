@@ -93,15 +93,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546577910512828}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 25.9, y: 1.6, z: -5.11}
+  m_LocalRotation: {x: 0.7071068, y: 0.0000020191073, z: -0.7071068, w: 0.0000020191073}
+  m_LocalPosition: {x: 14.744724, y: 10.154565, z: -35.14106}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4371719065296352}
   - {fileID: 4745777226120286}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 89.99999, z: 0}
 --- !u!23 &23778136085062210
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -186,4 +186,4 @@ MonoBehaviour:
   m_timeBetweenShots: 0.2
   m_cooldown: 3
   m_bulletOffset: {x: 0, y: 0, z: 0}
-  m_bullet: {fileID: 1849868511706970, guid: 2390efecccba3324d99100bc5f220256, type: 2}
+  m_bullet: {fileID: 1205819110746326, guid: afb04d71f5f73154294adb15c8bf1bc9, type: 2}

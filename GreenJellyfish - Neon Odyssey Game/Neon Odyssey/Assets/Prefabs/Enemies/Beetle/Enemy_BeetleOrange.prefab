@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765858083342218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 58.47319, y: -0.3854215, z: -5.1088943}
+  m_LocalPosition: {x: 196.19093, y: -4.853627, z: -34.744343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4277507863713856}
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
+  m_deathEffect: {fileID: 1425272028019678, guid: 1b126c901d01abd4b95391db5e9f29f5,
+    type: 2}
   m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10

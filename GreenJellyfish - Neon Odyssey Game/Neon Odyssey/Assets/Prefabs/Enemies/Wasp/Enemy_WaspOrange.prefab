@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1013235406616362}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 38.834236, y: 9.331472, z: -5.0788946}
+  m_LocalPosition: {x: 110.84062, y: 3.0145655, z: -35.33714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4738841655593080}
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
+  m_deathEffect: {fileID: 0}
   m_difficulty: 0
   m_moveTowardsRange: 10
   m_coneFireDistance: 6
