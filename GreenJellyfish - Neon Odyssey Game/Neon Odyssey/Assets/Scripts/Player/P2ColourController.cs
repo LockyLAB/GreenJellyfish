@@ -47,8 +47,8 @@ public class P2ColourController : MonoBehaviour
             if (isDefault)
             {
                 timeToSwitch += Time.deltaTime;
-                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
-                {
+                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
+                    {
                     switchColour = (int)Colours.Green;
                     isDefault = false;
                     toggleMaterial();
@@ -59,7 +59,7 @@ public class P2ColourController : MonoBehaviour
             else
             {
                 timeToSwitch += Time.deltaTime;
-                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3)
+                if (XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3)
                 {
                     switchColour = (int)Colours.Pink;
                     isDefault = true;
