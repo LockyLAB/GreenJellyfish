@@ -159,6 +159,7 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
+  m_deathEffect: {fileID: 0}
   m_difficulty: 0
   m_moveTowardsRange: 10
   m_coneFireDistance: 6
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_coneTimeBetweenShots: 1
   m_coneAngle: 30
   m_coneCooldown: 1
-  m_bulletPrefab: {fileID: 1950105795595210, guid: 3248be26e468bcd4e9eb930976279c89,
+  m_bulletPrefab: {fileID: 1643612939600948, guid: d361a8c6794857d40905383b3900039b,
     type: 2}
   m_fleeDistance: 6
   m_fleeMaxTime: 3

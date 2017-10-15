@@ -985,8 +985,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e059d53358586624a996901349d38105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pauseCanvas: {fileID: 223544085427377980}
-  m_gameoverCanvas: {fileID: 223094818086330214}
+  m_pausePanel: {fileID: 1461944994654936}
+  m_gameoverPanel: {fileID: 1274040939872174}
   m_player1HealthImage:
   - {fileID: 114483877995424712}
   - {fileID: 114316116572271336}

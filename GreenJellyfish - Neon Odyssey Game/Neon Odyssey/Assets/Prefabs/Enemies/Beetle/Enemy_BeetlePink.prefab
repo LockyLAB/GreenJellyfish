@@ -159,6 +159,7 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
+  m_deathEffect: {fileID: 0}
   m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_gunBulletSpeed: 10
   m_gunTimeBetweenShots: 0.1
   m_gunCooldown: 1
-  m_bulletPrefab: {fileID: 1849868511706970, guid: 2390efecccba3324d99100bc5f220256,
+  m_bulletPrefab: {fileID: 1086754928029554, guid: 6e103b74bd5fe414f84ccc1c94397241,
     type: 2}
   m_laserFireDistance: 6
   m_laserChargeTime: 1
