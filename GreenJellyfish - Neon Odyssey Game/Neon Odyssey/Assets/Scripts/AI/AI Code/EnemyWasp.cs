@@ -39,7 +39,7 @@ public class EnemyWasp : Enemy {
     private CoolDown m_actionConeCooldown;
 
     private IsTargetCloseEnoughX m_actionGetDisMovement;
-    private MoveTowardsTargetX m_actionMovetowards;
+    private MoveTowardsTargetFlying m_actionMovetowards;
 
     // Use this for initialization
     void Awake()
@@ -58,7 +58,7 @@ public class EnemyWasp : Enemy {
         m_actionConeCooldown = gameObject.AddComponent<CoolDown>();
 
         m_actionGetDisMovement = gameObject.AddComponent<IsTargetCloseEnoughX>();
-        m_actionMovetowards = gameObject.AddComponent<MoveTowardsTargetX>();
+        m_actionMovetowards = gameObject.AddComponent<MoveTowardsTargetFlying>();
 
         //Set up get target
         GameObject[] players;

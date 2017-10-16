@@ -41,7 +41,9 @@ public class EnemyBeetle : Enemy
     //private FireLaserbeam m_actionFireLaser;
     //private CoolDown m_actionLaserCooldown;
 
+    private BehaviourSelector m_selectorFiringGun;
     private IsTargetCloseEnough m_actionGetDisGun;
+    private InfrontOfLedge m_actionInfrontOfLedge;
     private FireGun m_actionFireGun;
     private CoolDown m_actionGunCooldown;
 
@@ -64,7 +66,11 @@ public class EnemyBeetle : Enemy
         //m_actionFireLaser = gameObject.AddComponent<FireLaserbeam>();
         //m_actionLaserCooldown = gameObject.AddComponent<CoolDown>();
 
+        m_selectorFiringGun = gameObject.AddComponent<BehaviourSelector>();
+
         m_actionGetDisGun = gameObject.AddComponent<IsTargetCloseEnough>();
+        m_actionInfrontOfLedge = gameObject.AddComponent<InfrontOfLedge>();
+
         m_actionFireGun = gameObject.AddComponent<FireGun>();
         m_actionGunCooldown = gameObject.AddComponent<CoolDown>();
 
@@ -112,7 +118,10 @@ public class EnemyBeetle : Enemy
         //m_sequenceLaser.m_behaviourBranches.Add(m_actionFireLaser);
         //m_sequenceLaser.m_behaviourBranches.Add(m_actionLaserCooldown);
 
-        m_sequenceGun.m_behaviourBranches.Add(m_actionGetDisGun);
+        m_selectorFiringGun.m_behaviourBranches.Add(m_actionGetDisGun);
+        m_selectorFiringGun.m_behaviourBranches.Add(m_actionInfrontOfLedge);
+
+        m_sequenceGun.m_behaviourBranches.Add(m_selectorFiringGun);
         m_sequenceGun.m_behaviourBranches.Add(m_actionFireGun);
         m_sequenceGun.m_behaviourBranches.Add(m_actionGunCooldown);
 
