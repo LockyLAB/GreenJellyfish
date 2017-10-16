@@ -60,11 +60,28 @@ public class Player2Health : MonoBehaviour {
 
 
 
-        if(isReviving && XCI.GetButton(XboxButton.A) && !player.isDead)
+        if (health > 4)
+        {
+            health = 4;
+        }
+
+
+        if (health <= 0)
+        {
+            health = 0;
+            player.isDead = true;
+        }
+        else
+        {
+            player.isDead = false;
+        }
+
+
+        if (isReviving && XCI.GetButton(XboxButton.A) && !player.isDead)
         {
             timer += Time.deltaTime;
 
-            if(timer >= reviveTime)
+            if (timer >= reviveTime)
             {
                 otherPlayerHealth.health = 2;
             }
@@ -73,7 +90,7 @@ public class Player2Health : MonoBehaviour {
 
         }
 
-        if(XCI.GetButtonUp(XboxButton.A))
+        if (XCI.GetButtonUp(XboxButton.A))
         {
             timer = 0;
         }
@@ -92,6 +109,9 @@ public class Player2Health : MonoBehaviour {
             }
         }
 
+
+
+
         tempHealth = health;
 
     }
@@ -102,6 +122,7 @@ public class Player2Health : MonoBehaviour {
         {
             isReviving = true;
         }
+
         if (other.gameObject.tag == "HealthPickup")
         {
             Destroy(other.gameObject);
@@ -109,7 +130,9 @@ public class Player2Health : MonoBehaviour {
         }
 
 
+
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player1Revive" && otherPlayerHealth.health <= 0)
