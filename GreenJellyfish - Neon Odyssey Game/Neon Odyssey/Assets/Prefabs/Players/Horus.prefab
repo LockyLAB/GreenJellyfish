@@ -257,7 +257,7 @@ MonoBehaviour:
   fireRate: 0.1
   player: {fileID: 114395703970050262}
   Aim: {x: 0, y: 0, z: 0}
-  bullet1: {fileID: 1569081994923078, guid: ba6cd111465f9434c9b00647aa138d1c, type: 2}
+  bullet1: {fileID: 1405556498852844, guid: 4e0b4016f70419b419ee2c5deaded5d2, type: 2}
   bullet2: {fileID: 1205819110746326, guid: afb04d71f5f73154294adb15c8bf1bc9, type: 2}
   controller: 2
 --- !u!114 &114132238423922718
@@ -274,10 +274,14 @@ MonoBehaviour:
   health: 4
   player: {fileID: 114395703970050262}
   otherPlayerHealth: {fileID: 0}
+  controller: 2
   isReviving: 0
-  reviveTime: 2
+  reviveTime: 0.2
   timer: 0
   healthGivenByPickup: 3
+  deathTimer: 0
+  deathTime: 2
+  isInvulnerable: 0
 --- !u!114 &114395703970050262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,7 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxJumpHeight: 4
   timeToJumpApex: 0.4
-  moveSpeed: 12
+  moveSpeed: 15
   gravity: -35
   wallClimb: {x: 0, y: 0}
   wallDrop: {x: 3, y: 5}
