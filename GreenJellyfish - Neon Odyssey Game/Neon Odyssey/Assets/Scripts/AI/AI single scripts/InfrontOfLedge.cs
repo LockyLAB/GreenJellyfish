@@ -15,8 +15,15 @@ public class InfrontOfLedge : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        if (Physics.Raycast(transform.position + transform.forward * 2 + transform.up * 0.1f, Vector3.down, 0.5f, LayerMask.NameToLayer("Ground")))
+
+        Bounds bounds = GetComponent<SphereCollider>().bounds;
+
+        Debug.DrawLine(transform.position + transform.forward * bounds.size.z / 2, transform.position + transform.forward * bounds.size.z / 2 + (-transform.up * (bounds.size.z / 2 + 0.1f)), Color.red);
+
+        if (Physics.Raycast(transform.position + transform.forward * bounds.size.z/2, -transform.up, bounds.size.z /2 + 0.1f))
+        {
             return BehaviourStatus.FAILURE;
+        }
         return BehaviourStatus.SUCCESS;
     }
 }
