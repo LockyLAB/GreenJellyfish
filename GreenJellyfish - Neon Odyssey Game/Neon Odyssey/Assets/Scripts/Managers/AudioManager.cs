@@ -26,6 +26,8 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    //Play sound
+    //Example "Audio/Player/footstep"
     public void PlaySound(string sound)
     {
         //Set frequency to be random
