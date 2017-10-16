@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     public bool isRed;
 
     const float skinWidth = .04f;
-    public int HorizontalRays = 4;
-    public int VerticalRays = 4;
+    public int HorizontalRays = 2;
+    public int VerticalRays = 2;
 
     float maxClimbAngle = 80;
     float maxDescendAngle = 80;

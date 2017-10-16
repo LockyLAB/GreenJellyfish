@@ -6,177 +6,89 @@ using XboxCtrlrInput;
 public class Player : MonoBehaviour
 {
 
-    public float maxJumpHeight = 4;
+    public float jumpHeight = 4;
+    public float timeToJumpApex = .4f;
+    float accelerationTimeAirborne = .2f;
+    float accelerationTimeGrounded = .1f;
+    public float moveSpeed = 12;
 
-    public float timeToJumpApex = 0.4f;
+    public Vector2 wallJumpClimb;
+    public Vector2 wallJumpOff;
+    public Vector2 wallLeap;
 
+    public float wallSlideSpeedMax = 0;
+    public float wallStickTime = 0.0f;
+    float timeToWallUnstick;
 
-
-    public float moveSpeed = 10;
-    public float gravity;
-
-    private float maxJumpVelocity = 10;
-
-
-
-    public Vector2 wallClimb = new Vector2(7.5f, 14);
-    public Vector2 wallDrop = new Vector2(8, 5);
-    public Vector2 wallLeap = new Vector2(8, 14);
-
-    bool isFalling;
-    bool isSticking = false;
-    public float wallDropTime = 0.0f;
-
-
-    float accelerationTime = 0.1f;
-    float accelerationTimeAir = 0.25f;
+    float gravity;
+    float jumpVelocity;
+    Vector3 velocity;
     float velocityXSmoothing;
+
+    PlayerController pController;
+
+    public bool isFirstPlayer;
 
     public XboxController controller;
 
-    Vector2 m_Velocity;
-
-
-    public bool isDead = false;
-
-    PlayerController m_Controller;
-
-
-
-
-
-
+    public bool isDead;
     void Start()
     {
-        m_Controller = GetComponent<PlayerController>();
+        pController = GetComponent<PlayerController>();
 
-
-
-        gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
-        maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-
-
-
+        gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        print("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
     }
-
 
     void Update()
     {
-
-
-
-
-        Vector2 leftInput = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
+        Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
         if (isDead)
         {
-            leftInput = Vector2.zero;
+            input = new Vector2(0, 0);
         }
 
-        int wallDirX = (m_Controller.m_CollisionInfo.left) ? -1 : 1;
+        int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1;
 
-        float targetVelocityX = leftInput.x * moveSpeed;
-        m_Velocity.x = Mathf.SmoothDamp(m_Velocity.x, targetVelocityX, ref velocityXSmoothing, (m_Controller.m_CollisionInfo.bottom) ? accelerationTime : accelerationTimeAir);
+        float targetVelocityX = input.x * moveSpeed;
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
-
-
-
-        if (m_Controller.m_CollisionInfo.top || m_Controller.m_CollisionInfo.bottom)
+        bool wallSliding = false;
+        if ((pController.m_CollisionInfo.left || pController.m_CollisionInfo.right) && !pController.m_CollisionInfo.bottom && !isDead)
         {
-            m_Velocity.y = 0;
-        }
+            wallSliding = true;
 
-
-
-        m_Velocity.y += gravity * Time.deltaTime;
-
-
-
-
-        if ((m_Controller.m_CollisionInfo.left || m_Controller.m_CollisionInfo.right) && !m_Controller.m_CollisionInfo.bottom && m_Velocity.y != 0 && !isFalling && !isDead)
-        {
-            isSticking = true;
-            m_Velocity.y = 0;
-
-        }
-        else
-        {
-            isSticking = false;
-        }
-
-        if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead || XCI.GetButtonDown(XboxButton.A, controller) && !isDead)
-        {
-            if (isSticking && !isFalling)
+            if (velocity.y < -wallSlideSpeedMax)
             {
-
-
-                if ((wallDirX < 0 && leftInput.x < 0) || (wallDirX > 0 && leftInput.x > 0))
-                {
-                    m_Velocity.x = -wallDirX * wallClimb.x;
-                    m_Velocity.y = wallClimb.y;
-                    wallDropTime = 0.0f;
-                }
-                else if (leftInput.x == 0)
-                {
-                    m_Velocity.x = -wallDirX * wallDrop.x;
-                    m_Velocity.y = wallDrop.y;
-                    wallDropTime = 0.0f;
-                }
-                else
-                {
-                    m_Velocity.x = -wallDirX * wallLeap.x;
-                    m_Velocity.y = wallLeap.y;
-                    wallDropTime = 0.0f;
-                }
-
-
-
+                velocity.y = -wallSlideSpeedMax;
             }
 
-            if (m_Controller.m_CollisionInfo.bottom)
-            {
-                m_Velocity.y = maxJumpVelocity;
-            }
-
+            
         }
 
-        if (m_Controller.m_CollisionInfo.bottom)
+        if (pController.m_CollisionInfo.top || pController.m_CollisionInfo.bottom)
         {
-            isFalling = false;
+            velocity.y = 0;
         }
 
-        if (isSticking && !isDead)
+
+
+        if (XCI.GetButtonDown(XboxButton.A) && !isDead)
         {
-
-            wallDropTime += 1.0f * Time.deltaTime;
-
-            if (wallDropTime >= 1)
+            if (wallSliding)
             {
-                m_Velocity.x = -wallDirX * wallDrop.x;
-                m_Velocity.y = wallDrop.y;
-
-                wallDropTime = 0.0f;
-
-                isFalling = true;
+                    velocity.x = -wallDirX * wallLeap.x;
+                    velocity.y = wallLeap.y;
             }
-
+            if (pController.m_CollisionInfo.bottom)
+            {
+                velocity.y = jumpVelocity;
+            }
         }
 
 
-
-        //if (Physics.Raycast(this.transform.position, Vector3.down, LayerMask.GetMask("Platform")))
-        //{
-        //    if (XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) > 0 && !isDead && XCI.GetAxis(XboxAxis.LeftStickY, controller) < -0.1)
-        //    {
-        //        this.transform.Translate(Vector3.down * 0.2f);
-        //    }
-        //}
-
-
-        m_Controller.Move(m_Velocity * Time.deltaTime);
-
+        velocity.y += gravity * Time.deltaTime;
+        pController.Move(velocity * Time.deltaTime);
     }
-
-
-
-
 }
