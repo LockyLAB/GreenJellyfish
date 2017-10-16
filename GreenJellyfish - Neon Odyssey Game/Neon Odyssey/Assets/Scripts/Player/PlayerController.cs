@@ -7,11 +7,9 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask CollisionMask;
 
-    public bool isRed;
-
-    const float skinWidth = .04f;
-    public int HorizontalRays = 2;
-    public int VerticalRays = 2;
+    const float skinWidth = .04f; // indent of rays on body of character
+    public int HorizontalRays = 2; // number of rays horizontal of character
+    public int VerticalRays = 2; // number of rays Vertical of character
 
     float maxClimbAngle = 80;
     float maxDescendAngle = 80;
@@ -27,14 +25,14 @@ public class PlayerController : MonoBehaviour
 
     CapsuleCollider m_Collider;
     Raycast m_Raycast;
-    public CollisionInfo m_CollisionInfo;
+    public CollisionInfo m_CollisionInfo; // Info collected by raycasts
 
 
 
     void Start()
     {
         m_Collider = GetComponent<CapsuleCollider>();
-        RayWidth();
+        RayWidth(); // Calls function to get ray width
 
         ///////////////////
         m_mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
@@ -66,8 +64,11 @@ public class PlayerController : MonoBehaviour
         ////////////////////
     }
 
-
-
+    //-----------------------------------------------------
+    // Updates the position of the raycasts every frame
+    // Creates a bounding box and expands with the skin width of ray casts
+    // Sets BL, BR, TL, TR of bounding box
+    //-----------------------------------------------------
     void UpdateRaycast()
     {
         Bounds boundingBox = m_Collider.bounds;
@@ -79,6 +80,12 @@ public class PlayerController : MonoBehaviour
         m_Raycast.topRight = new Vector3(boundingBox.max.x, boundingBox.max.y, boundingBox.center.z);
     }
 
+    //-----------------------------------------------------
+    //
+    //
+    // parameters:
+    //        
+    //-----------------------------------------------------
     void HorizontalCollisions(ref Vector3 Velocity)
     {
         float dirX = Mathf.Sign(Velocity.x);

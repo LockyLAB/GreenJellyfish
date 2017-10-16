@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     public float jumpHeight = 4;
     public float timeToJumpApex = .4f;
-    float accelerationTimeAirborne = .2f;
+    public float accelerationTimeAirborne = .8f;
     float accelerationTimeGrounded = .1f;
     public float moveSpeed = 12;
 
