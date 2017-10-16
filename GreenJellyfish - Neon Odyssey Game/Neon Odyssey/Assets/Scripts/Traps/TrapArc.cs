@@ -16,7 +16,7 @@ public class TrapArc : TrapBase
 
     void FireBullet(Vector3 bulletDir)
     {
-        GameObject newBullet = Instantiate(m_bullet, this.transform.position + m_bulletOffset, Quaternion.identity);
+        GameObject newBullet = Instantiate(m_bullet, this.transform.position + new Vector3(transform.up.x * m_bulletSpawnPos.x, transform.up.y * m_bulletSpawnPos.y, transform.up.z * m_bulletSpawnPos.z), Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
 
     }
