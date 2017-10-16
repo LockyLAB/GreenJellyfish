@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 
 
 
-        if (XCI.GetButtonDown(XboxButton.A) && !isDead)
+        if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead)
         {
             if (wallSliding)
             {
