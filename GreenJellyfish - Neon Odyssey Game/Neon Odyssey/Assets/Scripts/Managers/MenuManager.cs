@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+
+    public string m_firstLevel = "";
+
     public void PlayGameBtn()
     {
-        SceneManager.LoadScene("Greybox");
+        SceneManager.LoadScene(m_firstLevel);
     }
     public void OptionsBtn()
     {
