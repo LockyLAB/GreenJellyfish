@@ -15,6 +15,9 @@ public class FireGun : BehaviourBase
     private float m_time = 0.0f;
 
     private bool m_behaviourSetup = true;
+
+    public Vector3 m_bulletSpawnPos = Vector3.up * 0.5f;
+
     //--------------------------------------------------------------------------------------
     // Update behaviours - Fire Towards target
     //
@@ -53,7 +56,7 @@ public class FireGun : BehaviourBase
 
     void FireBullet(Vector3 bulletDir)
     {
-        GameObject newBullet = Instantiate(m_bullet, this.transform.position + transform.up * 0.5f, Quaternion.identity);
+        GameObject newBullet = Instantiate(m_bullet, this.transform.position + new Vector3(transform.up.x * m_bulletSpawnPos.x, transform.up.y * m_bulletSpawnPos.y, transform.up.z * m_bulletSpawnPos.z), Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
     }
 }
