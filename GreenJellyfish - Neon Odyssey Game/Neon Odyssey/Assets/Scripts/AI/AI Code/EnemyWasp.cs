@@ -15,6 +15,7 @@ public class EnemyWasp : Enemy {
     public float m_coneTimeBetweenShots = 0.0f;
     public float m_coneAngle = 0.0f;
     public float m_coneCooldown = 0.0f;
+    public Vector3 m_bulletSpawnPos = Vector3.up * 0.5f;
 
     public GameObject m_bulletPrefab = null;
 
@@ -76,6 +77,7 @@ public class EnemyWasp : Enemy {
         m_actionFireCone.m_bulletSpeed = m_coneBulletSpeed;
         m_actionFireCone.m_fireCone = m_coneAngle;
         m_actionFireCone.m_maxDis = m_coneFireDistance + 1;
+        m_actionFireCone.m_bulletSpawnPos = m_bulletSpawnPos;
 
         m_actionFlee.m_fleeDistance = m_fleeDistance;
         m_actionFlee.m_maxFleeDuration = m_fleeMaxTime;

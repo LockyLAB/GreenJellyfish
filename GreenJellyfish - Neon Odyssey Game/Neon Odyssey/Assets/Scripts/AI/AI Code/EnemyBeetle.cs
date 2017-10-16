@@ -15,6 +15,7 @@ public class EnemyBeetle : Enemy
     public float m_gunBulletSpeed = 0.0f;
     public float m_gunTimeBetweenShots = 0.0f;
     public float m_gunCooldown = 0.0f;
+    public Vector3 m_bulletSpawnPos = Vector3.up * 0.5f;
 
     public GameObject m_bulletPrefab = null;
 
@@ -84,6 +85,7 @@ public class EnemyBeetle : Enemy
         m_actionFireGun.m_numberOfBullets = m_gunNumberOfShots;
         m_actionFireGun.m_timeBetweenShots = m_gunTimeBetweenShots;
         m_actionFireGun.m_bulletSpeed = m_gunBulletSpeed;
+        m_actionFireGun.m_bulletSpawnPos = m_bulletSpawnPos;
         m_actionGunCooldown.m_coolDown = m_gunCooldown;
 
         m_actionFireGun.m_bullet = m_bulletPrefab;
