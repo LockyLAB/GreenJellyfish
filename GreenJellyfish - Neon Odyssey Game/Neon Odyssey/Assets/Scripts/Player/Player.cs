@@ -3,19 +3,20 @@ using System.Collections;
 using XboxCtrlrInput;
 
 [RequireComponent(typeof(PlayerController))]
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     public float maxJumpHeight = 4;
 
     public float timeToJumpApex = 0.4f;
 
-    
+
 
     public float moveSpeed = 10;
     public float gravity;
 
     private float maxJumpVelocity = 10;
-   
+
 
 
     public Vector2 wallClimb = new Vector2(7.5f, 14);
@@ -35,13 +36,13 @@ public class Player : MonoBehaviour {
 
     Vector2 m_Velocity;
 
-   
+
     public bool isDead = false;
 
     PlayerController m_Controller;
 
 
-    
+
 
 
 
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour {
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        
+
 
 
     }
@@ -63,19 +64,19 @@ public class Player : MonoBehaviour {
     {
 
 
-            
-     
-            Vector2 leftInput = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
-        if(isDead)
+
+
+        Vector2 leftInput = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
+        if (isDead)
         {
             leftInput = Vector2.zero;
         }
 
-            int wallDirX = (m_Controller.m_CollisionInfo.left) ? -1 : 1;
+        int wallDirX = (m_Controller.m_CollisionInfo.left) ? -1 : 1;
 
-            float targetVelocityX = leftInput.x * moveSpeed;
-            m_Velocity.x = Mathf.SmoothDamp(m_Velocity.x, targetVelocityX, ref velocityXSmoothing, (m_Controller.m_CollisionInfo.bottom) ? accelerationTime : accelerationTimeAir);
-    
+        float targetVelocityX = leftInput.x * moveSpeed;
+        m_Velocity.x = Mathf.SmoothDamp(m_Velocity.x, targetVelocityX, ref velocityXSmoothing, (m_Controller.m_CollisionInfo.bottom) ? accelerationTime : accelerationTimeAir);
+
 
 
 
@@ -135,10 +136,6 @@ public class Player : MonoBehaviour {
             {
                 m_Velocity.y = maxJumpVelocity;
             }
-            else
-            {
-                m_Velocity.y = maxJumpVelocity;
-            }
 
         }
 
@@ -173,12 +170,12 @@ public class Player : MonoBehaviour {
         //        this.transform.Translate(Vector3.down * 0.2f);
         //    }
         //}
-        
-        
-    m_Controller.Move(m_Velocity * Time.deltaTime);
-   
+
+
+        m_Controller.Move(m_Velocity * Time.deltaTime);
+
     }
-    
+
 
 
 

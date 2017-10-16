@@ -1,22 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (CapsuleCollider))]
-public class PlayerController : MonoBehaviour {
+[RequireComponent(typeof(CapsuleCollider))]
+public class PlayerController : MonoBehaviour
+{
 
     public LayerMask CollisionMask;
 
     public bool isRed;
 
-	const float skinWidth = .04f;
-	public int HorizontalRays = 4;
-	public int VerticalRays = 4;
+    const float skinWidth = .04f;
+    public int HorizontalRays = 4;
+    public int VerticalRays = 4;
 
-    float maxClimbAngle = 40;
-    float maxDescendAngle = 40;
+    float maxClimbAngle = 80;
+    float maxDescendAngle = 80;
 
     float HorizontalRayWidth;
-	float VerticalRayWidth;
+    float VerticalRayWidth;
 
     /////////////
     private GameObject m_otherPlayer = null;
@@ -24,13 +25,13 @@ public class PlayerController : MonoBehaviour {
     private GameObject m_mainCamera = null;
     //////////////
 
-	CapsuleCollider m_Collider;
-	Raycast m_Raycast;
+    CapsuleCollider m_Collider;
+    Raycast m_Raycast;
     public CollisionInfo m_CollisionInfo;
 
 
 
-    void Start ()
+    void Start()
     {
         m_Collider = GetComponent<CapsuleCollider>();
         RayWidth();
@@ -65,80 +66,73 @@ public class PlayerController : MonoBehaviour {
         ////////////////////
     }
 
- 
 
-	void UpdateRaycast()
+
+    void UpdateRaycast()
     {
-		Bounds boundingBox = m_Collider.bounds;
-		boundingBox.Expand (skinWidth * -2);
-        
-		m_Raycast.bottomLeft = new Vector3 (boundingBox.min.x, boundingBox.min.y, boundingBox.center.z);
-        m_Raycast.bottomRight = new Vector3 (boundingBox.max.x, boundingBox.min.y, boundingBox.center.z);
-        m_Raycast.topLeft = new Vector3 (boundingBox.min.x, boundingBox.max.y, boundingBox.center.z);
-        m_Raycast.topRight = new Vector3 (boundingBox.max.x, boundingBox.max.y, boundingBox.center.z);
-	}
+        Bounds boundingBox = m_Collider.bounds;
+        boundingBox.Expand(skinWidth * -2);
+
+        m_Raycast.bottomLeft = new Vector3(boundingBox.min.x, boundingBox.min.y, boundingBox.center.z);
+        m_Raycast.bottomRight = new Vector3(boundingBox.max.x, boundingBox.min.y, boundingBox.center.z);
+        m_Raycast.topLeft = new Vector3(boundingBox.min.x, boundingBox.max.y, boundingBox.center.z);
+        m_Raycast.topRight = new Vector3(boundingBox.max.x, boundingBox.max.y, boundingBox.center.z);
+    }
 
     void HorizontalCollisions(ref Vector3 Velocity)
     {
-
-        float dirX = m_CollisionInfo.faceDir;
+        float dirX = Mathf.Sign(Velocity.x);
         float rayLength = Mathf.Abs(Velocity.x) + skinWidth;
 
         if (Mathf.Abs(Velocity.x) < skinWidth)
         {
-            rayLength = 2 * skinWidth;
+            rayLength = 12 * skinWidth;
         }
+
+
 
         for (int i = 0; i < HorizontalRays; i++)
         {
             Vector3 rayOrigin = (dirX == -1) ? m_Raycast.bottomLeft : m_Raycast.bottomRight;
             rayOrigin += Vector3.up * (HorizontalRayWidth * i);
-            RaycastHit hit;
+            RaycastHit Hit;
             Ray r1 = new Ray(rayOrigin, Vector3.right * dirX);
 
-            Debug.DrawRay(rayOrigin, Vector2.right * dirX, Color.red);
+            Debug.DrawRay(rayOrigin, Vector3.right * dirX * rayLength, Color.red);
 
-            if (Physics.Raycast(r1, out hit, rayLength, CollisionMask))
+            if (Physics.Raycast(r1, out Hit, rayLength, CollisionMask))
             {
 
-                if (hit.distance == 0)
-                {
-                    continue;
-                }
-
-                float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                float slopeAngle = Vector2.Angle(Hit.normal, Vector2.up);
 
                 if (i == 0 && slopeAngle <= maxClimbAngle)
                 {
-                    if (m_CollisionInfo.descendingSlope)
-                    {
-                        m_CollisionInfo.descendingSlope = false;
-                        Velocity = m_CollisionInfo.velocityOld;
-                    }
                     float distanceToSlopeStart = 0;
                     if (slopeAngle != m_CollisionInfo.slopeAngleOld)
                     {
-                        distanceToSlopeStart = hit.distance - skinWidth;
+                        distanceToSlopeStart = Hit.distance - skinWidth;
                         Velocity.x -= distanceToSlopeStart * dirX;
                     }
-                    ClimbSlope(ref Velocity, slopeAngle, hit.normal);
+                    ClimbSlope(ref Velocity, slopeAngle);
                     Velocity.x += distanceToSlopeStart * dirX;
                 }
 
                 if (!m_CollisionInfo.climbingSlope || slopeAngle > maxClimbAngle)
                 {
-                    Velocity.x = (hit.distance - skinWidth) * dirX;
-                    rayLength = hit.distance;
+                    Velocity.x = (Hit.distance - skinWidth) * dirX;
+                    rayLength = Hit.distance;
 
                     if (m_CollisionInfo.climbingSlope)
                     {
                         Velocity.y = Mathf.Tan(m_CollisionInfo.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(Velocity.x);
                     }
-
                     m_CollisionInfo.left = dirX == -1;
                     m_CollisionInfo.right = dirX == 1;
+
                 }
+
             }
+
         }
     }
 
@@ -164,35 +158,27 @@ public class PlayerController : MonoBehaviour {
                 Velocity.y = (Hit.distance - skinWidth) * dirY;
                 rayLength = Hit.distance;
 
-                if (m_CollisionInfo.climbingSlope)
-                {
-                    Velocity.x = Velocity.y / Mathf.Tan(m_CollisionInfo.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(Velocity.x);
-                }
-
-
                 m_CollisionInfo.bottom = dirY == -1;
                 m_CollisionInfo.top = dirY == 1;
 
             }
         }
     }
-    
 
-    void ClimbSlope(ref Vector3 velocity, float slopeAngle, Vector2 slopeNormal)
+
+    void ClimbSlope(ref Vector3 velocity, float slopeAngle)
     {
- 
-            float moveDistance = Mathf.Abs(velocity.x);
-            float climbmoveAmountY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+        float moveDistance = Mathf.Abs(velocity.x);
+        float climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
 
-            if (velocity.y <= climbmoveAmountY)
-            {
-                velocity.y = climbmoveAmountY;
-                velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
-                m_CollisionInfo.bottom = true;
-                m_CollisionInfo.climbingSlope = true;
-                m_CollisionInfo.slopeAngle = slopeAngle;
-                m_CollisionInfo.slopeNormal = slopeNormal;
-            }
+        if (velocity.y <= climbVelocityY)
+        {
+            velocity.y = climbVelocityY;
+            velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
+            m_CollisionInfo.bottom = true;
+            m_CollisionInfo.climbingSlope = true;
+            m_CollisionInfo.slopeAngle = slopeAngle;
+        }
     }
 
     void DescendSlope(ref Vector3 velocity)
@@ -219,7 +205,6 @@ public class PlayerController : MonoBehaviour {
                         m_CollisionInfo.slopeAngle = slopeAngle;
                         m_CollisionInfo.descendingSlope = true;
                         m_CollisionInfo.bottom = true;
-                        m_CollisionInfo.slopeNormal = Hit.normal;
                     }
                 }
             }
@@ -228,47 +213,34 @@ public class PlayerController : MonoBehaviour {
 
     void RayWidth()
     {
-		Bounds boundingBox = m_Collider.bounds;
-		boundingBox.Expand (skinWidth * -2);
+        Bounds boundingBox = m_Collider.bounds;
+        boundingBox.Expand(skinWidth * -2);
 
-        float boundsWidth = boundingBox.size.x;
-        float boundsHeight = boundingBox.size.y;
+        HorizontalRays = Mathf.Clamp(HorizontalRays, 2, int.MaxValue);
+        VerticalRays = Mathf.Clamp(VerticalRays, 2, int.MaxValue);
 
-
-        HorizontalRays = Mathf.Clamp (HorizontalRays, 2, int.MaxValue);
-		VerticalRays = Mathf.Clamp (VerticalRays, 2, int.MaxValue);
-
-		HorizontalRayWidth = boundingBox.size.y / (HorizontalRays - 1);
-		VerticalRayWidth = boundingBox.size.x / (VerticalRays - 1);
-	}
+        HorizontalRayWidth = boundingBox.size.y / (HorizontalRays - 1);
+        VerticalRayWidth = boundingBox.size.x / (VerticalRays - 1);
+    }
 
     public void Move(Vector3 Velocity)
     {
         UpdateRaycast();
-
         m_CollisionInfo.reset();
         m_CollisionInfo.velocityOld = Velocity;
-
 
         if (Velocity.y < 0)
         {
             DescendSlope(ref Velocity);
         }
-
         if (Velocity.x != 0)
         {
-            m_CollisionInfo.faceDir = (int)Mathf.Sign(Velocity.x);
+            HorizontalCollisions(ref Velocity);
         }
-
-        HorizontalCollisions(ref Velocity);
         if (Velocity.y != 0)
         {
-           VerticalCollisions(ref Velocity);
+            VerticalCollisions(ref Velocity);
         }
-
-
-
-
 
         ///////////////////
         if (!m_mainCamera.GetComponent<CameraMove>().m_singlePlayer)
@@ -288,7 +260,7 @@ public class PlayerController : MonoBehaviour {
                 Velocity.y -= transform.position.y + Velocity.y - m_otherPlayer.transform.position.y + m_mainCamera.GetComponent<CameraMove>().m_maxVerticalDistance;
         }
         //////////////////
-       
+
         transform.Translate(Velocity);
     }
 
@@ -300,11 +272,6 @@ public class PlayerController : MonoBehaviour {
         public bool descendingSlope;
         public float slopeAngle, slopeAngleOld;
         public Vector3 velocityOld;
-
-        public Vector2 slopeNormal;
-
-        public int faceDir;
-
 
         public void reset()
         {
@@ -320,12 +287,12 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    
 
-	struct Raycast
+
+    struct Raycast
     {
-		public Vector3 topLeft, topRight;
-		public Vector3 bottomLeft, bottomRight;
-	}
+        public Vector3 topLeft, topRight;
+        public Vector3 bottomLeft, bottomRight;
+    }
 
 }
