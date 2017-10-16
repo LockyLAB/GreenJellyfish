@@ -12,6 +12,8 @@ public class Player2Health : MonoBehaviour {
 
     public Player1Health otherPlayerHealth;
 
+    public XboxController controller;
+
     public bool isReviving = false;
 
     public float reviveTime = 2;
@@ -77,7 +79,7 @@ public class Player2Health : MonoBehaviour {
         }
 
 
-        if (isReviving && XCI.GetButton(XboxButton.A) && !player.isDead)
+        if (isReviving && XCI.GetButton((XboxButton.A), controller) && !player.isDead)
         {
             timer += Time.deltaTime;
 
@@ -90,7 +92,7 @@ public class Player2Health : MonoBehaviour {
 
         }
 
-        if (XCI.GetButtonUp(XboxButton.A))
+        if (XCI.GetButtonUp((XboxButton.A), controller))
         {
             timer = 0;
         }

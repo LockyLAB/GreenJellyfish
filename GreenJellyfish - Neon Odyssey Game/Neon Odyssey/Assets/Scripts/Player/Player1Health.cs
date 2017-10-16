@@ -9,7 +9,9 @@ public class Player1Health : MonoBehaviour {
 
     public Player player;
 
-    public Player2Health otherPlayerHealth; 
+    public Player2Health otherPlayerHealth;
+
+    public XboxController controller;
 
     public bool isReviving = false;
 
@@ -57,7 +59,7 @@ public class Player1Health : MonoBehaviour {
        }
 
 
-        if (isReviving && XCI.GetButton(XboxButton.A) && !player.isDead)
+        if (isReviving && XCI.GetButton((XboxButton.A), controller) && !player.isDead)
         {
             timer += Time.deltaTime;
 
@@ -70,7 +72,7 @@ public class Player1Health : MonoBehaviour {
 
         }
 
-        if (XCI.GetButtonUp(XboxButton.A))
+        if (XCI.GetButtonUp((XboxButton.A), controller))
         {
             timer = 0;
         }
