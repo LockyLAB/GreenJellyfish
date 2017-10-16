@@ -19,7 +19,7 @@ public class GetTargetEasy : BehaviourBase
         //Assign player 1
         if (players[0].GetComponent<P1ColourController>() != null)
             m_player1 = players[0];
-        else if(players[1].GetComponent<P1ColourController>() != null)
+        else if (players[1].GetComponent<P1ColourController>() != null)
             m_player1 = players[1];
 
         //Assign player 1
@@ -27,8 +27,6 @@ public class GetTargetEasy : BehaviourBase
             m_player2 = players[0];
         else if (players[1].GetComponent<P2ColourController>() != null)
             m_player2 = players[1];
-
-
     }
 
     //--------------------------------------------------------------------------------------

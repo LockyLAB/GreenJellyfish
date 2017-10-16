@@ -31,7 +31,8 @@ public class FireLaserbeam : BehaviourBase
 
             //Fire bullet
             laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);
-            m_laserbeamHolder = Instantiate(m_laserbeam, this.transform.position, Quaternion.Euler(laserDir) * Quaternion.Euler(0, -90, 0));
+            m_laserbeamHolder = Instantiate(m_laserbeam, this.transform.position, Quaternion.identity);
+            m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position);
         }
 
         m_time -= Time.deltaTime;

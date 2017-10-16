@@ -20,7 +20,7 @@ public class FireCone : BehaviourBase
 
     private bool m_behaviourSetup = true;
 
-    public Vector3 m_bulletSpawnPos = Vector3.zero;
+    public Vector3 m_bulletSpawnPos = Vector3.up * 0.5f;
 
     //--------------------------------------------------------------------------------------
     // Update behaviours - Cone Fire Towards target
@@ -30,6 +30,7 @@ public class FireCone : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, -9.8f, 0.0f);
 
         if (m_behaviourSetup)
         {

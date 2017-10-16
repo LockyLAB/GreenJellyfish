@@ -26,6 +26,7 @@ public class FireGun : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, -9.8f, 0.0f);
         if (m_behaviourSetup)
         {
             //Start numbers of bullets to fire
