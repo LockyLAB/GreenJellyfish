@@ -129,9 +129,9 @@ public class EnemyScorpion : Enemy
         m_firingParallel.m_behaviourBranches.Add(m_sequenceLaser);
         m_firingParallel.m_behaviourBranches.Add(m_sequenceRightGun);
 
-        m_sequenceLeftGun.m_behaviourBranches.Add(m_selectorFiringGun);
-        m_sequenceLeftGun.m_behaviourBranches.Add(m_actionFireGun);
-        m_sequenceLeftGun.m_behaviourBranches.Add(m_actionGunCooldown);
+        //m_sequenceLeftGun.m_behaviourBranches.Add(m_selectorFiringGun);
+        //m_sequenceLeftGun.m_behaviourBranches.Add(m_actionFireGun);
+        //m_sequenceLeftGun.m_behaviourBranches.Add(m_actionGunCooldown);
 
         m_sequenceLaser.m_behaviourBranches.Add(m_actionGetDisLaser);
         m_sequenceLaser.m_behaviourBranches.Add(m_actionFireLaser);
