@@ -59,7 +59,7 @@ public class Player1Health : MonoBehaviour {
        }
 
 
-        if (isReviving && XCI.GetButton((XboxButton.A), controller) && !player.isDead)
+        if (isReviving && XCI.GetButton((XboxButton.B), controller) && !player.isDead)
         {
             timer += Time.deltaTime;
 
@@ -72,7 +72,7 @@ public class Player1Health : MonoBehaviour {
 
         }
 
-        if (XCI.GetButtonUp((XboxButton.A), controller))
+        if (XCI.GetButtonUp((XboxButton.B), controller))
         {
             timer = 0;
         }
@@ -123,9 +123,17 @@ public class Player1Health : MonoBehaviour {
             }
         }
 
+    //USE THIS FUNCTION TO DEAL DAMAGE TO PLAYER FROM OTHER SCRIPTS
+    public void takeDamage(int dmg)
+    {
+        //take damage from other sources
+        health -= dmg;
 
+        //turn temporarily invulnerable here
 
     }
+
+}
 
 
 
