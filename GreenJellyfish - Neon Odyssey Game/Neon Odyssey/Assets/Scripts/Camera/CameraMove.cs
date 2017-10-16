@@ -41,7 +41,7 @@ public class CameraMove : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
     {
         //Single player
         if (m_singlePlayer)
