@@ -19,26 +19,26 @@ public class EnemyBeetle : Enemy
     public GameObject m_bulletPrefab = null;
 
     //Laser
-    public float m_laserFireDistance = 0.0f;
-    public float m_laserChargeTime = 0.0f;
-    public float m_laserCooldown = 0.0f;
+    //public float m_laserFireDistance = 0.0f;
+    //public float m_laserChargeTime = 0.0f;
+    //public float m_laserCooldown = 0.0f;
 
-    public GameObject m_laserPrefab = null;
+    //public GameObject m_laserPrefab = null;
 
     //Nodes
     private BehaviourSequence m_sequenceTop;
 
     private BehaviourSelector m_selectorActions;
 
-    private BehaviourSequence m_sequenceLaser;
+    //private BehaviourSequence m_sequenceLaser;
     private BehaviourSequence m_sequenceGun;
     private BehaviourSequence m_sequenceMove;
 
     private BehaviourBase m_actionGetTarget;
 
-    private IsTargetCloseEnough m_actionGetDisLaser;
-    private FireLaserbeam m_actionFireLaser;
-    private CoolDown m_actionLaserCooldown;
+    //private IsTargetCloseEnough m_actionGetDisLaser;
+    //private FireLaserbeam m_actionFireLaser;
+    //private CoolDown m_actionLaserCooldown;
 
     private IsTargetCloseEnough m_actionGetDisGun;
     private FireGun m_actionFireGun;
@@ -55,13 +55,13 @@ public class EnemyBeetle : Enemy
 
         m_selectorActions = gameObject.AddComponent<BehaviourSelector>();
 
-        m_sequenceLaser = gameObject.AddComponent<BehaviourSequence>();
+        //m_sequenceLaser = gameObject.AddComponent<BehaviourSequence>();
         m_sequenceGun = gameObject.AddComponent<BehaviourSequence>();
         m_sequenceMove = gameObject.AddComponent<BehaviourSequence>();
 
-        m_actionGetDisLaser = gameObject.AddComponent<IsTargetCloseEnough>();
-        m_actionFireLaser = gameObject.AddComponent<FireLaserbeam>();
-        m_actionLaserCooldown = gameObject.AddComponent<CoolDown>();
+        //m_actionGetDisLaser = gameObject.AddComponent<IsTargetCloseEnough>();
+        //m_actionFireLaser = gameObject.AddComponent<FireLaserbeam>();
+        //m_actionLaserCooldown = gameObject.AddComponent<CoolDown>();
 
         m_actionGetDisGun = gameObject.AddComponent<IsTargetCloseEnough>();
         m_actionFireGun = gameObject.AddComponent<FireGun>();
@@ -89,11 +89,11 @@ public class EnemyBeetle : Enemy
         m_actionFireGun.m_bullet = m_bulletPrefab;
 
         //Laser
-        m_actionGetDisLaser.m_targetDistance = m_laserFireDistance;
-        m_actionFireLaser.m_chargeRate = m_laserChargeTime;
-        m_actionLaserCooldown.m_coolDown = m_laserCooldown;
+        //m_actionGetDisLaser.m_targetDistance = m_laserFireDistance;
+        //m_actionFireLaser.m_chargeRate = m_laserChargeTime;
+        //m_actionLaserCooldown.m_coolDown = m_laserCooldown;
 
-        m_actionFireLaser.m_laserbeam = m_laserPrefab;
+        //m_actionFireLaser.m_laserbeam = m_laserPrefab;
 
         //Movement
         m_actionGetDisMovement.m_targetDistance = m_moveTowardsRange;
@@ -102,13 +102,13 @@ public class EnemyBeetle : Enemy
         m_sequenceTop.m_behaviourBranches.Add(m_actionGetTarget as BehaviourBase);
         m_sequenceTop.m_behaviourBranches.Add(m_selectorActions);
 
-        m_selectorActions.m_behaviourBranches.Add(m_sequenceLaser);
+        //m_selectorActions.m_behaviourBranches.Add(m_sequenceLaser);
         m_selectorActions.m_behaviourBranches.Add(m_sequenceGun);
         m_selectorActions.m_behaviourBranches.Add(m_sequenceMove);
 
-        m_sequenceLaser.m_behaviourBranches.Add(m_actionGetDisLaser);
-        m_sequenceLaser.m_behaviourBranches.Add(m_actionFireLaser);
-        m_sequenceLaser.m_behaviourBranches.Add(m_actionLaserCooldown);
+        //m_sequenceLaser.m_behaviourBranches.Add(m_actionGetDisLaser);
+        //m_sequenceLaser.m_behaviourBranches.Add(m_actionFireLaser);
+        //m_sequenceLaser.m_behaviourBranches.Add(m_actionLaserCooldown);
 
         m_sequenceGun.m_behaviourBranches.Add(m_actionGetDisGun);
         m_sequenceGun.m_behaviourBranches.Add(m_actionFireGun);
