@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
             isSticking = false;
         }
 
-        if (XCI.GetAxis(XboxAxis.LeftTrigger, controller) > 0.1 && !isDead || XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1 && !isDead)
+        if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead || XCI.GetButtonDown(XboxButton.A, controller) && !isDead)
         {
             if (isSticking && !isFalling)
             {

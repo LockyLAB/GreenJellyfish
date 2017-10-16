@@ -56,7 +56,7 @@ public class Player2Shoot : MonoBehaviour {
 
                 timeBetweenShots += Time.deltaTime;
 
-                if (isFiring)
+                if (XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1.0f)
                 {
                     if (pcc2.switchColour == 1)
                     {
