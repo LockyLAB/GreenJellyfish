@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour {
 	public int HorizontalRays = 4;
 	public int VerticalRays = 4;
 
-    float maxClimbAngle = 80;
-    float maxDescendAngle = 80;
+    float maxClimbAngle = 40;
+    float maxDescendAngle = 40;
 
     float HorizontalRayWidth;
 	float VerticalRayWidth;
@@ -80,58 +80,65 @@ public class PlayerController : MonoBehaviour {
 
     void HorizontalCollisions(ref Vector3 Velocity)
     {
-        float dirX = Mathf.Sign(Velocity.x);
+
+        float dirX = m_CollisionInfo.faceDir;
         float rayLength = Mathf.Abs(Velocity.x) + skinWidth;
 
         if (Mathf.Abs(Velocity.x) < skinWidth)
         {
-            rayLength = 12 * skinWidth;
+            rayLength = 2 * skinWidth;
         }
-
-
 
         for (int i = 0; i < HorizontalRays; i++)
         {
             Vector3 rayOrigin = (dirX == -1) ? m_Raycast.bottomLeft : m_Raycast.bottomRight;
             rayOrigin += Vector3.up * (HorizontalRayWidth * i);
-            RaycastHit Hit;
+            RaycastHit hit;
             Ray r1 = new Ray(rayOrigin, Vector3.right * dirX);
 
-            Debug.DrawRay(rayOrigin, Vector3.right * dirX * rayLength, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.right * dirX, Color.red);
 
-            if (Physics.Raycast(r1, out Hit, rayLength, CollisionMask))
+            if (Physics.Raycast(r1, out hit, rayLength, CollisionMask))
             {
 
-                float slopeAngle = Vector2.Angle(Hit.normal, Vector2.up);
+                if (hit.distance == 0)
+                {
+                    continue;
+                }
+
+                float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
                 if (i == 0 && slopeAngle <= maxClimbAngle)
                 {
+                    if (m_CollisionInfo.descendingSlope)
+                    {
+                        m_CollisionInfo.descendingSlope = false;
+                        Velocity = m_CollisionInfo.velocityOld;
+                    }
                     float distanceToSlopeStart = 0;
                     if (slopeAngle != m_CollisionInfo.slopeAngleOld)
                     {
-                        distanceToSlopeStart = Hit.distance - skinWidth;
+                        distanceToSlopeStart = hit.distance - skinWidth;
                         Velocity.x -= distanceToSlopeStart * dirX;
                     }
-                    ClimbSlope(ref Velocity, slopeAngle);
+                    ClimbSlope(ref Velocity, slopeAngle, hit.normal);
                     Velocity.x += distanceToSlopeStart * dirX;
                 }
 
                 if (!m_CollisionInfo.climbingSlope || slopeAngle > maxClimbAngle)
                 {
-                    Velocity.x = (Hit.distance - skinWidth) * dirX;
-                    rayLength = Hit.distance;
+                    Velocity.x = (hit.distance - skinWidth) * dirX;
+                    rayLength = hit.distance;
 
                     if (m_CollisionInfo.climbingSlope)
                     {
                         Velocity.y = Mathf.Tan(m_CollisionInfo.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(Velocity.x);
                     }
+
                     m_CollisionInfo.left = dirX == -1;
                     m_CollisionInfo.right = dirX == 1;
-
                 }
-
             }
-
         }
     }
 
@@ -157,6 +164,12 @@ public class PlayerController : MonoBehaviour {
                 Velocity.y = (Hit.distance - skinWidth) * dirY;
                 rayLength = Hit.distance;
 
+                if (m_CollisionInfo.climbingSlope)
+                {
+                    Velocity.x = Velocity.y / Mathf.Tan(m_CollisionInfo.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(Velocity.x);
+                }
+
+
                 m_CollisionInfo.bottom = dirY == -1;
                 m_CollisionInfo.top = dirY == 1;
 
@@ -165,19 +178,21 @@ public class PlayerController : MonoBehaviour {
     }
     
 
-    void ClimbSlope(ref Vector3 velocity, float slopeAngle)
+    void ClimbSlope(ref Vector3 velocity, float slopeAngle, Vector2 slopeNormal)
     {
-        float moveDistance = Mathf.Abs(velocity.x);
-        float climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+ 
+            float moveDistance = Mathf.Abs(velocity.x);
+            float climbmoveAmountY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
 
-        if (velocity.y <= climbVelocityY)
-        {
-           velocity.y = climbVelocityY;
-            velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
-            m_CollisionInfo.bottom = true;
-            m_CollisionInfo.climbingSlope = true;
-            m_CollisionInfo.slopeAngle = slopeAngle;
-        }
+            if (velocity.y <= climbmoveAmountY)
+            {
+                velocity.y = climbmoveAmountY;
+                velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
+                m_CollisionInfo.bottom = true;
+                m_CollisionInfo.climbingSlope = true;
+                m_CollisionInfo.slopeAngle = slopeAngle;
+                m_CollisionInfo.slopeNormal = slopeNormal;
+            }
     }
 
     void DescendSlope(ref Vector3 velocity)
@@ -204,6 +219,7 @@ public class PlayerController : MonoBehaviour {
                         m_CollisionInfo.slopeAngle = slopeAngle;
                         m_CollisionInfo.descendingSlope = true;
                         m_CollisionInfo.bottom = true;
+                        m_CollisionInfo.slopeNormal = Hit.normal;
                     }
                 }
             }
@@ -215,7 +231,11 @@ public class PlayerController : MonoBehaviour {
 		Bounds boundingBox = m_Collider.bounds;
 		boundingBox.Expand (skinWidth * -2);
 
-		HorizontalRays = Mathf.Clamp (HorizontalRays, 2, int.MaxValue);
+        float boundsWidth = boundingBox.size.x;
+        float boundsHeight = boundingBox.size.y;
+
+
+        HorizontalRays = Mathf.Clamp (HorizontalRays, 2, int.MaxValue);
 		VerticalRays = Mathf.Clamp (VerticalRays, 2, int.MaxValue);
 
 		HorizontalRayWidth = boundingBox.size.y / (HorizontalRays - 1);
@@ -225,21 +245,30 @@ public class PlayerController : MonoBehaviour {
     public void Move(Vector3 Velocity)
     {
         UpdateRaycast();
+
         m_CollisionInfo.reset();
         m_CollisionInfo.velocityOld = Velocity;
+
 
         if (Velocity.y < 0)
         {
             DescendSlope(ref Velocity);
         }
+
         if (Velocity.x != 0)
         {
-            HorizontalCollisions(ref Velocity);
+            m_CollisionInfo.faceDir = (int)Mathf.Sign(Velocity.x);
         }
+
+        HorizontalCollisions(ref Velocity);
         if (Velocity.y != 0)
         {
-            VerticalCollisions(ref Velocity);
+           VerticalCollisions(ref Velocity);
         }
+
+
+
+
 
         ///////////////////
         if (!m_mainCamera.GetComponent<CameraMove>().m_singlePlayer)
@@ -271,6 +300,11 @@ public class PlayerController : MonoBehaviour {
         public bool descendingSlope;
         public float slopeAngle, slopeAngleOld;
         public Vector3 velocityOld;
+
+        public Vector2 slopeNormal;
+
+        public int faceDir;
+
 
         public void reset()
         {

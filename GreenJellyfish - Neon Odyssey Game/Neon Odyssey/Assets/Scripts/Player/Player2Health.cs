@@ -6,6 +6,7 @@ using XboxCtrlrInput;
 public class Player2Health : MonoBehaviour {
 
     public int health = 4;
+    int tempHealth;
 
     public Player player;
 
@@ -19,23 +20,34 @@ public class Player2Health : MonoBehaviour {
 
     public int healthGivenByPickup = 3;
 
+    public float deathTimer = 0;
 
+    public float deathTime = 2;
+
+    public bool isInvulnerable;
     // Use this for initialization
     void Start()
     {
 
         player = player.GetComponent<Player>();
         otherPlayerHealth = otherPlayerHealth.GetComponent<Player1Health>();
-
+        tempHealth = health;
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+
+
+        if (health > 4)
+        {
+            health = 4;
+        }
+
 
         if (health <= 0)
         {
+            health = 0;
             player.isDead = true;
             
 
@@ -65,6 +77,22 @@ public class Player2Health : MonoBehaviour {
         {
             timer = 0;
         }
+
+        deathTimer += Time.deltaTime;
+        if (tempHealth != health)
+        {
+            deathTimer = 0.0f;
+            if (deathTimer <= deathTime)
+            {
+                isInvulnerable = true;
+            }
+            else
+            {
+                isInvulnerable = false;
+            }
+        }
+
+        tempHealth = health;
 
     }
 

@@ -135,6 +135,10 @@ public class Player : MonoBehaviour {
             {
                 m_Velocity.y = maxJumpVelocity;
             }
+            else
+            {
+                m_Velocity.y = maxJumpVelocity;
+            }
 
         }
 
