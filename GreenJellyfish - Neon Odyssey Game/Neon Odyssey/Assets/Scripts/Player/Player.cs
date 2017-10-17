@@ -38,57 +38,59 @@ public class Player : MonoBehaviour
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        print("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
     }
 
     void Update()
     {
-        Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
-        if (isDead)
-        {
-            input = new Vector2(0, 0);
-        }
 
-        int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1;
-
-        float targetVelocityX = input.x * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne);
-
-        bool wallSliding = false;
-        if ((pController.m_CollisionInfo.left || pController.m_CollisionInfo.right) && !pController.m_CollisionInfo.bottom && !isDead)
-        {
-            wallSliding = true;
-
-            if (velocity.y < -wallSlideSpeedMax)
+            Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
+            if (isDead)
             {
-                velocity.y = -wallSlideSpeedMax;
+                input = new Vector2(0, 0);
             }
 
-            
-        }
+            int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1;
 
-        if (pController.m_CollisionInfo.top || pController.m_CollisionInfo.bottom)
-        {
-            velocity.y = 0;
-        }
+            float targetVelocityX = input.x * moveSpeed;
+            velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
-
-
-        if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead)
-        {
-            if (wallSliding)
+            bool wallSliding = false;
+            if ((pController.m_CollisionInfo.left || pController.m_CollisionInfo.right) && !pController.m_CollisionInfo.bottom && !isDead)
             {
+                wallSliding = true;
+
+                if (velocity.y < -wallSlideSpeedMax)
+                {
+                    velocity.y = -wallSlideSpeedMax;
+                }
+
+
+            }
+
+            if (pController.m_CollisionInfo.top || pController.m_CollisionInfo.bottom)
+            {
+                velocity.y = 0;
+            }
+
+
+
+            if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead)
+            {
+                if (wallSliding)
+                {
                     velocity.x = -wallDirX * wallLeap.x;
                     velocity.y = wallLeap.y;
+                }
+                if (pController.m_CollisionInfo.bottom)
+                {
+                    velocity.y = jumpVelocity;
+                }
             }
-            if (pController.m_CollisionInfo.bottom)
-            {
-                velocity.y = jumpVelocity;
-            }
+
+
+            velocity.y += gravity * Time.deltaTime;
+            pController.Move(velocity * Time.deltaTime);
+
         }
-
-
-        velocity.y += gravity * Time.deltaTime;
-        pController.Move(velocity * Time.deltaTime);
-    }
+    
 }
