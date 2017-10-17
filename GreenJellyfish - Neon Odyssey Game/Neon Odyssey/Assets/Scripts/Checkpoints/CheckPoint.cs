@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    /*
-     * ATTACH THIS SCRIPT TO CHECKPOINT OBJECT
-     * PLUG IN 'CP Manager' GAME OBJECT TO CHECKPOINT  VIA INSPECTOR
-     */
+    //--------------------------------------------------------------
+    //Attach this script to CHECKPOINT prefab
+    //Plug in CHECKPOINT MANAGER gameobject from SCENE
+    //--------------------------------------------------------------
 
     public CheckPointManager CPmanager;
     public Vector3 pos;    //position of this cp

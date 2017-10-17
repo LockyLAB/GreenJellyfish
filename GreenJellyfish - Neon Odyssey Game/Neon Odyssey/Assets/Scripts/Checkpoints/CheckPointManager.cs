@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CheckPointManager : MonoBehaviour
 {
-    /*
-     * ATTACH SCRIPT TO 'CP Manager' GAME OBJECT OR EMPTY GAME OBJECT
-     */
+    //--------------------------------------------------------------
+    //Attach script to CHECKPOINT MANAGER prefab
+    //--------------------------------------------------------------
+
     public Vector3 currentCheckpoint = Vector3.zero;
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 
 	}
 	
