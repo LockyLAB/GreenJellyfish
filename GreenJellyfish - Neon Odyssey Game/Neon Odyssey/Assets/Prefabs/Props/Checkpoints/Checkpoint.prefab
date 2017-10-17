@@ -80,7 +80,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617624206157092}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -151,10 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f926cb54ca262424c8bcba3a32d6a9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CPmanager: {fileID: 0}
+  CPmanager: {fileID: 114403762627671238, guid: 68f6caf2cd6fba842a2569e7424b1e82,
+    type: 2}
   pos: {x: 10.023153, y: 3.54, z: 0.78155994}
   setPos: {x: 0, y: 0, z: 0}
-  tagged: 0
+  cpMaterial:
+  - {fileID: 2100000, guid: f62d767edd5bd0844b74d8aa894eb0a6, type: 2}
+  - {fileID: 2100000, guid: 7bd1f421ae9ec1144a2fa05da9a2857b, type: 2}
 --- !u!136 &136968520853867126
 CapsuleCollider:
   m_ObjectHideFlags: 1

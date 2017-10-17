@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23308560205811864}
   - component: {fileID: 65850368251888774}
   - component: {fileID: 54222522232969180}
-  - component: {fileID: 114221663704040856}
+  - component: {fileID: 114603842550532562}
   m_Layer: 0
   m_Name: OffStagePoint
   m_TagString: Untagged
@@ -125,7 +125,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0, z: 10}
   m_Center: {x: 0, y: 1.1102228e-16, z: 0}
---- !u!114 &114221663704040856
+--- !u!114 &114603842550532562
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1601934044806194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1528aa66bcae92409c7b3c02ce68390, type: 3}
+  m_Script: {fileID: 11500000, guid: 27cafb864cb0ec848839b9f20ebd965b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cp2: {fileID: 0}
