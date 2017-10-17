@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_gameoverPanel.activeInHierarchy)
+            return;
         //User interface updates
         //Player1
 
