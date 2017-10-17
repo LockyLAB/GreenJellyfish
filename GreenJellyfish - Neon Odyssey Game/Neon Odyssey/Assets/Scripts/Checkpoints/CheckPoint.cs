@@ -5,8 +5,8 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
     //--------------------------------------------------------------
-    //Attach this script to CHECKPOINT prefab
-    //Plug in CHECKPOINT MANAGER gameobject from SCENE
+    //-Attach this script to CHECKPOINT prefab
+    //-Plug in CHECKPOINT MANAGER gameobject from SCENE
     //--------------------------------------------------------------
 
     public CheckPointManager CPmanager;

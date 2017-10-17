@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckPointManager : MonoBehaviour
 {
     //--------------------------------------------------------------
-    //Attach script to CHECKPOINT MANAGER prefab
+    //-Attach script to CHECKPOINT MANAGER prefab
     //--------------------------------------------------------------
 
     public Vector3 currentCheckpoint = Vector3.zero;

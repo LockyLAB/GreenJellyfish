@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class StageFall : MonoBehaviour
 {
-    //=============================================================
+    //---------------------------------------------------
     //-Attach this script to CHECKPOINT prefab
-    //Plug in CHECKPOINT MANAGER gameobject from SCENE
-    //=============================================================
+    //-Plug in CHECKPOINT MANAGER gameobject from SCENE
+    //---------------------------------------------------
 
     public CheckPointManager CPmanager1;
 
