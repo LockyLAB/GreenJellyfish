@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrapDamage : MonoBehaviour
 {
     /* 
-    * PLACE THIS SCRIPT ON THE TRAP OBJECTS "COLLIDER" CHILD
+    * ATTACH THIS SCRIPT ON THE TRAP OBJECTS "COLLIDER" CHILD
     * "COLLIDER" OB  
     */
 
