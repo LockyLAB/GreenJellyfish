@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float jumpHeight = 4; // Jump height of player
     public float timeToJumpApex = .4f; // time taken till player reaches jump height
     public float accelerationTimeAirborne = .4f; // acceleration of movement in air
-    float accelerationTimeGrounded = .1f; // Acceleration of movement on the ground
+    public float accelerationTimeGrounded = .1f; // Acceleration of movement on the ground
     public float moveSpeed = 12; // movement speed
 
     public Vector2 wallJumpClimb; // x and y velocity of wall climb
@@ -42,13 +42,13 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-            Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
-            if (isDead)
+            Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller)); // Sets the horizontal input for the player
+            if (isDead) // checks if the player is dead
             {
-                input = new Vector2(0, 0);
+                input = new Vector2(0, 0); // Sets input to zero if player is dead
             }
 
-            int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1;
+            int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1; // Checks the direction of walls if there is a collision
 
             float targetVelocityX = input.x * moveSpeed;
             velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne);
