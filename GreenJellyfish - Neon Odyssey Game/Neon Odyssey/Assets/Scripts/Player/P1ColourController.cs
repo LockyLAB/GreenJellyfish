@@ -47,7 +47,7 @@ public class P1ColourController : MonoBehaviour
             if (isDefault)
             {
                 timeToSwitch += Time.deltaTime;
-                if (XCI.GetButton(XboxButton.LeftStick, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightStick, controller) && timeToSwitch >= 0.3)
+                if (XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) == 1 && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1 && timeToSwitch >= 0.3)
                 {
                     switchColour = (int)Colours.Purple;
                     isDefault = false;
@@ -59,7 +59,7 @@ public class P1ColourController : MonoBehaviour
             else
             {
                 timeToSwitch += Time.deltaTime;
-                if (XCI.GetButton(XboxButton.LeftStick, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightStick, controller) && timeToSwitch >= 0.3)
+                if (XCI.GetButton(XboxButton.RightBumper, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.LeftBumper, controller) && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) == 1 && timeToSwitch >= 0.3 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) == 1 && timeToSwitch >= 0.3)
                 {
                     switchColour = (int)Colours.Orange;
                     isDefault = true;
