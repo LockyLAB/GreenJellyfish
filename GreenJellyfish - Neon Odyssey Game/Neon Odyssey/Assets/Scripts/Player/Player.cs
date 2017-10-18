@@ -6,10 +6,10 @@ using XboxCtrlrInput;
 public class Player : MonoBehaviour
 {
 
-    public float jumpHeight = 4; // Jump height of player
-    public float timeToJumpApex = .4f; // time taken till player reaches jump height
+    public float jumpHeight = 18; // Jump height of player
+    // public float timeToJumpApex = .4f; // time taken till player reaches jump height
     public float accelerationTimeAirborne = .4f; // acceleration of movement in air
-    public float accelerationTimeGrounded = .1f; // Acceleration of movement on the ground
+    public float accelerationTimeGrounded = .02f; // Acceleration of movement on the ground
     public float moveSpeed = 12; // movement speed
 
     public Vector2 wallJumpClimb; // x and y velocity of wall climb
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public float wallStickTime = 0.0f; // How long you stick to wall before you can jump off it 
     float timeToWallUnstick; 
 
-    public float gravity = -35; // Gravity
+    public float gravity = -50; // Gravity
     float jumpVelocity;
     Vector3 velocity;
     float velocityXSmoothing; // Acceleration on ground and in air
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     {
         pController = GetComponent<PlayerController>();
 
-        jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        //jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
     }
 
     void Update()
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
                 }
                 if (pController.m_CollisionInfo.bottom)
                 {
-                    velocity.y = jumpVelocity;
+                    velocity.y = jumpHeight;
                 }
             }
 
