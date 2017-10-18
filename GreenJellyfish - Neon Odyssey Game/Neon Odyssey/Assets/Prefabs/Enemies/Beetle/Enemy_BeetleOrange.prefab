@@ -159,7 +159,7 @@ MonoBehaviour:
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
-  m_deathEffect: {fileID: 1425272028019678, guid: 1b126c901d01abd4b95391db5e9f29f5,
+  m_deathEffect: {fileID: 1297749791164546, guid: 1b126c901d01abd4b95391db5e9f29f5,
     type: 2}
   m_difficulty: 0
   m_moveTowardsRange: 15

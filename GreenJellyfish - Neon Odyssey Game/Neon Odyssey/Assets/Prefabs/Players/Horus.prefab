@@ -292,15 +292,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9d398e937405040a818aac0ab65356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 4
+  jumpHeight: 10
   timeToJumpApex: 0.4
-  accelerationTimeAirborne: 0.4
+  accelerationTimeAirborne: 0.2
+  accelerationTimeGrounded: 0.02
   moveSpeed: 14
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 0}
   wallLeap: {x: 14, y: 20}
   wallSlideSpeedMax: 0
   wallStickTime: 0
+  gravity: -50
   isFirstPlayer: 0
   controller: 2
   isDead: 0

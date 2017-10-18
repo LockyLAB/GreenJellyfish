@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.6, y: -8.1, z: 0}
+  m_LocalPosition: {x: -29.8, y: -8.16, z: -0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4680599972317566}
@@ -260,7 +260,6 @@ MonoBehaviour:
   CollisionMask:
     serializedVersion: 2
     m_Bits: 256
-  isRed: 0
   HorizontalRays: 4
   VerticalRays: 4
 --- !u!114 &114352113972512410
@@ -293,14 +292,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9d398e937405040a818aac0ab65356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpHeight: 4
+  jumpHeight: 10
   timeToJumpApex: 0.4
-  moveSpeed: 15
-  gravity: -35
-  wallClimb: {x: 0, y: 0}
-  wallDrop: {x: 3, y: 5}
+  accelerationTimeAirborne: 0.2
+  accelerationTimeGrounded: 0.02
+  moveSpeed: 14
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
   wallLeap: {x: 14, y: 20}
-  wallDropTime: 10
+  wallSlideSpeedMax: 0
+  wallStickTime: 0
+  gravity: -50
+  isFirstPlayer: 0
   controller: 1
   isDead: 0
 --- !u!114 &114765216121973752
