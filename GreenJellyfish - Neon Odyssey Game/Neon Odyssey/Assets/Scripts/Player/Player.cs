@@ -6,37 +6,36 @@ using XboxCtrlrInput;
 public class Player : MonoBehaviour
 {
 
-    public float jumpHeight = 4;
-    public float timeToJumpApex = .4f;
-    public float accelerationTimeAirborne = .8f;
-    float accelerationTimeGrounded = .1f;
-    public float moveSpeed = 12;
+    public float jumpHeight = 4; // Jump height of player
+    public float timeToJumpApex = .4f; // time taken till player reaches jump height
+    public float accelerationTimeAirborne = .4f; // acceleration of movement in air
+    float accelerationTimeGrounded = .1f; // Acceleration of movement on the ground
+    public float moveSpeed = 12; // movement speed
 
-    public Vector2 wallJumpClimb;
-    public Vector2 wallJumpOff;
-    public Vector2 wallLeap;
+    public Vector2 wallJumpClimb; // x and y velocity of wall climb
+    public Vector2 wallJumpOff; // x and y velocity of wall jump off
+    public Vector2 wallLeap; // X and y velocity of wall leap
 
-    public float wallSlideSpeedMax = 0;
-    public float wallStickTime = 0.0f;
-    float timeToWallUnstick;
+    public float wallSlideSpeedMax = 0; // velocity of sliding down walls
+    public float wallStickTime = 0.0f; // How long you stick to wall before you can jump off it 
+    float timeToWallUnstick; 
 
-    float gravity;
+    public float gravity = -35; // Gravity
     float jumpVelocity;
     Vector3 velocity;
-    float velocityXSmoothing;
+    float velocityXSmoothing; // Acceleration on ground and in air
 
-    PlayerController pController;
+    PlayerController pController; // Reference to player controller
 
-    public bool isFirstPlayer;
+    public bool isFirstPlayer; // Checks which player it is
 
-    public XboxController controller;
+    public XboxController controller; // Checks which controller it is
 
-    public bool isDead;
+    public bool isDead; // Checks if player is dead
     void Start()
     {
         pController = GetComponent<PlayerController>();
 
-        gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
     }
 
