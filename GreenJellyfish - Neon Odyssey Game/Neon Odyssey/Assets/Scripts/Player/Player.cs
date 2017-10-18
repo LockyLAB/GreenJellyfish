@@ -51,14 +51,14 @@ public class Player : MonoBehaviour
             int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1; // Checks the direction of walls if there is a collision
 
             float targetVelocityX = input.x * moveSpeed;
-            velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne);
+            velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne); // Changes acceleration on ground and in air
 
-            bool wallSliding = false;
-            if ((pController.m_CollisionInfo.left || pController.m_CollisionInfo.right) && !pController.m_CollisionInfo.bottom && !isDead)
+            bool wallSliding = false; // sets wallSliding to false
+            if ((pController.m_CollisionInfo.left || pController.m_CollisionInfo.right) && !pController.m_CollisionInfo.bottom && !isDead) // Checks if the player is wallsliding
             {
-                wallSliding = true;
+                wallSliding = true; // Sets wallsliding to true
 
-                if (velocity.y < -wallSlideSpeedMax)
+                if (velocity.y < -wallSlideSpeedMax) // Adds vertical velocity to the player based on wall slide speed
                 {
                     velocity.y = -wallSlideSpeedMax;
                 }
@@ -66,29 +66,29 @@ public class Player : MonoBehaviour
 
             }
 
-            if (pController.m_CollisionInfo.top || pController.m_CollisionInfo.bottom)
+            if (pController.m_CollisionInfo.top || pController.m_CollisionInfo.bottom) // If player collides above or below 
             {
-                velocity.y = 0;
+                velocity.y = 0; // set velocity to zero
             }
 
 
 
-            if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead)
+            if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead) // if pressing a and not dead
             {
-                if (wallSliding)
+                if (wallSliding) // Checks if wallsliding
                 {
-                    velocity.x = -wallDirX * wallLeap.x;
-                    velocity.y = wallLeap.y;
+                    velocity.x = -wallDirX * wallLeap.x; // If wallsliding leap off when pressing A
+                    velocity.y = wallLeap.y; 
                 }
-                if (pController.m_CollisionInfo.bottom)
+                if (pController.m_CollisionInfo.bottom) // If touching the ground
                 {
-                    velocity.y = jumpHeight;
+                    velocity.y = jumpHeight; // Jump normally based on jump height
                 }
             }
 
 
-            velocity.y += gravity * Time.deltaTime;
-            pController.Move(velocity * Time.deltaTime);
+            velocity.y += gravity * Time.deltaTime; // Sets gravity to player
+            pController.Move(velocity * Time.deltaTime); // Calls move function on player
 
         }
     
