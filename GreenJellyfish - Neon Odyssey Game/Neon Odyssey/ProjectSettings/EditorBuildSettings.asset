@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/PalletteScene.unity
+  - enabled: 0
+    path: Assets/Scenes/AlphaScene.unity
     guid: fb7994068a198e64287de4ef45bb8e31
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: c030c6e2dfdd5fc4e9848877c51ba94c
+  - enabled: 1
+    path: Assets/Scenes/PalletteScene.unity
+    guid: f2463159764fc2e4eabfdc6a34f41e0f
