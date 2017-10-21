@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class EnemyScorpion : Enemy
 {
-
-    //Movement
-    public float m_moveTowardsRange = 0.0f;
-
     //Gun
     public float m_gunFireDistance = 0.0f;
     public int m_gunNumberOfShots = 0;
@@ -25,6 +21,7 @@ public class EnemyScorpion : Enemy
     public float m_laserChargeTime = 0.0f;
     public float m_laserCooldown = 0.0f;
 
+    public Vector3 m_laserPos = Vector3.zero;
     public GameObject m_laserPrefab = null;
 
     //Nodes
@@ -39,11 +36,9 @@ public class EnemyScorpion : Enemy
     private BehaviourBase m_actionGetTarget;
 
     //LeftClaw
-    private BehaviourSelector m_selectorFiringLeftGun;
     private FireGun m_actionFireLeftGun;
 
     //RightClaw
-    private BehaviourSelector m_selectorFiringRightGun;
     private FireGun m_actionFireRightGun;
 
     //Both Claws
@@ -69,11 +64,9 @@ public class EnemyScorpion : Enemy
         m_actionGetTarget = gameObject.AddComponent<BehaviourBase>();
 
         //LeftClaw
-        m_selectorFiringLeftGun = gameObject.AddComponent<BehaviourSelector>();
         m_actionFireLeftGun = gameObject.AddComponent<FireGun>();
 
         //RightClaw
-        m_selectorFiringRightGun = gameObject.AddComponent<BehaviourSelector>();
         m_actionFireRightGun = gameObject.AddComponent<FireGun>();
 
         //Both Claws
@@ -96,7 +89,6 @@ public class EnemyScorpion : Enemy
 
         //Left gun
         m_actionGetDisGun.m_targetDistance = m_gunFireDistance;
-
         m_actionFireLeftGun.m_numberOfBullets = m_gunNumberOfShots;
         m_actionFireLeftGun.m_timeBetweenShots = m_gunTimeBetweenShots;
         m_actionFireLeftGun.m_bulletSpeed = m_gunBulletSpeed;
@@ -110,7 +102,7 @@ public class EnemyScorpion : Enemy
         m_actionFireRightGun.m_numberOfBullets = m_gunNumberOfShots;
         m_actionFireRightGun.m_timeBetweenShots = m_gunTimeBetweenShots;
         m_actionFireRightGun.m_bulletSpeed = m_gunBulletSpeed;
-        m_actionFireRightGun.m_bulletSpawnPos = m_leftClawPos;
+        m_actionFireRightGun.m_bulletSpawnPos = m_rightClawPos;
         m_actionFireRightGun.m_bullet = m_bulletPrefab;
         m_actionGunCooldown.m_coolDown = m_gunCooldown;
 
@@ -129,9 +121,13 @@ public class EnemyScorpion : Enemy
         m_firingParallel.m_behaviourBranches.Add(m_sequenceLaser);
         m_firingParallel.m_behaviourBranches.Add(m_sequenceRightGun);
 
-        //m_sequenceLeftGun.m_behaviourBranches.Add(m_selectorFiringGun);
-        //m_sequenceLeftGun.m_behaviourBranches.Add(m_actionFireGun);
-        //m_sequenceLeftGun.m_behaviourBranches.Add(m_actionGunCooldown);
+        m_sequenceLeftGun.m_behaviourBranches.Add(m_actionGetDisGun);
+        m_sequenceLeftGun.m_behaviourBranches.Add(m_actionFireLeftGun);
+        m_sequenceLeftGun.m_behaviourBranches.Add(m_actionGunCooldown);
+
+        m_sequenceRightGun.m_behaviourBranches.Add(m_actionGetDisGun);
+        m_sequenceRightGun.m_behaviourBranches.Add(m_actionFireRightGun);
+        m_sequenceRightGun.m_behaviourBranches.Add(m_actionGunCooldown);
 
         m_sequenceLaser.m_behaviourBranches.Add(m_actionGetDisLaser);
         m_sequenceLaser.m_behaviourBranches.Add(m_actionFireLaser);

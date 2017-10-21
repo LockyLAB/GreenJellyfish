@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 114994127008665518}
   m_Layer: 11
   m_Name: TrapArc_Orange
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_timeBetweenShots: 0.2
   m_cooldown: 2
   m_bulletSpawnPos: {x: 0, y: 2.2, z: 0}
-  m_bullet: {fileID: 1421251104800472, guid: f2c7bbc96bb126b47900bc02c9876485, type: 2}
+  m_bullet: {fileID: 1421251104800472, guid: 85cb6ee452bfea048b4a01845fa1407d, type: 2}
   m_firingArc: 60
 --- !u!198 &198273790546002884
 ParticleSystem:

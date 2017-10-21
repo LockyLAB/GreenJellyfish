@@ -13,7 +13,7 @@ public class MoveTowardsTargetX : BehaviourBase
     public override BehaviourBase.BehaviourStatus Execute()
     {
         float velocityX = Mathf.Sign(GetComponent<Enemy>().m_target.transform.position.x - transform.position.x) * GetComponent<Enemy>().m_forwardSpeed;
-        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+        Vector3 velocity = Vector3.zero;
         velocity.x = velocityX;
         GetComponent<Rigidbody>().velocity = velocity;
         return BehaviourStatus.SUCCESS;

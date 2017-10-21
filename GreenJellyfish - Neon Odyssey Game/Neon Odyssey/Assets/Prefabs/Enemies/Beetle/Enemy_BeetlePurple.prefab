@@ -161,6 +161,7 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1967656237555072, guid: c57741776b7e089478a1df99a0e45643,
     type: 2}
+  m_health: 1
   m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_gunTimeBetweenShots: 0.1
   m_gunCooldown: 1
   m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
-  m_bulletPrefab: {fileID: 1643612939600948, guid: d361a8c6794857d40905383b3900039b,
+  m_bulletPrefab: {fileID: 1643612939600948, guid: 6f9cb25e3147d3b49b32a080be61056b,
     type: 2}
 --- !u!135 &135326351268410916
 SphereCollider:

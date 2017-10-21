@@ -30,8 +30,6 @@ public class FireCone : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, -9.8f, 0.0f);
-
         if (m_behaviourSetup)
         {
             //Start numbers of bullets to fire
@@ -65,14 +63,15 @@ public class FireCone : BehaviourBase
         return BehaviourStatus.SUCCESS;
     }
 
+    bool CloseEnough()
+    {
+        return (Mathf.Abs(transform.position.x - GetComponent<Enemy>().m_target.transform.position.x) < m_maxDis);
+    }
+
     void FireBullet(Vector3 bulletDir)
     {
         GameObject newBullet = Instantiate(m_bullet, this.transform.position + new Vector3(transform.up.x * m_bulletSpawnPos.x, transform.up.y * m_bulletSpawnPos.y, transform.up.z * m_bulletSpawnPos.z), Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
-    }
-
-    bool CloseEnough()
-    {
-        return (Mathf.Abs(transform.position.x - GetComponent<Enemy>().m_target.transform.position.x) < m_maxDis);
+        newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.ENEMY);
     }
 }

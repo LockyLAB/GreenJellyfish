@@ -30,14 +30,14 @@ public class ContactDamage : MonoBehaviour
         if (other.transform.parent.gameObject.tag == "Player" && other.transform.parent.gameObject.layer != enemyColour)
         {
             //Check player to damage
-            if (other.gameObject.GetComponent<Player1Health>() != null)
+            if (other.gameObject.GetComponent<PlayerHealth>() != null)
             {
-                other.gameObject.GetComponent<Player1Health>().takeDamage(1);
+                other.gameObject.GetComponent<PlayerHealth>().takeDamage(1);
             }
 
-            if (other.gameObject.GetComponent<Player2Health>() != null)
+            if (other.gameObject.GetComponent<PlayerHealth>() != null)
             {
-                other.gameObject.GetComponent<Player2Health>().takeDamage(1);
+                other.gameObject.GetComponent<PlayerHealth>().takeDamage(1);
             }
         }
     }

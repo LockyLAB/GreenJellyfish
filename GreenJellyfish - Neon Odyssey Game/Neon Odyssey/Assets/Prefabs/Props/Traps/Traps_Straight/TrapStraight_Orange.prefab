@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114922494777546156}
   m_Layer: 11
   m_Name: TrapStraight_Orange
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_timeBetweenShots: 0.2
   m_cooldown: 3
   m_bulletSpawnPos: {x: 0, y: 1, z: 0}
-  m_bullet: {fileID: 1421251104800472, guid: f2c7bbc96bb126b47900bc02c9876485, type: 2}
+  m_bullet: {fileID: 1421251104800472, guid: 85cb6ee452bfea048b4a01845fa1407d, type: 2}
 --- !u!198 &198074654176484238
 ParticleSystem:
   m_ObjectHideFlags: 1

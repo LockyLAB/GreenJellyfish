@@ -241,6 +241,7 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1830220026776820, guid: 9f35904aa41626140801df4f54399945,
     type: 2}
+  m_health: 1
   m_difficulty: 1
   m_moveTowardsRange: 10
   m_coneFireDistance: 7
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_coneAngle: 45
   m_coneCooldown: 1
   m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
-  m_bulletPrefab: {fileID: 1086754928029554, guid: 6e103b74bd5fe414f84ccc1c94397241,
+  m_bulletPrefab: {fileID: 1086754928029554, guid: ec42e2f7abe07b648a6b56ccdeb7deb1,
     type: 2}
   m_fleeDistance: 10
   m_fleeMaxTime: 5

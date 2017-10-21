@@ -8,13 +8,10 @@ public class GetTargetSinglePlayer : BehaviourBase
     //Ankh and Flail
     private GameObject m_player1 = null;
 
-    void Awake()
+    void Start()
     {
-        GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        //Assign player 1
-        m_player1 = players[0];
+        //Assign players
+        m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
     }
 
     //--------------------------------------------------------------------------------------

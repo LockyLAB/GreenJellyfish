@@ -11,22 +11,11 @@ public class GetTargetEasy : BehaviourBase
     //Lotus and Shen
     private GameObject m_player2 = null;
 
-    void Awake()
+    void Start()
     {
-        GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        //Assign player 1
-        if (players[0].GetComponent<P1ColourController>() != null)
-            m_player1 = players[0];
-        else if (players[1].GetComponent<P1ColourController>() != null)
-            m_player1 = players[1];
-
-        //Assign player 1
-        if (players[0].GetComponent<P2ColourController>() != null)
-            m_player2 = players[0];
-        else if (players[1].GetComponent<P2ColourController>() != null)
-            m_player2 = players[1];
+        //Assign players
+        m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
+        m_player2 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player2;
     }
 
     //--------------------------------------------------------------------------------------

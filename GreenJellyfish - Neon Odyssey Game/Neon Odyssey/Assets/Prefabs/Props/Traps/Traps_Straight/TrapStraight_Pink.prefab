@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 114674612757547468}
   m_Layer: 10
   m_Name: TrapStraight_Pink
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,8 +418,8 @@ MonoBehaviour:
   m_bulletSpeed: 10
   m_timeBetweenShots: 0.2
   m_cooldown: 3
-  m_bulletOffset: {x: 0, y: 0, z: 0}
-  m_bullet: {fileID: 1086754928029554, guid: 6e103b74bd5fe414f84ccc1c94397241, type: 2}
+  m_bulletSpawnPos: {x: 0, y: 1, z: 0}
+  m_bullet: {fileID: 1086754928029554, guid: ec42e2f7abe07b648a6b56ccdeb7deb1, type: 2}
 --- !u!198 &198145599761998214
 ParticleSystem:
   m_ObjectHideFlags: 1

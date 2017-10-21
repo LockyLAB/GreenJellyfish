@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114835522473289584}
   m_Layer: 9
   m_Name: TrapStraight_Purple
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,5 +185,5 @@ MonoBehaviour:
   m_bulletSpeed: 10
   m_timeBetweenShots: 0.2
   m_cooldown: 3
-  m_bulletOffset: {x: 0, y: 0, z: 0}
-  m_bullet: {fileID: 1643612939600948, guid: d361a8c6794857d40905383b3900039b, type: 2}
+  m_bulletSpawnPos: {x: 0, y: 1, z: 0}
+  m_bullet: {fileID: 1643612939600948, guid: 6f9cb25e3147d3b49b32a080be61056b, type: 2}

@@ -63,6 +63,6 @@ public class TrapBase : MonoBehaviour {
     {
         GameObject newBullet = Instantiate(m_bullet, transform.TransformPoint(m_bulletSpawnPos), Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
-
+        newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.ENEMY);
     }
 }

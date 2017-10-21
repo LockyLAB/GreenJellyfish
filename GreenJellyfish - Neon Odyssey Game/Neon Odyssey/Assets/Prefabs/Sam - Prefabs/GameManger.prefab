@@ -164,7 +164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1301213606879864
 GameObject:
   m_ObjectHideFlags: 1
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 114955411021429318}
   m_Layer: 0
   m_Name: GameManger
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1805564389881284
 GameObject:
   m_ObjectHideFlags: 1
@@ -1548,6 +1548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pausePanel: {fileID: 1284431849525390}
   m_gameoverPanel: {fileID: 1702046017362534}
+  m_player1: {fileID: 0}
+  m_player2: {fileID: 0}
   m_player1HealthImage:
   - {fileID: 114106155460025120}
   - {fileID: 114184376417372134}
@@ -1558,6 +1560,9 @@ MonoBehaviour:
   - {fileID: 114005507064538008}
   - {fileID: 114206288377988198}
   - {fileID: 114140579676496748}
+  m_player1Health: 0
+  m_player2Health: 0
+  m_singlePlayer: 0
 --- !u!222 &222007317545838552
 CanvasRenderer:
   m_ObjectHideFlags: 1
