@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114622793868264514}
   - component: {fileID: 135589375786601386}
   m_Layer: 11
-  m_Name: Enemy_Wasp_Orange
+  m_Name: Enemy_WaspOrange
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_coneAngle: 30
   m_coneCooldown: 1
   m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
-  m_bulletPrefab: {fileID: 1421251104800472, guid: 85cb6ee452bfea048b4a01845fa1407d,
+  m_bulletPrefab: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba,
     type: 2}
   m_fleeDistance: 6
   m_fleeMaxTime: 3

@@ -170,7 +170,7 @@ MonoBehaviour:
   m_gunTimeBetweenShots: 0.1
   m_gunCooldown: 1
   m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
-  m_bulletPrefab: {fileID: 1052800736934496, guid: 98777378c74d51f4ba0da99930ba3d34,
+  m_bulletPrefab: {fileID: 1052800736934496, guid: d53b0a361694c274d861280e21fbe78a,
     type: 2}
 --- !u!135 &135868721009078780
 SphereCollider:

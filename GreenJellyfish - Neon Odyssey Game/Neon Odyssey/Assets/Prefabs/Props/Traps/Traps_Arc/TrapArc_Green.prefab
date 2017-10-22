@@ -419,7 +419,7 @@ MonoBehaviour:
   m_timeBetweenShots: 0.2
   m_cooldown: 2
   m_bulletSpawnPos: {x: 0, y: 2, z: 0}
-  m_bullet: {fileID: 1052800736934496, guid: 98777378c74d51f4ba0da99930ba3d34, type: 2}
+  m_bullet: {fileID: 1052800736934496, guid: d53b0a361694c274d861280e21fbe78a, type: 2}
   m_firingArc: 15
 --- !u!198 &198291034135904688
 ParticleSystem:
