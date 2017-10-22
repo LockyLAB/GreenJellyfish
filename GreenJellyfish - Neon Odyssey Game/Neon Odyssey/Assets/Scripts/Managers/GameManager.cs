@@ -51,8 +51,7 @@ public class GameManager : MonoBehaviour
             m_singlePlayer = true;
         }
 
-        m_pausePanel.SetActive(false);
-        m_gameoverPanel.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame

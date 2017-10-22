@@ -43,6 +43,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Time: " + Time.timeScale);
+        if (Time.timeScale == 0.0f)
+            return;
+
         Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
         if (isDead)
         {

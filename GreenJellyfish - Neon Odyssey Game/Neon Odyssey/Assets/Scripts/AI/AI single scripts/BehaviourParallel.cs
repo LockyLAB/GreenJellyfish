@@ -5,7 +5,7 @@ using UnityEngine;
 public class BehaviourParallel : BehaviourComposite
 {
     [HideInInspector]
-    public List<BehaviourBase> m_behaviourBranchesPending;
+    public List<BehaviourBase> m_behaviourBranchesPending = new List<BehaviourBase>();
 
     //--------------------------------------------------------------------------------------
     //Update behaviours in tree - All children run regardless of result.
