@@ -27,7 +27,7 @@ public class ColourController : MonoBehaviour
             //TOGGLE PLAYER COLOUR
             timeToSwitch += Time.deltaTime;
 
-            if (XCI.GetButton(XboxButton.LeftStick, controller) && timeToSwitch >= 0.3 || XCI.GetButton(XboxButton.RightStick, controller) && timeToSwitch >= 0.3)
+            if (XCI.GetButton(XboxButton.Y, controller) && timeToSwitch >= 0.3)
             {
                 toggleColour();
                 timeToSwitch = 0.0f;
