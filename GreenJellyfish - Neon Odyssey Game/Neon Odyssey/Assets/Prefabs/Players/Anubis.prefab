@@ -237,8 +237,8 @@ MonoBehaviour:
   m_bulletSpeed: 1000
   m_fireRate: 0.2
   m_aim: {x: 0, y: 2, z: 0}
-  m_bullet1: {fileID: 1643612939600948, guid: 6f9cb25e3147d3b49b32a080be61056b, type: 2}
-  m_bullet2: {fileID: 1421251104800472, guid: 85cb6ee452bfea048b4a01845fa1407d, type: 2}
+  m_bullet1: {fileID: 1643612939600948, guid: 6e12be95134b90041af9aa96e300500b, type: 2}
+  m_bullet2: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba, type: 2}
   controller: 1
 --- !u!136 &136680105042919842
 CapsuleCollider:
