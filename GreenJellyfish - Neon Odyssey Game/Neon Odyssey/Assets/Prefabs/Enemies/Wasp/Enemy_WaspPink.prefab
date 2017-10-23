@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4373641019727778}
   - component: {fileID: 108578936172612230}
   m_Layer: 10
-  m_Name: Point light
+  m_Name: PinkLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1877831523406252}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 196.0008, y: 2.744565, z: -34.48106}
+  m_LocalPosition: {x: 113.78, y: 0.46, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4773051865001256}
@@ -243,12 +243,12 @@ MonoBehaviour:
     type: 2}
   m_health: 1
   m_difficulty: 1
-  m_moveTowardsRange: 10
+  m_moveTowardsRange: 12
   m_coneFireDistance: 7
   m_coneNumberOfBursts: 3
   m_coneBulletSpeed: 12
-  m_coneTimeBetweenShots: 1
-  m_coneAngle: 45
+  m_coneTimeBetweenShots: 0.5
+  m_coneAngle: 60
   m_coneCooldown: 1
   m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
   m_bulletPrefab: {fileID: 1086754928029554, guid: 8047e5b77a6bcb9459d31b8b9ede6f13,

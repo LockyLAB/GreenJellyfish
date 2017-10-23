@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4128545935058462}
   - component: {fileID: 108641127029200942}
   m_Layer: 12
-  m_Name: Point light
+  m_Name: GreenLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904576510149112}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 143.62473, y: 18.274563, z: -34.953053}
+  m_LocalPosition: {x: 127.98691, y: 2.56, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4880259620485376}
@@ -243,12 +243,12 @@ MonoBehaviour:
     type: 2}
   m_health: 1
   m_difficulty: 0
-  m_moveTowardsRange: 10
-  m_coneFireDistance: 10
-  m_coneNumberOfBursts: 5
-  m_coneBulletSpeed: 10
-  m_coneTimeBetweenShots: 1
-  m_coneAngle: 20
+  m_moveTowardsRange: 12
+  m_coneFireDistance: 7
+  m_coneNumberOfBursts: 3
+  m_coneBulletSpeed: 12
+  m_coneTimeBetweenShots: 0.5
+  m_coneAngle: 60
   m_coneCooldown: 1
   m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
   m_bulletPrefab: {fileID: 1052800736934496, guid: d53b0a361694c274d861280e21fbe78a,
