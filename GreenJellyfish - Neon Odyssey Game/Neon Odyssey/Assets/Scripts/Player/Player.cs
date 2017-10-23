@@ -8,19 +8,15 @@ public class Player : MonoBehaviour
 
     public float jumpHeight = 4;
     public float timeToJumpApex = .4f;
-    float accelerationTimeAirborne = .37f;
-    float accelerationTimeGrounded = .02f;
+    public float accelerationTimeAirborne = .37f;
+    public float accelerationTimeGrounded = .02f;
     public float moveSpeed = 12;
 
-    public Vector2 wallJumpClimb;
-    public Vector2 wallJumpOff;
     public Vector2 wallLeap;
 
     public float wallSlideSpeedMax = 0;
     public float wallStickTime = 0.0f;
     float timeToWallUnstick;
-
-    float faceDirX;
 
     float gravity;
     float jumpVelocity;
@@ -40,7 +36,6 @@ public class Player : MonoBehaviour
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        print("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
     }
 
     void Update()
@@ -50,19 +45,13 @@ public class Player : MonoBehaviour
             return;
 
         Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
+
         if (isDead)
         {
             input = new Vector2(0, 0);
         }
 
-        if(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller) < 0)
-        {
-            faceDirX = -1;
-        }
-        else
-        {
-            faceDirX = 1;
-        }
+
 
         int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1;
 
