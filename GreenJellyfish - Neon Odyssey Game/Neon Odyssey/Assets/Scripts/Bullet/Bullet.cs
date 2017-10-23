@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (gameObject.tag == "Player" && col.gameObject.tag == "DestroyableEnviroment")
+        if (gameObject.tag == "Player" && col.gameObject.tag == "Door")
         {
             if (col.gameObject.layer == gameObject.layer)
                 col.gameObject.GetComponent<ShootableEnviromentTrigger>().OnDestruction();
