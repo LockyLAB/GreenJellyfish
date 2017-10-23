@@ -8,7 +8,15 @@ public class CoolDown : BehaviourBase
     public float m_coolDown = 0.0f;
     private float m_time = 0.0f;
 
-    private bool m_behaviourSetup = true;
+
+    //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, e.g. setting timer to 0.0f
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
+    {
+        m_time = m_coolDown;
+    }
+
     //--------------------------------------------------------------------------------------
     // Update behaviours - Do nothing till timer runs out
     //
@@ -17,19 +25,10 @@ public class CoolDown : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-
-        if (m_behaviourSetup)
-        {
-            m_time = m_coolDown;
-            m_behaviourSetup = false;
-        }
-
         m_time -= Time.deltaTime;
 
-        if (m_time > 0.0f)
-            return BehaviourStatus.PENDING;
-
-        m_behaviourSetup = true;
-        return BehaviourStatus.SUCCESS;
+        if (m_time < 0.0f)
+            return BehaviourStatus.SUCCESS;
+        return BehaviourStatus.PENDING;
     }
 }

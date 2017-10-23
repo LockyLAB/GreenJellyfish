@@ -9,6 +9,14 @@ public class BehaviourBase : MonoBehaviour
     public enum BehaviourStatus {SUCCESS, FAILURE, PENDING };
 
     //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, e.g. setting timer to 0.0f
+    //--------------------------------------------------------------------------------------
+    public virtual void BehaviourSetup()
+    {
+
+    }
+
+    //--------------------------------------------------------------------------------------
     // Update behaviours in tree
     //
     // Param:

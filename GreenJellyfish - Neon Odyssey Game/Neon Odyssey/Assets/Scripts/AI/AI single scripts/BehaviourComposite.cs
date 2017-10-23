@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class BehaviourComposite : BehaviourBase
 {
-    public string m_nameOfComponent = "";
 
-    public List<BehaviourBase> m_behaviourBranches;
+    public List<BehaviourBase> m_behaviourBranches = new List<BehaviourBase>();
     [HideInInspector]
     public int m_branchNumber = 0;
     [HideInInspector]
     public bool m_pendingBranch = false;
 
-    void Awake()
+    //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, e.g. setting timer to 0.0f
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
     {
-        m_behaviourBranches = new List<BehaviourBase>();
+        m_branchNumber = 0;
     }
+
 
     public void AddBranch(BehaviourBase behaviour)
     {

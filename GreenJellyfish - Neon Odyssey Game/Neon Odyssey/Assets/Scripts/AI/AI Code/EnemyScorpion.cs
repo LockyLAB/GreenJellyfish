@@ -24,6 +24,8 @@ public class EnemyScorpion : Enemy
     public Vector3 m_laserPos = Vector3.zero;
     public GameObject m_laserPrefab = null;
 
+    public bool m_laserFriendlyFire = false;
+
     //Nodes
     private BehaviourSequence m_sequenceTop;
 
@@ -109,6 +111,8 @@ public class EnemyScorpion : Enemy
         //Laser
         m_actionGetDisLaser.m_targetDistance = m_laserFireDistance;
         m_actionFireLaser.m_chargeRate = m_laserChargeTime;
+        m_actionFireLaser.m_laserSpawnPos = m_laserPos;
+        m_actionFireLaser.m_laserFriendlyFire = m_laserFriendlyFire;
         m_actionLaserCooldown.m_coolDown = m_laserCooldown;
 
         m_actionFireLaser.m_laserbeam = m_laserPrefab;

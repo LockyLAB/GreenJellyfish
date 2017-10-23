@@ -6,14 +6,31 @@ public class FireLaserbeam : BehaviourBase
 {
 
     public GameObject m_laserbeam;
-    private GameObject m_laserbeamHolder;
+    public GameObject m_laserbeamHolder;
 
     public float m_chargeRate = 0.0f;
     private float m_time = 0.0f;
 
+    public bool m_laserFriendlyFire = false;
+
     private Vector3 laserDir = Vector3.zero;
 
-    private bool m_behaviourSetup = true;
+    public Vector3 m_laserSpawnPos = Vector3.up * 0.5f;
+
+    //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, e.g. setting timer to 0.0f
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
+    {
+        //Start numbers of bullets to fire
+        m_time = m_chargeRate;
+
+        //Fire bullet
+        laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);
+        m_laserbeamHolder = Instantiate(m_laserbeam, transform.TransformPoint(m_laserSpawnPos), Quaternion.identity);
+        m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position);
+    }
+
     //--------------------------------------------------------------------------------------
     // Update behaviours - Cone Fire Towards target
     //
@@ -22,19 +39,6 @@ public class FireLaserbeam : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-
-        if (m_behaviourSetup)
-        {
-            //Start numbers of bullets to fire
-            m_time = m_chargeRate;
-            m_behaviourSetup = false;
-
-            //Fire bullet
-            laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);
-            m_laserbeamHolder = Instantiate(m_laserbeam, this.transform.position, Quaternion.identity);
-            m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position);
-        }
-
         m_time -= Time.deltaTime;
 
         if (m_time > 0.0f)
@@ -43,7 +47,6 @@ public class FireLaserbeam : BehaviourBase
         FireLaser(laserDir, laserDir.magnitude);
 
         //Reset all varibles
-        m_behaviourSetup = true;
         return BehaviourStatus.SUCCESS;
     }
 
@@ -55,8 +58,20 @@ public class FireLaserbeam : BehaviourBase
         if (Physics.Raycast(transform.position, laserDir, out hit, laserMagnitude))
         {
             if (hit.collider.tag == "Player")
-                Debug.Log("player hit");
+            {
+                //Cases between frendly fire or not
+                if (m_laserFriendlyFire)
+                {
+                    //!!!! UPDATE WHEN SINLGE ENTITIY CREATED!!!!!
+                        hit.collider.GetComponent<PlayerHealth>().health -= 1;
+                }
+                else
+                {
+                    if(hit.collider.gameObject.layer != gameObject.layer)
+                        hit.collider.GetComponent<PlayerHealth>().health -= 1;
+                }
+            }
         }
-        Destroy(m_laserbeamHolder);
+        Destroy(m_laserbeamHolder.gameObject);
     }
 }

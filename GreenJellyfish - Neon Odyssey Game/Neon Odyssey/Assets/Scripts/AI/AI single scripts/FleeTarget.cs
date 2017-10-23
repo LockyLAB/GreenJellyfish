@@ -10,7 +10,14 @@ public class FleeTarget : BehaviourBase
 
     private float m_time = 0.0f;
 
-    private bool m_behaviourSetup = true;
+    //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, e.g. setting timer to 0.0f
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
+    {
+        m_time = m_maxFleeDuration;
+    }
+
     //--------------------------------------------------------------------------------------
     // Update behaviours - Flee target to set distance
     //
@@ -19,12 +26,6 @@ public class FleeTarget : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        //Set up basuc 
-        if (m_behaviourSetup)
-        {
-            m_time = m_maxFleeDuration;
-            m_behaviourSetup = false;
-        }
 
         Debug.Log("Fleeing");
 
@@ -38,7 +39,7 @@ public class FleeTarget : BehaviourBase
             GetComponent<Rigidbody>().velocity = velocity;
             return BehaviourStatus.PENDING;
         }
-        m_behaviourSetup = true;
+
         return BehaviourStatus.SUCCESS;
     }
 }

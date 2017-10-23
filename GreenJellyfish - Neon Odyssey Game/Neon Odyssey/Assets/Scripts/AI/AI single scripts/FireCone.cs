@@ -18,9 +18,16 @@ public class FireCone : BehaviourBase
 
     public float m_maxDis = 0.0f;
 
-    private bool m_behaviourSetup = true;
-
     public Vector3 m_bulletSpawnPos = Vector3.up * 0.5f;
+
+    //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, e.g. setting timer to 0.0f
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
+    {
+        m_bulletCount = 0;
+        m_time = m_timeBetweenShots;
+    }
 
     //--------------------------------------------------------------------------------------
     // Update behaviours - Cone Fire Towards target
@@ -30,13 +37,6 @@ public class FireCone : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        if (m_behaviourSetup)
-        {
-            //Start numbers of bullets to fire
-            m_bulletCount = 0;
-            m_time = 0.0f;
-            m_behaviourSetup = false;
-        }
 
         m_time -= Time.deltaTime;
 
@@ -59,7 +59,6 @@ public class FireCone : BehaviourBase
             return BehaviourStatus.PENDING;
 
         //Reset all varibles
-        m_behaviourSetup = true;
         return BehaviourStatus.SUCCESS;
     }
 
@@ -70,7 +69,7 @@ public class FireCone : BehaviourBase
 
     void FireBullet(Vector3 bulletDir)
     {
-        GameObject newBullet = Instantiate(m_bullet, this.transform.position + new Vector3(transform.up.x * m_bulletSpawnPos.x, transform.up.y * m_bulletSpawnPos.y, transform.up.z * m_bulletSpawnPos.z), Quaternion.identity);
+        GameObject newBullet = Instantiate(m_bullet, transform.TransformPoint(m_bulletSpawnPos), Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
         newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.ENEMY);
     }

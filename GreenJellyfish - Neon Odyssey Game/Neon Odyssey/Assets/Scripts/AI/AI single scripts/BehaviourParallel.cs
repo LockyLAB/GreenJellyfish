@@ -21,16 +21,17 @@ public class BehaviourParallel : BehaviourComposite
         //Run pending states
         if(m_behaviourBranchesPending.Count>0)
         {
-
             for (int i = 0; i < m_behaviourBranchesPending.Count; i++)
             {
                 BehaviourStatus branchState = m_behaviourBranchesPending[i].Execute();
 
-                if(branchState != BehaviourStatus.PENDING)
+                if (branchState != BehaviourStatus.PENDING)
                 {
                     m_behaviourBranchesPending.RemoveAt(i);
                     i--;
                 }
+                else
+                    state = BehaviourStatus.PENDING;
             }
         }
         else
@@ -38,6 +39,7 @@ public class BehaviourParallel : BehaviourComposite
             //Run all 
             for (int i = 0; i < m_behaviourBranches.Count; i++)
             {
+                m_behaviourBranches[i].BehaviourSetup();
                 BehaviourStatus branchState = m_behaviourBranches[i].Execute();
 
                 if (branchState == BehaviourStatus.PENDING)

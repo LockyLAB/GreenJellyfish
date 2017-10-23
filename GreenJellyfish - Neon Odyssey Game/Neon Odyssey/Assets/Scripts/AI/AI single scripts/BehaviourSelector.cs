@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BehaviourSelector : BehaviourComposite
 {
-
     //--------------------------------------------------------------------------------------
     // Update behaviours in tree - OR like
     //
@@ -12,21 +11,21 @@ public class BehaviourSelector : BehaviourComposite
     //		Returns a enum BehaviourStatus, current status of behaviour, Success, failed, pending
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
-    {
-        //Run through each child, similar to OR operation.
-        if (!m_pendingBranch)
-            m_branchNumber = 0;
-        m_pendingBranch = false;
-
+    { 
         //Requires only one child to succeed
         while (m_branchNumber < m_behaviourBranches.Count)
         {
             BehaviourBase currentBranch = m_behaviourBranches[m_branchNumber];
 
+            if(!m_pendingBranch)
+                currentBranch.BehaviourSetup();
+            m_pendingBranch = false;
             BehaviourBase.BehaviourStatus branchStatus = currentBranch.Execute();
 
             if (branchStatus == BehaviourStatus.SUCCESS)
+            {
                 return BehaviourStatus.SUCCESS;
+            }
             if (branchStatus == BehaviourStatus.PENDING)
             {
                 m_pendingBranch = true;
