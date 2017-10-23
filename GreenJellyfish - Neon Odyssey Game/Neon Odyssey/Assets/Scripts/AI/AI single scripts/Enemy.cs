@@ -6,9 +6,9 @@ public class Enemy : MonoBehaviour {
 
     public float m_forwardSpeed = 0.0f;
 
-    //[HideInInspector]
+    [HideInInspector]
     public BehaviourBase m_initalBehaviour;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject m_target = null;
 
     public GameObject m_deathEffect = null;
