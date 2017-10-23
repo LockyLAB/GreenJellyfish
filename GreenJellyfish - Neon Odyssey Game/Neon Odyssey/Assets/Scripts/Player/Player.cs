@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
 
     public Vector2 wallLeap;
 
+    public float jumpDelay = 10;
+    float jumpDelayTimer;
+
     public float wallSlideSpeedMax = 0;
     public float wallStickTime = 0.0f;
     float timeToWallUnstick;
@@ -40,7 +43,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+       
+
         if (Time.timeScale == 0.0f)
             return;
 
@@ -51,7 +55,11 @@ public class Player : MonoBehaviour
             input = new Vector2(0, 0);
         }
 
-
+        if(pController.m_CollisionInfo.bottom)
+        {
+            jumpDelayTimer = jumpDelay;
+        }
+        jumpDelayTimer -= Time.deltaTime;
 
         int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1;
 
@@ -87,7 +95,7 @@ public class Player : MonoBehaviour
                     velocity.x = -wallDirX * wallLeap.x;
                     velocity.y = wallLeap.y;
             }
-            if (pController.m_CollisionInfo.bottom)
+            if (pController.m_CollisionInfo.bottom || jumpDelayTimer > 0)
             {
                 velocity.y = jumpVelocity;
             }
