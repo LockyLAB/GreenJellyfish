@@ -37,9 +37,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4533146943773906}
+  - component: {fileID: 54648523735132132}
+  - component: {fileID: 136198660056810708}
+  - component: {fileID: 114119570056623776}
   m_Layer: 0
   m_Name: Scorpion
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,13 +53,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341375975579570}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4533146943773906}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4533146943773906
 Transform:
   m_ObjectHideFlags: 1
@@ -64,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1504276409640314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 22.727924, y: 1.995904, z: 0.46101284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4089673296662836}
@@ -110,6 +113,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341375975579570}
   m_Mesh: {fileID: 4300000, guid: 5e7c1d0847d850d479ea71e7b2c83e64, type: 3}
+--- !u!54 &54648523735132132
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504276409640314}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!95 &95901450046276528
 Animator:
   serializedVersion: 3
@@ -127,3 +145,50 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114119570056623776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504276409640314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c2d83b048af96498970b0535961138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_forwardSpeed: 0
+  m_initalBehaviour: {fileID: 0}
+  m_target: {fileID: 0}
+  m_deathEffect: {fileID: 1297749791164546, guid: 1b126c901d01abd4b95391db5e9f29f5,
+    type: 2}
+  m_health: 1
+  m_difficulty: 0
+  m_gunFireDistance: 12
+  m_gunNumberOfShots: 2
+  m_gunBulletSpeed: 15
+  m_gunTimeBetweenShots: 0.5
+  m_gunCooldown: 2
+  m_leftClawPos: {x: 1, y: 0.5, z: 1.8}
+  m_rightClawPos: {x: 1, y: 0.5, z: -1.8}
+  m_bulletPrefab: {fileID: 1052800736934496, guid: d53b0a361694c274d861280e21fbe78a,
+    type: 2}
+  m_laserFireDistance: 10
+  m_laserChargeTime: 2
+  m_laserCooldown: 2
+  m_laserPos: {x: 1, y: 1, z: 0}
+  m_laserPrefab: {fileID: 1239065765971984, guid: 58c30f7584fe3e94586bc3383fee9926,
+    type: 2}
+  m_laserFriendlyFire: 0
+--- !u!136 &136198660056810708
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504276409640314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.76
+  m_Height: 4.49
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.72, z: 0}
