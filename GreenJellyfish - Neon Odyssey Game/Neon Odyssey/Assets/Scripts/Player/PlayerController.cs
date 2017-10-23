@@ -258,7 +258,7 @@ public class PlayerController : MonoBehaviour
         }
 
         ///////////////////
-        if (!m_mainCamera.GetComponent<CameraMove>().m_singlePlayer)
+        if (m_otherPlayer != null)
         {
             //Group players together X-Axis
             if (transform.position.x + Velocity.x - m_otherPlayer.transform.position.x > m_mainCamera.GetComponent<CameraMove>().m_maxHorizontalDistance)
