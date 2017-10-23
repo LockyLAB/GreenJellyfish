@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
 
     public float jumpHeight = 4;
     public float timeToJumpApex = .4f;
-    float accelerationTimeAirborne = .2f;
-    float accelerationTimeGrounded = .1f;
+    float accelerationTimeAirborne = .37f;
+    float accelerationTimeGrounded = .02f;
     public float moveSpeed = 12;
 
     public Vector2 wallJumpClimb;
@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public float wallSlideSpeedMax = 0;
     public float wallStickTime = 0.0f;
     float timeToWallUnstick;
+
+    float faceDirX;
 
     float gravity;
     float jumpVelocity;
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Time: " + Time.timeScale);
+        
         if (Time.timeScale == 0.0f)
             return;
 
@@ -53,7 +55,18 @@ public class Player : MonoBehaviour
             input = new Vector2(0, 0);
         }
 
+        if(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller) < 0)
+        {
+            faceDirX = -1;
+        }
+        else
+        {
+            faceDirX = 1;
+        }
+
         int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1;
+
+        
 
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne);
@@ -90,6 +103,16 @@ public class Player : MonoBehaviour
                 velocity.y = jumpVelocity;
             }
         }
+
+        if(velocity.x > 0)
+        {
+            this.gameObject.transform.GetChild(0).rotation = (Quaternion.Euler(0, 90, 0));
+        }
+        if(velocity.x < -1)
+        {
+            this.gameObject.transform.GetChild(0).rotation = (Quaternion.Euler(0, 270, 0));
+        }
+
 
 
         velocity.y += gravity * Time.deltaTime;
