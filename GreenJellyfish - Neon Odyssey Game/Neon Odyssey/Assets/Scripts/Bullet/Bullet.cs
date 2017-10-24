@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    //-----------------------------------------------------------------------------
+    // Attach this script to bullet prefabs
+    //-----------------------------------------------------------------------------
+
     public enum TEAM {PLAYER, ENEMY }
 
     public void SetTeam(TEAM team)
