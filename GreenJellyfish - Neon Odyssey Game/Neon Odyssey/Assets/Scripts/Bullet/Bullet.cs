@@ -22,41 +22,60 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //destroy bullet if not visible on cameras
         if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
         {
             Destroy(gameObject);
         }
     }
 
-    //function called when object collides
-    void OnTriggerEnter(Collider col)
-    {
-        //Bullet hits opposing team 
-        if (col.gameObject.tag != gameObject.tag)
+    //function called when object collides with other
+    void OnTriggerEnter(Collider other)
+    { 
+        //check if other object is ENEMY or PLAYER, ignore collision layer
+        if (other.gameObject.tag != gameObject.tag && other.gameObject.layer != LayerMask.NameToLayer("Collisions"))
         {
-            //Hits player check not same colour
-            if(col.gameObject.tag == "Player")//if ENEMY is not BULLET colour, destroy BULLET
+            //if ENEMY bullet hits PLAYER, 
+            if (other.gameObject.tag == "Player")
             {
-                if(col.gameObject.layer != gameObject.layer)
-                    col.gameObject.GetComponent<PlayerHealth>().health -= 1;
-                Destroy(gameObject);
+                //if BULLET and PLAYER are DIFFERENT colours, 
+                if (other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Player>() == true)
+                {
+                    other.gameObject.GetComponent<PlayerHealth>().health -= 1;
+                    Destroy(gameObject);
+                }
+
+                //if enemy BULLET hits PLAYER of SAME colour, destroy bullet
+                else if (other.gameObject.layer == gameObject.layer && other.gameObject.GetComponent<Player>() == true)
+                {
+                    Destroy(gameObject);
+                    // +power charge
+                }
             }
-            if (col.gameObject.tag == "Enemy") // different colour to enemy, rmeove health
+
+            // if PLAYER bullet hits ENEMY
+            if (other.gameObject.tag == "Enemy") 
             {
-                if(col.gameObject.layer == gameObject.layer)
-                    col.gameObject.GetComponent<Enemy>().m_health -= 1;
-                Destroy(gameObject);
+                // if BULLET and ENEMY are the same colour, deal damage (ignores enemy bullets)
+                if(other.gameObject.layer == gameObject.layer && other.gameObject.GetComponent<Bullet>() == null)
+                {
+                    other.gameObject.GetComponent<Enemy>().m_health -= 1;
+                    Destroy(gameObject);
+                }
             }
         }
 
-        if (gameObject.tag == "Player" && col.gameObject.tag == "Door")
+        if (gameObject.tag == "Player" && other.gameObject.tag == "Door")
         {
-            if (col.gameObject.layer == gameObject.layer)
-                col.gameObject.GetComponent<ShootableEnviromentTrigger>().OnDestruction();
+            if (other.gameObject.layer == gameObject.layer)
+                other.gameObject.GetComponent<ShootableEnviromentTrigger>().OnDestruction();
             Destroy(gameObject);
         }
 
-        if (col.gameObject.layer == LayerMask.NameToLayer("Collisions"))//if BULLET collides with WALLS, destroy BULLET
+        //check bullet - wall collisions
+        if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
+        {
             Destroy(gameObject);
+        }
     }
 }
