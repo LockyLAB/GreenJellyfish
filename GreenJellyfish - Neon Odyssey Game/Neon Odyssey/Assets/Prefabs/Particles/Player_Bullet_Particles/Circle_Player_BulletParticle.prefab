@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4255233963072794}
   - component: {fileID: 108371237431188166}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Square_Player_BulletLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4993059430955718}
   - component: {fileID: 198621216821716966}
   - component: {fileID: 199914681219510504}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4765861351901520}
   - component: {fileID: 198242456530735710}
   - component: {fileID: 199520960223046100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Electricity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4971349366961000}
   - component: {fileID: 198993471421275840}
   - component: {fileID: 199140571212626844}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SmokeOutside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,9 +87,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4823381621830152}
   - component: {fileID: 54742162135595308}
-  - component: {fileID: 114313153784919790}
   - component: {fileID: 135828790161402598}
-  m_Layer: 0
+  - component: {fileID: 114790757741042576}
+  m_Layer: 11
   m_Name: Circle_Player_BulletParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4135791948881332}
   - component: {fileID: 198982324852966114}
   - component: {fileID: 199258983660092250}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114313153784919790
+--- !u!114 &114790757741042576
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -269,10 +269,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574509985164978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c31ba514957195a45857462f8f76c84c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5dd5af9e343359e49870f321d427ce35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletTimer: 2
 --- !u!135 &135828790161402598
 SphereCollider:
   m_ObjectHideFlags: 1

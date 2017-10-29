@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 955764f5573b6dc4cadaa772b98140c6
-timeCreated: 1508215799
-licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -12,7 +10,7 @@ ModelImporter:
     4300000: Urn_001_Crypt_001_Large
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 65880714816626038}
   - component: {fileID: 114107099194732730}
   - component: {fileID: 54252416986796182}
+  - component: {fileID: 114067244836957958}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Checkpt
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617624206157092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.22000003, z: 1.3000001}
+  m_LocalPosition: {x: 0.02999878, y: -0.22000003, z: 1.3000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4868744190531984}
@@ -66,8 +67,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308903796464764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.023153, y: 3.54, z: 0.78155994}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818572182906138}
@@ -140,6 +141,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 7.1690454, z: 3.0716114}
   m_Center: {x: 0, y: 2.3502798, z: -0.35365963}
+--- !u!114 &114067244836957958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1308903796464764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41ba7ec6828d974783d7aba20e57bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CPmanager: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
+  setPos: {x: 0, y: 0, z: 0}
+  cpMaterial: []
 --- !u!114 &114107099194732730
 MonoBehaviour:
   m_ObjectHideFlags: 1
