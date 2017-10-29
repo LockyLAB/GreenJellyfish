@@ -5,9 +5,6 @@ using XboxCtrlrInput;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 4;
-    int tempHealth = 0;
-
     private GameObject m_otherPlayer = null;
 
     public XboxController controller;
@@ -22,13 +19,10 @@ public class PlayerHealth : MonoBehaviour
     public float deathTimer = 0;
     public float deathTime = 2;
 
-    public bool isInvulnerable;
-
     // Use this for initialization
     void Awake()
     {
         isReviving = false;
-        tempHealth = health;
 
         if(!GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
         {
@@ -45,27 +39,15 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Keep health in bounds
-        if (health > 4)
-            health = 4;
 
-        if (health <= 0)
-        {
-            health = 0;
-            GetComponent<Player>().isDead = true;
-        }
-        else
-            GetComponent<Player>().isDead = false;
-
-
-        if (isReviving && XCI.GetButton((XboxButton.B), controller) && !GetComponent<Player>().isDead)
+        if (isReviving && XCI.GetButton((XboxButton.B), controller) && !GetComponent<Player>().IsDead())
         {
             timer += Time.deltaTime;
 
             if (timer >= reviveTime)
             {
                 timer = 0;
-                m_otherPlayer.GetComponent<PlayerHealth>().health = 2;
+                m_otherPlayer.GetComponent<Player>().SetHealth(2);
             }
         }
 
@@ -73,21 +55,6 @@ public class PlayerHealth : MonoBehaviour
         {
             timer = 0;
         }
-
-        deathTimer += Time.deltaTime;
-        if (tempHealth != health)
-        {
-            deathTimer = 0.0f;
-            if (deathTimer <= deathTime)
-            {
-                isInvulnerable = true;
-            }
-            else
-            {
-                isInvulnerable = false;
-            }
-        }
-        tempHealth = health;
     }
 
     void OnTriggerEnter(Collider other)
@@ -95,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         if (m_otherPlayer != null)
         {
            
-            if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<PlayerHealth>().health <= 0)
+            if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<Player>().IsDead())
             {
                 Debug.Log("hitplayer");
                 isReviving = true;
@@ -104,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
             if (other.gameObject.tag == "HealthPickup")
             {
                 Destroy(other.gameObject);
-                health += healthGivenByPickup;
+                this.GetComponent<Player>().ChangeHealth(healthGivenByPickup);
             }
         }
     }
@@ -113,21 +80,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (m_otherPlayer != null)
         {
-            if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<PlayerHealth>().health <= 0)
+            if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<Player>().IsDead())
             {
                 isReviving = false;
                 timer = 0;
             }
         }
     }
-
-    //USE THIS FUNCTION TO DEAL DAMAGE TO PLAYER FROM OTHER SCRIPTS
-    public void takeDamage(int dmg)
-    {
-        //take damage from other sources
-        health -= dmg;
-
-        //turn temporarily invulnerable here
-    }
-
 }

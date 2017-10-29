@@ -254,7 +254,6 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1297749791164546, guid: 1b126c901d01abd4b95391db5e9f29f5,
     type: 2}
-  m_health: 1
   m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10
@@ -262,7 +261,7 @@ MonoBehaviour:
   m_gunBulletSpeed: 10
   m_gunTimeBetweenShots: 0.2
   m_gunCooldown: 1
-  m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
+  m_bulletSpawnPos: {x: 0, y: 1, z: 0}
   m_bulletPrefab: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba,
     type: 2}
 --- !u!135 &135887279709481850

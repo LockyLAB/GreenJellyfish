@@ -57,20 +57,20 @@ public class FireLaserbeam : BehaviourBase
 
         if (Physics.Raycast(transform.position, laserDir, out hit, laserMagnitude))
         {
-            if (hit.collider.tag == "Player")
+            if(GetComponent<Character>()!=null)
             {
-                //Cases between frendly fire or not
-                if (m_laserFriendlyFire)
+                if (m_laserFriendlyFire)//Cases between frendly fire or not
                 {
                     //!!!! UPDATE WHEN SINLGE ENTITIY CREATED!!!!!
-                        hit.collider.GetComponent<PlayerHealth>().health -= 1;
+                    hit.collider.GetComponent<Character>().ChangeHealth(-1);
                 }
-                else
+                else if (hit.collider.tag != this.tag)
                 {
                     if(hit.collider.gameObject.layer != gameObject.layer)
-                        hit.collider.GetComponent<PlayerHealth>().health -= 1;
+                        hit.collider.GetComponent<Character>().ChangeHealth(-1);
                 }
             }
+           
         }
         Destroy(m_laserbeamHolder.gameObject);
     }

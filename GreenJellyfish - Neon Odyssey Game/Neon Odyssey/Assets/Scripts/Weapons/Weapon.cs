@@ -52,7 +52,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponent<Player>().isDead)
+        if (!GetComponent<Player>().IsDead())
         {
              Vector2 rightInput = new Vector2(XCI.GetAxisRaw(XboxAxis.RightStickX, controller), XCI.GetAxisRaw(XboxAxis.RightStickY, controller));
 

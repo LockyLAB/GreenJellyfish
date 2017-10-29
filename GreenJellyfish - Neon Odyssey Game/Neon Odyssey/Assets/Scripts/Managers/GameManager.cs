@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject m_pausePanel;
     public GameObject m_gameoverPanel;
 
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject m_player1;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject m_player2;
 
     public List<Image> m_player1HealthImage;
@@ -61,9 +61,9 @@ public class GameManager : MonoBehaviour
         //Player1
 
         //Single player
-        if (m_player1Health != m_player1.GetComponent<PlayerHealth>().health)
+        if (m_player1Health != m_player1.GetComponent<Player>().GetHealth())
         {
-            m_player1Health = m_player1.GetComponent<PlayerHealth>().health;
+            m_player1Health = m_player1.GetComponent<Player>().GetHealth();
 
             //Set all to be blacked out
             foreach (Image healthBar in m_player1HealthImage)
@@ -83,9 +83,9 @@ public class GameManager : MonoBehaviour
         if (!m_singlePlayer)
         {
             //Player2
-            if (m_player2Health != m_player2.GetComponent<PlayerHealth>().health)
+            if (m_player2Health != m_player2.GetComponent<Player>().GetHealth())
             {
-                m_player2Health = m_player2.GetComponent<PlayerHealth>().health;
+                m_player2Health = m_player2.GetComponent<Player>().GetHealth();
 
                 //Set all to be blacked out
                 foreach (Image healthBar in m_player2HealthImage)
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             }
 
             //Gameover State
-            if (m_player1.GetComponent<Player>().isDead && m_player2.GetComponent<Player>().isDead)
+            if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead())
             {
                 m_gameoverPanel.SetActive(true);
                 Time.timeScale = 0.0f;
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         else
         {
             //Gameover State
-            if (m_player1.GetComponent<Player>().isDead)
+            if (m_player1.GetComponent<Player>().IsDead())
             {
                 m_gameoverPanel.SetActive(true);
                 Time.timeScale = 0.0f;

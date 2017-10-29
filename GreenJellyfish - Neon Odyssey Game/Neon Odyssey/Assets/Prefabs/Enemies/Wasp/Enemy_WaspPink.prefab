@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 54439674307377708}
   - component: {fileID: 114324269422198496}
   - component: {fileID: 135034338758558572}
+  - component: {fileID: 65193163187677466}
   m_Layer: 10
   m_Name: Enemy_WaspPink
   m_TagString: Enemy
@@ -158,6 +159,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65193163187677466
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1877831523406252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.85, y: 1.96, z: 1}
+  m_Center: {x: -0.37, y: 0.23, z: 0}
 --- !u!95 &95076304286583640
 Animator:
   serializedVersion: 3
@@ -241,7 +254,6 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1830220026776820, guid: 9f35904aa41626140801df4f54399945,
     type: 2}
-  m_health: 1
   m_difficulty: 1
   m_moveTowardsRange: 12
   m_coneFireDistance: 7

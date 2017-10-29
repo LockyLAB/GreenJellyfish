@@ -3,7 +3,7 @@ using System.Collections;
 using XboxCtrlrInput;
 
 [RequireComponent(typeof(PlayerController))]
-public class Player : MonoBehaviour
+public class Player : Character
 {
 
     public float jumpHeight = 4;
@@ -32,16 +32,18 @@ public class Player : MonoBehaviour
 
     public XboxController controller;
 
-    public bool isDead;
+    //public bool isDead;
     void Start()
     {
         pController = GetComponent<PlayerController>();
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+
+        SetHealth(4);
     }
 
-    void Update()
+    public override void CharaterActions()
     {
        
 
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
 
         Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
 
-        if (isDead)
+        if (IsDead())
         {
             input = new Vector2(0, 0);
         }
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
         bool wallSliding = false;
-        if ((pController.m_CollisionInfo.left || pController.m_CollisionInfo.right) && !pController.m_CollisionInfo.bottom && !isDead)
+        if ((pController.m_CollisionInfo.left || pController.m_CollisionInfo.right) && !pController.m_CollisionInfo.bottom && !IsDead())
         {
             wallSliding = true;
 
@@ -88,7 +90,7 @@ public class Player : MonoBehaviour
 
 
 
-        if (XCI.GetButtonDown(XboxButton.A, controller) && !isDead)
+        if (XCI.GetButtonDown(XboxButton.A, controller) && !IsDead())
         {
             if (wallSliding)
             {

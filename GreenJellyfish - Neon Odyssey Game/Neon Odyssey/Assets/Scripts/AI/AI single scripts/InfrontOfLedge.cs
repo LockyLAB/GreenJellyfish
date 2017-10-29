@@ -15,8 +15,8 @@ public class InfrontOfLedge : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-
-        Bounds bounds = GetComponent<SphereCollider>().bounds;
+        
+        Bounds bounds = GetComponent<CapsuleCollider>().bounds;
 
         Debug.DrawLine(transform.position + transform.forward * bounds.size.z / 2, transform.position + transform.forward * bounds.size.z / 2 + (-transform.up * (bounds.size.z / 2 + 0.1f)), Color.red);
 
@@ -24,6 +24,7 @@ public class InfrontOfLedge : BehaviourBase
         {
             return BehaviourStatus.FAILURE;
         }
+        Debug.Log("In front of ledge");
         return BehaviourStatus.SUCCESS;
     }
 }

@@ -36,6 +36,7 @@ public class BehaviourParallel : BehaviourComposite
         }
         else
         {
+            BehaviourSetup();
             //Run all 
             for (int i = 0; i < m_behaviourBranches.Count; i++)
             {

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54210785397427046}
   - component: {fileID: 135868721009078780}
   - component: {fileID: 114592919628558630}
+  - component: {fileID: 65870059919609294}
   m_Layer: 12
   m_Name: Enemy_BeetleGreen
   m_TagString: Enemy
@@ -128,6 +129,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65870059919609294
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238197335911004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7883987, y: 1.1275249, z: 1}
+  m_Center: {x: -0.22548294, y: 0.3427899, z: 0}
 --- !u!95 &95744806678018980
 Animator:
   serializedVersion: 3
@@ -161,7 +174,6 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1147585391114326, guid: 48e84807a251add41b6ab299c4ce7f43,
     type: 2}
-  m_health: 1
   m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10
@@ -169,7 +181,7 @@ MonoBehaviour:
   m_gunBulletSpeed: 10
   m_gunTimeBetweenShots: 0.1
   m_gunCooldown: 1
-  m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
+  m_bulletSpawnPos: {x: 0, y: 1, z: 0}
   m_bulletPrefab: {fileID: 1052800736934496, guid: d53b0a361694c274d861280e21fbe78a,
     type: 2}
 --- !u!135 &135868721009078780

@@ -43,14 +43,14 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.tag == "Player")
             {
                 //if BULLET and PLAYER are DIFFERENT colours, 
-                if (other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Player>() == true)
+                if (other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Player>() != null)
                 {
-                    other.gameObject.GetComponent<PlayerHealth>().health -= 1;
+                    other.gameObject.GetComponent<Player>().ChangeHealth(-1);
                     Destroy(gameObject);
                 }
 
                 //if enemy BULLET hits PLAYER of SAME colour, destroy bullet
-                else if (other.gameObject.layer == gameObject.layer && other.gameObject.GetComponent<Player>() == true)
+                else if (other.gameObject.layer == gameObject.layer && other.gameObject.GetComponent<Player>() != null)
                 {
                     Destroy(gameObject);
                     // +power charge
@@ -63,7 +63,7 @@ public class Bullet : MonoBehaviour
                 // if BULLET and ENEMY are the same colour, deal damage (ignores enemy bullets)
                 if(other.gameObject.layer == gameObject.layer && other.gameObject.GetComponent<Bullet>() == null)
                 {
-                    other.gameObject.GetComponent<Enemy>().m_health -= 1;
+                    other.gameObject.GetComponent<Enemy>().ChangeHealth(-1);
                     Destroy(gameObject);
                 }
             }

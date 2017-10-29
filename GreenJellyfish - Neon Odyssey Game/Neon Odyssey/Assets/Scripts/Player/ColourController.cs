@@ -22,7 +22,7 @@ public class ColourController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponent<Player>().isDead)
+        if (!GetComponent<Player>().IsDead())
         {
             //TOGGLE PLAYER COLOUR
             timeToSwitch += Time.deltaTime;

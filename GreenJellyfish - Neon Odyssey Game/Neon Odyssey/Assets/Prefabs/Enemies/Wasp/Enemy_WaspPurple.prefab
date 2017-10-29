@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54233940650650176}
   - component: {fileID: 114125273484475702}
   - component: {fileID: 135373856072766148}
+  - component: {fileID: 65246984295135696}
   m_Layer: 9
   m_Name: Enemy_WaspPurple
   m_TagString: Enemy
@@ -128,6 +129,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65246984295135696
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762125067990238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.85, y: 1.96, z: 1}
+  m_Center: {x: -0.37, y: 0.23, z: 0}
 --- !u!95 &95238487459316384
 Animator:
   serializedVersion: 3
@@ -161,7 +174,6 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1967656237555072, guid: c57741776b7e089478a1df99a0e45643,
     type: 2}
-  m_health: 1
   m_difficulty: 0
   m_moveTowardsRange: 10
   m_coneFireDistance: 6

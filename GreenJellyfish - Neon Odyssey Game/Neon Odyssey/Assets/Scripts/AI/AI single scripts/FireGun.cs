@@ -33,7 +33,7 @@ public class FireGun : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, -9.8f, 0.0f);
+        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 	
         m_time -= Time.deltaTime;
 

@@ -11,9 +11,12 @@ public class BehaviourSelector : BehaviourComposite
     //		Returns a enum BehaviourStatus, current status of behaviour, Success, failed, pending
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
-    { 
-        //Requires only one child to succeed
+    {
+        if (!m_pendingBranch)
+            BehaviourSetup(); ;
+
         while (m_branchNumber < m_behaviourBranches.Count)
+        //Requires only one child to succeed
         {
             BehaviourBase currentBranch = m_behaviourBranches[m_branchNumber];
 

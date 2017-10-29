@@ -29,15 +29,9 @@ public class TrapDamage : MonoBehaviour
         //check if collided objects' parent is Player and is not same colour as trap
         if (other.transform.parent.gameObject.tag == "Player" && other.transform.parent.gameObject.layer != trapColour)
         {
-            //Check player to damage
-            if (other.gameObject.GetComponent<PlayerHealth>() != null)
+            if (other.gameObject.GetComponent<Player>() != null)
             {
-                 other.gameObject.GetComponent<PlayerHealth>().takeDamage(1);
-            }
-
-            if (other.gameObject.GetComponent<PlayerHealth>() != null)
-            {
-                 other.gameObject.GetComponent<PlayerHealth>().takeDamage(1);
+                 other.gameObject.GetComponent<Player>().ChangeHealth(-1);
             }
         }
     }

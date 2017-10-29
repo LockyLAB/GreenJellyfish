@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54651565874561776}
   - component: {fileID: 114622793868264514}
   - component: {fileID: 135589375786601386}
+  - component: {fileID: 65988652000047178}
   m_Layer: 11
   m_Name: Enemy_WaspOrange
   m_TagString: Enemy
@@ -158,6 +159,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65988652000047178
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795524653531648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.85, y: 1.96, z: 1}
+  m_Center: {x: -0.37, y: 0.23, z: 0}
 --- !u!95 &95705621898675804
 Animator:
   serializedVersion: 3
@@ -241,7 +254,6 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1297749791164546, guid: 1b126c901d01abd4b95391db5e9f29f5,
     type: 2}
-  m_health: 1
   m_difficulty: 0
   m_moveTowardsRange: 10
   m_coneFireDistance: 6

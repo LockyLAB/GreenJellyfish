@@ -54,9 +54,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4776457349590648}
   - component: {fileID: 54748953644359696}
-  - component: {fileID: 135326351268410916}
   - component: {fileID: 114504505609184542}
-  - component: {fileID: 65937582875587740}
+  - component: {fileID: 136932081600094238}
   m_Layer: 9
   m_Name: Enemy_BeetlePurple
   m_TagString: Enemy
@@ -97,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958214096100594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 132.29732, y: -7.72, z: -1}
+  m_LocalPosition: {x: 114.52281, y: -6.91, z: -2.7218254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4449125583986438}
@@ -159,18 +158,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &65937582875587740
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1958214096100594}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7883987, y: 1.1275249, z: 1}
-  m_Center: {x: -0.22548294, y: 0.3427899, z: 0}
 --- !u!95 &95120700267859548
 Animator:
   serializedVersion: 3
@@ -254,7 +241,6 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1967656237555072, guid: c57741776b7e089478a1df99a0e45643,
     type: 2}
-  m_health: 1
   m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10
@@ -262,18 +248,19 @@ MonoBehaviour:
   m_gunBulletSpeed: 10
   m_gunTimeBetweenShots: 0.2
   m_gunCooldown: 1
-  m_bulletSpawnPos: {x: 0, y: 0.5, z: 0}
+  m_bulletSpawnPos: {x: 0, y: 1, z: 0}
   m_bulletPrefab: {fileID: 1643612939600948, guid: 6e12be95134b90041af9aa96e300500b,
     type: 2}
---- !u!135 &135326351268410916
-SphereCollider:
+--- !u!136 &136932081600094238
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958214096100594}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.91752434
-  m_Center: {x: 0.07244301, y: 0.43465924, z: 0}
+  m_Enabled: 1
+  m_Radius: 0.53
+  m_Height: 2.33
+  m_Direction: 0
+  m_Center: {x: -0.25, y: 0.21, z: 0}

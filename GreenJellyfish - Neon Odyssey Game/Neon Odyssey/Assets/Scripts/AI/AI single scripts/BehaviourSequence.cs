@@ -12,6 +12,8 @@ public class BehaviourSequence : BehaviourComposite
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
+        if (!m_pendingBranch)
+            BehaviourSetup();
 
         //Requires only one child to succeed
         while (m_branchNumber < m_behaviourBranches.Count)

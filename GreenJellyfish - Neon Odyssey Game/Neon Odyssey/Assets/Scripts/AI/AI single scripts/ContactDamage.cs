@@ -32,12 +32,7 @@ public class ContactDamage : MonoBehaviour
             //Check player to damage
             if (other.gameObject.GetComponent<PlayerHealth>() != null)
             {
-                other.gameObject.GetComponent<PlayerHealth>().takeDamage(1);
-            }
-
-            if (other.gameObject.GetComponent<PlayerHealth>() != null)
-            {
-                other.gameObject.GetComponent<PlayerHealth>().takeDamage(1);
+                other.gameObject.GetComponent<Player>().ChangeHealth(-1);
             }
         }
     }

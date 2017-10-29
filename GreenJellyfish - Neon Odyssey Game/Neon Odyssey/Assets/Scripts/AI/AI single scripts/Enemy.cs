@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+[RequireComponent(typeof(CapsuleCollider))]
+public class Enemy : Character
+{
 
     public float m_forwardSpeed = 0.0f;
 
@@ -12,7 +14,6 @@ public class Enemy : MonoBehaviour {
     public GameObject m_target = null;
 
     public GameObject m_deathEffect = null;
-    public int m_health = 1;
 
     public enum Difficulty
     {
@@ -24,13 +25,15 @@ public class Enemy : MonoBehaviour {
     public Difficulty m_difficulty = Difficulty.Easy;
 
     // Update is called once per frame
-    void Update ()
+    public override void CharaterActions()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
+        //GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
         m_initalBehaviour.Execute();
 
-        if (m_health <= 0)
+        if (IsDead())
             PlayDeath();
+
+        Debug.Log("Moving Velocity" + GetComponent<Rigidbody>().velocity);
     }
 
     public void PlayDeath()
