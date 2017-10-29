@@ -23,6 +23,8 @@ public class FireGun : BehaviourBase
     {
         m_bulletCount = 0;
         m_time = m_timeBetweenShots;
+
+        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
     }
 
     //--------------------------------------------------------------------------------------
@@ -33,7 +35,7 @@ public class FireGun : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
+        
 	
         m_time -= Time.deltaTime;
 
