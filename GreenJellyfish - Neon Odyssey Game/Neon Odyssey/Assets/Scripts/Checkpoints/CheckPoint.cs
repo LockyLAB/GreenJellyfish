@@ -13,12 +13,12 @@ public class CheckPoint : MonoBehaviour
     public Vector3 pos;    //position of this cp
     public Vector3 setPos;
 
-    public Material[] cpMaterial;
+    //public Material[] cpMaterial;
 
 	// Use this for initialization
 	void Start ()
     {
-        this.GetComponentInChildren<MeshRenderer>().material = cpMaterial[0]; //set default colour
+        //this.GetComponentInChildren<MeshRenderer>().material = cpMaterial[0]; //set default colour
         pos = this.transform.position; //set pos of this checkpoint
         Renderer rend = GetComponent<Renderer>();
 	}
@@ -31,10 +31,11 @@ public class CheckPoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player1Revive" || other.gameObject.tag == "Player2Revive")
+        if (other.gameObject.tag == "Player")
         {
             CPmanager.setCurrentCheckpoint(other.gameObject.transform.position);
-            this.GetComponentInChildren<MeshRenderer>().material = cpMaterial[1]; //set alt colour when activated
+            Debug.Log("cp set " + pos);
+            //this.GetComponentInChildren<MeshRenderer>().material = cpMaterial[1]; //set alt colour when activated
         }
     }
 

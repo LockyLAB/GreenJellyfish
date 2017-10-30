@@ -25,9 +25,9 @@ public class StageFall : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player1Revive" || other.gameObject.tag == "Player2Revive")
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.transform.parent.position = CPmanager1.currentCheckpoint;
+            other.gameObject.transform.position = CPmanager1.currentCheckpoint;
         }
     }
 }
