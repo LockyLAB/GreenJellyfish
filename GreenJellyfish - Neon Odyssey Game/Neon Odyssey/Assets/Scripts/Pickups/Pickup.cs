@@ -14,6 +14,7 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.GetComponent<Player>() != null) // Picked up by player only
         {
             ActivatePickup(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
