@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject m_pausePanel;
     public GameObject m_gameoverPanel;
 
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject m_player1;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject m_player2;
 
     public List<Image> m_player1HealthImage;

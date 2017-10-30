@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour {
 
-    public bool m_singlePlayer = false;
+    private bool m_singlePlayer = false;
 
-    public GameObject m_player1 = null;
+    private GameObject m_player1 = null;
 
-    public GameObject m_player2 = null;
+    private GameObject m_player2 = null;
 
     public Vector3 offset = new Vector3(0, 1.0f, -10);
 
@@ -19,25 +19,16 @@ public class CameraMove : MonoBehaviour {
     public float m_maxVerticalDistance = 14.0f;
 
     // Use this for initialization
-    void Awake ()
+    void Start ()
     {
-        GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        if(players.Length == 1)
-        {
-            m_player1 = players[0];
-        }
-        else if(players.Length == 2)
-        {
- 
-            m_player1 = players[0];
-
-            m_player2 = players[1];
-        }
-
-        if (m_player2 == null)
+        //Assign players
+        if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
             m_singlePlayer = true;
+        else
+        {
+            m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
+            m_player2 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player2;
+        }   
     }
 	
 	// Update is called once per frame
