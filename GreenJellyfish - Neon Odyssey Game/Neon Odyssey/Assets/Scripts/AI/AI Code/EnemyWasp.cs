@@ -44,6 +44,9 @@ public class EnemyWasp : Enemy {
     // Use this for initialization
     void Awake()
     {
+        //Set health
+        SetHealth(m_healthMax);
+
         //Set up varibles
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 

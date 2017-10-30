@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     public enum TEAM {PLAYER, ENEMY }
 
+    public GameObject m_hitMarker = null;
+
     public void SetTeam(TEAM team)
     {
         switch (team)
@@ -45,6 +47,7 @@ public class Bullet : MonoBehaviour
                 //if BULLET and PLAYER are DIFFERENT colours, 
                 if (other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Player>() != null)
                 {
+                    Instantiate(m_hitMarker, transform.position, Quaternion.identity);
                     other.gameObject.GetComponent<Player>().ChangeHealth(-1);
                     Destroy(gameObject);
                 }

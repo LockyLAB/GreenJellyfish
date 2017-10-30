@@ -40,7 +40,7 @@ public class Player : Character
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 
-        SetHealth(4);
+        SetHealth(m_healthMax);
     }
 
     public override void CharaterActions()

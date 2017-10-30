@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyBeetle : Enemy
 {
-    //Varibles
-
     //Movement
     public float m_moveTowardsRange = 0.0f;
 
@@ -53,6 +51,9 @@ public class EnemyBeetle : Enemy
     // Use this for initialization
     void Awake()
     {
+        //Set health
+        SetHealth(m_healthMax);
+
         //Set up varibles
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 

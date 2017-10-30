@@ -27,7 +27,6 @@ public class Enemy : Character
     // Update is called once per frame
     public override void CharaterActions()
     {
-        //GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
         m_initalBehaviour.Execute();
 
         if (IsDead())

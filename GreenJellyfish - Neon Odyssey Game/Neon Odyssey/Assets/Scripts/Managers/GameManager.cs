@@ -34,12 +34,13 @@ public class GameManager : MonoBehaviour
         //Assign player 1
         if (players.Length > 1)
         {
+            //Assign player 1
             if (players[0].GetComponent<Player>().isFirstPlayer)
                 m_player1 = players[0];
             else if (players[1].GetComponent<Player>().isFirstPlayer)
                 m_player1 = players[1];
 
-            //Assign player 1
+            //Assign player 2
             if (!players[0].GetComponent<Player>().isFirstPlayer)
                 m_player2 = players[0];
             else if (!players[1].GetComponent<Player>().isFirstPlayer)

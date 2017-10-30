@@ -55,6 +55,9 @@ public class EnemyScorpion : Enemy
     // Use this for initialization
     void Awake()
     {
+        //Set health
+        SetHealth(m_healthMax);
+
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 
         m_firingParallel = gameObject.AddComponent<BehaviourParallel>();

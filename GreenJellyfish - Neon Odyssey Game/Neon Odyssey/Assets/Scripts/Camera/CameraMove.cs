@@ -23,7 +23,10 @@ public class CameraMove : MonoBehaviour {
     {
         //Assign players
         if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
+        {
             m_singlePlayer = true;
+            m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
+        }
         else
         {
             m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;

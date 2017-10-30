@@ -39,6 +39,9 @@ public class EnemySphinx : Enemy
     // Use this for initialization
     void Awake()
     {
+        //Set health
+        SetHealth(m_healthMax);
+
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
         m_selectorAction = gameObject.AddComponent<BehaviourSelector>();
         m_sequenceFiring = gameObject.AddComponent<BehaviourSequence>();

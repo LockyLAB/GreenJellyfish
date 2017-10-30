@@ -5,6 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     private int m_health = 1;
+    public int m_healthMax = 1;
 
     private float m_invicibleTime = 1.0f;
     private float m_invicibleTimer = 0.0f;
@@ -35,11 +36,22 @@ public class Character : MonoBehaviour
     //Used to alter health
     public void ChangeHealth(int changeVal)
     {
-        if(m_invicibleTimer <= 0.0f)//take damage from other sources
+        if(changeVal<0) //Loosing health
+        {
+            if (m_invicibleTimer <= 0.0f)//take damage from other sources
+            {
+                m_health += changeVal;
+                m_invicibleTimer = m_invicibleTime;
+            }
+        }
+        else // Gain health
         {
             m_health += changeVal;
-            m_invicibleTimer = m_invicibleTime;
         }
+
+        //Keep health within bounds
+        if (m_health > m_healthMax)
+            m_health = m_healthMax;
     }
 
     public virtual void CharaterActions()
