@@ -32,8 +32,6 @@ public class Enemy : Character
 
         if (IsDead())
             PlayDeath();
-
-        Debug.Log("Moving Velocity" + GetComponent<Rigidbody>().velocity);
     }
 
     public void PlayDeath()
