@@ -8,7 +8,6 @@ public class Weapon : MonoBehaviour
     //XBOX INPUT
     public XboxController controller;
 
-
     public Vector3 m_aim;
     public float m_bulletSpeed = 0;
     public float m_timeBetweenShots = 0;
@@ -17,6 +16,13 @@ public class Weapon : MonoBehaviour
     //BOOST/SPECIAL PROPERTIES
     public float powerCharge = 0;
 
+
+    //SHOTGUN PROPERTIES 
+    public int bCount = 6;
+    public float bSpreadAngle; //= Random.Range(-25.0f, 25.0f);
+    public float spreadAngle;
+    List<Quaternion> bList;
+    
 
     //LAUNCHER PROPERTIES (for testing)
     public float launcherSpeed = 1000.0f;
@@ -42,11 +48,23 @@ public class Weapon : MonoBehaviour
 
     public currentWeapon m_currentWeapon;
 
+    //Setup Shotgun bullets
+    void Awake()
+    {
+        bList = new List<Quaternion>(bCount);
+        for (int i = 0; i < bCount; i++)
+        {
+            bList.Add(Quaternion.Euler(Vector3.zero));
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
-        m_currentWeapon = currentWeapon.Default;
+        m_currentWeapon = currentWeapon.Shotgun;
         toggleWeapon();
+
+
     }
 
     // Update is called once per frame
@@ -134,11 +152,30 @@ public class Weapon : MonoBehaviour
         //SHOTGUN
         if ((int)m_currentWeapon == 2)
         {
+            
             if (GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= m_fireRate)
             {
-                //
-            }
+                bSpreadAngle = Random.Range(-25.0f, 25.0f);
+                //Quaternion randRot = Quaternion.Euler(0, 0, Random.Range(-bSpreadAngle, bSpreadAngle));
+                int i = 0;
+                foreach (Quaternion q in bList)
+                {
+                    bList[i] = Random.rotation;
+                    GameObject newBullet = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
 
+                    //newBullet.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-bSpreadAngle, bSpreadAngle)); 
+                    newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+                    //newBullet.GetComponent<Rigidbody>().AddForce(m_aim * m_bulletSpeed);
+                    newBullet.GetComponent<Rigidbody>().AddForce(m_aim.x + Random.Range(0, 5) * m_bulletSpeed, m_aim.y + Random.Range(-5, 5) * m_bulletSpeed, m_aim.z * m_bulletSpeed);
+
+                    i++;
+
+                }
+
+                m_timeBetweenShots = 0;
+                
+            }
+            
         }
 
         //LAUNCHER
