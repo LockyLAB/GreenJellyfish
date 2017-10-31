@@ -19,7 +19,7 @@ public class Pickup : MonoBehaviour
             ActivatePickup(other.gameObject);
 
             if(m_pickupEffect!= null)
-                Instantiate(m_pickupEffect, m_pickupSpawnPos, Quaternion.identity, other.transform); // create pickup after effect
+                Instantiate(m_pickupEffect, transform.TransformPoint(m_pickupSpawnPos), Quaternion.identity, other.transform); // create pickup after effect
             Destroy(this.gameObject);
         }
     }
