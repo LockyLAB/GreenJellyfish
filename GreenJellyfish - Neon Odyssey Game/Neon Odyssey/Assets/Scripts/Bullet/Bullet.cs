@@ -48,7 +48,8 @@ public class Bullet : MonoBehaviour
                 //if BULLET and PLAYER are DIFFERENT colours, 
                 if (other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Player>() != null)
                 {
-                    Instantiate(m_hitMarker, other.gameObject.transform.TransformPoint(m_hitMarkerSpawnPos), Quaternion.identity, other.gameObject.transform);
+                    if(m_hitMarker!= null)
+                        Instantiate(m_hitMarker, other.gameObject.transform.TransformPoint(m_hitMarkerSpawnPos), Quaternion.identity, other.gameObject.transform);
                     other.gameObject.GetComponent<Player>().ChangeHealth(-1);
                     Destroy(gameObject);
                 }
