@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     public GameObject m_hitMarker = null;
     public Vector3 m_hitMarkerSpawnPos = Vector3.up * 0.5f;
 
+    public ParticleSystem explosionParticle;
+
     public void SetTeam(TEAM team)
     {
         switch (team)
