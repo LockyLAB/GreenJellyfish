@@ -43,12 +43,12 @@ public class ColourController : MonoBehaviour
         {
             if(m_firstBulletSlot)
             {
-                GetComponentInChildren<MeshRenderer>().material = playerMaterial[0];
+                GetComponentInChildren<SkinnedMeshRenderer>().material = playerMaterial[0];
                 gameObject.layer = LayerMask.NameToLayer("Purple");
             }
             else
             {
-                GetComponentInChildren<MeshRenderer>().material = playerMaterial[1];
+                GetComponentInChildren<SkinnedMeshRenderer>().material = playerMaterial[1];
                 gameObject.layer = LayerMask.NameToLayer("Orange");
             }
         }
@@ -56,12 +56,12 @@ public class ColourController : MonoBehaviour
         {
             if (m_firstBulletSlot)
             {
-                GetComponentInChildren<MeshRenderer>().material = playerMaterial[0];
+                GetComponentInChildren<SkinnedMeshRenderer>().material = playerMaterial[0];
                 gameObject.layer = LayerMask.NameToLayer("Green");
             }
             else
             {
-                GetComponentInChildren<MeshRenderer>().material = playerMaterial[1];
+                GetComponentInChildren<SkinnedMeshRenderer>().material = playerMaterial[1];
                 gameObject.layer = LayerMask.NameToLayer("Pink");
             }
         }
