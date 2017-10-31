@@ -9,7 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     //Setting up landing effect
     private bool m_inAir = true;
 
-    public GameObject m_landingEffect = null;
+    public List<GameObject> m_landingEffect;
     public Vector3 m_landingEffectSpawnPos = Vector3.up * 0.1f;
 
     Animator m_animator = null;
@@ -31,7 +31,10 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (m_playerController.m_CollisionInfo.bottom) // Hit ground
             {
-                Destroy(Instantiate(m_landingEffect, transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity),1.0f);
+                if(GetComponent<ColourController>().m_firstBulletSlot)
+                    Destroy(Instantiate(m_landingEffect[0], transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity),1.0f);
+                else
+                    Destroy(Instantiate(m_landingEffect[1], transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity), 1.0f);
                 m_inAir = false;
             }
         }
