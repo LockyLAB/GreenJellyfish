@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1670064950679184
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1866c216478ca44aa974e50a559895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
   controller: 2
   isReviving: 0
   reviveTime: 0.2
@@ -344,7 +343,6 @@ MonoBehaviour:
   healthGivenByPickup: 1
   deathTimer: 0
   deathTime: 2
-  isInvulnerable: 0
 --- !u!114 &114332749057267926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,18 +370,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9d398e937405040a818aac0ab65356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_healthMax: 4
   jumpHeight: 4
   timeToJumpApex: 0.35
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.02
   moveSpeed: 15
-  wallLeap: {x: 20, y: 20}
+  wallLeap: {x: 22, y: 21}
   jumpDelay: 0.15
   wallSlideSpeedMax: 0
   wallStickTime: 0
   isFirstPlayer: 0
   controller: 2
-  isDead: 0
 --- !u!114 &114666079074807258
 MonoBehaviour:
   m_ObjectHideFlags: 1
