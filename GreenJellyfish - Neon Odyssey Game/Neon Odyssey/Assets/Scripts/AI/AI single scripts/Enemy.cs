@@ -37,6 +37,7 @@ public class Enemy : Character
     {
         if (m_deathEffect !=null)
             Instantiate(m_deathEffect, transform.position, Quaternion.identity);
+        GameObject.FindWithTag("GameController").GetComponent<PickupSystem>().GeneratePickup(this.gameObject);
         Destroy(gameObject);
     }
 }
