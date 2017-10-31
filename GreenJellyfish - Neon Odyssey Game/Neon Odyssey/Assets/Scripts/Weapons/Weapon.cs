@@ -59,8 +59,8 @@ public class Weapon : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //set weapon (testing)
-        m_currentWeapon = currentWeapon.Shotgun;
+        //set initial weapon
+        m_currentWeapon = currentWeapon.Default;
     }
 
     // Update is called once per frame
