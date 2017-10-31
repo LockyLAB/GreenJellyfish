@@ -8,51 +8,49 @@ public class Weapon : MonoBehaviour
     //XBOX INPUT
     public XboxController controller;
 
+    //SHARED PROPERTIES
     public Vector3 m_aim;
-    public float m_bulletSpeed = 0;
-    public float m_timeBetweenShots = 0;
-    public float m_fireRate = 0;
 
-    //BOOST/SPECIAL PROPERTIES
-    public float powerCharge = 0;
+    public float shotCooldown = 0;        //resets cooldown timer
 
+    //DEFAULT WEAPON PROPERTIES
+    public float defaultFireRate = 0.2f;
+    public float defaultBulletSpeed = 1000;
 
     //SHOTGUN PROPERTIES 
-    public int bCount = 6;
-    public float bSpreadAngle; //= Random.Range(-25.0f, 25.0f);
-    public float spreadAngle;
-    List<Quaternion> bList;
-    
+    List<Quaternion> bList;                     //create list for shotgun bullets
+    public int shotgunBulletCount = 6;          //number of bullets per shot
+    public float spreadAngle = 20.0f;           //shotgun bullet spread
+    public float shotgunFireRate = 0.5f;
+    public int shotgunBulletSpeed = 15;
 
     //LAUNCHER PROPERTIES (for testing)
-    public float launcherSpeed = 1000.0f;
-    public float launcherDrag = 0.15f;
-    public float launcherReload = 0;
-
+    public float launcherDrag = 0.2f;           //launcher projectile drag/air resistance
+    public float launcherFireRate = 0.75f;
+    public float launcherProjectileSpeed = 1000.0f;
+ 
+    //BULLET PREFABS
     public GameObject m_bullet1;
     public GameObject m_bullet2;
 
-
-    //protected GameObject m_projectilePrefab;
-
-    //implement later
-    //protected float m_projectiltDamage = 0;
-
+    
+    //WEAPON LIST
     public enum currentWeapon
     {
         Default = 1,
         Shotgun = 2,
         Launcher = 3,
-        Laser = 4
+        //Laser = 4
     }
 
     public currentWeapon m_currentWeapon;
+    
 
     //Setup Shotgun bullets
     void Awake()
     {
-        bList = new List<Quaternion>(bCount);
-        for (int i = 0; i < bCount; i++)
+        bList = new List<Quaternion>(shotgunBulletCount);
+        for (int i = 0; i < shotgunBulletCount; i++)
         {
             bList.Add(Quaternion.Euler(Vector3.zero));
         }
@@ -61,10 +59,8 @@ public class Weapon : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //set weapon (testing)
         m_currentWeapon = currentWeapon.Shotgun;
-        toggleWeapon();
-
-
     }
 
     // Update is called once per frame
@@ -85,132 +81,123 @@ public class Weapon : MonoBehaviour
 
                 Debug.DrawRay(this.transform.position + up, m_aim);
 
-                m_timeBetweenShots += Time.deltaTime;
+                shotCooldown += Time.deltaTime;
                 fireWeapon(up);
 
             }
         }
     }
 
-    private void toggleWeapon()
+
+    public void fireWeapon(Vector3 up)
     {
-        if ((int)m_currentWeapon == 1) //Default Weapon
-        {
-            m_timeBetweenShots = 0.2f;
-            m_bulletSpeed = 1000.0f;
-            m_fireRate = 0.2f;
-        }
-
-        if ((int)m_currentWeapon == 2) //Shotgun upgrade
-        {
-            m_timeBetweenShots = 0.2f; 
-            m_bulletSpeed = 1000.0f;
-            m_fireRate = 0.5f;
-        }
-
-        if ((int)m_currentWeapon == 3) //Launcher upgrade
-        {
-            m_timeBetweenShots = 0.75f;
-            launcherSpeed = 1000.0f;
-            launcherReload = 0.75f;
-            launcherDrag = 0.15f;
-        }
-
-        if ((int)m_currentWeapon == 4) //Laser upgrade
-        {
-
-        }
-
-
-    }
-
-    private void fireWeapon(Vector3 up)
-    {
-
         //DEFAULT 
         if ((int)m_currentWeapon == 1)
         {
-            if (GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= m_fireRate)
-            {
-                GameObject newBullet = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-
-                newBullet.GetComponent<Rigidbody>().AddForce(m_aim * m_bulletSpeed);
-                newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
-                m_timeBetweenShots = 0;
-            }
-
-            if (!GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= m_fireRate)
-            {
-                GameObject newBullet = Instantiate(m_bullet2, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-
-                newBullet.GetComponent<Rigidbody>().AddForce(m_aim * m_bulletSpeed);
-                newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
-                m_timeBetweenShots = 0;
-            }       
+            FireDefault();   
         }
 
         //SHOTGUN
         if ((int)m_currentWeapon == 2)
         {
-            
-            if (GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= m_fireRate)
-            {
-                bSpreadAngle = Random.Range(-25.0f, 25.0f);
-                //Quaternion randRot = Quaternion.Euler(0, 0, Random.Range(-bSpreadAngle, bSpreadAngle));
-                int i = 0;
-                foreach (Quaternion q in bList)
-                {
-                    bList[i] = Random.rotation;
-                    GameObject newBullet = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-
-                    //newBullet.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-bSpreadAngle, bSpreadAngle)); 
-                    newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
-                    //newBullet.GetComponent<Rigidbody>().AddForce(m_aim * m_bulletSpeed);
-                    newBullet.GetComponent<Rigidbody>().AddForce(m_aim.x + Random.Range(0, 5) * m_bulletSpeed, m_aim.y + Random.Range(-5, 5) * m_bulletSpeed, m_aim.z * m_bulletSpeed);
-
-                    i++;
-
-                }
-
-                m_timeBetweenShots = 0;
-                
-            }
-            
+            FireShotgun(m_aim);            
         }
 
         //LAUNCHER
         if ((int)m_currentWeapon == 3)
         {
-            if (GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= launcherReload)
-            {
-                GameObject grenadeShot = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-
-                grenadeShot.GetComponent<Rigidbody>().AddForce(m_aim * launcherSpeed);
-                grenadeShot.GetComponent<Rigidbody>().useGravity = true;
-                grenadeShot.GetComponent<Rigidbody>().drag = launcherDrag;
-                grenadeShot.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
-                m_timeBetweenShots = 0;
-            }
-
-            if (!GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= launcherReload)
-            {
-                GameObject grenadeShot = Instantiate(m_bullet2, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-
-                grenadeShot.GetComponent<Rigidbody>().AddForce(m_aim * launcherSpeed);
-                grenadeShot.GetComponent<Rigidbody>().useGravity = true;
-                grenadeShot.GetComponent<Rigidbody>().drag = launcherDrag;
-                grenadeShot.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
-                m_timeBetweenShots = 0;
-            }       
+            FireLauncher();  
         }
 
         //LASER
-        if ((int)m_currentWeapon == 4)  
-        {
+        //if ((int)m_currentWeapon == 4)  
+        //{
+        //
+        //}
+    }
 
+    void FireDefault()
+    {
+        Vector3 up = new Vector3(0, 0.9f);
+        if (GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= defaultFireRate)
+        {
+            GameObject newBullet = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
+        
+            newBullet.GetComponent<Rigidbody>().AddForce(m_aim * defaultBulletSpeed);
+            newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+            shotCooldown = 0;
+        }
+        
+        if (!GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= defaultFireRate)
+        {
+            GameObject newBullet = Instantiate(m_bullet2, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
+        
+            newBullet.GetComponent<Rigidbody>().AddForce(m_aim * defaultBulletSpeed);
+            newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+            shotCooldown = 0;
         }
     }
 
+    void FireShotgun(Vector3 m_aim)
+    {
+        Vector3 up = new Vector3(0, 0.9f);
 
+        if (GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= shotgunFireRate)
+        {
+            for (int i = 0; i < shotgunBulletCount; i++)
+            {
+                Vector3 bulletDir = Quaternion.Euler(0, 0, (float)Random.Range(-spreadAngle, spreadAngle)) * m_aim;
+
+                GameObject newBullet = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.identity);
+                newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+                newBullet.GetComponent<Rigidbody>().velocity = bulletDir * shotgunBulletSpeed;
+            }
+
+            shotCooldown = 0;
+        }
+
+        if (!GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= shotgunFireRate)
+        {
+            for (int i = 0; i < shotgunBulletCount; i++)
+            {
+                Vector3 bulletDir = Quaternion.Euler(0, 0, (float)Random.Range(-spreadAngle, spreadAngle)) * m_aim;
+
+                GameObject newBullet = Instantiate(m_bullet2, m_aim + transform.position + up, Quaternion.identity);
+                newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+                newBullet.GetComponent<Rigidbody>().velocity = bulletDir * shotgunBulletSpeed;
+            }
+
+            shotCooldown = 0;
+        }
+
+    }
+
+    void FireLauncher()
+    {
+        Vector3 up = new Vector3(0, 0.9f);
+
+        if (GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= launcherFireRate)
+        {
+            GameObject grenadeShot = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
+
+            grenadeShot.GetComponent<Rigidbody>().AddForce(m_aim * launcherProjectileSpeed);
+            grenadeShot.GetComponent<Rigidbody>().useGravity = true;
+            grenadeShot.GetComponent<Rigidbody>().drag = launcherDrag;
+            grenadeShot.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+            shotCooldown = 0;
+        }
+
+        if (!GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= launcherFireRate)
+        {
+            GameObject grenadeShot = Instantiate(m_bullet2, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
+
+            grenadeShot.GetComponent<Rigidbody>().AddForce(m_aim * launcherProjectileSpeed);
+            grenadeShot.GetComponent<Rigidbody>().useGravity = true;
+            grenadeShot.GetComponent<Rigidbody>().drag = launcherDrag;
+            grenadeShot.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+            shotCooldown = 0;
+        }
+    }
 
 }
+
