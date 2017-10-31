@@ -655,7 +655,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 2, z: -1}
+  m_LocalPosition: {x: 11.8, y: 2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4449757048167956}
@@ -913,7 +913,7 @@ MonoBehaviour:
   m_jumpingEffect:
   - {fileID: 1139166413255476, guid: 6899ddf3351b109458238cdd7e8f7660, type: 2}
   - {fileID: 1240620072963214, guid: bf99d1238c4f160479a25a03b97556e1, type: 2}
-  m_jumpingEffectSpawnPos: {x: 0, y: 0.1, z: 0}
+  m_jumpingEffectSpawnPos: {x: 0, y: 0.6, z: 0}
 --- !u!114 &114542884869435458
 MonoBehaviour:
   m_ObjectHideFlags: 1
