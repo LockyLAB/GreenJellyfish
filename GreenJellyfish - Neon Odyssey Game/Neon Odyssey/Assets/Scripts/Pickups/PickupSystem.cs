@@ -17,9 +17,9 @@ public class PickupSystem : MonoBehaviour {
         while (pickupNum < m_pickup.Count)
         {
             pickupRateTotal += m_pickupRates[pickupNum];
-            if (pickupRateTotal < rollVal)//Create pickup at caller location
+            if (pickupRateTotal > rollVal)//Create pickup at caller location
             {
-                Instantiate(m_pickup[pickupNum], caller.gameObject.transform.position, Quaternion.identity); // create pickup
+                Instantiate(m_pickup[pickupNum], caller.gameObject.transform.position + Vector3.up, Quaternion.identity); // create pickup
                 break;
             }
             pickupNum++;
