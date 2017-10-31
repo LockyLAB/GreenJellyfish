@@ -23,7 +23,7 @@ public class Player : Character
 
     float gravity;
     float jumpVelocity;
-    Vector3 velocity;
+    public Vector3 velocity;
     float velocityXSmoothing;
 
     PlayerController pController;
@@ -31,6 +31,8 @@ public class Player : Character
     public bool isFirstPlayer;
 
     public XboxController controller;
+
+    private GameObject m_childRenderer = null;
 
     void Start()
     {
@@ -40,6 +42,13 @@ public class Player : Character
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 
         SetHealth(m_healthMax);
+
+        //Get child with the renderer
+        for (int i = 0; i < this.gameObject.transform.childCount; i++)
+        {
+            if (this.gameObject.transform.GetChild(i).GetComponentInChildren<SkinnedMeshRenderer>() != null)
+                m_childRenderer = this.gameObject.transform.GetChild(i).gameObject;
+        }
     }
 
     public override void CharaterActions()
@@ -103,11 +112,11 @@ public class Player : Character
 
         if(velocity.x > 0)
         {
-            this.gameObject.transform.GetChild(0).rotation = (Quaternion.Euler(0, 90, 0));
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 90, 0));
         }
-        if(velocity.x < -1)
+        if(velocity.x < 0)
         {
-            this.gameObject.transform.GetChild(0).rotation = (Quaternion.Euler(0, 270, 0));
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 270, 0));
         }
 
         velocity.y += gravity * Time.deltaTime;
