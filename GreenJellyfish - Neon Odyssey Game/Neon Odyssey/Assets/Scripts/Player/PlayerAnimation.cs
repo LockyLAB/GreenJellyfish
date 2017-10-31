@@ -9,6 +9,8 @@ public class PlayerAnimation : MonoBehaviour
     //Setting up landing effect
     private bool m_inAir = true;
 
+
+    private GameObject m_currentLandingEffect = null; 
     public List<GameObject> m_landingEffect;
     public Vector3 m_landingEffectSpawnPos = Vector3.up * 0.1f;
 
@@ -34,10 +36,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (m_playerController.m_CollisionInfo.bottom) // Hit ground
             {
-                if(GetComponent<ColourController>().m_firstBulletSlot)
-                    Destroy(Instantiate(m_landingEffect[0], transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity, transform),1.0f);
+                if (GetComponent<ColourController>().m_firstBulletSlot)
+                    m_currentLandingEffect = Instantiate(m_landingEffect[0], transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity, transform);
                 else
-                    Destroy(Instantiate(m_landingEffect[1], transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity, transform), 1.0f);
+                    m_currentLandingEffect = Instantiate(m_landingEffect[1], transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity, transform);
+
+                Invoke("PauseEffectFollow", 0.1f);
                 m_inAir = false;
             }
         }
@@ -63,5 +67,11 @@ public class PlayerAnimation : MonoBehaviour
             m_animator.SetBool("Jumping", true);
         else
             m_animator.SetBool("Jumping", false);
+    }
+
+    void PauseEffectFollow()
+    {
+        m_currentLandingEffect.transform.parent = null;
+        Destroy(m_currentLandingEffect, 1.0f);
     }
 }
