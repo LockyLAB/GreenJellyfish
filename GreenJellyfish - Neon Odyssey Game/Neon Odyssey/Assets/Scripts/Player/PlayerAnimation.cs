@@ -31,7 +31,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (m_playerController.m_CollisionInfo.bottom) // Hit ground
             {
-                Instantiate(m_landingEffect, transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity);
+                Destroy(Instantiate(m_landingEffect, transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity),1.0f);
                 m_inAir = false;
             }
         }

@@ -38,7 +38,7 @@ public class Enemy : Character
     public void PlayDeath()
     {
         if (m_deathEffect !=null)
-            Instantiate(m_deathEffect, transform.TransformPoint(m_deathEffectSpawnPos), Quaternion.identity);
+            Destroy(Instantiate(m_deathEffect, transform.TransformPoint(m_deathEffectSpawnPos), Quaternion.identity),5.0f);
         GameObject.FindWithTag("GameController").GetComponent<PickupSystem>().GeneratePickup(this.gameObject);
         Destroy(gameObject);
     }
