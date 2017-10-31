@@ -38,9 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4505753112663480}
   - component: {fileID: 54175664775598320}
-  - component: {fileID: 135355386689852130}
   - component: {fileID: 114054398466173894}
-  - component: {fileID: 65408433497219682}
+  - component: {fileID: 136588494224004174}
   m_Layer: 10
   m_Name: Enemy_BeetlePink
   m_TagString: Enemy
@@ -129,18 +128,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &65408433497219682
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1771986172470252}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7883987, y: 1.1275249, z: 1}
-  m_Center: {x: -0.22548294, y: 0.3427899, z: 0}
 --- !u!95 &95887005961370252
 Animator:
   serializedVersion: 3
@@ -184,8 +171,8 @@ MonoBehaviour:
   m_bulletSpawnPos: {x: 0, y: 1, z: 0}
   m_bulletPrefab: {fileID: 1086754928029554, guid: 8047e5b77a6bcb9459d31b8b9ede6f13,
     type: 2}
---- !u!135 &135355386689852130
-SphereCollider:
+--- !u!136 &136588494224004174
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -193,6 +180,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.91752434
-  m_Center: {x: 0.07244301, y: 0.43465924, z: 0}
+  m_Radius: 0.53
+  m_Height: 2.33
+  m_Direction: 0
+  m_Center: {x: -0.25, y: 0.21, z: 0}

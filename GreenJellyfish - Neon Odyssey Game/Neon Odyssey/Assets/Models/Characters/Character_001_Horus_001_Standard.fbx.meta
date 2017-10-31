@@ -6,11 +6,52 @@ ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Ankle_l
+    100004: Ankle_r
+    100006: Arm_l
+    100008: Arm_r
+    100010: Character_001_Horus_001_Standard
+    100012: Elbow_l
+    100014: Elbow_r
+    100016: Foot_l
+    100018: Foot_r
+    100020: Knee_l
+    100022: Knee_r
+    100024: Neck
+    100026: Paw_l
+    100028: Paw_r
+    100030: Root
+    100032: Thigh_l
+    100034: Thigh_r
+    100036: Waist
+    100038: Wrist_l
+    100040: Wrist_r
     400000: //RootNode
+    400002: Ankle_l
+    400004: Ankle_r
+    400006: Arm_l
+    400008: Arm_r
+    400010: Character_001_Horus_001_Standard
+    400012: Elbow_l
+    400014: Elbow_r
+    400016: Foot_l
+    400018: Foot_r
+    400020: Knee_l
+    400022: Knee_r
+    400024: Neck
+    400026: Paw_l
+    400028: Paw_r
+    400030: Root
+    400032: Thigh_l
+    400034: Thigh_r
+    400036: Waist
+    400038: Wrist_l
+    400040: Wrist_r
     2300000: //RootNode
     3300000: //RootNode
     4300000: Character_001_Horus_001_Standard
     9500000: //RootNode
+    13700000: Character_001_Horus_001_Standard
   materials:
     importMaterials: 0
     materialName: 0

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4183145342363688}
   - component: {fileID: 65387846012340100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StepsCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4212605366943378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4942776740149656}
   - component: {fileID: 65718409669794536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LandingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 33779681516171122}
   - component: {fileID: 23059551708151746}
   - component: {fileID: 95864361261885694}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground_001_Crypt_003_Stair_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,8 +95,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516487144802566}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9, y: 16, z: -27}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.0000026226041}
+  m_LocalPosition: {x: 384, y: 0, z: -0.9999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4488150641101408}
@@ -104,7 +104,7 @@ Transform:
   - {fileID: 4183145342363688}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!4 &4488150641101408
 Transform:
   m_ObjectHideFlags: 1

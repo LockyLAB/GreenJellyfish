@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1074328699840786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 105.87122, y: -7, z: -1}
+  m_LocalPosition: {x: 107.50107, y: -7, z: -0.22798228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4667227604748108}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pickupEffect: {fileID: 1122323952728742, guid: 0e037c1a98d3220498201b3ede9e8730,
     type: 2}
-  m_pickupSpawnPos: {x: 0, y: 0.5, z: 0}
+  m_pickupSpawnPos: {x: 1.2, y: -1.5, z: -1}
 --- !u!135 &135708370930691390
 SphereCollider:
   m_ObjectHideFlags: 1

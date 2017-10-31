@@ -236,11 +236,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c100f7228fc25d848b27d0a310b61304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_healthMax: 1
+  m_invicibleTime: 1
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1967656237555072, guid: c57741776b7e089478a1df99a0e45643,
     type: 2}
+  m_deathEffectSpawnPos: {x: 0, y: 1, z: 0}
   m_difficulty: 0
   m_moveTowardsRange: 15
   m_gunFireDistance: 10

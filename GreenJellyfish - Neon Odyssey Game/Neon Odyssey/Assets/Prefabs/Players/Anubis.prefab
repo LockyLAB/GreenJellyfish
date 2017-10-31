@@ -269,7 +269,8 @@ GameObject:
   - component: {fileID: 114239747044172402}
   - component: {fileID: 114542884869435458}
   - component: {fileID: 114750957778340618}
-  - component: {fileID: 114828129096041234}
+  - component: {fileID: 114648977088135058}
+  - component: {fileID: 114309528864420994}
   m_Layer: 0
   m_Name: Anubis
   m_TagString: Player
@@ -502,7 +503,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746590034359298}
-  m_LocalRotation: {x: 0.65135425, y: -0.30045015, z: -0.6407436, w: -0.27370632}
+  m_LocalRotation: {x: 0.6513542, y: -0.30045012, z: -0.64074355, w: -0.2737063}
   m_LocalPosition: {x: 0.089999996, y: 0.01, z: -0.14999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -654,7 +655,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 98.4, y: -2, z: -1}
+  m_LocalPosition: {x: 11, y: 2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4449757048167956}
@@ -894,6 +895,25 @@ MonoBehaviour:
     m_Bits: 256
   HorizontalRays: 4
   VerticalRays: 4
+--- !u!114 &114309528864420994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634842271502378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e21e982ecc199f4b938646c90ad0c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_landingEffect:
+  - {fileID: 1510665581460668, guid: 966b7de203f6c82429405a5bc76269ea, type: 2}
+  - {fileID: 1200460459127306, guid: c4022a656a25e9246b58654e23099eb3, type: 2}
+  m_landingEffectSpawnPos: {x: 0, y: 0.2, z: -1}
+  m_jumpingEffect:
+  - {fileID: 1139166413255476, guid: 6899ddf3351b109458238cdd7e8f7660, type: 2}
+  - {fileID: 1240620072963214, guid: bf99d1238c4f160479a25a03b97556e1, type: 2}
+  m_jumpingEffectSpawnPos: {x: 0, y: 0.1, z: 0}
 --- !u!114 &114542884869435458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -922,6 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_healthMax: 4
+  m_invicibleTime: 1
   jumpHeight: 4
   timeToJumpApex: 0.35
   accelerationTimeAirborne: 0.2
@@ -931,10 +952,35 @@ MonoBehaviour:
   jumpDelay: 0.15
   wallSlideSpeedMax: 0
   wallStickTime: 0
+  velocity: {x: 0, y: 0, z: 0}
   isFirstPlayer: 1
   controller: 1
-  m_landingEffect: {fileID: 1319961015232690, guid: f3fd384fbfef9234bae7f6cb053d9bf6,
-    type: 2}
+--- !u!114 &114648977088135058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634842271502378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2f5014a261f22499bd87c968c7a05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: 1
+  m_aim: {x: 0, y: 0, z: 0}
+  shotCooldown: 0
+  defaultFireRate: 0.2
+  defaultBulletSpeed: 1000
+  shotgunBulletCount: 3
+  spreadAngle: 20
+  shotgunFireRate: 0.5
+  shotgunBulletSpeed: 15
+  launcherDrag: 0.2
+  launcherFireRate: 0.75
+  launcherProjectileSpeed: 1000
+  m_bullet1: {fileID: 1643612939600948, guid: 6e12be95134b90041af9aa96e300500b, type: 2}
+  m_bullet2: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba, type: 2}
+  m_currentWeapon: 1
 --- !u!114 &114750957778340618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -953,23 +999,6 @@ MonoBehaviour:
   healthGivenByPickup: 1
   deathTimer: 0
   deathTime: 2
---- !u!114 &114828129096041234
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1634842271502378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8368550fd841bda49986cabbb2cb8fee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_bulletSpeed: 1000
-  m_fireRate: 0.15
-  m_aim: {x: 0, y: 2, z: 0}
-  m_bullet1: {fileID: 1643612939600948, guid: 6e12be95134b90041af9aa96e300500b, type: 2}
-  m_bullet2: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba, type: 2}
-  controller: 1
 --- !u!136 &136680105042919842
 CapsuleCollider:
   m_ObjectHideFlags: 1

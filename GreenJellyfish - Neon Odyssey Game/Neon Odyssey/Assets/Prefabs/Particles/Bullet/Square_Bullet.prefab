@@ -303,6 +303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd5af9e343359e49870f321d427ce35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_hitMarker: {fileID: 1730551634834026, guid: 3010db268d96c3d40ad70c8d40872b33,
+    type: 2}
+  m_hitMarkerSpawnPos: {x: 0, y: 0.5, z: -0.5}
 --- !u!135 &135867175418138370
 SphereCollider:
   m_ObjectHideFlags: 1

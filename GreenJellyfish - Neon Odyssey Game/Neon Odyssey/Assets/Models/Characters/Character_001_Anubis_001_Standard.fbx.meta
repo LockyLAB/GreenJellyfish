@@ -7,14 +7,56 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: Character_001_Anubis_001_Standard
+    100004: Ankle_l
+    100006: Ankle_r
+    100008: Arm_l
+    100010: Arm_r
+    100012: Elbow_l
+    100014: Elbow_r
+    100016: Foot_l
+    100018: Foot_r
+    100020: joint9
+    100022: Knee_l
+    100024: Knee_r
+    100026: Neck
+    100028: Paw_l
+    100030: Paw_r
+    100032: Root
+    100034: Thigh_l
+    100036: Thigh_r
+    100038: Waist
+    100040: Wrist_l
+    100042: Wrist_r
     400000: //RootNode
     400002: Character_001_Anubis_001_Standard
+    400004: Ankle_l
+    400006: Ankle_r
+    400008: Arm_l
+    400010: Arm_r
+    400012: Elbow_l
+    400014: Elbow_r
+    400016: Foot_l
+    400018: Foot_r
+    400020: joint9
+    400022: Knee_l
+    400024: Knee_r
+    400026: Neck
+    400028: Paw_l
+    400030: Paw_r
+    400032: Root
+    400034: Thigh_l
+    400036: Thigh_r
+    400038: Waist
+    400040: Wrist_l
+    400042: Wrist_r
     2300000: //RootNode
     2300002: Character_001_Anubis_001_Standard
     3300000: //RootNode
     3300002: Character_001_Anubis_001_Standard
     4300000: Character_001_Anubis_001_Standard
+    7400000: Character_001_Anubis_001_Standard
     9500000: //RootNode
+    13700000: Character_001_Anubis_001_Standard
   materials:
     importMaterials: 0
     materialName: 0
@@ -38,7 +80,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Character_001_Anubis_001_Standard
+      takeName: Character_001_Anubis_001_Standard
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

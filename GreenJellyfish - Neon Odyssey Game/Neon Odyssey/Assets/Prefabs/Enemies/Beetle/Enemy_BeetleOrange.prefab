@@ -36,9 +36,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4640535102912172}
   - component: {fileID: 54855556784023296}
-  - component: {fileID: 135887279709481850}
   - component: {fileID: 114832413519137930}
-  - component: {fileID: 65696032169067068}
+  - component: {fileID: 136692999456817840}
   m_Layer: 11
   m_Name: Enemy_BeetleOrange
   m_TagString: Enemy
@@ -84,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765858083342218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 121.05, y: -7.755, z: -1}
+  m_LocalPosition: {x: 445.48, y: -1.718, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4277507863713856}
@@ -159,18 +158,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &65696032169067068
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1765858083342218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7883987, y: 1.1275249, z: 1}
-  m_Center: {x: -0.22548294, y: 0.3427899, z: 0}
 --- !u!95 &95311334200199966
 Animator:
   serializedVersion: 3
@@ -264,15 +251,16 @@ MonoBehaviour:
   m_bulletSpawnPos: {x: 0, y: 1, z: 0}
   m_bulletPrefab: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba,
     type: 2}
---- !u!135 &135887279709481850
-SphereCollider:
+--- !u!136 &136692999456817840
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765858083342218}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.86756647
-  m_Center: {x: 0.07244301, y: 0.38470137, z: 0}
+  m_Enabled: 1
+  m_Radius: 0.53
+  m_Height: 2.33
+  m_Direction: 0
+  m_Center: {x: -0.25, y: 0.21, z: 0}

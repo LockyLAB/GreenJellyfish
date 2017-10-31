@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4987597785412932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair_Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4461627608235692}
   - component: {fileID: 64051743432677138}
   - component: {fileID: 65834408625411988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 33824728404530342}
   - component: {fileID: 23760247490602668}
   - component: {fileID: 95830985677298210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground_001_Crypt_002_Stair_Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,15 +93,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320913452601202}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 14, z: -27}
+  m_LocalRotation: {x: -0, y: -0.00000023841855, z: -0, w: -1}
+  m_LocalPosition: {x: 346, y: 2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4270592041452526}
   - {fileID: 4461627608235692}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
 --- !u!23 &23760247490602668
 MeshRenderer:
   m_ObjectHideFlags: 1
