@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public GameObject m_pickupEffect = null;
+    public Vector3 m_pickupSpawnPos = Vector3.up * 0.5f;
 
     protected virtual void ActivatePickup(GameObject other)
     {
@@ -18,7 +19,7 @@ public class Pickup : MonoBehaviour
             ActivatePickup(other.gameObject);
 
             if(m_pickupEffect!= null)
-                Instantiate(m_pickupEffect, transform.position, Quaternion.identity); // create pickup after effect
+                Instantiate(m_pickupEffect, m_pickupSpawnPos, Quaternion.identity, other.transform); // create pickup after effect
             Destroy(this.gameObject);
         }
     }

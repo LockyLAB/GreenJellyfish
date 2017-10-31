@@ -32,13 +32,6 @@ public class Player : Character
 
     public XboxController controller;
 
-    //Setting up landing effect
-    private bool m_inAir = true;
-    
-    public GameObject m_landingEffect = null;
-    public Vector3 m_landingEffectSpawnPos = Vector3.up * 0.1f;
-
-    //public bool isDead;
     void Start()
     {
         pController = GetComponent<PlayerController>();
@@ -54,23 +47,6 @@ public class Player : Character
         //Stop crashes due to delta time being set to 0.0f
         if (Time.timeScale == 0.0f)
             return;
-
-        //Landing animation
-        if(m_inAir)
-        {
-            if(pController.m_CollisionInfo.bottom) // Hit ground
-            {
-                Instantiate(m_landingEffect, transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity);
-                m_inAir = false;
-            }
-        }
-        else
-        {
-            if (!pController.m_CollisionInfo.bottom) //Just jumped
-            {
-                m_inAir = true;
-            }
-        }
 
         Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
 
