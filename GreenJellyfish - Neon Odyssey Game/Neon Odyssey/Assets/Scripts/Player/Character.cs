@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
     private int m_health = 1;
     public int m_healthMax = 1;
 
-    private float m_invicibleTime = 1.0f;
+    public float m_invicibleTime = 1.0f;
     private float m_invicibleTimer = 0.0f;
 
     public void Update()

@@ -10,7 +10,7 @@ public class CameraMove : MonoBehaviour {
 
     private GameObject m_player2 = null;
 
-    public Vector3 offset = new Vector3(0, 1.0f, -10);
+    public Vector3 offset = new Vector3(6.0f, 4.0f, -20);
 
     public float m_zoomSpeed = 0.02f;
 
@@ -19,6 +19,17 @@ public class CameraMove : MonoBehaviour {
 
     public float m_maxHorizontalDistance = 20.0f;
     public float m_maxVerticalDistance = 14.0f;
+
+    //Camera shake 
+    private bool m_shakeEnabled = false; //Is enabled
+
+    public int m_shakeAmount = 10; //How many times to shake
+    private int m_shakeAmountCount = 0;
+
+    public float m_shakeErraticness = 0.05f; // How often it shakes
+    private float m_shakeTimer = 0.0f;
+
+    public float m_shakeMagnitude = 0.05f; // How far it shakes
 
     // Use this for initialization
     void Start()
@@ -51,7 +62,7 @@ public class CameraMove : MonoBehaviour {
         else
         {
             Vector3 cameraPos = transform.position;
-            Vector3 distance = m_player1.transform.position - m_player2.transform.position;//Get distance between players
+            Vector3 distance = m_player1.transform.position - m_player2.transform.position; //Get distance between players
 
             //Compare distance to buffers
             if (Mathf.Abs(distance.x) > m_horizontalBuffer)
@@ -60,6 +71,32 @@ public class CameraMove : MonoBehaviour {
                 cameraPos.y = (m_player1.transform.position.y + m_player2.transform.position.y) / 2 + offset.y;
 
             transform.position = cameraPos;
+        }
+
+        if (m_shakeEnabled)
+            CameraShake();
+    }
+
+    public void EnableCameraShake()
+    {
+        m_shakeEnabled = true;
+    }
+
+    void CameraShake()
+    {
+        Debug.Log("Camera Shaking");
+        m_shakeTimer -= Time.deltaTime;
+        if(m_shakeTimer < 0.0f)
+        {
+            transform.position += new Vector3(Random.Range(-m_shakeMagnitude, m_shakeMagnitude), Random.Range(-m_shakeMagnitude, m_shakeMagnitude), 0.0f);
+            m_shakeTimer = m_shakeErraticness;
+            m_shakeAmountCount++;
+        }
+
+        if(m_shakeAmountCount > m_shakeAmount)
+        {
+            m_shakeAmountCount = 0;
+            m_shakeEnabled = false;
         }
     }
 }

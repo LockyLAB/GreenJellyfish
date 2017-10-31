@@ -50,6 +50,8 @@ public class Bullet : MonoBehaviour
                 {
                     if(m_hitMarker!= null)
                         Instantiate(m_hitMarker, other.gameObject.transform.TransformPoint(m_hitMarkerSpawnPos), Quaternion.identity, other.gameObject.transform);
+
+                    GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<CameraMove>().EnableCameraShake();
                     other.gameObject.GetComponent<Player>().ChangeHealth(-1);
                     Destroy(gameObject);
                 }

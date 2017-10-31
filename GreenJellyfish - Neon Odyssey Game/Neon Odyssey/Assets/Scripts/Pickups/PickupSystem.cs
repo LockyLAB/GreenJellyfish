@@ -14,7 +14,7 @@ public class PickupSystem : MonoBehaviour {
         int pickupNum = 0;
         float pickupRateTotal = 0;
         //Get pickup chance
-        while (pickupNum < m_pickupRates.Count)
+        while (pickupNum < m_pickup.Count)
         {
             pickupRateTotal += m_pickupRates[pickupNum];
             if (pickupRateTotal < rollVal)//Create pickup at caller location
