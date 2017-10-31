@@ -19,12 +19,13 @@ public class FireCone : BehaviourBase
     public float m_maxDis = 0.0f;
 
     public Vector3 m_bulletSpawnPos = Vector3.up * 0.5f;
+
     //--------------------------------------------------------------------------------------
     // Inital setup of behaviour, e.g. setting timer to 0.0f
     //--------------------------------------------------------------------------------------
     public override void BehaviourSetup()
     { 
-        gameObject.GetComponent<Animator>().SetBool("Firing", true);
+        gameObject.GetComponent<Animator>().SetTrigger("Firing");
 
         m_bulletCount = 0;
         m_time = m_timeBetweenShots;
