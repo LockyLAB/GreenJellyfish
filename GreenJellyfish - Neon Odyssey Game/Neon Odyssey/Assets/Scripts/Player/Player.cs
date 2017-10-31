@@ -59,7 +59,7 @@ public class Player : Character
         {
             if(pController.m_CollisionInfo.bottom) // Hit ground
             {
-                Instantiate(m_landingEffect, gameObject.transform.position, Quaternion.identity);
+                Instantiate(m_landingEffect, gameObject.transform.position + 0.1f * transform.up, Quaternion.identity);
                 m_inAir = false;
             }
         }
