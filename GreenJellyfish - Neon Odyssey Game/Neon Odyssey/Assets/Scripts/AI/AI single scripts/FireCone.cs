@@ -25,7 +25,7 @@ public class FireCone : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override void BehaviourSetup()
     { 
-        gameObject.GetComponent<Animator>().SetTrigger("Firing");
+        //gameObject.GetComponent<Animator>().SetTrigger("Firing");
 
         m_bulletCount = 0;
         m_time = m_timeBetweenShots;
