@@ -32,6 +32,11 @@ public class Player : Character
 
     public XboxController controller;
 
+    //Setting up landing effect
+    private bool m_inAir = true;
+    public GameObject m_landingEffect = null;
+
+
     //public bool isDead;
     void Start()
     {
@@ -45,10 +50,26 @@ public class Player : Character
 
     public override void CharaterActions()
     {
-       
-
+        //Stop crashes due to delta time being set to 0.0f
         if (Time.timeScale == 0.0f)
             return;
+
+        //Landing animation
+        if(m_inAir)
+        {
+            if(pController.m_CollisionInfo.bottom) // Hit ground
+            {
+                Instantiate(m_landingEffect, gameObject.transform.position, Quaternion.identity);
+                m_inAir = false;
+            }
+        }
+        else
+        {
+            if (!pController.m_CollisionInfo.bottom) //Just jumped
+            {
+                m_inAir = true;
+            }
+        }
 
         Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller));
 
@@ -111,8 +132,6 @@ public class Player : Character
         {
             this.gameObject.transform.GetChild(0).rotation = (Quaternion.Euler(0, 270, 0));
         }
-
-
 
         velocity.y += gravity * Time.deltaTime;
         pController.Move(velocity * Time.deltaTime);
