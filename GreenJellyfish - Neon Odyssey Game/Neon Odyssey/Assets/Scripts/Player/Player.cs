@@ -34,8 +34,9 @@ public class Player : Character
 
     //Setting up landing effect
     private bool m_inAir = true;
+    
     public GameObject m_landingEffect = null;
-
+    public Vector3 m_landingEffectSpawnPos = Vector3.up * 0.1f;
 
     //public bool isDead;
     void Start()
@@ -59,7 +60,7 @@ public class Player : Character
         {
             if(pController.m_CollisionInfo.bottom) // Hit ground
             {
-                Instantiate(m_landingEffect, gameObject.transform.position + 0.1f * transform.up, Quaternion.identity);
+                Instantiate(m_landingEffect, transform.TransformPoint(m_landingEffectSpawnPos), Quaternion.identity);
                 m_inAir = false;
             }
         }

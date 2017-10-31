@@ -13,7 +13,9 @@ public class Enemy : Character
     [HideInInspector]
     public GameObject m_target = null;
 
+    
     public GameObject m_deathEffect = null;
+    public Vector3 m_deathEffectSpawnPos = Vector3.up * 0.5f;
 
     public enum Difficulty
     {
@@ -36,7 +38,7 @@ public class Enemy : Character
     public void PlayDeath()
     {
         if (m_deathEffect !=null)
-            Instantiate(m_deathEffect, transform.position, Quaternion.identity);
+            Instantiate(m_deathEffect, transform.TransformPoint(m_deathEffectSpawnPos), Quaternion.identity);
         GameObject.FindWithTag("GameController").GetComponent<PickupSystem>().GeneratePickup(this.gameObject);
         Destroy(gameObject);
     }
