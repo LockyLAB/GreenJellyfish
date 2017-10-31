@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     public enum TEAM {PLAYER, ENEMY }
 
     public GameObject m_hitMarker = null;
+    public Vector3 m_hitMarkerSpawnPos = Vector3.up * 0.5f;
 
     public void SetTeam(TEAM team)
     {
@@ -47,7 +48,7 @@ public class Bullet : MonoBehaviour
                 //if BULLET and PLAYER are DIFFERENT colours, 
                 if (other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Player>() != null)
                 {
-                    Instantiate(m_hitMarker, transform.position, Quaternion.identity);
+                    Instantiate(m_hitMarker, other.gameObject.transform.TransformPoint(m_hitMarkerSpawnPos), Quaternion.identity);
                     other.gameObject.GetComponent<Player>().ChangeHealth(-1);
                     Destroy(gameObject);
                 }
