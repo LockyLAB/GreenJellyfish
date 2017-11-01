@@ -1,62 +1,58 @@
 fileFormatVersion: 2
-guid: 719b95e4d81e37949a317da92c652e3e
-timeCreated: 1509409633
+guid: 04a81ccfabc9dba44925296650f2206e
+timeCreated: 1509491210
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: Base
-    100002: Enemy_001_Wasp_001_Standard
-    100004: Head
-    100006: HeadTop
-    100008: L_Elbow
-    100010: L_Hand
-    100012: L_Hip
-    100014: L_Knee
-    100016: L_Shoulder
-    100018: L_Toe
-    100020: L_Wing
-    100022: L_WingTip
-    100024: Neck
-    100026: R_Elbow
-    100028: R_Hand
-    100030: R_Hip
-    100032: R_Knee
-    100034: R_Shoulder
-    100036: R_Toe
-    100038: R_Wing
-    100040: R_WingTip
-    100042: Spine1
-    100044: Spine2
-    100046: //RootNode
+    100002: Head
+    100004: HeadTop
+    100006: L_Elbow
+    100008: L_Hand
+    100010: L_Hip
+    100012: L_Knee
+    100014: L_Shoulder
+    100016: L_Toe
+    100018: L_Wing
+    100020: L_WingTip
+    100022: Neck
+    100024: R_Elbow
+    100026: R_Hand
+    100028: R_Hip
+    100030: R_Knee
+    100032: R_Shoulder
+    100034: R_Toe
+    100036: R_Wing
+    100038: R_WingTip
+    100040: Spine1
+    100042: Spine2
+    100044: //RootNode
     400000: Base
-    400002: Enemy_001_Wasp_001_Standard
-    400004: Head
-    400006: HeadTop
-    400008: L_Elbow
-    400010: L_Hand
-    400012: L_Hip
-    400014: L_Knee
-    400016: L_Shoulder
-    400018: L_Toe
-    400020: L_Wing
-    400022: L_WingTip
-    400024: Neck
-    400026: R_Elbow
-    400028: R_Hand
-    400030: R_Hip
-    400032: R_Knee
-    400034: R_Shoulder
-    400036: R_Toe
-    400038: R_Wing
-    400040: R_WingTip
-    400042: Spine1
-    400044: Spine2
-    400046: //RootNode
-    4300000: Enemy_001_Wasp_001_Standard
-    7400000: Attack_01
+    400002: Head
+    400004: HeadTop
+    400006: L_Elbow
+    400008: L_Hand
+    400010: L_Hip
+    400012: L_Knee
+    400014: L_Shoulder
+    400016: L_Toe
+    400018: L_Wing
+    400020: L_WingTip
+    400022: Neck
+    400024: R_Elbow
+    400026: R_Hand
+    400028: R_Hip
+    400030: R_Knee
+    400032: R_Shoulder
+    400034: R_Toe
+    400036: R_Wing
+    400038: R_WingTip
+    400040: Spine1
+    400042: Spine2
+    400044: //RootNode
+    7400000: Wasp_Attack
     9500000: //RootNode
-    13700000: Enemy_001_Wasp_001_Standard
   materials:
     importMaterials: 1
     materialName: 0
