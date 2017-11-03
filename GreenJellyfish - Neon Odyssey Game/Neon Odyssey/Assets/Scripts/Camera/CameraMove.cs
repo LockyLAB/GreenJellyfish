@@ -12,10 +12,10 @@ public class CameraMove : MonoBehaviour {
 
     public Vector3 offset = new Vector3(6.0f, 4.0f, -20);
 
-    public float m_zoomSpeed = 0.02f;
+    public float m_minZoomSpeed = 0.1f;
 
-    public float m_horizontalBuffer = 10.0f;
-    public float m_verticalBuffer = 7.0f;
+    public float m_horizontalBuffer = 3.0f;
+    public float m_verticalBuffer = 5.0f;
 
     public float m_maxHorizontalDistance = 20.0f;
     public float m_maxVerticalDistance = 14.0f;
@@ -62,13 +62,23 @@ public class CameraMove : MonoBehaviour {
         else
         {
             Vector3 cameraPos = transform.position;
-            Vector3 distance = m_player1.transform.position - m_player2.transform.position; //Get distance between players
+            Vector3 playerDis = m_player2.transform.position - m_player1.transform.position;
+            Vector3 cameraGoal = ((m_player1.transform.position + m_player2.transform.position) / 2) + offset;
+            Vector3 cameraGoalDistance = cameraGoal - cameraPos;
 
             //Compare distance to buffers
-            if (Mathf.Abs(distance.x) > m_horizontalBuffer)
-                cameraPos.x = (m_player1.transform.position.x + m_player2.transform.position.x) / 2 + offset.x;
-            if (Mathf.Abs(distance.y) > m_verticalBuffer)
-                cameraPos.y = (m_player1.transform.position.y + m_player2.transform.position.y) / 2 + offset.y;
+            if (Mathf.Abs(playerDis.x) > m_horizontalBuffer)
+            {
+                float xVal = Mathf.Abs(playerDis.x) - m_horizontalBuffer;
+                float zoomSpeed = (1 - m_minZoomSpeed) / (m_maxHorizontalDistance * m_maxHorizontalDistance);
+                cameraPos.x += ((zoomSpeed * (xVal * xVal)) + m_minZoomSpeed) * cameraGoalDistance.x;
+            }
+            if (Mathf.Abs(playerDis.y) > m_verticalBuffer)
+            {
+                float yVal = Mathf.Abs(playerDis.y) - m_horizontalBuffer;
+                float zoomSpeed = (1 - m_minZoomSpeed) / (m_maxVerticalDistance * m_maxVerticalDistance);
+                cameraPos.y += ((zoomSpeed * (yVal * yVal)) + m_minZoomSpeed) * cameraGoalDistance.y;
+            }
 
             transform.position = cameraPos;
         }
