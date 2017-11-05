@@ -23,7 +23,6 @@ public class FireLaserbeam : BehaviourBase
     public override void BehaviourSetup()
     {
         //Start numbers of bullets to fire
-        m_time = m_chargeRate;
 
         //Fire bullet
         laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);

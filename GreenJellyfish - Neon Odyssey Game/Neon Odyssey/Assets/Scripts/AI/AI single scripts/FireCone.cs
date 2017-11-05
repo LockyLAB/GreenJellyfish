@@ -26,9 +26,10 @@ public class FireCone : BehaviourBase
     public override void BehaviourSetup()
     { 
         m_bulletCount = 0;
-        m_time = m_timeBetweenShots;
 
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
+
+        gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
     }
 
     //--------------------------------------------------------------------------------------
@@ -39,8 +40,6 @@ public class FireCone : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        gameObject.GetComponent<Animator>().SetBool("Firing", false);
-
         m_time -= Time.deltaTime;
 
         if (m_time < 0.0f)
@@ -54,9 +53,7 @@ public class FireCone : BehaviourBase
             FireBullet(bulletDir);
             FireBullet(Quaternion.Euler(0, 0, -m_fireCone) * bulletDir);
 
-            //Firing animation
-            //gameObject.GetComponent<Animator>().SetTrigger("Firing");
-            gameObject.GetComponent<Animator>().SetBool("Firing", true);
+            gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
         }
 
         if (!CloseEnough())

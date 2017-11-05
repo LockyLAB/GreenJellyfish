@@ -23,8 +23,9 @@ public class FireGun : BehaviourBase
     {
         m_bulletCount = 0;
         m_time = m_timeBetweenShots;
-
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
+
+        gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
     }
 
     //--------------------------------------------------------------------------------------
@@ -35,8 +36,6 @@ public class FireGun : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        
-	
         m_time -= Time.deltaTime;
 
         if (m_time < 0.0f)
@@ -47,6 +46,8 @@ public class FireGun : BehaviourBase
             //Fire bullet
             Vector3 bulletDir = (GetComponent<Enemy>().m_target.transform.position - transform.position).normalized;
             FireBullet(bulletDir);
+
+            gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
         }
 
         if (m_bulletCount < m_numberOfBullets)

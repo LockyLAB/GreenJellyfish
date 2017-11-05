@@ -28,7 +28,10 @@ public class CoolDown : BehaviourBase
         m_time -= Time.deltaTime;
 
         if (m_time < 0.0f)
+        {
+            gameObject.GetComponent<Animator>().SetBool("Firing", false);
             return BehaviourStatus.SUCCESS;
+        }
         return BehaviourStatus.PENDING;
     }
 }
