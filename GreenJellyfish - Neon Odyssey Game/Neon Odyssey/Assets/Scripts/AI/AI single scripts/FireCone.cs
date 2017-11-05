@@ -54,10 +54,13 @@ public class FireCone : BehaviourBase
             FireBullet(Quaternion.Euler(0, 0, -m_fireCone) * bulletDir);
 
             //Firing animation
-            gameObject.GetComponent<Animator>().SetTrigger("Firing");
+            //gameObject.GetComponent<Animator>().SetTrigger("Firing");
+            gameObject.GetComponent<Animator>().SetBool("Firing", true);
         }
 
-        if(!CloseEnough())
+        gameObject.GetComponent<Animator>().SetBool("Firing", false);
+
+        if (!CloseEnough())
             return BehaviourStatus.FAILURE;
 
         if (m_bulletCount < m_numberOfBullets)
