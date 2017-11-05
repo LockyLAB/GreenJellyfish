@@ -39,6 +39,7 @@ public class FireCone : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
+        gameObject.GetComponent<Animator>().SetBool("Firing", false);
 
         m_time -= Time.deltaTime;
 
@@ -57,8 +58,6 @@ public class FireCone : BehaviourBase
             //gameObject.GetComponent<Animator>().SetTrigger("Firing");
             gameObject.GetComponent<Animator>().SetBool("Firing", true);
         }
-
-        gameObject.GetComponent<Animator>().SetBool("Firing", false);
 
         if (!CloseEnough())
             return BehaviourStatus.FAILURE;
