@@ -17,6 +17,9 @@ public class Enemy : Character
     public GameObject m_deathEffect = null;
     public Vector3 m_deathEffectSpawnPos = Vector3.up * 0.5f;
 
+
+    private GameObject m_childRenderer = null; // gets renderer for child
+
     public enum Difficulty
     {
         Easy,
@@ -26,6 +29,16 @@ public class Enemy : Character
 
     public Difficulty m_difficulty = Difficulty.Easy;
 
+    void Start()
+    {
+        //Get child with the renderer
+        for (int i = 0; i < this.gameObject.transform.childCount; i++)
+        {
+            if (this.gameObject.transform.GetChild(i).GetComponentInChildren<SkinnedMeshRenderer>() != null)
+                m_childRenderer = this.gameObject.transform.GetChild(i).gameObject;
+        }
+    }
+
     // Update is called once per frame
     public override void CharaterActions()
     {
@@ -33,6 +46,15 @@ public class Enemy : Character
 
         if (IsDead())
             PlayDeath();
+
+        if (GetComponent<Rigidbody>().velocity.x > 0.1f) // Rotates character 
+        {
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0));
+        }
+        if (GetComponent<Rigidbody>().velocity.x < -0.1f) // rotates character
+        {
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0));
+        }
     }
 
     public void PlayDeath()
