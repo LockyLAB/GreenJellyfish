@@ -83,7 +83,7 @@ public class Bullet : MonoBehaviour
 
                     if (isExplosive)
                     {
-                        Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
+                        Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
                     }
 
                     Destroy(gameObject);
@@ -104,7 +104,7 @@ public class Bullet : MonoBehaviour
         {
             if (isExplosive)
             {
-                Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
+                Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
             }
 
             Destroy(gameObject);
