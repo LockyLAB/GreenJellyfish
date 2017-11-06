@@ -48,13 +48,14 @@ public class Enemy : Character
             PlayDeath();
 
         if (GetComponent<Rigidbody>().velocity.x > 0.1f) // Rotates character 
-        {
-            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0));
-        }
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); //Face forwards
         if (GetComponent<Rigidbody>().velocity.x < -0.1f) // rotates character
-        {
-            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0));
-        }
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); // Face backwards
+
+        //if (Mathf.Abs(GetComponent<Player>().velocity.x) > 0.1f && m_playerController.m_CollisionInfo.bottom)
+        //    m_animator.SetBool("Moving", true);
+        //else
+        //    m_animator.SetBool("Moving", false);
     }
 
     public void PlayDeath()

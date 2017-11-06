@@ -60,6 +60,9 @@ public class FireCone : BehaviourBase
                 gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
         }
 
+        if (m_bulletCount < m_numberOfBullets)
+            return BehaviourStatus.PENDING;
+
         if (!CloseEnough())
             return BehaviourStatus.FAILURE;
 
