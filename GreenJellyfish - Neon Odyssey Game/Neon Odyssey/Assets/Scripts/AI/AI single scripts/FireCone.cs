@@ -27,6 +27,7 @@ public class FireCone : BehaviourBase
     { 
         m_bulletCount = 0;
         m_time = m_timeBetweenShots;
+
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
         gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
