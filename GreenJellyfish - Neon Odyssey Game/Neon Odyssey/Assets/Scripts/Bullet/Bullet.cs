@@ -13,7 +13,8 @@ public class Bullet : MonoBehaviour
     public GameObject m_hitMarker = null;
     public Vector3 m_hitMarkerSpawnPos = Vector3.up * 0.5f;
 
-    public ParticleSystem explosionParticle;
+    public GameObject explosionParticle;
+    public bool isExplosive = false;
 
     public void SetTeam(TEAM team)
     {
@@ -27,6 +28,12 @@ public class Bullet : MonoBehaviour
                 break;
         }
     }
+
+    //private void Awake()
+    //{
+    //    explosionParticle.Play();
+    //    explosionParticle.gameObject.SetActive(false);
+    //}
 
     // Update is called once per frame
     void Update()
@@ -73,7 +80,14 @@ public class Bullet : MonoBehaviour
                 if(other.gameObject.layer == gameObject.layer && other.gameObject.GetComponent<Bullet>() == null)
                 {
                     other.gameObject.GetComponent<Enemy>().ChangeHealth(-1);
+
+                    if (isExplosive)
+                    {
+                        Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
+                    }
+
                     Destroy(gameObject);
+
                 }
             }
         }
@@ -88,7 +102,13 @@ public class Bullet : MonoBehaviour
         //check bullet - wall collisions
         if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
         {
+            if (isExplosive)
+            {
+                Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
+            }
+
             Destroy(gameObject);
+
         }
     }
 }
