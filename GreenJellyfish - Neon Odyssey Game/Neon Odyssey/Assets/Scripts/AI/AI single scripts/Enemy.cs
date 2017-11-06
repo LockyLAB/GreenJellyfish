@@ -52,10 +52,10 @@ public class Enemy : Character
         if (GetComponent<Rigidbody>().velocity.x < -0.1f) // rotates character
             m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); // Face backwards
 
-        //if (Mathf.Abs(GetComponent<Player>().velocity.x) > 0.1f && m_playerController.m_CollisionInfo.bottom)
-        //    m_animator.SetBool("Moving", true);
-        //else
-        //    m_animator.SetBool("Moving", false);
+        if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x)>0.01f)
+            gameObject.GetComponent<Animator>().SetBool("Moving", true);
+        else
+            gameObject.GetComponent<Animator>().SetBool("Moving", false);
     }
 
     public void PlayDeath()

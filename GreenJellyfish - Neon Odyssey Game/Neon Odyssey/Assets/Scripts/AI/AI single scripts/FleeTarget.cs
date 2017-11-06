@@ -39,7 +39,7 @@ public class FleeTarget : BehaviourBase
             GetComponent<Rigidbody>().velocity = velocity;
             return BehaviourStatus.PENDING;
         }
-
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         return BehaviourStatus.SUCCESS;
     }
 }
