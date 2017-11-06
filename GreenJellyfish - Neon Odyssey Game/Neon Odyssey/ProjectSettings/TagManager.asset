@@ -8,6 +8,8 @@ TagManager:
   - purple
   - Player1Revive
   - Player2Revive
+  - DestroyableEnvironment
+  - Door
   layers:
   - Default
   - TransparentFX
