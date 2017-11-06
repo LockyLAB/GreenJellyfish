@@ -64,9 +64,9 @@ public class PlayerAnimation : MonoBehaviour
             m_animator.SetBool("Moving", false);
 
         if (!m_playerController.m_CollisionInfo.bottom && !m_playerController.m_CollisionInfo.top && !m_playerController.m_CollisionInfo.left && !m_playerController.m_CollisionInfo.right)
-            m_animator.SetBool("Jumping", true);
+            m_animator.SetBool("InAir", true);
         else
-            m_animator.SetBool("Jumping", false);
+            m_animator.SetBool("InAir", false);
     }
 
     void PauseEffectFollow()

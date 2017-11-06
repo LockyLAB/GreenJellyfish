@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootableEnviromentParent : MonoBehaviour
 {
     private List<GameObject> m_children= new List<GameObject>();
+    public GameObject m_ray = null;
 
     public void AddChild(GameObject child)
     {
@@ -19,7 +20,7 @@ public class ShootableEnviromentParent : MonoBehaviour
 
     private void Update()
     {
-        if (m_children.Count == 0)
-            Destroy(this.gameObject);
+        if (m_children.Count == 0 && m_ray != null)
+            Destroy(m_ray);
     }
 }
