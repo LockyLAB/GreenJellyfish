@@ -26,7 +26,7 @@ public class FireGun : BehaviourBase
 
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
-        //gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
+        gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
     }
 
     //--------------------------------------------------------------------------------------
@@ -48,11 +48,11 @@ public class FireGun : BehaviourBase
             Vector3 bulletDir = (GetComponent<Enemy>().m_target.transform.position - transform.position).normalized;
             FireBullet(bulletDir);
 
-            //gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
+            if (m_bulletCount < m_numberOfBullets)
+                return BehaviourStatus.PENDING;
+            else
+                gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
         }
-
-        if (m_bulletCount < m_numberOfBullets)
-            return BehaviourStatus.PENDING;
 
         return BehaviourStatus.SUCCESS;
     }
