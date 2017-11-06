@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4680828209057328}
-  - component: {fileID: 95959647507189630}
+  - component: {fileID: 95214259232580562}
   m_Layer: 0
   m_Name: Enemy_001_Beetle_001_Standard
   m_TagString: Untagged
@@ -164,7 +164,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1417369112143884
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 54748953644359696}
   - component: {fileID: 114504505609184542}
   - component: {fileID: 136932081600094238}
+  - component: {fileID: 95868372207226726}
   m_Layer: 9
   m_Name: Enemy_BeetlePurple
   m_TagString: Enemy
@@ -688,11 +689,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298489383241860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.094, y: -0.163, z: 0}
+  m_LocalPosition: {x: 0.094, y: -0.274, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4795499973893956}
-  - {fileID: 4716840578856062}
   m_Father: {fileID: 4776457349590648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -717,7 +717,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417369112143884}
   m_LocalRotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: 6.123234e-17}
-  m_LocalPosition: {x: 7.105427e-17, y: 0.445918, z: -2.7755575e-19}
+  m_LocalPosition: {x: 0.09400177, y: 0.17191792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4025462730911116}
@@ -726,8 +726,8 @@ Transform:
   - {fileID: 4352193165509256}
   - {fileID: 4370268989009166}
   - {fileID: 4979858276649826}
-  m_Father: {fileID: 4680828209057328}
-  m_RootOrder: 1
+  m_Father: {fileID: 4776457349590648}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4776457349590648
 Transform:
@@ -741,6 +741,7 @@ Transform:
   m_Children:
   - {fileID: 4680828209057328}
   - {fileID: 4133673669422052}
+  - {fileID: 4716840578856062}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -814,7 +815,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!95 &95959647507189630
+--- !u!95 &95214259232580562
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -822,9 +823,26 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298489383241860}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 698f32df86624b04bbb4a0eace526e5e, type: 3}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95868372207226726
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958214096100594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5bac4124a6df917469ca80c6b3a18eb5, type: 3}
   m_Controller: {fileID: 9100000, guid: d208445658d68064881653b2bcd04bb8, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

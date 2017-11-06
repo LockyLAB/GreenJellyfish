@@ -27,6 +27,25 @@ ModelImporter:
     100038: Waist
     100040: Wrist_l
     100042: Wrist_r
+    100044: Rigged_anubino:Ankle_l
+    100046: Rigged_anubino:Ankle_r
+    100048: Rigged_anubino:Arm_l
+    100050: Rigged_anubino:Arm_r
+    100052: Rigged_anubino:Elbow_l
+    100054: Rigged_anubino:Elbow_r
+    100056: Rigged_anubino:Foot_l
+    100058: Rigged_anubino:Foot_r
+    100060: Rigged_anubino:Knee_l
+    100062: Rigged_anubino:Knee_r
+    100064: Rigged_anubino:Neck
+    100066: Rigged_anubino:Paw_l
+    100068: Rigged_anubino:Paw_r
+    100070: Rigged_anubino:Root
+    100072: Rigged_anubino:Thigh_l
+    100074: Rigged_anubino:Thigh_r
+    100076: Rigged_anubino:Waist
+    100078: Rigged_anubino:Wrist_l
+    100080: Rigged_anubino:Wrist_r
     400000: //RootNode
     400002: Character_001_Anubis_001_Standard
     400004: Ankle_l
@@ -49,6 +68,25 @@ ModelImporter:
     400038: Waist
     400040: Wrist_l
     400042: Wrist_r
+    400044: Rigged_anubino:Ankle_l
+    400046: Rigged_anubino:Ankle_r
+    400048: Rigged_anubino:Arm_l
+    400050: Rigged_anubino:Arm_r
+    400052: Rigged_anubino:Elbow_l
+    400054: Rigged_anubino:Elbow_r
+    400056: Rigged_anubino:Foot_l
+    400058: Rigged_anubino:Foot_r
+    400060: Rigged_anubino:Knee_l
+    400062: Rigged_anubino:Knee_r
+    400064: Rigged_anubino:Neck
+    400066: Rigged_anubino:Paw_l
+    400068: Rigged_anubino:Paw_r
+    400070: Rigged_anubino:Root
+    400072: Rigged_anubino:Thigh_l
+    400074: Rigged_anubino:Thigh_r
+    400076: Rigged_anubino:Waist
+    400078: Rigged_anubino:Wrist_l
+    400080: Rigged_anubino:Wrist_r
     2300000: //RootNode
     2300002: Character_001_Anubis_001_Standard
     3300000: //RootNode

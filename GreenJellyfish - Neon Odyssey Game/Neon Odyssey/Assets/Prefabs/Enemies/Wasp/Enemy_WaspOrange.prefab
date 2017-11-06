@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 54651565874561776}
   - component: {fileID: 114622793868264514}
   - component: {fileID: 135589375786601386}
+  - component: {fileID: 95970469340065410}
   m_Layer: 11
   m_Name: Enemy_WaspOrange
   m_TagString: Enemy
@@ -470,7 +471,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1795524653531648}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 207.63083, y: 37.07, z: -1.4440029}
+  m_LocalPosition: {x: 127.361244, y: 2, z: -1.1342323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4333893469989240}
@@ -802,6 +803,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95970469340065410
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795524653531648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 04a81ccfabc9dba44925296650f2206e, type: 3}
+  m_Controller: {fileID: 9100000, guid: fc3dab100fc087d46b00e781ae596693, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108043172838918550
 Light:
   m_ObjectHideFlags: 1
@@ -863,11 +881,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8c92c872a8ee84bb5a8036829ffb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_healthMax: 1
+  m_invicibleTime: 1
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1297749791164546, guid: 1b126c901d01abd4b95391db5e9f29f5,
     type: 2}
+  m_deathEffectSpawnPos: {x: 0, y: 0.5, z: 0}
   m_difficulty: 0
   m_moveTowardsRange: 10
   m_coneFireDistance: 6

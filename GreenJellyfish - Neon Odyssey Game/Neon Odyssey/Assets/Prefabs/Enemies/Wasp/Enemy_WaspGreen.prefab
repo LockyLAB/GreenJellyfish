@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 54519154148594814}
   - component: {fileID: 114710135191337722}
   - component: {fileID: 135583271768345370}
+  - component: {fileID: 95043112252166508}
   m_Layer: 12
   m_Name: Enemy_WaspGreen
   m_TagString: Enemy
@@ -785,6 +786,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!95 &95043112252166508
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1904576510149112}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc3dab100fc087d46b00e781ae596693, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95100140664818576
 Animator:
   serializedVersion: 3
@@ -863,11 +881,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8c92c872a8ee84bb5a8036829ffb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_healthMax: 1
+  m_invicibleTime: 1
   m_forwardSpeed: 5
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1147585391114326, guid: 48e84807a251add41b6ab299c4ce7f43,
     type: 2}
+  m_deathEffectSpawnPos: {x: 0, y: 0.5, z: 0}
   m_difficulty: 0
   m_moveTowardsRange: 12
   m_coneFireDistance: 7
