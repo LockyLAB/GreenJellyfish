@@ -26,7 +26,7 @@ public class FireGun : BehaviourBase
 
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
-        gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
+        //gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
     }
 
     //--------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ public class FireGun : BehaviourBase
             Vector3 bulletDir = (GetComponent<Enemy>().m_target.transform.position - transform.position).normalized;
             FireBullet(bulletDir);
 
-            gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
+            //gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
         }
 
         if (m_bulletCount < m_numberOfBullets)
@@ -57,6 +57,12 @@ public class FireGun : BehaviourBase
         return BehaviourStatus.SUCCESS;
     }
 
+    //--------------------------------------------------------------------------------------
+    // Firing of bullet towards target
+    //
+    // Return:
+    //		Returns a enum BehaviourStatus, current status of behaviour, Success, failed, pending
+    //--------------------------------------------------------------------------------------
     void FireBullet(Vector3 bulletDir)
     {
         GameObject newBullet = Instantiate(m_bullet, transform.TransformPoint(m_bulletSpawnPos), Quaternion.identity);
