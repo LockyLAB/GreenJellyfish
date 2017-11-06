@@ -28,11 +28,18 @@ public class Weapon : MonoBehaviour
     public float launcherDrag = 0.2f;           //launcher projectile drag/air resistance
     public float launcherFireRate = 0.75f;
     public float launcherProjectileSpeed = 1000.0f;
+    public float launcherExplosionRadius = 5f;
+    public float launcherExplosionForce = 100f;
+
+    //SPECIAL WEAPON PROPERTIES
+    public float specialFireRate = 0.5f;
+    public float specialBulletSpeed = 750f;
+    
  
     //BULLET PREFABS
     public GameObject m_bullet1;
     public GameObject m_bullet2;
-
+    public GameObject m_specialBullet;
     
     //WEAPON LIST
     public enum currentWeapon
@@ -40,7 +47,7 @@ public class Weapon : MonoBehaviour
         Default = 1,
         Shotgun = 2,
         Launcher = 3,
-        //Laser = 4
+        Special_1 = 4
     }
 
     public currentWeapon m_currentWeapon;
@@ -109,16 +116,17 @@ public class Weapon : MonoBehaviour
             FireLauncher();  
         }
 
-        //LASER
-        //if ((int)m_currentWeapon == 4)  
-        //{
-        //
-        //}
+        //HUNTING MISSILES
+        if ((int)m_currentWeapon == 4)  
+        {
+            FireSpecial();
+        }
     }
 
     void FireDefault()
     {
         Vector3 up = new Vector3(0, 0.9f);
+
         if (GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= defaultFireRate)
         {
             GameObject newBullet = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
@@ -183,6 +191,7 @@ public class Weapon : MonoBehaviour
             grenadeShot.GetComponent<Rigidbody>().AddForce(m_aim * launcherProjectileSpeed);
             grenadeShot.GetComponent<Rigidbody>().useGravity = true;
             grenadeShot.GetComponent<Rigidbody>().drag = launcherDrag;
+            grenadeShot.GetComponent<Bullet>().isExplosive = true;
             grenadeShot.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
             shotCooldown = 0;
         }
@@ -194,10 +203,27 @@ public class Weapon : MonoBehaviour
             grenadeShot.GetComponent<Rigidbody>().AddForce(m_aim * launcherProjectileSpeed);
             grenadeShot.GetComponent<Rigidbody>().useGravity = true;
             grenadeShot.GetComponent<Rigidbody>().drag = launcherDrag;
+            grenadeShot.GetComponent<Bullet>().isExplosive = true;
             grenadeShot.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
             shotCooldown = 0;
         }
     }
 
+    void FireSpecial()
+    {
+        Vector3 up = new Vector3(0, 0.9f);
+
+        if (shotCooldown >= specialFireRate)
+        {
+            GameObject newBullet = Instantiate(m_specialBullet, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
+            newBullet.GetComponent<Rigidbody>().AddForce(m_aim * specialBulletSpeed);
+
+            shotCooldown = 0;
+            //Destroy(newBullet, 2.5f);
+            
+        }
+
+        //newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+    }
 }
 
