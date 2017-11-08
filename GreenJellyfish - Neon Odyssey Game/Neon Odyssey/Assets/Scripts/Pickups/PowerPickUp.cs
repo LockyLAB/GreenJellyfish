@@ -6,6 +6,6 @@ public class PowerPickUp : Pickup {
 
     protected override void ActivatePickup(GameObject other)
     {
-        other.GetComponent<PowerUp>().ChangeCharge(20.0f);
+        other.GetComponent<PlayerSuper>().ChangeCharge(20.0f);
     }
 }
