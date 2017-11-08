@@ -60,11 +60,13 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (XCI.GetButtonDown(m_player.jumpButton, m_player.controller)) //Just jumped
             {
-                if(m_currentLandingEffect!= null)//If player is no longer grounded remove the following effect
+                if (m_currentLandingEffect != null)//If player is no longer grounded remove the following effect
                 {
                     m_currentLandingEffect.transform.parent = null;
                 }
-
+            }
+            if(!m_playerController.m_CollisionInfo.bottom)
+            {
                 if (GetComponent<ColourController>().m_firstBulletSlot)
                     Destroy(Instantiate(m_jumpingEffect[0], transform.TransformPoint(m_jumpingEffectSpawnPos), Quaternion.identity, transform), 1.0f);
                 else
@@ -98,9 +100,6 @@ public class PlayerAnimation : MonoBehaviour
         }
         else
             m_hitWall = false;
-
-        Invoke("PauseEffectFollow", 0.1f);
-        m_inAir = false;
     }
 
     IEnumerator PauseEffectFollow(float delay, GameObject effectHolder)
