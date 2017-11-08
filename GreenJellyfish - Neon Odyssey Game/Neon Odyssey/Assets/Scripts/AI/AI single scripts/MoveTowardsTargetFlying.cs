@@ -10,7 +10,7 @@ public class MoveTowardsTargetFlying : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override void BehaviourSetup()
     {
-        GetComponent<Enemy>().m_movementAudio.Play();
+        //GetComponent<Enemy>().m_movementAudio.Play();
     }
 
     //--------------------------------------------------------------------------------------

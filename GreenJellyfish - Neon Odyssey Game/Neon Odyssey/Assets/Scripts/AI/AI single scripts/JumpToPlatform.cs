@@ -17,6 +17,7 @@ public class JumpToPlatform : BehaviourBase
     private Vector3 m_currentPos;
     private Vector3 m_nextPos;
     private Vector3 m_middleLerpPos;
+
     //--------------------------------------------------------------------------------------
     // Inital setup of behaviour, e.g. setting timer to 0.0f
     //--------------------------------------------------------------------------------------
