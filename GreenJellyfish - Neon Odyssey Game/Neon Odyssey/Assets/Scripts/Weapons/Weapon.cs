@@ -33,7 +33,7 @@ public class Weapon : MonoBehaviour
 
     //SPECIAL WEAPON PROPERTIES
     public float specialFireRate = .85f;
-    public float specialBulletSpeed = 700f;
+    public float specialBulletSpeed = 15f;
     public float detonateTimer = 1.25f;
 
 
@@ -216,9 +216,9 @@ public class Weapon : MonoBehaviour
 
         if (shotCooldown >= specialFireRate)
         {
+            //GameObject newBullet = Instantiate(m_specialBullet, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
             GameObject newBullet = Instantiate(m_specialBullet, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-            newBullet.GetComponent<Rigidbody>().AddForce(m_aim * specialBulletSpeed);
-
+            newBullet.GetComponent<Rigidbody>().velocity = m_aim * specialBulletSpeed;
             //newBullet.GetComponent<HomingMissile>().TimedDetonation(detonateTimer);
 
             shotCooldown = 0;            

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class MoveTowardsTarget : BehaviourBase
 {
+
+    //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, Play audio
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
+    {
+        //TODO Add audio playing here
+    }
+
     //--------------------------------------------------------------------------------------
     // Update behaviours - Move towards the chosen target
     //

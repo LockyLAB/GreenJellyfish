@@ -2,25 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SilverBullet : Bullet {
-
-	// Use this for initialization
-	void Start ()
-    {
-        this.SetTeam(Bullet.TEAM.PLAYER);
-
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        //destroy bullet if not visible on cameras
-        if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
-        {
-            Destroy(gameObject);
-        }
-    }
-
+public class SilverBullet : MonoBehaviour
+{
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<Bullet>())

@@ -12,7 +12,7 @@ public class HomingMissile : MonoBehaviour
     
     Vector3 objectPos;
     public float homingRadius = 7.5f;
-    public float bulletSpeed = 300.0f;
+    public float bulletSpeed = 15.0f;
     public float detonateTimer = 1.5f;
     public int burstAmount = 3;
 
@@ -40,7 +40,6 @@ public class HomingMissile : MonoBehaviour
         if(detonateTimer <= 0)
         {
             Detonate(objectPos, homingRadius);
-            Destroy(gameObject);
         }
 
         //destroy bullet if not visible on cameras
@@ -52,41 +51,54 @@ public class HomingMissile : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
         {
             Detonate(objectPos, homingRadius);
-            Destroy(gameObject);
         }
    
-        if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<Bullet>())
+        if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponent<Bullet>() != null)
         {
             Detonate(objectPos, homingRadius);
-            Destroy(gameObject);
         }
     }
 
-    public void TimedDetonation(float detonateTimer)
-    {
-        Detonate(objectPos, homingRadius);
-        Destroy(gameObject, detonateTimer);
-    }
+    //public void TimedDetonation(float detonateTimer)
+    //{
+    //    Detonate(objectPos, homingRadius);
+    //    Destroy(gameObject, detonateTimer);
+    //}
 
     private void Detonate(Vector3 pos, float homingRadius)
     {
-        foreach (GameObject enemy in enemies)
+        Collider[] hitColliders = Physics.OverlapSphere(pos, homingRadius);
+        foreach (Collider other in hitColliders)
         {
-            float dist = Vector3.Distance(enemy.transform.position, gameObject.transform.position);
-            
-            if (dist <= homingRadius)
+            if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponent<Bullet>() != null)
             {
-                Vector3 targetDir = enemy.transform.position - transform.position;
-                GameObject homers = Instantiate(m_bullet1, transform.position, Quaternion.Euler(targetDir));
-        
-                homers.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
+                Vector3 targetDir = other.gameObject.transform.position - transform.position;
+                targetDir.Normalize();
+                //GameObject homers = Instantiate(m_bullet1, transform.position, Quaternion.Euler(targetDir));
+                GameObject newHomer = Instantiate(m_bullet1, transform.position, Quaternion.identity);
+                newHomer.GetComponent<Rigidbody>().velocity = targetDir * bulletSpeed;
             }
         }
+
+        //foreach (GameObject enemy in enemies)
+        //{
+        //    float dist = Vector3.Distance(enemy.transform.position, gameObject.transform.position);
+            
+        //    if (dist <= homingRadius)
+        //    {
+        //        Vector3 targetDir = enemy.transform.position - transform.position;
+        //        targetDir.Normalize();
+        //        GameObject newBullet = Instantiate(m_bullet1, transform.position, Quaternion.Euler(targetDir));
+        //        newBullet.GetComponent<Rigidbody>().velocity = targetDir * bulletSpeed;
+        //    }
+        //}
+
+        Destroy(this.gameObject);
 
         //Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, homingRadius);
         //

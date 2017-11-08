@@ -27,6 +27,8 @@ public class FireGun : BehaviourBase
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
         gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
+        //TODO Add audio playing here
+
     }
 
     //--------------------------------------------------------------------------------------

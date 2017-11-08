@@ -35,6 +35,8 @@ public class EnemyScorpion : Enemy
     private BehaviourSequence m_sequenceRightGun;
     private BehaviourSequence m_sequenceLaser;
 
+    private BehaviourBase m_endOfFiring;
+
     private BehaviourBase m_actionGetTarget;
 
     //LeftClaw
@@ -61,6 +63,8 @@ public class EnemyScorpion : Enemy
         m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 
         m_firingParallel = gameObject.AddComponent<BehaviourParallel>();
+
+        m_endOfFiring = gameObject.AddComponent<EndScorpionFireAnimation>();
 
         m_sequenceLeftGun = gameObject.AddComponent<BehaviourSequence>();
         m_sequenceRightGun = gameObject.AddComponent<BehaviourSequence>();
@@ -124,6 +128,7 @@ public class EnemyScorpion : Enemy
         m_sequenceTop.m_behaviourBranches.Add(m_actionGetTarget as BehaviourBase);
         m_sequenceTop.m_behaviourBranches.Add(m_sequenceLeftGun);
         m_sequenceTop.m_behaviourBranches.Add(m_firingParallel);
+        m_sequenceTop.m_behaviourBranches.Add(m_endOfFiring);
 
         m_firingParallel.m_behaviourBranches.Add(m_sequenceLaser);
         m_firingParallel.m_behaviourBranches.Add(m_sequenceRightGun);

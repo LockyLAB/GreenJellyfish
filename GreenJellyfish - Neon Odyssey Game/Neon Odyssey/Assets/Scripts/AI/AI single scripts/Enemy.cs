@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider))]
 public class Enemy : Character
 {
-
     public float m_forwardSpeed = 0.0f;
 
     [HideInInspector]
@@ -13,10 +12,14 @@ public class Enemy : Character
     [HideInInspector]
     public GameObject m_target = null;
 
-    
     public GameObject m_deathEffect = null;
     public Vector3 m_deathEffectSpawnPos = Vector3.up * 0.5f;
 
+    //Sounds
+    public AudioSource m_movementAudio = null;
+    public AudioSource m_firingGunAudio = null;
+    public AudioSource m_firingLaserAudio = null;
+    public AudioSource m_deathAudio = null;
 
     private GameObject m_childRenderer = null; // gets renderer for child
 
@@ -47,9 +50,9 @@ public class Enemy : Character
         if (IsDead())
             PlayDeath();
 
-        if (GetComponent<Rigidbody>().velocity.x > 0.1f) // Rotates character 
+        if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
             m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); //Face forwards
-        if (GetComponent<Rigidbody>().velocity.x < -0.1f) // rotates character
+        if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
             m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); // Face backwards
 
         if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x)>0)

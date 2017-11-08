@@ -26,31 +26,38 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    //Play sound
-    //Example "Audio/Player/footstep"
-    public void PlaySound(string sound, Vector3 soundLocation)
-    {
-        //Set frequency to be random
-        AudioClip soundClip = Resources.Load<AudioClip>(sound);
-        AudioSource soundSource = gameObject.AddComponent<AudioSource>() as AudioSource;
-        soundSource.volume = m_maxVolume;
-        soundSource.clip = soundClip;
+    ////Play sound
+    ////Example "Audio/Player/footstep"
+    //public GameObject GetSoundObject(string sound, Vector3 soundLocation)
+    //{
+    //    ////Set frequency to be random
+    //    //AudioClip soundClip = Resources.Load<AudioClip>(sound); //Set up sound
+    //    //AudioSource soundSource = gameObject.AddComponent<AudioSource>() as AudioSource;
+    //    //soundSource.volume = m_maxVolume;
+    //    //soundSource.clip = soundClip;
 
-        soundSource.Play();
-    }
+    //    //GameObject newSound = new GameObject(); //Create object
+    //    //newSound.transform.position = soundLocation;
 
-    public void PlaySoundRndPitch(string sound, Vector3 soundLocation)
-    {
-        //Random value
-        float rndPitch = Random.Range(0.0f, 1.0f);
+    //    //return newSound;
+    //}
 
-        //Set frequency to be random
-        AudioClip soundClip = Resources.Load<AudioClip>(sound);
-        AudioSource soundSource = gameObject.AddComponent<AudioSource>() as AudioSource;
-        soundSource.volume = m_maxVolume;
-        soundSource.pitch = rndPitch;
-        soundSource.clip = soundClip;
+    //public GameObject GetSoundObjectRndPitch(string sound, Vector3 soundLocation)
+    //{
+    //    ////Random value
+    //    //float rndPitch = Random.Range(0.0f, 1.0f);
 
-        soundSource.Play();
-    }
+    //    ////Set frequency to be random
+    //    //AudioClip soundClip = Resources.Load<AudioClip>(sound);
+    //    //AudioSource soundSource = gameObject.AddComponent<AudioSource>();
+    //    //soundSource.volume = m_maxVolume;
+    //    //soundSource.pitch = rndPitch;
+    //    //soundSource.clip = soundClip;
+
+    //    //GameObject newSound = new GameObject(); //Create object
+    //    //newSound.transform.position = soundLocation;
+    //    //newSound.AddComponent<soundSource>();
+
+    //    //return newSound;
+    //}
 }

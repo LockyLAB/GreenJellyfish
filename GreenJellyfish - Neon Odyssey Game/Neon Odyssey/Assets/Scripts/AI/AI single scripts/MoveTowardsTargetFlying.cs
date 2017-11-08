@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class MoveTowardsTargetFlying : BehaviourBase
 {
+
+    //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, Play audio
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
+    {
+        GetComponent<Enemy>().m_movementAudio.Play();
+    }
+
     //--------------------------------------------------------------------------------------
     // Update behaviours - Move towards the chosen target
     //
