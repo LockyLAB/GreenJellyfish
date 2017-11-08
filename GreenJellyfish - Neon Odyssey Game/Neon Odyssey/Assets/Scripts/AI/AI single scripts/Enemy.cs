@@ -48,9 +48,9 @@ public class Enemy : Character
             PlayDeath();
 
         if (GetComponent<Rigidbody>().velocity.x > 0.1f) // Rotates character 
-            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); //Face forwards
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); //Face forwards
         if (GetComponent<Rigidbody>().velocity.x < -0.1f) // rotates character
-            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); // Face backwards
+            m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); // Face backwards
 
         if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x)>0)
             gameObject.GetComponent<Animator>().SetBool("Moving", true);
