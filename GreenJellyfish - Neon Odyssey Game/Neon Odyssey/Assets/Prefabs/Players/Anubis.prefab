@@ -586,7 +586,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.1, y: 2, z: -1}
+  m_LocalPosition: {x: 97.1, y: -2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4449757048167956}
@@ -613,19 +613,9 @@ Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-<<<<<<< .mine
-  m_GameObject: {fileID: 1634842271502378}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.1, y: 2, z: -1}
-||||||| .r302
-  m_GameObject: {fileID: 1634842271502378}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 98.1, y: -2, z: -1}
-=======
   m_GameObject: {fileID: 1772092313527572}
   m_LocalRotation: {x: 0.110111736, y: 0.556241, z: 0.685814, w: 0.4562133}
   m_LocalPosition: {x: 0.11260258, y: 0.03065118, z: 0.22577351}
->>>>>>> .r327
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4729748306763280}
@@ -929,8 +919,8 @@ MonoBehaviour:
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.02
   moveSpeed: 16
-  wallLeap: {x: 23, y: 25}
-  jumpDelay: 0.15
+  wallLeap: {x: 25, y: 26}
+  jumpDelay: 0.1
   wallSlideSpeedMax: 0
   wallStickTime: 0
   velocity: {x: 0, y: 0, z: 0}
