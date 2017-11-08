@@ -29,12 +29,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    //private void Awake()
-    //{
-    //    explosionParticle.Play();
-    //    explosionParticle.gameObject.SetActive(false);
-    //}
-
     // Update is called once per frame
     void Update()
     {
@@ -87,7 +81,17 @@ public class Bullet : MonoBehaviour
                     }
 
                     Destroy(gameObject);
+                }
 
+                //if BULLET and ENEMY are different colours, destroy player bullet
+                if(other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Bullet>() == null)
+                {
+                    if (isExplosive)
+                    {
+                        Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
+                    }
+
+                    Destroy(gameObject);
                 }
             }
         }
@@ -104,7 +108,7 @@ public class Bullet : MonoBehaviour
         {
             if (isExplosive)
             {
-                Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
+                Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
             }
 
             Destroy(gameObject);

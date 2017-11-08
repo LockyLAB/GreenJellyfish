@@ -11,11 +11,13 @@ public class HomingMissile : MonoBehaviour
 
     
     Vector3 objectPos;
-    public float homingRadius = 1.0f;
-    public float detonateTimer = 2.0f;
-    public float bulletSpeed = 200.0f;
+    public float homingRadius = 7.5f;
+    public float bulletSpeed = 300.0f;
+    public float detonateTimer = 1.5f;
     public int burstAmount = 3;
+
     public GameObject m_bullet1;
+
     public GameObject[] enemies;
 
     //float distanceToPlayer = 5;
@@ -24,7 +26,6 @@ public class HomingMissile : MonoBehaviour
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
         //Destroy(gameObject, detonateTimer);
     }
 
@@ -32,67 +33,72 @@ public class HomingMissile : MonoBehaviour
     void Update ()
     {
         objectPos = this.transform.position;
-    
+
+        
         //detonates after time
         detonateTimer -= Time.deltaTime;
         if(detonateTimer <= 0)
         {
             Detonate(objectPos, homingRadius);
+            Destroy(gameObject);
         }
-    
+
         //destroy bullet if not visible on cameras
         //if (gameObject.GetComponentInChildren<Renderer>().isVisible == false)
         //{
         //    Detonate(objectPos, homingRadius);
         //}
-    
+
     }
 
-    //private void OnDestroy()
-    //{
-    //    Detonate(objectPos, homingRadius);
-    //}
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
-    //    {
-    //        Detonate(objectPos, homingRadius);
-    //    }
-    //
-    //    if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<Bullet>())
-    //    {
-    //        Detonate(objectPos, homingRadius);
-    //    }
-    //
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
+        {
+            Detonate(objectPos, homingRadius);
+            Destroy(gameObject);
+        }
+   
+        if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<Bullet>())
+        {
+            Detonate(objectPos, homingRadius);
+            Destroy(gameObject);
+        }
+    }
+
+    public void TimedDetonation(float detonateTimer)
+    {
+        Detonate(objectPos, homingRadius);
+        Destroy(gameObject, detonateTimer);
+    }
 
     private void Detonate(Vector3 pos, float homingRadius)
-    {     
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, homingRadius);
-        
-        int i = 0;
-
-        //for (int j = 0; j < enemies.Length; j++)
-        //{
-            while (i < enemiesInRange.Length)
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            float dist = Vector3.Distance(enemy.transform.position, gameObject.transform.position);
+            
+            if (dist <= homingRadius)
             {
-   
-                Vector3 curTarget = enemiesInRange[i].transform.position;
-
-                if ( enemiesInRange[i].tag == "Enemy" && !enemiesInRange[i].GetComponent<Bullet>())
-                {
-                    Vector3 targetDir = curTarget - transform.position;
-                    GameObject homingBullet = Instantiate(m_bullet1, objectPos, Quaternion.Euler(targetDir));
-
-                    homingBullet.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
-                }
-                
-
-                i++;
-               Destroy(gameObject);
+                Vector3 targetDir = enemy.transform.position - transform.position;
+                GameObject homers = Instantiate(m_bullet1, transform.position, Quaternion.Euler(targetDir));
+        
+                homers.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
             }
+        }
 
+        //Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, homingRadius);
+        //
+        //foreach (Collider enemy in enemiesInRange)
+        //{
+        //    if (enemy.tag == "Enemy" && !enemy.GetComponent<Bullet>())
+        //    {
+        //        Vector3 targetDir = enemy.transform.position - transform.position;
+        //        GameObject homingBullet = Instantiate(m_bullet1, transform.position, Quaternion.Euler(targetDir));
+        //
+        //        homingBullet.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
+        //    }        
         //}
     }
 
@@ -117,5 +123,8 @@ public class HomingMissile : MonoBehaviour
     //        }
     //    }
     //}
-
+   //private void TimerCountdown()
+   //{
+   //    Detonate(objectPos, homingRadius);
+   //}
 }
