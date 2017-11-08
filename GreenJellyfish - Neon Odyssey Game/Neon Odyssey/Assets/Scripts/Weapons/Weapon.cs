@@ -32,10 +32,11 @@ public class Weapon : MonoBehaviour
     public float launcherExplosionForce = 100f;
 
     //SPECIAL WEAPON PROPERTIES
-    public float specialFireRate = 0.5f;
-    public float specialBulletSpeed = 750f;
-    
- 
+    public float specialFireRate = .85f;
+    public float specialBulletSpeed = 700f;
+    public float detonateTimer = 1.25f;
+
+
     //BULLET PREFABS
     public GameObject m_bullet1;
     public GameObject m_bullet2;
@@ -67,7 +68,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         //set initial weapon
-        m_currentWeapon = currentWeapon.Default;
+        m_currentWeapon = currentWeapon.Special_1;
     }
 
     // Update is called once per frame
@@ -218,12 +219,10 @@ public class Weapon : MonoBehaviour
             GameObject newBullet = Instantiate(m_specialBullet, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
             newBullet.GetComponent<Rigidbody>().AddForce(m_aim * specialBulletSpeed);
 
-            shotCooldown = 0;
-            //Destroy(newBullet, 2.5f);
-            
-        }
+            //newBullet.GetComponent<HomingMissile>().TimedDetonation(detonateTimer);
 
-        //newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+            shotCooldown = 0;            
+        }
     }
 }
 
