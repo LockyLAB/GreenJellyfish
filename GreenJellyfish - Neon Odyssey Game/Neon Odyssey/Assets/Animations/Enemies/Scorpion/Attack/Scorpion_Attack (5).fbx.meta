@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: 23b28bb6df638554da68652454c21371
+timeCreated: 1510114532
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Head
+    100002: L_Leg_Back_1
+    100004: L_Leg_Back_2
+    100006: L_Leg_Back_2 1
+    100008: L_Leg_Back_3
+    100010: L_Leg_Back_3 1
+    100012: L_Leg_Back_7
+    100014: L_Leg_Front_01
+    100016: L_Leg_Front_02
+    100018: L_Leg_Front_2
+    100020: L_Leg_Front_2 1
+    100022: L_Leg_Front_3
+    100024: L_Leg_Front_3 1
+    100026: L_Leg_Mid_1
+    100028: L_Leg_Mid_2
+    100030: L_Leg_Mid_2 1
+    100032: L_Leg_Mid_3
+    100034: L_Leg_Mid_3 1
+    100036: L_Leg_Mid_7
+    100038: L_Pincer_1
+    100040: L_Pincer_2
+    100042: L_Pincer_2 1
+    100044: L_Pincer_3
+    100046: L_Pincer_3 1
+    100048: L_Pincer_4
+    100050: L_Pincer_4 1
+    100052: L_Pincer_9
+    100054: //RootNode
+    100056: Spine
+    100058: Sting
+    100060: Stinger_Tip
+    100062: Tail_1
+    100064: Tail_2
+    400000: Head
+    400002: L_Leg_Back_1
+    400004: L_Leg_Back_2
+    400006: L_Leg_Back_2 1
+    400008: L_Leg_Back_3
+    400010: L_Leg_Back_3 1
+    400012: L_Leg_Back_7
+    400014: L_Leg_Front_01
+    400016: L_Leg_Front_02
+    400018: L_Leg_Front_2
+    400020: L_Leg_Front_2 1
+    400022: L_Leg_Front_3
+    400024: L_Leg_Front_3 1
+    400026: L_Leg_Mid_1
+    400028: L_Leg_Mid_2
+    400030: L_Leg_Mid_2 1
+    400032: L_Leg_Mid_3
+    400034: L_Leg_Mid_3 1
+    400036: L_Leg_Mid_7
+    400038: L_Pincer_1
+    400040: L_Pincer_2
+    400042: L_Pincer_2 1
+    400044: L_Pincer_3
+    400046: L_Pincer_3 1
+    400048: L_Pincer_4
+    400050: L_Pincer_4 1
+    400052: L_Pincer_9
+    400054: //RootNode
+    400056: Spine
+    400058: Sting
+    400060: Stinger_Tip
+    400062: Tail_1
+    400064: Tail_2
+    7400000: Scorpion_Attack
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

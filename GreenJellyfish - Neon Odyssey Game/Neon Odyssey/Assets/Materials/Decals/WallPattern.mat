@@ -54,6 +54,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _node_3561:
+        m_Texture: {fileID: 2800000, guid: c839919e6289cb6419d7cd9eb1b28682, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_41:
+        m_Texture: {fileID: 2800000, guid: 973ba8c13dac8cc499a6d1f38a4ac9ea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_4518:
+        m_Texture: {fileID: 2800000, guid: 92b0f8ab166b70444afa687422cfc9e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_5070:
+        m_Texture: {fileID: 2800000, guid: 3b704fa43fa27a14f97f14cba1765037, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_5128:
+        m_Texture: {fileID: 2800000, guid: 82252457f0c46d442a6e0e5efdc1989d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_5620:
+        m_Texture: {fileID: 2800000, guid: 798a55d6e936032458701b3f5b1f80c6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_8195:
+        m_Texture: {fileID: 2800000, guid: 0cdbc959df02f37429cfe232065aa600, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -71,6 +99,10 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - _node_2863: 0.2367827
+    - _node_3665: 1
+    - _node_8971: 2
+    - _node_9885: 0.4851106
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

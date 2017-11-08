@@ -742,7 +742,7 @@ Animator:
   m_GameObject: {fileID: 1855650450149508}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 51df847f25b65a34e8b2a5b5eac552ba, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9c679388c263192449fec8f0c228e1f7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 08cd9376a4ada894a8d9b094c1a4f5c0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -914,7 +914,11 @@ MonoBehaviour:
   m_landingEffect:
   - {fileID: 1211932074801502, guid: f7f5dcbb4117cc742a494d73617c5877, type: 2}
   - {fileID: 1279358760723490, guid: ef393a5c0d5cc4b49834b7c5451be4d8, type: 2}
+  m_hitWallEffect:
+  - {fileID: 1530520892617860, guid: 6e40adbccbd1b2b4dbd4242720769baf, type: 2}
+  - {fileID: 1805682266228044, guid: f8fb2c75866a1224c8f920b8fec087d3, type: 2}
   m_landingEffectSpawnPos: {x: 0.5, y: 0.2, z: -1}
+  m_hitWallEffectSpawnPos: {x: 0, y: 0.1, z: 0}
   m_jumpingEffect:
   - {fileID: 1055440395838386, guid: 76fac1dd185bbc44b850b595c1123928, type: 2}
   - {fileID: 1020591320571982, guid: a58d8c38a27d183468b12187c869c235, type: 2}
@@ -936,8 +940,8 @@ MonoBehaviour:
   timeToJumpApex: 0.35
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.02
-  moveSpeed: 15
-  wallLeap: {x: 23, y: 25}
+  moveSpeed: 16
+  wallLeap: {x: 26, y: 26}
   jumpDelay: 0.1
   wallSlideSpeedMax: 0
   wallStickTime: 0

@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687871845f3d3784c949ce3cbb0c6aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_firstLevel: PalletteScene
+  m_firstLevel: Level1
 --- !u!4 &2110239885
 Transform:
   m_ObjectHideFlags: 0
