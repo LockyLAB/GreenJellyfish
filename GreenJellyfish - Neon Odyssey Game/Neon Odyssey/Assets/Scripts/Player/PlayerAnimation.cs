@@ -77,7 +77,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         if (Mathf.Abs(GetComponent<Player>().velocity.x) > 0.1f && m_playerController.m_CollisionInfo.bottom) //moving animation
-        m_animator.SetBool("Moving", true);
+            m_animator.SetBool("Moving", true);
         else
             m_animator.SetBool("Moving", false);
 

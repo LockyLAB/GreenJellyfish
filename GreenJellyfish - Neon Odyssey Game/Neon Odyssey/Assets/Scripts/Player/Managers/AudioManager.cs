@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour {
 
     //Play sound
     //Example "Audio/Player/footstep"
-    public void PlaySound(string sound)
+    public void PlaySound(string sound, Vector3 soundLocation)
     {
         //Set frequency to be random
         AudioClip soundClip = Resources.Load<AudioClip>(sound);
@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour {
         soundSource.Play();
     }
 
-    public void PlaySoundRndPitch(string sound)
+    public void PlaySoundRndPitch(string sound, Vector3 soundLocation)
     {
         //Random value
         float rndPitch = Random.Range(0.0f, 1.0f);

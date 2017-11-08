@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     public float deathTime = 2;
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         isReviving = false;
 

@@ -14,7 +14,7 @@ public class ColourController : MonoBehaviour
     //MISC VARIABLES
     public bool m_firstBulletSlot = true;
 
-    public void Awake()
+    public void Start()
     {
         toggleColour();
     }
