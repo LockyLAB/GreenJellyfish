@@ -19,6 +19,10 @@ public class PlayerHealth : MonoBehaviour
     public float deathTimer = 0;
     public float deathTime = 2;
 
+    public GameObject m_playerDeathEffect;
+    private GameObject m_playerDeathEffectHolder = null;
+    public Vector3 m_playerDeathEffectOffset = Vector3.zero;
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +43,14 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GetComponent<Player>().IsDead() && m_playerDeathEffectHolder==null)
+        {
+            m_playerDeathEffectHolder = Instantiate(m_playerDeathEffect, transform.TransformPoint(m_playerDeathEffectOffset), Quaternion.identity, transform);
+        }
+        else if (!GetComponent<Player>().IsDead() && m_playerDeathEffectHolder != null)
+        {
+            Destroy(m_playerDeathEffectHolder);
+        }
 
         if (isReviving && XCI.GetButton((XboxButton.B), controller) && !GetComponent<Player>().IsDead())
         {
