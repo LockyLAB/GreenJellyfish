@@ -20,8 +20,11 @@ public class PlayerHealth : MonoBehaviour
     public float deathTime = 2;
 
     public GameObject m_playerDeathEffect;
-    private GameObject m_playerDeathEffectHolder = null;
     public Vector3 m_playerDeathEffectOffset = Vector3.zero;
+
+    public GameObject m_playerGhost = null;
+    public Vector3 m_playerGhostOffset = Vector3.zero;
+    private GameObject m_playerGhostHolder = null;
 
     // Use this for initialization
     void Start()
@@ -43,15 +46,22 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<Player>().IsDead() && m_playerDeathEffectHolder==null)
+        if(GetComponent<Player>().IsDead() && m_playerGhostHolder == null)
         {
-            m_playerDeathEffectHolder = Instantiate(m_playerDeathEffect, transform.TransformPoint(m_playerDeathEffectOffset), Quaternion.identity, transform);
+            Destroy(Instantiate(m_playerDeathEffect, transform.TransformPoint(m_playerDeathEffectOffset), Quaternion.identity, transform),5.0f);
+            m_playerGhostHolder = Instantiate(m_playerGhost, transform.TransformPoint(m_playerGhostOffset), Quaternion.identity, transform);
+
+            //Set player to be transparent
+            this.gameObject.GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         }
-        else if (!GetComponent<Player>().IsDead() && m_playerDeathEffectHolder != null)
+        else if (!GetComponent<Player>().IsDead() && m_playerGhostHolder != null)
         {
-            Destroy(m_playerDeathEffectHolder);
+            //Set player to be transparent
+            this.gameObject.GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+            Destroy(m_playerGhostHolder);
         }
 
+        Debug.Log(timer);
         if (isReviving && XCI.GetButton((XboxButton.B), controller) && !GetComponent<Player>().IsDead())
         {
             timer += Time.deltaTime;

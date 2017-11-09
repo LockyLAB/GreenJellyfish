@@ -33,7 +33,7 @@ public class Player : Character
     public XboxController controller; // Defines which xbox controller controls this script
     public XboxButton jumpButton = XboxButton.A;
 
-    private GameObject m_childRenderer = null; // gets renderer for child
+    public GameObject m_childRenderer = null; // gets renderer for child
 
     void Start()
     {
