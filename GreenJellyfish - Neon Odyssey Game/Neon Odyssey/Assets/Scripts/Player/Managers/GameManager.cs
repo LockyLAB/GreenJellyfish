@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool m_singlePlayer = false;
 
+    float gameOverTimer = 0;
+
     // Use this for initialization
     void Awake()
     {
@@ -105,8 +107,14 @@ public class GameManager : MonoBehaviour
             //Gameover State
             if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead())
             {
-                m_gameoverPanel.SetActive(true);
-                Time.timeScale = 0.0f;
+                gameOverTimer += Time.deltaTime;
+                if(gameOverTimer >= 3)
+                {
+                    m_gameoverPanel.SetActive(true);
+                    Time.timeScale = 0.0f;
+                    gameOverTimer = 0;
+                }
+               
             }
         }
         else
@@ -114,8 +122,13 @@ public class GameManager : MonoBehaviour
             //Gameover State
             if (m_player1.GetComponent<Player>().IsDead())
             {
-                m_gameoverPanel.SetActive(true);
-                Time.timeScale = 0.0f;
+                gameOverTimer += Time.deltaTime;
+                if (gameOverTimer >= 3)
+                {
+                    m_gameoverPanel.SetActive(true);
+                    Time.timeScale = 0.0f;
+                    gameOverTimer = 0;
+                }
             }
         }
 
