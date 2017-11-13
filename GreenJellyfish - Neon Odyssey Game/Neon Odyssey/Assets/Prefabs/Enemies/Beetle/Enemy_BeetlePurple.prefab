@@ -532,7 +532,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766363421878142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.355, z: 0}
+  m_LocalPosition: {x: 0, y: -0.257, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943059596495140}
@@ -782,7 +782,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1071417509058192}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4214845701434844}
@@ -936,6 +936,10 @@ MonoBehaviour:
   m_deathEffect: {fileID: 1967656237555072, guid: c57741776b7e089478a1df99a0e45643,
     type: 2}
   m_deathEffectSpawnPos: {x: 0, y: 1, z: 0}
+  m_movementAudio: {fileID: 0}
+  m_firingGunAudio: {fileID: 0}
+  m_firingLaserAudio: {fileID: 0}
+  m_deathAudio: {fileID: 0}
   m_difficulty: 0
   m_moveTowardsRange: 10
   m_gunFireDistance: 6

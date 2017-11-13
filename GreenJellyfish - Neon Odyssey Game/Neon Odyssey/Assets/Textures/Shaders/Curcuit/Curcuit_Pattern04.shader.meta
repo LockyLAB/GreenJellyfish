@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2df2ebf80a1e9c44499162253cd56c77
+timeCreated: 1510529177
+licenseType: Pro
+ShaderImporter:
+  defaultTextures:
+  - _CurcuitGlow: {fileID: 2800000, guid: 2e7c6c2ab991620489b2e9131283393a, type: 3}
+  - _Metalic: {fileID: 2800000, guid: f60567601d94cbd469a05f37d14f14e5, type: 3}
+  - _Pattern01_Normal: {fileID: 2800000, guid: 290189b105f002242a513819c8e3e974, type: 3}
+  - _Pattern01_Albedo: {fileID: 2800000, guid: 9804988780c6d9643be13194a4025dd1, type: 3}
+  - _CurcuitMask: {fileID: 2800000, guid: a953de299a89a9e44baef460df26f921, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

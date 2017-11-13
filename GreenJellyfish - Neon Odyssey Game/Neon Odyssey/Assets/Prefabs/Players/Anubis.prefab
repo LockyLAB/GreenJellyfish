@@ -299,8 +299,9 @@ GameObject:
   - component: {fileID: 114239747044172402}
   - component: {fileID: 114542884869435458}
   - component: {fileID: 114750957778340618}
-  - component: {fileID: 114648977088135058}
+  - component: {fileID: 114057790411013604}
   - component: {fileID: 114309528864420994}
+  - component: {fileID: 114926282601774258}
   m_Layer: 0
   m_Name: Anubis
   m_TagString: Player
@@ -586,7 +587,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 2, z: -1}
+  m_LocalPosition: {x: 190, y: -21, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4449757048167956}
@@ -850,6 +851,23 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114057790411013604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634842271502378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8368550fd841bda49986cabbb2cb8fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bulletSpeed: 1000
+  m_fireRate: 0.15
+  m_aim: {x: 0, y: 2, z: 0}
+  m_bullet1: {fileID: 1643612939600948, guid: 6e12be95134b90041af9aa96e300500b, type: 2}
+  m_bullet2: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba, type: 2}
+  controller: 1
 --- !u!114 &114239747044172402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,37 +949,7 @@ MonoBehaviour:
   isFirstPlayer: 1
   controller: 1
   jumpButton: 0
---- !u!114 &114648977088135058
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1634842271502378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2f5014a261f22499bd87c968c7a05a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: 1
-  m_aim: {x: 0, y: 0, z: 0}
-  shotCooldown: 0
-  defaultFireRate: 0.2
-  defaultBulletSpeed: 1000
-  shotgunBulletCount: 3
-  spreadAngle: 20
-  shotgunFireRate: 0.5
-  shotgunBulletSpeed: 15
-  launcherDrag: 0.2
-  launcherFireRate: 0.75
-  launcherProjectileSpeed: 1000
-  launcherExplosionRadius: 5
-  launcherExplosionForce: 100
-  specialFireRate: 0.5
-  specialBulletSpeed: 750
-  m_bullet1: {fileID: 1643612939600948, guid: 6e12be95134b90041af9aa96e300500b, type: 2}
-  m_bullet2: {fileID: 1421251104800472, guid: e2dee82eb4588214994299b3eb7833ba, type: 2}
-  m_specialBullet: {fileID: 0}
-  m_currentWeapon: 1
+  m_childRenderer: {fileID: 0}
 --- !u!114 &114750957778340618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -980,6 +968,27 @@ MonoBehaviour:
   healthGivenByPickup: 1
   deathTimer: 0
   deathTime: 2
+  m_playerDeathEffect: {fileID: 1420154586643138, guid: cf20a5dd1a6e7324fb56041fad88dde6,
+    type: 2}
+  m_playerDeathEffectOffset: {x: 0, y: 1, z: 0}
+  m_playerGhost: {fileID: 1497823713489888, guid: 273e14cb14b3c4d438939484e1abb621,
+    type: 2}
+  m_playerGhostOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &114926282601774258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634842271502378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49156a10546aab49b1a2117ea997def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCharge: 0
+  powerChargeDisplay: {fileID: 0}
+  powerBarFill: {fileID: 0}
+  powerBarBackground: {fileID: 0}
 --- !u!136 &136680105042919842
 CapsuleCollider:
   m_ObjectHideFlags: 1

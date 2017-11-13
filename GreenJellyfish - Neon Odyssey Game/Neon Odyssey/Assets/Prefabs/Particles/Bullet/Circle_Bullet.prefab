@@ -305,9 +305,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_hitMarker: {fileID: 1845121954688926, guid: 40919702f23abdb45bcd11cc8c66785d,
     type: 2}
-  m_hitMarkerSpawnPos: {x: 0, y: 5, z: -0.5}
+  m_hitMarkerSpawnPos: {x: 0, y: 0.5, z: -0.5}
   explosionParticle: {fileID: 198941038621313706, guid: 1b126c901d01abd4b95391db5e9f29f5,
     type: 2}
+  isExplosive: 0
 --- !u!135 &135565706675250512
 SphereCollider:
   m_ObjectHideFlags: 1
