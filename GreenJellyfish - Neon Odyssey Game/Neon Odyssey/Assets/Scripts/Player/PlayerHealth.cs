@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         Debug.Log(timer);
-        if (isReviving && XCI.GetButton((XboxButton.B), controller) && !GetComponent<Player>().IsDead())
+        if (isReviving && XCI.GetButton((XboxButton.X), controller) && !GetComponent<Player>().IsDead())
         {
             timer += Time.deltaTime;
 
