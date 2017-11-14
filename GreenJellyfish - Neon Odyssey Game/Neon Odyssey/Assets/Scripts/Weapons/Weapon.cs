@@ -217,10 +217,8 @@ public class Weapon : MonoBehaviour
 
         if (shotCooldown >= specialFireRate)
         {
-            //GameObject newBullet = Instantiate(m_specialBullet, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
             GameObject newBullet = Instantiate(m_specialBullet, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
             newBullet.GetComponent<Rigidbody>().velocity = m_aim * specialBulletSpeed;
-            //newBullet.GetComponent<HomingMissile>().TimedDetonation(detonateTimer);
 
             shotCooldown = 0;            
         }
