@@ -5,6 +5,15 @@ using UnityEngine;
 public class MoveTowardsTargetX : BehaviourBase
 {
     //--------------------------------------------------------------------------------------
+    // Inital setup of behaviour, Play audio
+    //--------------------------------------------------------------------------------------
+    public override void BehaviourSetup()
+    {
+        if (!GetComponent<Enemy>().m_movementAudio.isPlaying)
+            GetComponent<Enemy>().m_movementAudio.Play();
+    }
+
+    //--------------------------------------------------------------------------------------
     // Update behaviours - Move towards the chosen target
     //
     // Return:

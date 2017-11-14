@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyWasp : Enemy {
 
     //Varibles
+
     //Movement
     public float m_moveTowardsRange = 0.0f;
 

@@ -10,7 +10,8 @@ public class MoveTowardsTargetFlying : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override void BehaviourSetup()
     {
-        //GetComponent<Enemy>().m_movementAudio.Play();
+        if(!GetComponent<Enemy>().m_movementAudio.isPlaying)
+            GetComponent<Enemy>().m_movementAudio.Play();
     }
 
     //--------------------------------------------------------------------------------------
@@ -25,6 +26,7 @@ public class MoveTowardsTargetFlying : BehaviourBase
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
         velocity.x = velocityX;
         GetComponent<Rigidbody>().velocity = velocity;
+
         return BehaviourStatus.SUCCESS;
     }
 }

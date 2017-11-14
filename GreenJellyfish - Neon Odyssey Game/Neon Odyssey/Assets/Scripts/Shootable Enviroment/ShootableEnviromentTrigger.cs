@@ -6,9 +6,10 @@ public class ShootableEnviromentTrigger : MonoBehaviour
 {
     public GameObject m_parent = null;
 
+    // Add all children to parent, as when there is none, parent will destroy
     private void Awake()
     {
-        m_parent.GetComponent<ShootableEnviromentParent>().AddChild(this.gameObject);
+        m_parent.GetComponent<ShootableEnviromentParent>().AddChild(this.gameObject); 
     }
 
     public void OnDestruction()

@@ -96,7 +96,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (gameObject.tag == "Player" && other.gameObject.tag == "Door")
+        if (other.gameObject.tag == "Door")
         {
             if (other.gameObject.layer == gameObject.layer)
                 other.gameObject.GetComponent<ShootableEnviromentTrigger>().OnDestruction();

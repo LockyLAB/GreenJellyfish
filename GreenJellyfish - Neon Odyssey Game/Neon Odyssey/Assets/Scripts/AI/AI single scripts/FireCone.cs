@@ -31,7 +31,9 @@ public class FireCone : BehaviourBase
         GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
 
         gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
-        //TODO Add audio playing here
+
+        //Stop movement audio
+        GetComponent<Enemy>().m_movementAudio.Stop();
     }
 
     //--------------------------------------------------------------------------------------
@@ -81,5 +83,6 @@ public class FireCone : BehaviourBase
         GameObject newBullet = Instantiate(m_bullet, transform.TransformPoint(m_bulletSpawnPos), Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().velocity = bulletDir * m_bulletSpeed;
         newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.ENEMY);
+        GetComponent<Enemy>().m_firingGunAudio.Play();
     }
 }

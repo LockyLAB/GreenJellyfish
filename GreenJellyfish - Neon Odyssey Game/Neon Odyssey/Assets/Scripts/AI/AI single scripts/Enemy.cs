@@ -7,6 +7,14 @@ public class Enemy : Character
 {
     public float m_forwardSpeed = 0.0f;
 
+    //Audio
+    public AudioSource m_movementAudio = null;
+    public AudioSource m_jumping = null;
+    public AudioSource m_landing = null;
+    public AudioSource m_firingLaserAudio = null;
+    public AudioSource m_firingGunAudio = null;
+    public AudioSource m_deathAudio = null;
+
     [HideInInspector]
     public BehaviourBase m_initalBehaviour;
     [HideInInspector]
@@ -14,12 +22,6 @@ public class Enemy : Character
 
     public GameObject m_deathEffect = null;
     public Vector3 m_deathEffectSpawnPos = Vector3.up * 0.5f;
-
-    //Sounds
-    public AudioSource m_movementAudio = null;
-    public AudioSource m_firingGunAudio = null;
-    public AudioSource m_firingLaserAudio = null;
-    public AudioSource m_deathAudio = null;
 
     private GameObject m_childRenderer = null; // gets renderer for child
 

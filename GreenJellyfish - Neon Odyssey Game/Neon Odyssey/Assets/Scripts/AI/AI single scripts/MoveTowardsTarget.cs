@@ -10,7 +10,8 @@ public class MoveTowardsTarget : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override void BehaviourSetup()
     {
-        //TODO Add audio playing here
+        if (!GetComponent<Enemy>().m_movementAudio.isPlaying)
+            GetComponent<Enemy>().m_movementAudio.Play();
     }
 
     //--------------------------------------------------------------------------------------

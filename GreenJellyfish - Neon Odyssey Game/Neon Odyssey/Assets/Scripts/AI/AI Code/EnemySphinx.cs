@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySphinx : Enemy
-{ 
+{
+
     //Points used to jump to
     public List<GameObject> m_jumpPoints;
 
