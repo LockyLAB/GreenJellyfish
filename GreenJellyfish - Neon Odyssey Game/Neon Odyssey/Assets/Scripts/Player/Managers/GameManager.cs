@@ -16,9 +16,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public GameObject m_player2;
 
-    public List<Image> m_player1HealthImage;
-    public List<Image> m_player2HealthImage;
-
     public int m_player1Health = 0;
     public int m_player2Health = 0;
 
@@ -61,60 +58,31 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //User interface updates
-        //Player1
-
-        //Single player
         if (m_player1Health != m_player1.GetComponent<Player>().GetHealth())
         {
             m_player1Health = m_player1.GetComponent<Player>().GetHealth();
-
-            //Set all to be blacked out
-            foreach (Image healthBar in m_player1HealthImage)
-            {
-                healthBar.GetComponent<CanvasRenderer>().SetAlpha(0.0f);
-            }
-
-
-            //Set correct number to be coloured
-            for (int i = 0; i < m_player1Health; i++)
-            {
-                m_player1HealthImage[i].GetComponent<CanvasRenderer>().SetAlpha(1.0f);
-            }
+            GetComponentInChildren<UI>().UpdateHealthUI(m_player1Health, m_player2Health);
         }
 
-        // 2 Player game
         if (!m_singlePlayer)
         {
             //Player2
             if (m_player2Health != m_player2.GetComponent<Player>().GetHealth())
             {
                 m_player2Health = m_player2.GetComponent<Player>().GetHealth();
-
-                //Set all to be blacked out
-                foreach (Image healthBar in m_player2HealthImage)
-                {
-                    healthBar.GetComponent<CanvasRenderer>().SetAlpha(0.0f);
-                }
-
-
-                //Set correct number to be coloured
-                for (int i = 0; i < m_player2Health; i++)
-                {
-                    m_player2HealthImage[i].GetComponent<CanvasRenderer>().SetAlpha(1.0f);
-                }
+                GetComponentInChildren<UI>().UpdateHealthUI(m_player1Health, m_player2Health);
             }
+        }
 
-            //Gameover State
-            if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead())
+        //Gameover State
+        if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead())
+        {
+            gameOverTimer += Time.deltaTime;
+            if(gameOverTimer >= 3)
             {
-                gameOverTimer += Time.deltaTime;
-                if(gameOverTimer >= 3)
-                {
-                    m_gameoverPanel.SetActive(true);
-                    Time.timeScale = 0.0f;
-                    gameOverTimer = 0;
-                }
-               
+                m_gameoverPanel.SetActive(true);
+                Time.timeScale = 0.0f;
+                gameOverTimer = 0;
             }
         }
         else

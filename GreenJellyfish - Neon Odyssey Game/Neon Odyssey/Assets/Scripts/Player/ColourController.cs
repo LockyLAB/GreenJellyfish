@@ -30,6 +30,7 @@ public class ColourController : MonoBehaviour
             if ((XCI.GetButton(XboxButton.Y, controller) || XCI.GetButton(XboxButton.RightBumper, controller) || XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) > 0 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) > 0) && timeToSwitch >= 0.3)
             {
                 toggleColour();
+                GameObject.FindWithTag("GameController").GetComponent<GameManager>().GetComponentsInChildren<UI>()[0].ChangeUIColour(GetComponent<Player>().isFirstPlayer, m_firstBulletSlot);
                 timeToSwitch = 0.0f;
             }
         }
