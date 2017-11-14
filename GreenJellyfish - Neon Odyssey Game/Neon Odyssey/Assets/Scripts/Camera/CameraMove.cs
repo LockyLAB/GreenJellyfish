@@ -31,6 +31,10 @@ public class CameraMove : MonoBehaviour {
 
     public float m_shakeMagnitude = 0.05f; // How far it shakes
 
+    //Camera Lock Pos
+    public bool m_cameraLocked = false;
+    public Vector3 m_cameraLockPos = Vector3.zero;
+
     // Use this for initialization
     void Start()
     {
@@ -63,7 +67,9 @@ public class CameraMove : MonoBehaviour {
         {
             Vector3 cameraPos = transform.position;
             Vector3 playerDis = m_player2.transform.position - m_player1.transform.position;
-            Vector3 cameraGoal = ((m_player1.transform.position + m_player2.transform.position) / 2) + offset;
+            Vector3 cameraGoal = m_cameraLockPos;
+            if(!m_cameraLocked)
+                cameraGoal = ((m_player1.transform.position + m_player2.transform.position) / 2) + offset;
             Vector3 cameraGoalDistance = cameraGoal - cameraPos;
 
             //float zoomSpeed = 0.5f;
