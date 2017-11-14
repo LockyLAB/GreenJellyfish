@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Gameover State
-        if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead())
+        if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead()) //Game over two player
         {
             gameOverTimer += Time.deltaTime;
             if(gameOverTimer >= 3)
@@ -85,18 +85,15 @@ public class GameManager : MonoBehaviour
                 gameOverTimer = 0;
             }
         }
-        else
+        else if(m_player1.GetComponent<Player>().IsDead() && m_singlePlayer) //Game over single player
         {
             //Gameover State
-            if (m_player1.GetComponent<Player>().IsDead())
+            gameOverTimer += Time.deltaTime;
+            if (gameOverTimer >= 3)
             {
-                gameOverTimer += Time.deltaTime;
-                if (gameOverTimer >= 3)
-                {
-                    m_gameoverPanel.SetActive(true);
-                    Time.timeScale = 0.0f;
-                    gameOverTimer = 0;
-                }
+                m_gameoverPanel.SetActive(true);
+                Time.timeScale = 0.0f;
+                gameOverTimer = 0;
             }
         }
 

@@ -84,7 +84,7 @@ public class UI : MonoBehaviour {
 
     public void ChangeUIColour(bool firstPlayer, bool firstColour)
     {
-        if(firstPlayer)
+        if (firstPlayer)
         {
             if (firstColour)
             {
@@ -97,7 +97,7 @@ public class UI : MonoBehaviour {
         }
         else
         {
-            if(firstColour)
+            if (firstColour)
             {
                 ColourFlip(m_player2HealthHolder, m_playerGreen, m_player2HealthBarHolder, m_playerPinkBar);
             }
@@ -118,6 +118,7 @@ public class UI : MonoBehaviour {
         for (int i = 0; i < 4; i++)
         {
             GameObject newImg = Instantiate(individualHealthImage, ImageArray[i].transform.position, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
+            newImg.GetComponent<CanvasRenderer>().SetAlpha(ImageArray[i].GetComponent<CanvasRenderer>().GetAlpha());
             Destroy(ImageArray[i]);
             ImageArray[i] = newImg;
         }
