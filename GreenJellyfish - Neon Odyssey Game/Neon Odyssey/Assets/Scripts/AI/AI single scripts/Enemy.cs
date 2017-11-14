@@ -42,6 +42,20 @@ public class Enemy : Character
             if (this.gameObject.transform.GetChild(i).GetComponentInChildren<SkinnedMeshRenderer>() != null)
                 m_childRenderer = this.gameObject.transform.GetChild(i).gameObject;
         }
+
+        //Set up audio
+        if (m_movementAudio != null)
+            m_movementAudio = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        if (m_jumping != null)
+            m_jumping = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        if (m_landing != null)
+            m_landing = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        if (m_firingLaserAudio != null)
+            m_firingLaserAudio = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        if (m_firingGunAudio != null)
+            m_firingGunAudio = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        if (m_deathAudio != null)
+            m_deathAudio = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
     }
 
     // Update is called once per frame
@@ -55,9 +69,9 @@ public class Enemy : Character
         if (GetComponent<EnemyBeetle>() != null) // Beetle model was wrong way.....
         {
             if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
-                m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); //Face forwards
+                m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); //Face forwards
             if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
-                m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); // Face backwards
+                m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); // Face backwards
         }
         else
         {
