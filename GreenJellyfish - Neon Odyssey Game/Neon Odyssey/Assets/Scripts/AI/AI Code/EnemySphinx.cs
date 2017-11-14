@@ -10,6 +10,8 @@ public class EnemySphinx : Enemy
     public float m_jumpTime = 1.0f;
     public float m_jumpHeight = 1.0f;
 
+    public float m_landingTimer = 1.0f;
+
     //Laser
     public float m_laserFireDistance = 0.0f;
     public float m_laserChargeTime = 0.0f;
@@ -35,6 +37,7 @@ public class EnemySphinx : Enemy
     private CoolDown m_actionLaserCooldown;
 
     private JumpToPlatform m_jumpToPlatform;
+    private CoolDown m_landingCooldown;
 
     // Use this for initialization
     void Awake()
@@ -53,6 +56,7 @@ public class EnemySphinx : Enemy
         m_actionLaserCooldown = gameObject.AddComponent<CoolDown>();
 
         m_jumpToPlatform = gameObject.AddComponent<JumpToPlatform>();
+        m_landingCooldown = gameObject.AddComponent<CoolDown>();
 
         //Set up get target
         GameObject[] players;
@@ -68,10 +72,10 @@ public class EnemySphinx : Enemy
         m_sequenceTop.m_behaviourBranches.Add(m_selectorAction);
 
         m_selectorAction.m_behaviourBranches.Add(m_sequenceFiring);
-        m_selectorAction.m_behaviourBranches.Add(m_jumpToPlatform);
 
         m_sequenceFiring.m_behaviourBranches.Add(m_sequenceLaser);
         m_sequenceFiring.m_behaviourBranches.Add(m_jumpToPlatform);
+        m_sequenceFiring.m_behaviourBranches.Add(m_landingCooldown);
 
         m_sequenceLaser.m_behaviourBranches.Add(m_actionGetDisLaser);
         m_sequenceLaser.m_behaviourBranches.Add(m_actionFireLaser);
@@ -89,6 +93,8 @@ public class EnemySphinx : Enemy
         //Jumping
         m_jumpToPlatform.m_jumpHeight = m_jumpHeight;
         m_jumpToPlatform.m_jumpTime = m_jumpTime;
+
+        m_landingCooldown.m_coolDown = m_landingTimer;
 
         m_initalBehaviour = m_sequenceTop;
     }

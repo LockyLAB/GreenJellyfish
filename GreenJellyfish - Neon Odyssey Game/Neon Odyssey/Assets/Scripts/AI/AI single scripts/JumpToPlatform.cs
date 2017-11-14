@@ -43,6 +43,9 @@ public class JumpToPlatform : BehaviourBase
         else
             m_currentPlatform = null;
         m_time = 0.0f;
+
+        //Animation
+        gameObject.GetComponent<Animator>().SetTrigger("Jumping"); // Animation
     }
 
     //--------------------------------------------------------------------------------------
@@ -60,6 +63,7 @@ public class JumpToPlatform : BehaviourBase
             return BehaviourStatus.PENDING;
         }
         gameObject.transform.position = m_currentPlatform.transform.position;
+        gameObject.GetComponent<Animator>().SetTrigger("Landing"); // Animation
         return BehaviourStatus.SUCCESS;
     }
 }
