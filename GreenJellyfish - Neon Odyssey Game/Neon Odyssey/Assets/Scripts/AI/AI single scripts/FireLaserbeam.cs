@@ -29,7 +29,7 @@ public class FireLaserbeam : BehaviourBase
         m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position);
 
         //Stop movement audio
-        GetComponent<Enemy>().m_movementAudio.Stop();
+        GetComponent<Enemy>().m_movementAudio.GetComponent<AudioSource>().Stop();
     }
 
     //--------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@ public class FireLaserbeam : BehaviourBase
 
     void FireLaser(Vector3 laserDir, float laserMagnitude)
     {
-        GetComponent<Enemy>().m_firingLaserAudio.Play();
+        GetComponent<Enemy>().m_firingLaserAudio.GetComponent<AudioSource>().Play();
         // Make ray cast to check if hit
         RaycastHit hit;
 
