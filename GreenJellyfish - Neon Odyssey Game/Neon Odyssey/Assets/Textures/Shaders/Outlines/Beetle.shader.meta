@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: cf794f7fb3d737243aac2c4dba09ea0a
+timeCreated: 1510211568
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _BeetleTexture: {fileID: 2800000, guid: 00116ab3c0bbe214db20e2595f4c188f, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

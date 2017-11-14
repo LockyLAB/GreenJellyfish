@@ -884,12 +884,15 @@ MonoBehaviour:
   m_healthMax: 1
   m_invicibleTime: 1
   m_forwardSpeed: 5
-  m_movementAudio: {fileID: 0}
+  m_movementAudio: {fileID: 1316885658406578, guid: bd940b08e3819164f91d209b3a36a7a8,
+    type: 2}
   m_jumping: {fileID: 0}
   m_landing: {fileID: 0}
   m_firingLaserAudio: {fileID: 0}
-  m_firingGunAudio: {fileID: 0}
-  m_deathAudio: {fileID: 0}
+  m_firingGunAudio: {fileID: 1221755914133004, guid: a60ae1eae5aab0344b541030eebe754d,
+    type: 2}
+  m_deathAudio: {fileID: 1900870567986426, guid: 3d907ed275cf28a41825a9f42d363793,
+    type: 2}
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1147585391114326, guid: 48e84807a251add41b6ab299c4ce7f43,

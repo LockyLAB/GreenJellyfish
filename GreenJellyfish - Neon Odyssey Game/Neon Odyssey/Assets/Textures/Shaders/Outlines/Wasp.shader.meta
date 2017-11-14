@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 6738d2c0e7fe3dc46bca5e9857586f8b
+timeCreated: 1510628318
+licenseType: Pro
+ShaderImporter:
+  defaultTextures:
+  - _WaspTexture: {fileID: 2800000, guid: 6bfbe4bbf69cf8f43a70e9de6f476f13, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

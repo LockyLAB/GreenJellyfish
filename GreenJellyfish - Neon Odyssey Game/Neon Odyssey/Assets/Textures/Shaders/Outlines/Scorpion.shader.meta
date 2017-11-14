@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: ad47314280a951b4c9e753badbaa45c0
+timeCreated: 1510210021
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _ScorpionTexture: {fileID: 2800000, guid: be65b4b0bcdd4444a8ebcb835a49e492, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

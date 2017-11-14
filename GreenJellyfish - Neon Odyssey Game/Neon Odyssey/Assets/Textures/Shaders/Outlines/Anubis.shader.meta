@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 32ffbbd43ce7b2b4ca47835261aff58d
+timeCreated: 1510208881
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _AnubisTexture: {fileID: 2800000, guid: ed4096d781189a54ca3ec2c409290cc7, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
