@@ -8,12 +8,12 @@ public class Enemy : Character
     public float m_forwardSpeed = 0.0f;
 
     //Audio
-    public AudioSource m_movementAudio = null;
-    public AudioSource m_jumping = null;
-    public AudioSource m_landing = null;
-    public AudioSource m_firingLaserAudio = null;
-    public AudioSource m_firingGunAudio = null;
-    public AudioSource m_deathAudio = null;
+    public GameObject m_movementAudio = null;
+    public GameObject m_jumping = null;
+    public GameObject m_landing = null;
+    public GameObject m_firingLaserAudio = null;
+    public GameObject m_firingGunAudio = null;
+    public GameObject m_deathAudio = null;
 
     [HideInInspector]
     public BehaviourBase m_initalBehaviour;
@@ -77,6 +77,10 @@ public class Enemy : Character
         if (m_deathEffect !=null)
             Destroy(Instantiate(m_deathEffect, transform.TransformPoint(m_deathEffectSpawnPos), Quaternion.identity),5.0f);
         GameObject.FindWithTag("GameController").GetComponent<PickupSystem>().GeneratePickup(this.gameObject);
+
+        GameObject deathSound = Instantiate(m_deathAudio, transform.position, Quaternion.identity);
+        deathSound.GetComponent<AudioSource>().Play();
+        Destroy(deathSound, 5.0f);
         Destroy(gameObject);
     }
 }

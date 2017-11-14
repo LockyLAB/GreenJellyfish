@@ -29,7 +29,7 @@ public class FireGun : BehaviourBase
         gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
 
         //Stop movement audio
-        GetComponent<Enemy>().m_movementAudio.Stop();
+        GetComponent<Enemy>().m_movementAudio.GetComponent<AudioSource>().Stop();
     }
 
     //--------------------------------------------------------------------------------------
