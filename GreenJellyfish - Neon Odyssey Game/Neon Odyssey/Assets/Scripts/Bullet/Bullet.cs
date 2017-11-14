@@ -77,6 +77,7 @@ public class Bullet : MonoBehaviour
 
                     if (isExplosive)
                     {
+                        //ExplodeDamage(this.transform.position, GetComponent<Weapon>().launcherExplosionRadius, gameObject, other.gameObject);
                         Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
                     }
 
@@ -106,6 +107,7 @@ public class Bullet : MonoBehaviour
         //check bullet - wall collisions
         if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
         {
+            
             if (isExplosive)
             {
                 Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
@@ -115,4 +117,30 @@ public class Bullet : MonoBehaviour
 
         }
     }
+
+    void ExplodeDamage(Vector3 center, float explosionRadius, GameObject playerGO, GameObject enemyGO)
+    {
+        Collider[] hitTargets = Physics.OverlapSphere(center, explosionRadius);
+
+        foreach (Collider t in hitTargets)
+        {
+            if (t.tag == "Enemy" && playerGO.layer == enemyGO.layer)
+            {
+                enemyGO.GetComponent<Enemy>().ChangeHealth(-1);
+            }
+        }
+
+       // int i = 0;
+       // while (hitTargets != null)
+       // {
+       //     if (hitTargets[i].tag == "Enemy" && playerGO.layer == enemyGO.layer)
+       //     {
+       //         enemyGO.GetComponent<Enemy>().ChangeHealth(-1);
+       //     }
+       //
+       //     ++i;
+       // }
+
+    }
+
 }
