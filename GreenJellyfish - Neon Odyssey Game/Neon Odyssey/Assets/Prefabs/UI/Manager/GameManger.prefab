@@ -567,12 +567,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e2252afc37e5b469a9083f1506000e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player1HealthPos: {x: 45, y: 120, z: 0}
-  m_player2HealthPos: {x: 1185, y: 120, z: 0}
-  m_player1HealthGap: {x: 80, y: 0, z: 0}
+  m_player1HealthPos: {x: 100, y: 120, z: 0}
+  m_player2HealthPos: {x: 1130, y: 120, z: 0}
+  m_player1HealthGap: {x: 100, y: 0, z: 0}
   m_player2HealthGap: {x: 100, y: 0, z: 0}
-  m_player1HealthBarPos: {x: 240, y: 120, z: 0}
-  m_player2HealthBarPos: {x: 1185, y: 120, z: 0}
+  m_player1HealthBarPos: {x: 250, y: 120, z: 0}
+  m_player2HealthBarPos: {x: 1280, y: 120, z: 0}
   m_playerPurple: {fileID: 1311935942098512, guid: e5d26a2b88ed5694c852dbda6352969e,
     type: 2}
   m_playerOrange: {fileID: 1055535265494000, guid: 01dca96620771fb41a1c4c6e4f73b0cf,
