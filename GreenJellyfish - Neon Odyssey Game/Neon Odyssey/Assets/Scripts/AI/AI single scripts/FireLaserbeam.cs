@@ -22,12 +22,12 @@ public class FireLaserbeam : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override void BehaviourSetup()
     {
-        //Start numbers of bullets to fire
-
-        //Fire bullet
+        gameObject.GetComponent<Animator>().SetTrigger("Laserbeam"); // Animation
+        //Fire Laser
         laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);
         m_laserbeamHolder = Instantiate(m_laserbeam, transform.TransformPoint(m_laserSpawnPos), Quaternion.identity);
         m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position);
+
         //TODO Add audio playing here
 
     }

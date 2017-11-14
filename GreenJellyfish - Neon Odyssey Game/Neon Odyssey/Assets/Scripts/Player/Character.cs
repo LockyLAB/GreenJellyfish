@@ -50,6 +50,8 @@ public class Character : MonoBehaviour
             {
                 m_health += changeVal;
                 m_invicibleTimer = m_invicibleTime;
+                if (m_health < 0)
+                    m_health = 0;
             }
         }
         else // Gain health
