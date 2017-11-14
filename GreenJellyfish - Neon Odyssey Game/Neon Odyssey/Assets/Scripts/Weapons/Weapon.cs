@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
     public float launcherDrag = 0.2f;           //launcher projectile drag/air resistance
     public float launcherFireRate = 0.75f;
     public float launcherProjectileSpeed = 1000.0f;
-    public float launcherExplosionRadius = 5f;
+    public float launcherExplosionRadius = 10.0f;
     public float launcherExplosionForce = 100f;
 
     //SPECIAL WEAPON PROPERTIES
@@ -52,7 +52,8 @@ public class Weapon : MonoBehaviour
     }
 
     public currentWeapon m_currentWeapon;
-    
+
+    private currentWeapon prevWeapon;
 
     //Setup Shotgun bullets
     void Awake()
@@ -68,7 +69,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         //set initial weapon
-        m_currentWeapon = currentWeapon.Special_1;
+        m_currentWeapon = currentWeapon.Default;
     }
 
     // Update is called once per frame
@@ -117,7 +118,7 @@ public class Weapon : MonoBehaviour
             FireLauncher();  
         }
 
-        //HUNTING MISSILES
+        //HOMING MISSILES
         if ((int)m_currentWeapon == 4)  
         {
             FireSpecial();
