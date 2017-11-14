@@ -587,7 +587,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 190, y: -21, z: -1}
+  m_LocalPosition: {x: 298, y: -20, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4449757048167956}
@@ -971,9 +971,9 @@ MonoBehaviour:
   m_playerDeathEffect: {fileID: 1420154586643138, guid: cf20a5dd1a6e7324fb56041fad88dde6,
     type: 2}
   m_playerDeathEffectOffset: {x: 0, y: 1, z: 0}
-  m_playerGhost: {fileID: 1497823713489888, guid: 273e14cb14b3c4d438939484e1abb621,
+  m_playerGhost: {fileID: 1363075357346602, guid: 1afc289e859cd46489d603b0b3c3c211,
     type: 2}
-  m_playerGhostOffset: {x: 0, y: 0, z: 0}
+  m_playerGhostOffset: {x: -2, y: 0, z: 0}
 --- !u!114 &114926282601774258
 MonoBehaviour:
   m_ObjectHideFlags: 1

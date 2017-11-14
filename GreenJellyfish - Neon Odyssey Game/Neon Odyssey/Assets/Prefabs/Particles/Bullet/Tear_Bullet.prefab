@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643612939600948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.414988, y: 2.772531, z: 2.1300616}
+  m_LocalPosition: {x: 224.82533, y: 7.442402, z: -39.988503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4616756658412430}
@@ -222,7 +222,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0, g: 0.5862067, b: 1, a: 0.597}
   m_Intensity: 1
-  m_Range: 4
+  m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -277,6 +277,7 @@ MonoBehaviour:
   m_hitMarkerSpawnPos: {x: 0, y: 0.5, z: -0.5}
   explosionParticle: {fileID: 198987045134029644, guid: c57741776b7e089478a1df99a0e45643,
     type: 2}
+  isExplosive: 0
 --- !u!135 &135034730424865252
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 114192578072950902}
   - component: {fileID: 114666079074807258}
   - component: {fileID: 114371249185959448}
+  - component: {fileID: 114085195921502590}
   m_Layer: 12
   m_Name: Horus
   m_TagString: Player
@@ -653,7 +654,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645321335930210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.1, y: 2, z: -1}
+  m_LocalPosition: {x: 292, y: -20, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4329759764044312}
@@ -866,6 +867,21 @@ MonoBehaviour:
     m_Bits: 256
   HorizontalRays: 4
   VerticalRays: 4
+--- !u!114 &114085195921502590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645321335930210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49156a10546aab49b1a2117ea997def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCharge: 0
+  powerChargeDisplay: {fileID: 0}
+  powerBarFill: {fileID: 0}
+  powerBarBackground: {fileID: 0}
 --- !u!114 &114192578072950902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -884,6 +900,12 @@ MonoBehaviour:
   healthGivenByPickup: 1
   deathTimer: 0
   deathTime: 2
+  m_playerDeathEffect: {fileID: 1420154586643138, guid: cf20a5dd1a6e7324fb56041fad88dde6,
+    type: 2}
+  m_playerDeathEffectOffset: {x: 0, y: 1, z: 0}
+  m_playerGhost: {fileID: 1341482646888078, guid: 1f53de6ad63086644be8fc07b0d2df00,
+    type: 2}
+  m_playerGhostOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114332749057267926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -949,6 +971,7 @@ MonoBehaviour:
   isFirstPlayer: 0
   controller: 2
   jumpButton: 0
+  m_childRenderer: {fileID: 0}
 --- !u!114 &114666079074807258
 MonoBehaviour:
   m_ObjectHideFlags: 1
