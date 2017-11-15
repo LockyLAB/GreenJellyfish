@@ -1107,15 +1107,20 @@ MonoBehaviour:
   m_healthMax: 5
   m_invicibleTime: 0.2
   m_forwardSpeed: 0
+  m_movementAudio: {fileID: 1552507009200652, guid: 226bd53387a5bba409c2059d1c99d0f2,
+    type: 2}
+  m_jumping: {fileID: 0}
+  m_landing: {fileID: 0}
+  m_firingLaserAudio: {fileID: 0}
+  m_firingGunAudio: {fileID: 1221755914133004, guid: 2c9b99e002010a04cae7b9018829ac32,
+    type: 2}
+  m_deathAudio: {fileID: 1425100237486498, guid: b1c7bb5996b7f7d4e94ee8dab91da2c3,
+    type: 2}
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
   m_deathEffect: {fileID: 1420154586643138, guid: cf20a5dd1a6e7324fb56041fad88dde6,
     type: 2}
   m_deathEffectSpawnPos: {x: 0, y: 0.5, z: 0}
-  m_movementAudio: {fileID: 0}
-  m_firingGunAudio: {fileID: 0}
-  m_firingLaserAudio: {fileID: 0}
-  m_deathAudio: {fileID: 0}
   m_difficulty: 2
   m_gunFireDistance: 20
   m_gunNumberOfShots: 5
