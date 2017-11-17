@@ -13,6 +13,8 @@ public class TrapBase : MonoBehaviour {
     public float m_timeBetweenShots = 0.0f;
     private float m_firingTimer = 0.0f;
 
+    public float m_intialDelay = 0.0f;
+
     public float m_cooldown = 0.0f;
     private float m_cooldownTimer = 0.0f;
 
@@ -23,7 +25,15 @@ public class TrapBase : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if(m_triggered)
+        //Do nothing till intial delay is gone 
+        if(m_intialDelay>=0.0f)
+        {
+            m_intialDelay -= Time.deltaTime;
+            return;
+        }
+
+        //On trigger start firing trap
+        if (m_triggered)
         {
             //Firing
             if (m_bulletCount > 0)
@@ -52,6 +62,11 @@ public class TrapBase : MonoBehaviour {
     public void ActivateTrap()
     {
         m_triggered = true;
+    }
+
+    public void DeactivateTrap()
+    {
+        m_triggered = false;
     }
 
     public virtual void FireTrap()

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TrapTrigger : MonoBehaviour {
 
-    public List<TrapBase> m_traps;
+    public List<TrapBase> m_activateTraps;
+    public List<TrapBase> m_deactivateTraps;
 
-	void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            foreach (TrapBase trap in m_traps)
+            foreach (TrapBase trap in m_activateTraps)
             {
                 trap.ActivateTrap();
+            }
+
+            foreach (TrapBase trap in m_deactivateTraps)
+            {
+                trap.DeactivateTrap();
             }
         }
 
