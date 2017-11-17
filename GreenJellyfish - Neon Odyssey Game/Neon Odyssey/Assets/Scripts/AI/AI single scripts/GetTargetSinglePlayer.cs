@@ -27,9 +27,9 @@ public class GetTargetSinglePlayer : BehaviourBase
 
         enemyClass.m_target = m_player1;
 
-        if (enemyClass.m_target != null)
+        if (enemyClass.m_target != null && !m_player1.GetComponent<Player>().IsDead())
             return BehaviourStatus.SUCCESS;
-        Debug.Log("No player found");
+
         return BehaviourStatus.FAILURE;
     }
 }

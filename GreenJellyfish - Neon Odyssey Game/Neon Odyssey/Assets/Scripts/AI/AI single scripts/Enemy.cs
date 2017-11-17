@@ -39,7 +39,7 @@ public class Enemy : Character
 	{
 		//Get child with the renderer
 		for (int i = 0; i < this.gameObject.transform.childCount; i++) {
-			if (this.gameObject.transform.GetChild (i).GetComponentInChildren<SkinnedMeshRenderer> () != null)
+			if (this.gameObject.transform.GetChild (i).GetComponentInChildren<Animator> () != null)
 				m_childRenderer = this.gameObject.transform.GetChild (i).gameObject;
 		}
 
@@ -64,17 +64,25 @@ public class Enemy : Character
 		if (IsDead ())
 			PlayDeath ();
 
-		if (GetComponent<EnemyBeetle> () != null) { // Beetle model was wrong way.....
-			if (GetComponent<Rigidbody> ().velocity.x > 0.01f) // Rotates character 
-                m_childRenderer.transform.rotation = (Quaternion.Euler (0, 180, 0)); //Face forwards
-			if (GetComponent<Rigidbody> ().velocity.x < -0.01f) // rotates character
-                m_childRenderer.transform.rotation = (Quaternion.Euler (0, 0, 0)); // Face backwards
-		} else {
-			if (GetComponent<Rigidbody> ().velocity.x > 0.01f) // Rotates character 
-                m_childRenderer.transform.rotation = (Quaternion.Euler (0, 0, 0)); //Face forwards
-			if (GetComponent<Rigidbody> ().velocity.x < -0.01f) // rotates character
-                m_childRenderer.transform.rotation = (Quaternion.Euler (0, 180, 0)); // Face backwards
-		}
+        //Rotaion of model 
+        if (m_childRenderer != null)
+        {
+            if (GetComponent<EnemyBeetle>() != null)
+            { // Beetle model was wrong way.....
+                if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
+                    m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); //Face forwards
+                if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
+                    m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); // Face backwards
+            }
+            else
+            {
+                if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
+                    m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); //Face forwards
+                if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
+                    m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); // Face backwards
+            }
+        }
+
 		if (Mathf.Abs (GetComponent<Rigidbody> ().velocity.x) > 0)
 			gameObject.GetComponent<Animator> ().SetBool ("Moving", true);
 		else

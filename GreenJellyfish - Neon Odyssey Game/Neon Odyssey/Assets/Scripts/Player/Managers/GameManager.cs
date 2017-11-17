@@ -57,43 +57,53 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //User interface updates
-        if (m_player1Health != m_player1.GetComponent<Player>().GetHealth())
+        //Single Player
+        if (m_singlePlayer)
         {
-            m_player1Health = m_player1.GetComponent<Player>().GetHealth();
-            GetComponentInChildren<UI>().UpdateHealthUI(m_player1Health, m_player2Health);
-        }
+            //User interface updates
+            if (m_player1Health != m_player1.GetComponent<Player>().GetHealth())
+            {
+                m_player1Health = m_player1.GetComponent<Player>().GetHealth();
+                GetComponentInChildren<UI>().UpdateHealthUI(m_player1Health, m_player2Health);
+            }
 
-        if (!m_singlePlayer)
+            if (m_player1.GetComponent<Player>().IsDead())
+            {
+                //Gameover State
+                gameOverTimer += Time.deltaTime;
+                if (gameOverTimer >= 3)
+                {
+                    m_gameoverPanel.SetActive(true);
+                    Time.timeScale = 0.0f;
+                    gameOverTimer = 0;
+                }
+            }
+        }
+        else //Two player
         {
-            //Player2
+            //User interface updates
+            if (m_player1Health != m_player1.GetComponent<Player>().GetHealth())
+            {
+                m_player1Health = m_player1.GetComponent<Player>().GetHealth();
+                GetComponentInChildren<UI>().UpdateHealthUI(m_player1Health, m_player2Health);
+            }
+
             if (m_player2Health != m_player2.GetComponent<Player>().GetHealth())
             {
                 m_player2Health = m_player2.GetComponent<Player>().GetHealth();
                 GetComponentInChildren<UI>().UpdateHealthUI(m_player1Health, m_player2Health);
             }
-        }
 
-        //Gameover State
-        if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead()) //Game over two player
-        {
-            gameOverTimer += Time.deltaTime;
-            if(gameOverTimer >= 3)
-            {
-                m_gameoverPanel.SetActive(true);
-                Time.timeScale = 0.0f;
-                gameOverTimer = 0;
-            }
-        }
-        else if(m_player1.GetComponent<Player>().IsDead() && m_singlePlayer) //Game over single player
-        {
             //Gameover State
-            gameOverTimer += Time.deltaTime;
-            if (gameOverTimer >= 3)
+            if (m_player1.GetComponent<Player>().IsDead() && m_player2.GetComponent<Player>().IsDead()) //Game over two player
             {
-                m_gameoverPanel.SetActive(true);
-                Time.timeScale = 0.0f;
-                gameOverTimer = 0;
+                gameOverTimer += Time.deltaTime;
+                if (gameOverTimer >= 3)
+                {
+                    m_gameoverPanel.SetActive(true);
+                    Time.timeScale = 0.0f;
+                    gameOverTimer = 0;
+                }
             }
         }
 

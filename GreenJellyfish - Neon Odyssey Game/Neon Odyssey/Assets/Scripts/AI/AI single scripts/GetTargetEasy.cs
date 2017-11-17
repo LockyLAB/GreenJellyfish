@@ -41,22 +41,14 @@ public class GetTargetEasy : BehaviourBase
         if (gameObject.layer == LayerMask.NameToLayer("Pink") || gameObject.layer == LayerMask.NameToLayer("Green"))
             player2TargetRank = 2.0f;
 
-        //Make sure enemy can see player
-        if (Physics.Raycast(transform.position + transform.up * 0.5f, (m_player1.transform.position - transform.position).normalized, player1Distance, LayerMask.GetMask("Collisions")))
-            player1TargetRank = -100.0f;
+        player1TargetRank = SetRank(m_player1, player1TargetRank, player1Distance);
+        player2TargetRank = SetRank(m_player2, player2TargetRank, player2Distance);
 
-        //Make sure enemy can see player
-        if (Physics.Raycast(transform.position + transform.up * 0.5f, (m_player2.transform.position - transform.position).normalized, player2Distance, LayerMask.GetMask("Collisions")))
-            player2TargetRank = -100.0f;
-
-        player1TargetRank = player1TargetRank / player1Distance;
-        player2TargetRank = player2TargetRank / player2Distance;
-
-        if (player1TargetRank > player2TargetRank)
-            enemyClass.m_target = m_player1;
-        else
+        enemyClass.m_target = m_player1;
+        if (player1TargetRank < player2TargetRank)
             enemyClass.m_target = m_player2;
 
+        //Dont return a target thats below 0
         if (player1TargetRank < 0 && player2TargetRank < 0)
             enemyClass.m_target = null;
 
@@ -64,5 +56,21 @@ public class GetTargetEasy : BehaviourBase
             return BehaviourStatus.SUCCESS;
 
         return BehaviourStatus.FAILURE;
+    }
+
+    private float SetRank(GameObject player, float playerRank, float playerDistance)
+    {
+        //Pick target it can see
+        if (Physics.Raycast(transform.position + transform.up * 0.5f, (player.transform.position - transform.position).normalized, playerDistance, LayerMask.GetMask("Collisions")))
+            playerRank -= 100.0f;
+
+        //Pick target thats alive
+        if(player.GetComponent<Player>().IsDead())
+            playerRank -= 100.0f;
+
+        //Pick closest target based off previous rank
+        playerRank = playerRank / playerDistance;
+
+        return playerRank;
     }
 }
