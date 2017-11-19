@@ -97,10 +97,13 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "Door")
+        //Collision with shootable Triggers
+        if (other.gameObject.GetComponent<ShootableEnviromentTrigger>() != null)
         {
             if (other.gameObject.layer == gameObject.layer)
-                other.gameObject.GetComponent<ShootableEnviromentTrigger>().OnDestruction();
+            {
+                other.gameObject.GetComponent<ShootableEnviromentTrigger>().TriggerDestroy();
+            }
             Destroy(gameObject);
         }
 

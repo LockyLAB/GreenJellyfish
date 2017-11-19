@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ShootableEnviromentParent : MonoBehaviour
 {
-    private List<GameObject> m_children= new List<GameObject>();
+    protected List<GameObject> m_children= new List<GameObject>();
     public GameObject m_ray = null;
+
+    public GameObject m_destroyEffect = null;
+    public Vector3 m_destroyEffectOffset = Vector3.zero;
+
 
     public void AddChild(GameObject child)
     {
@@ -18,9 +22,15 @@ public class ShootableEnviromentParent : MonoBehaviour
         m_children.RemoveAt(index);
     }
 
-    private void Update()
+    public virtual void Update()
     {
-        if (m_children.Count == 0 && m_ray != null)
-            Destroy(m_ray);
+        if (m_children.Count == 0)
+        {
+            if(m_destroyEffect!=null)
+                Destroy(Instantiate(m_destroyEffect, transform.TransformPoint(m_destroyEffectOffset), Quaternion.identity),5.0f);
+            if(m_ray != null)
+                Destroy(m_ray);
+            Destroy(this.gameObject);
+        }
     }
 }

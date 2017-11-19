@@ -12,7 +12,7 @@ public class ShootableEnviromentTrigger : MonoBehaviour
         m_parent.GetComponent<ShootableEnviromentParent>().AddChild(this.gameObject); 
     }
 
-    public void OnDestruction()
+    public virtual void TriggerDestroy()
     {
         m_parent.GetComponent<ShootableEnviromentParent>().RemoveChild(this.gameObject);
         Destroy(this.gameObject);
