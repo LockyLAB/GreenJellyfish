@@ -57,7 +57,7 @@ public class Character : MonoBehaviour
             else
             {
                 if (GetComponent<Player>() != null)
-                    GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", 1);
+                    GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", 0);
             }
 
         }
