@@ -3,19 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI : MonoBehaviour {
-
-    public Vector3 m_player1HealthPos = Vector3.zero;
-    public Vector3 m_player2HealthPos = Vector3.zero;
-    public Vector3 m_player1HealthGap = Vector3.zero;
-    public Vector3 m_player2HealthGap = Vector3.zero;
-
-    public Vector3 m_player1HealthBarPos = Vector3.zero;
-    public Vector3 m_player2HealthBarPos = Vector3.zero;
-
-    //Individual icons
-    public GameObject m_playerHealthIcon;
-
+public class UI : MonoBehaviour
+{
     //health bar
     public GameObject m_playerPurpleBar;
     public GameObject m_playerOrangeBar;
@@ -23,11 +12,11 @@ public class UI : MonoBehaviour {
     public GameObject m_playerGreenBar;
     public GameObject m_playerPinkBar;
 
-    private GameObject[] m_player1HealthHolder = new GameObject[4];
-    private GameObject[] m_player2HealthHolder = new GameObject[4];
+    public GameObject[] m_player1HealthHolder = new GameObject[4];
+    public GameObject[] m_player2HealthHolder = new GameObject[4];
 
-    private GameObject[] m_player1HealthBarHolder = new GameObject[1];
-    private GameObject[] m_player2HealthBarHolder = new GameObject[1];
+    public GameObject m_player1HealthBarHolder = null;
+    public GameObject m_player2HealthBarHolder = null;
 
     private GameManager m_gameManagerRef;
 
@@ -35,20 +24,6 @@ public class UI : MonoBehaviour {
     void Start()
     {
         m_gameManagerRef = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
-
-        //Set up Health UI Bars
-        m_player1HealthBarHolder[0] = Instantiate(m_playerPurpleBar, m_player1HealthBarPos, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
-        m_player2HealthBarHolder[0] = Instantiate(m_playerGreenBar, m_player2HealthBarPos, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
-
-        //Set up Health UI icons
-        for (int i = 0; i < 4; i++)
-        {
-            m_player1HealthHolder[i] = Instantiate(m_playerHealthIcon, m_player1HealthPos + m_player1HealthGap * i, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
-        }
-        for (int i = 0; i < 4; i++)
-        {
-            m_player2HealthHolder[i] = Instantiate(m_playerHealthIcon, m_player2HealthPos + m_player2HealthGap * i, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
-        }
 
         //Run first time
         ChangeUIColour(true, false);
@@ -114,12 +89,12 @@ public class UI : MonoBehaviour {
     //		healthBarImageHolder: array containing the image displays
     //		healthBarImage: the new health bar image
     //--------------------------------------------------------------------------------------
-    private void ColourFlip(GameObject[] healthBarImageHolder, GameObject healthBarImage)
+    private void ColourFlip(GameObject healthBarImageHolder, GameObject healthBarImage)
     {
         //Create new bar in flipped colour in location of old bar
-        GameObject newBar = Instantiate(healthBarImage, healthBarImageHolder[0].transform.position, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
+        GameObject newBar = Instantiate(healthBarImage, healthBarImageHolder.transform.position, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
 
-        Destroy(healthBarImageHolder[0]);
-        healthBarImageHolder[0] = newBar;
+        Destroy(healthBarImageHolder);
+        healthBarImageHolder = newBar;
     }
 }
