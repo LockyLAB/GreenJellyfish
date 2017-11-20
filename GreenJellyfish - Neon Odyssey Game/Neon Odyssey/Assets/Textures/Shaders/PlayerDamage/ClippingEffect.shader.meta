@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a2d8224869a30714cbbf71e28e491a3d
+timeCreated: 1511136646
+licenseType: Pro
+ShaderImporter:
+  defaultTextures:
+  - _ClippingGlowPattern: {fileID: 2800000, guid: b8f2f2cf65c857f49b20d12bdf1fcdea,
+      type: 3}
+  - _ClippingMask: {fileID: 2800000, guid: 166d47f759121ab40805ca3e0937624c, type: 3}
+  - _AnubisTexture: {fileID: 2800000, guid: ed4096d781189a54ca3ec2c409290cc7, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

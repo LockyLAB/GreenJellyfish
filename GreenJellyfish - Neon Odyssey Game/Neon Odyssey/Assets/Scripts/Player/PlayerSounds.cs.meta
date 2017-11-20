@@ -1,10 +1,22 @@
 fileFormatVersion: 2
 guid: c8e8843dc0a939846a98f6df522e8ac5
-timeCreated: 1510704959
-licenseType: Free
+timeCreated: 1511145368
+licenseType: Pro
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_movementAudio: {fileID: 1475480691217748, guid: d7bea65cf8c82774daee91ce1271c11a,
+      type: 2}
+  - m_jumpingAudio: {fileID: 1706562424910010, guid: 8d4c6f4446e110043af3d40ddfdb9780,
+      type: 2}
+  - m_firingGunAudio: {fileID: 1607357207563786, guid: 4a94bde4370729e47a7c9c3ba67b2c90,
+      type: 2}
+  - m_deathAudio: {fileID: 1425100237486498, guid: 996aed9fe4ef22a4bad112a4c7dbf371,
+      type: 2}
+  - m_reviveAudio: {fileID: 1789983486987290, guid: 5835f1ce538d04b4789ae4805285a59b,
+      type: 2}
+  - m_respawnAudio: {fileID: 1584531829114832, guid: 3b0ed3cf57db37c4bbe5145deac86268,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
