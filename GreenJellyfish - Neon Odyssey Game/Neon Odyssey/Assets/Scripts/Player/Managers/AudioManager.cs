@@ -10,11 +10,10 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!m_musicLoop.GetComponent<AudioSource>().isPlaying)
-            if(!m_musicIntro.GetComponent<AudioSource>().isPlaying)
-            {
-                m_musicLoop.GetComponent<AudioSource>().Play();
-                Destroy(this);
-            }
+        if(!m_musicIntro.GetComponent<AudioSource>().isPlaying)
+        {
+            m_musicLoop.GetComponent<AudioSource>().Play();
+            Destroy(this);
+        }
     }
 }

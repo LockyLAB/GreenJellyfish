@@ -54,7 +54,11 @@ public class EnemyScorpion : Enemy
     private FireLaserbeam m_actionFireLaser;
     private CoolDown m_actionLaserCooldown;
 
-    // Use this for initialization
+    //-----------------------------------------------------
+    // Setting up all AI behaviour components
+    //
+    // Fire left claw, fire right and laser at same time
+    //-----------------------------------------------------
     void Start()
     {
         //Set health

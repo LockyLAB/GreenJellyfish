@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
 
     public void Update()
     {
+        //As shared by enemy and player, Character actions is used for custom update functionality
         CharaterActions();
 
         //Invicibility 
@@ -35,24 +36,45 @@ public class Character : MonoBehaviour
         }
     }
 
+    //--------------------------------------------------------------------------------------
+    // Determine if character is dead 
+    //
+    // Return:
+    //		bool - true when health is equal or less than 0
+    //--------------------------------------------------------------------------------------
     public bool IsDead()
     {
         return (m_health <= 0);
     }
 
-    //Used to alter health
+    //--------------------------------------------------------------------------------------
+    // get characters health
+    //
+    // Return:
+    //		int - characters health
+    //--------------------------------------------------------------------------------------
     public int GetHealth()
     {
         return m_health;
     }
 
-    //Used to alter health
+    //--------------------------------------------------------------------------------------
+    // Set characters health
+    //
+    // Param:
+    //		changeVal: how much health chaacter should have
+    //--------------------------------------------------------------------------------------
     public void SetHealth(int changeVal)
     {
         m_health = changeVal;
     }
 
-    //Used to alter health
+    //--------------------------------------------------------------------------------------
+    // Add health to character, negitve values for dmaage
+    //
+    // Param:
+    //		changeVal: how much to change health by
+    //--------------------------------------------------------------------------------------
     public void ChangeHealth(int changeVal)
     {
         if (changeVal < 0) //Loosing health
@@ -78,6 +100,9 @@ public class Character : MonoBehaviour
         }
     }
 
+    //--------------------------------------------------------------------------------------
+    // Actions charater should perform in update
+    //--------------------------------------------------------------------------------------
     public virtual void CharaterActions()
     {
 

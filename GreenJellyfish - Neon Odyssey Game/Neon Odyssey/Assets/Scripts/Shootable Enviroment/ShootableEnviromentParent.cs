@@ -10,18 +10,33 @@ public class ShootableEnviromentParent : MonoBehaviour
     public GameObject m_destroyEffect = null;
     public Vector3 m_destroyEffectOffset = Vector3.zero;
 
-
+    //--------------------------------------------------------------------------------------
+    // Add a object to the child list for future reference
+    //
+    // Param:
+    //		child: object to add to child list
+    //--------------------------------------------------------------------------------------
     public void AddChild(GameObject child)
     {
         m_children.Add(child);
     }
 
+    //--------------------------------------------------------------------------------------
+    // Remove a object from the child
+    //
+    // Param:
+    //		child: object to remove from child list
+    //--------------------------------------------------------------------------------------
     public void RemoveChild(GameObject child)
     {
         int index = m_children.IndexOf(child);
         m_children.RemoveAt(index);
     }
 
+    //--------------------------------------------------------------------------------------
+    // Update
+    // Check if child list is empty, if so destroy
+    //--------------------------------------------------------------------------------------
     public virtual void Update()
     {
         if (m_children.Count == 0)

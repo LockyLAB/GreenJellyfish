@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSounds : MonoBehaviour
 {
 
-	//Sound effects
+	//Sound effects - store all sounds for use by other classes
 	public GameObject m_movementAudio = null;
 	public GameObject m_jumpingAudio = null;
 	public GameObject m_firingGunAudio = null;
@@ -36,11 +36,5 @@ public class PlayerSounds : MonoBehaviour
 		//Set up shared components
 		m_playerController = GetComponent<PlayerController> ();
 		m_player = GetComponent<Player> ();
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
 	}
 }

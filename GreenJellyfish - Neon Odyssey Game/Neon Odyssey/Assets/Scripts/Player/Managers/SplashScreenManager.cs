@@ -5,12 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SplashScreenManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start ()
+    //--------------------------------------------------------------------------------------
+    // Splash screen to display game logo
+    //--------------------------------------------------------------------------------------
+    void Start ()
     {
         Invoke("ChangeToMainMenu", 4);
     }
 
+    //--------------------------------------------------------------------------------------
+    // After timer move to main menu scene
+    //--------------------------------------------------------------------------------------
     void ChangeToMainMenu()
     {
         SceneManager.LoadScene("Menu");

@@ -43,8 +43,12 @@ public class EnemyWasp : Enemy
 	private IsTargetCloseEnoughX m_actionGetDisMovement;
 	private MoveTowardsTargetFlying m_actionMovetowards;
 
-	// Use this for initialization
-	void Start()
+    //-----------------------------------------------------
+    // Setting up all AI behaviour components
+    //
+    // Fly towards, fire in a cone, flee, repeat
+    //-----------------------------------------------------
+    void Start()
 	{
 		//Set health
 		SetHealth (m_healthMax);

@@ -73,11 +73,22 @@ public class FireCone : BehaviourBase
         return BehaviourStatus.SUCCESS;
     }
 
+    //--------------------------------------------------------------------------------------
+    // Determine if target is close enough
+    // Return:
+    //		bool - true when target is closer than max distance
+    //--------------------------------------------------------------------------------------
     bool CloseEnough()
     {
         return (Mathf.Abs(transform.position.x - GetComponent<Enemy>().m_target.transform.position.x) < m_maxDis);
     }
 
+    //--------------------------------------------------------------------------------------
+    // Fire a bullet
+    //
+    // Param:
+    //		bulletDir: direction bullet should travel
+    //--------------------------------------------------------------------------------------
     void FireBullet(Vector3 bulletDir)
     {
         GameObject newBullet = Instantiate(m_bullet, transform.TransformPoint(m_bulletSpawnPos), Quaternion.identity);

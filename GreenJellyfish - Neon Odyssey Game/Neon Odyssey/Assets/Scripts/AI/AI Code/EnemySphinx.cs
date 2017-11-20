@@ -40,7 +40,11 @@ public class EnemySphinx : Enemy
     private JumpToPlatform m_jumpToPlatform;
     private CoolDown m_landingCooldown;
 
-    // Use this for initialization
+    //-----------------------------------------------------
+    // Setting up all AI behaviour components
+    //
+    // Jump across platforms, fire laser at player, jump to new platform
+    //-----------------------------------------------------
     void Start()
     {
         //Set health

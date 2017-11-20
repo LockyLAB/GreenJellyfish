@@ -64,10 +64,10 @@ public class FireGun : BehaviourBase
     }
 
     //--------------------------------------------------------------------------------------
-    // Firing of bullet towards target
+    // Fire a bullet
     //
-    // Return:
-    //		Returns a enum BehaviourStatus, current status of behaviour, Success, failed, pending
+    // Param:
+    //		bulletDir: direction bullet should travel
     //--------------------------------------------------------------------------------------
     void FireBullet(Vector3 bulletDir)
     {

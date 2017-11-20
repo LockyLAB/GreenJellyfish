@@ -110,7 +110,14 @@ public class PlayerAnimation : MonoBehaviour
 			m_hitWall = false;
 	}
 
-	IEnumerator PauseEffectFollow (float delay, GameObject effectHolder)
+    //--------------------------------------------------------------------------------------
+    // Have effect follow an object
+    //
+    // Param:
+    //		delay: how long effect should follow player for
+    //		effectHolder: parent for effect to follow
+    //--------------------------------------------------------------------------------------
+    IEnumerator PauseEffectFollow (float delay, GameObject effectHolder)
 	{
 		yield return new WaitForSeconds (delay);
 		effectHolder.transform.parent = null;

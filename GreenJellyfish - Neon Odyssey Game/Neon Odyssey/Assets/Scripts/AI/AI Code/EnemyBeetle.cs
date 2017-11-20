@@ -48,7 +48,11 @@ public class EnemyBeetle : Enemy
     private IsTargetCloseEnough m_actionGetDisMovement;
     private MoveTowardsTarget m_actionMovetowards;
 
-    // Use this for initialization
+    //-----------------------------------------------------
+    // Setting up all AI behaviour components
+    //
+    // Move towards player, fire gun, repeat
+    //-----------------------------------------------------
     void Start()
     {
         //Set health

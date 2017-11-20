@@ -15,12 +15,9 @@ public class InfrontOfLedge : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        
-        Bounds bounds = GetComponent<CapsuleCollider>().bounds;
+        Bounds bounds = GetComponent<CapsuleCollider>().bounds; //Get size of object
 
-        Debug.DrawLine(transform.position + transform.forward * bounds.size.z / 2, transform.position + transform.forward * bounds.size.z / 2 + (-transform.up * (bounds.size.z / 2 + 0.1f)), Color.red);
-
-        if (Physics.Raycast(transform.position + transform.forward * bounds.size.z/2, -transform.up, bounds.size.z /2 + 0.1f))
+        if (Physics.Raycast(transform.position + transform.forward * bounds.size.z/2, -transform.up, bounds.size.z /2 + 0.1f)) // Cast downwards infront of enemy
         {
             return BehaviourStatus.FAILURE;
         }

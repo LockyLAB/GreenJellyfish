@@ -35,7 +35,11 @@ public class Enemy : Character
 
 	public Difficulty m_difficulty = Difficulty.Easy;
 
-	void Awake ()
+    //--------------------------------------------------------------------------------------
+    // Awake
+    // Initialise sound to spawn on object
+    //--------------------------------------------------------------------------------------
+    void Awake ()
 	{
 		//Get child with the renderer
 		for (int i = 0; i < this.gameObject.transform.childCount; i++) {
@@ -56,8 +60,12 @@ public class Enemy : Character
 			m_firingGunAudio = Instantiate (m_firingGunAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
 	}
 
-	// Update is called once per frame
-	public override void CharaterActions ()
+    //--------------------------------------------------------------------------------------
+    // Update is called once per frame
+    // Run AI behaviour
+    //Face correct direction
+    //--------------------------------------------------------------------------------------
+    public override void CharaterActions ()
 	{
 		m_initalBehaviour.Execute ();
 
@@ -89,7 +97,11 @@ public class Enemy : Character
 			gameObject.GetComponent<Animator> ().SetBool ("Moving", false);
 	}
 
-	public void PlayDeath ()
+    //--------------------------------------------------------------------------------------
+    // Perform death of enemy
+    // Run animation then destroy
+    //--------------------------------------------------------------------------------------
+    public void PlayDeath ()
 	{
 		if (m_deathEffect != null)
 			Destroy (Instantiate (m_deathEffect, transform.TransformPoint (m_deathEffectSpawnPos), Quaternion.identity), 5.0f);

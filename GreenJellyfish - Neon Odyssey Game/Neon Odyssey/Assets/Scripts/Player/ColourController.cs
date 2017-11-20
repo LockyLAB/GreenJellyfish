@@ -36,10 +36,14 @@ public class ColourController : MonoBehaviour
         }
     }
 
-    //TOGGLES CHARACTER MATERIAL
+    //--------------------------------------------------------------------------------------
+    // Toggle character colour 
+    // based off player weapon selected slot and first player or not, change colour
+    //--------------------------------------------------------------------------------------
     void toggleColour()
     {
-        m_firstBulletSlot = !m_firstBulletSlot;
+        m_firstBulletSlot = !m_firstBulletSlot; // Toggle colour
+
         if (GetComponent<Player>().isFirstPlayer)
         {
             if(m_firstBulletSlot)

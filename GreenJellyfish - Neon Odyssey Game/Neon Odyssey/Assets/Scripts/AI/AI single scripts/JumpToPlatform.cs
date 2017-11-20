@@ -30,7 +30,8 @@ public class JumpToPlatform : BehaviourBase
             m_currentPlatform = GetComponent<EnemySphinx>().m_jumpPoints[0];
         m_currentPos = m_currentPlatform.transform.position;
         List<GameObject> possibleJumpPlatforms = new List<GameObject>(GetComponent<EnemySphinx>().m_jumpPoints);
-        if (possibleJumpPlatforms.Count > 2)
+
+        if (possibleJumpPlatforms.Count > 2) //Jumping between 3 platforms at min
         {
             int index = possibleJumpPlatforms.IndexOf(m_currentPlatform);
             possibleJumpPlatforms.RemoveAt(index);
@@ -38,7 +39,7 @@ public class JumpToPlatform : BehaviourBase
             m_currentPlatform = possibleJumpPlatforms[Random.Range(0, possibleJumpPlatforms.Count)];
             m_nextPos = m_currentPlatform.transform.position;
 
-            m_middleLerpPos = m_currentPos + (m_nextPos - m_currentPos) / 2 + (Vector3.up * m_jumpHeight);
+            m_middleLerpPos = m_currentPos + (m_nextPos - m_currentPos) / 2 + (Vector3.up * m_jumpHeight); // Smooth jumping
         }
         else
             m_currentPlatform = null;

@@ -52,6 +52,17 @@ public class GetTargetMedium : BehaviourBase
         return BehaviourStatus.FAILURE;
     }
 
+    //--------------------------------------------------------------------------------------
+    // Get players target rank
+    //
+    // Param:
+    //		player: player target
+    //		playerRank: current target ranking
+    //		playerDistance: distance from enemy to target
+    //
+    // Return:
+    //		Returns a float players rnk based off visibility, alive, distance
+    //--------------------------------------------------------------------------------------
     private float SetRank(GameObject player, float playerRank, float playerDistance)
     {
         //Pick target it can see

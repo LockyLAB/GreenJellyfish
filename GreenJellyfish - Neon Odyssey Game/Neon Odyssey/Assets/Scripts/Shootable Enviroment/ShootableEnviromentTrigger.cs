@@ -6,12 +6,18 @@ public class ShootableEnviromentTrigger : MonoBehaviour
 {
     public GameObject m_parent = null;
 
-    // Add all children to parent, as when there is none, parent will destroy
+    //--------------------------------------------------------------------------------------
+    // Add object to parent child list
+    //--------------------------------------------------------------------------------------
     private void Awake()
     {
         m_parent.GetComponent<ShootableEnviromentParent>().AddChild(this.gameObject); 
     }
 
+    //--------------------------------------------------------------------------------------
+    // When trigger is destroyed
+    // Remove from parent
+    //--------------------------------------------------------------------------------------
     public virtual void TriggerDestroy()
     {
         m_parent.GetComponent<ShootableEnviromentParent>().RemoveChild(this.gameObject);

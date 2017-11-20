@@ -35,7 +35,9 @@ public class CameraMove : MonoBehaviour {
     public bool m_cameraLocked = false;
     public Vector3 m_cameraLockPos = Vector3.zero;
 
-    // Use this for initialization
+    //-----------------------------------------------------
+    // Assign player varibles
+    //-----------------------------------------------------
     void Start()
     {
         //Assign players
@@ -56,7 +58,10 @@ public class CameraMove : MonoBehaviour {
             transform.position = (m_player1.transform.position + m_player2.transform.position) / 2 + offset;
     }
 
-    // Update is called once per frame
+    //-----------------------------------------------------
+    // Get cameras goal position
+    //Move camera towards goal at varible speed
+    //-----------------------------------------------------
     void Update ()
     {
         //Single player
@@ -68,8 +73,10 @@ public class CameraMove : MonoBehaviour {
             Vector3 cameraPos = transform.position;
             Vector3 playerDis = m_player2.transform.position - m_player1.transform.position;
             Vector3 cameraGoal = m_cameraLockPos;
-            if(!m_cameraLocked)
+
+            if(!m_cameraLocked) // No Boss room camera lock
                 cameraGoal = ((m_player1.transform.position + m_player2.transform.position) / 2) + offset;
+
             Vector3 cameraGoalDistance = cameraGoal - cameraPos;
 
             //float zoomSpeed = 0.5f;
@@ -96,14 +103,20 @@ public class CameraMove : MonoBehaviour {
             CameraShake();
     }
 
+    //--------------------------------------------------------------------------------------
+    // Enable the camera shake
+    //--------------------------------------------------------------------------------------
     public void EnableCameraShake()
     {
         m_shakeEnabled = true;
     }
 
+    //-----------------------------------------------------
+    // Shake cmaera in random directions
+    //Shakiness based off time between shakes, how much movement, and amount of shakes
+    //-----------------------------------------------------
     void CameraShake()
     {
-        //Debug.Log("Camera Shaking");
         m_shakeTimer -= Time.deltaTime;
         if(m_shakeTimer < 0.0f)
         {

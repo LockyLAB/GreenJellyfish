@@ -6,6 +6,9 @@ public class TrapArc : TrapBase
 {
     public float m_firingArc = 0.0f;
 
+    //--------------------------------------------------------------------------------------
+    // Fire a bullets in a cone shape
+    //--------------------------------------------------------------------------------------
     public override void FireTrap()
     {
         Vector3 bulletDir = transform.up ;

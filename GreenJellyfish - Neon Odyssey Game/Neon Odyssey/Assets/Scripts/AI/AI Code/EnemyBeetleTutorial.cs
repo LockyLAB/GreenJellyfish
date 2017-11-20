@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBeetleTutorial : Enemy
+public class EnemyBeetleTutorial : EnemyBeetle
 {
-    //Movement
-    public float m_moveTowardsRange = 0.0f;
-
     //Nodes
     private BehaviourSequence m_sequenceTop;
 
@@ -17,7 +14,11 @@ public class EnemyBeetleTutorial : Enemy
 
     private BehaviourBase m_actionGetTarget;
 
-    // Use this for initialization
+    //-----------------------------------------------------
+    // Setting up all AI behaviour components
+    //
+    // Just move towards player 
+    //-----------------------------------------------------
     void Start ()
     {
 

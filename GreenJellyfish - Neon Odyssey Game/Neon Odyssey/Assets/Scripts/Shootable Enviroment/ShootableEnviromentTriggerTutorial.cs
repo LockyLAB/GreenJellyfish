@@ -8,7 +8,11 @@ public class ShootableEnviromentTriggerTutorial : ShootableEnviromentTrigger
     public GameObject m_destructionEffect = null;
     public float m_destructionEffectDuration = 0.0f;
 
-    
+    //--------------------------------------------------------------------------------------
+    // When trigger is destroyed
+    // Create destruction effect if its been set
+    // keep alive for set durtation but be disabled
+    //--------------------------------------------------------------------------------------
     public override void TriggerDestroy()
     {
         //Create destruction effect from object to parent
@@ -20,9 +24,12 @@ public class ShootableEnviromentTriggerTutorial : ShootableEnviromentTrigger
 
         //Set to invisible
         gameObject.SetActive(false);
-        Invoke("RemoveFromParent", m_destructionEffectDuration);
+        Invoke("RemoveFromParent", m_destructionEffectDuration); // Keep object alive till effect has finished
     }
 
+    //--------------------------------------------------------------------------------------
+    // Remove trigger from parent and destroy game object
+    //--------------------------------------------------------------------------------------
     private void RemoveFromParent()
     {
         m_parent.GetComponent<ShootableEnviromentParent>().RemoveChild(this.gameObject);

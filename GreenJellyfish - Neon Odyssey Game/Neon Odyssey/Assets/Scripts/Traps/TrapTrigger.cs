@@ -7,6 +7,15 @@ public class TrapTrigger : MonoBehaviour {
     public List<TrapBase> m_activateTraps;
     public List<TrapBase> m_deactivateTraps;
 
+    //--------------------------------------------------------------------------------------
+    // On trigger enter
+    // case of player:
+    //      activate all triggers in activate list
+    //      disable all traps in deactivate list
+    //
+    // Param:
+    //		other: collider
+    //--------------------------------------------------------------------------------------
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

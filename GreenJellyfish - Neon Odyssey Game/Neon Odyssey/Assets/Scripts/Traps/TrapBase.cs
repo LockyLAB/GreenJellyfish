@@ -23,7 +23,11 @@ public class TrapBase : MonoBehaviour {
 
     public GameObject m_bullet = null;
 
-    // Update is called once per frame
+    //--------------------------------------------------------------------------------------
+    // Update
+    // Run intial delay
+    // Firing sequence
+    //--------------------------------------------------------------------------------------
     void Update ()
     {
         //Do nothing till intial delay is gone 
@@ -62,21 +66,36 @@ public class TrapBase : MonoBehaviour {
         }
     }
 
+    //--------------------------------------------------------------------------------------
+    // Set trap to be activated
+    //--------------------------------------------------------------------------------------
     public void ActivateTrap()
     {
         m_triggered = true;
     }
 
+    //--------------------------------------------------------------------------------------
+    // Set trap to be deactivated
+    //--------------------------------------------------------------------------------------
     public void DeactivateTrap()
     {
         m_triggered = false;
     }
 
+    //--------------------------------------------------------------------------------------
+    // Firing of a bullet
+    //--------------------------------------------------------------------------------------
     public virtual void FireTrap()
     {
 
     }
 
+    //--------------------------------------------------------------------------------------
+    // Fire a bullet
+    //
+    // Param:
+    //		bulletDir: direction bullet should travel
+    //--------------------------------------------------------------------------------------
     public void FireBullet(Vector3 bulletDir)
     {
         GameObject newBullet = Instantiate(m_bullet, transform.TransformPoint(m_bulletSpawnPos), Quaternion.identity);

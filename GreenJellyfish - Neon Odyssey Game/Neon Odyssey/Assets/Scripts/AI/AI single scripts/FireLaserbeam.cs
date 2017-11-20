@@ -30,19 +30,21 @@ public class FireLaserbeam : BehaviourBase
 
         //Stop movement audio
         GetComponent<Enemy>().m_movementAudio.GetComponent<AudioSource>().Stop();
+
+        m_time = 0.0f;
     }
 
     //--------------------------------------------------------------------------------------
-    // Update behaviours - Cone Fire Towards target
+    // Update behaviours - Fire laser beam towards player
     //
     // Return:
     //		Returns a enum BehaviourStatus, current status of behaviour, Success, failed, pending
     //--------------------------------------------------------------------------------------
     public override BehaviourBase.BehaviourStatus Execute()
     {
-        m_time -= Time.deltaTime;
+        m_time += Time.deltaTime;
 
-        if (m_time > 0.0f)
+        if (m_time > m_chargeRate)
             return BehaviourStatus.PENDING;
 
         FireLaser(laserDir, laserDir.magnitude);
@@ -51,6 +53,13 @@ public class FireLaserbeam : BehaviourBase
         return BehaviourStatus.SUCCESS;
     }
 
+    //--------------------------------------------------------------------------------------
+    // Fire a laser
+    //
+    // Param:
+    //		laserDir: direction laser should travel
+    //      laserMagnitude: how far to cast raycast
+    //--------------------------------------------------------------------------------------
     void FireLaser(Vector3 laserDir, float laserMagnitude)
     {
         GetComponent<Enemy>().m_firingLaserAudio.GetComponent<AudioSource>().Play();

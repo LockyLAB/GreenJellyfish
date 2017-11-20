@@ -55,7 +55,13 @@ public class UI : MonoBehaviour {
         ChangeUIColour(false, false);
     }
 
+    //--------------------------------------------------------------------------------------
     //Update UI to show the right number of health bars
+    //
+    // Param:
+    //		player1Health: current player1 health
+    //		player2Health: current player2 health
+    //--------------------------------------------------------------------------------------
     public void UpdateHealthUI(int player1Health, int player2Health)
     {
         //Set correct number to be coloured
@@ -75,6 +81,13 @@ public class UI : MonoBehaviour {
         }
     }
 
+    //--------------------------------------------------------------------------------------
+    //Update UI to show the right number of health bars
+    //
+    // Param:
+    //		firstPlayer: which player helaht to update
+    //		firstColour: what colour is player for update
+    //--------------------------------------------------------------------------------------
     public void ChangeUIColour(bool firstPlayer, bool firstColour)
     {
         //Decide what colours to change to/which bar
@@ -94,6 +107,13 @@ public class UI : MonoBehaviour {
         }
     }
 
+    //--------------------------------------------------------------------------------------
+    //change health bar colour
+    //
+    // Param:
+    //		healthBarImageHolder: array containing the image displays
+    //		healthBarImage: the new health bar image
+    //--------------------------------------------------------------------------------------
     private void ColourFlip(GameObject[] healthBarImageHolder, GameObject healthBarImage)
     {
         //Create new bar in flipped colour in location of old bar

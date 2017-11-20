@@ -12,12 +12,18 @@ public class BossRoomSnap : MonoBehaviour
         m_MainCameraScript = GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>();
     }
 
+    //-----------------------------------------------------
+    // Tell main camera to lock to boss room
+    //-----------------------------------------------------
     public void Activate()
     {
         m_MainCameraScript.m_cameraLocked = true;
         m_MainCameraScript.m_cameraLockPos = transform.position;
     }
 
+    //-----------------------------------------------------
+    // Tell main camera to follow players as normal
+    //-----------------------------------------------------
     public void Deactivate()
     {
         m_MainCameraScript.m_cameraLocked = false;

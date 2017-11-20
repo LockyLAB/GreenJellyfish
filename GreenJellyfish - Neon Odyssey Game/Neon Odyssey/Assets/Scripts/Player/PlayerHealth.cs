@@ -96,25 +96,40 @@ public class PlayerHealth : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter (Collider other)
+    //--------------------------------------------------------------------------------------
+    // Player on trigger enter
+    //
+    // Param:
+    //		other: object player has collided with 
+    //--------------------------------------------------------------------------------------
+    void OnTriggerEnter (Collider other)
 	{
 		if (m_otherPlayer != null) {
            
-			if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<Player> ().IsDead ()) {
+			if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<Player> ().IsDead ())// set reviving flag
+            {
 				isReviving = true;
 			}
 
-			if (other.gameObject.tag == "HealthPickup") {
+			if (other.gameObject.tag == "HealthPickup")// Health pick up
+            { 
 				Destroy (other.gameObject);
 				this.GetComponent<Player> ().ChangeHealth (healthGivenByPickup);
 			}
 		}
 	}
 
-	void OnTriggerExit (Collider other)
+    //--------------------------------------------------------------------------------------
+    // Player on trigger exit
+    //
+    // Param:
+    //		other: object player has collided with 
+    //--------------------------------------------------------------------------------------
+    void OnTriggerExit (Collider other)
 	{
 		if (m_otherPlayer != null) {
-			if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<Player> ().IsDead ()) {
+			if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<Player> ().IsDead ()) //Disable revival flag
+            {
 				isReviving = false;
 				timer = 0;
 			}
