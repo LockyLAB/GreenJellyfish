@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
     {
         if (!m_musicLoop.GetComponent<AudioSource>().isPlaying)
             if(!m_musicIntro.GetComponent<AudioSource>().isPlaying)
+            {
                 m_musicLoop.GetComponent<AudioSource>().Play();
+                Destroy(this);
+            }
     }
 }
