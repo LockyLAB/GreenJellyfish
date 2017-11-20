@@ -44,7 +44,7 @@ public class TrapBase : MonoBehaviour {
                     //Fire bullet
                     FireTrap();
                     m_firingTimer = 0.0f;
-                    m_bulletCount--;
+                    m_bulletCount++;
                 }
             }
             else
@@ -54,8 +54,9 @@ public class TrapBase : MonoBehaviour {
                 if (m_cooldownTimer > m_cooldown)
                 {
                     //Fire bullet
-                    m_bulletCount = m_numberOfBullets;
+                    m_bulletCount = 0;
                     m_cooldownTimer = 0.0f;
+                    m_firingTimer = 0.0f;
                 }
             }
         }
