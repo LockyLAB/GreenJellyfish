@@ -26,8 +26,8 @@ public class PlayerHealth : MonoBehaviour
 	public Vector3 m_playerGhostOffset = Vector3.zero;
 	private GameObject m_playerGhostHolder = null;
 
-	//Player components
-	private PlayerSounds m_playerSounds = null;
+    //Player components
+    private PlayerSounds m_playerSounds = null;
 
 	// Use this for initialization
 	void Start ()
@@ -45,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
 		}
 
 		m_playerSounds = GetComponent<PlayerSounds> ();
-	}
+    }
 
 	// Update is called once per frame
 	void Update ()

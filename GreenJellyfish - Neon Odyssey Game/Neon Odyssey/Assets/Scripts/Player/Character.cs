@@ -10,6 +10,13 @@ public class Character : MonoBehaviour
     public float m_invicibleTime = 1.0f;
     private float m_invicibleTimer = 0.0f;
 
+    public float m_flashSpeed = 5.0f;
+    private float amp = 0.25f;
+    private float vertShift = 0.25f;
+
+
+    public SkinnedMeshRenderer m_characterRenderer = null;
+
     public void Update()
     {
         m_invicibleTimer -= Time.deltaTime;
@@ -44,7 +51,11 @@ public class Character : MonoBehaviour
                 m_invicibleTimer = m_invicibleTime;
                 if (m_health < 0)
                     m_health = 0;
+                if (GetComponent<Player>() != null)
+                    GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", amp * Mathf.Sin(m_flashSpeed * Time.time) + vertShift);
             }
+            else
+                GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", 1);
         }
         else // Gain health
         {
