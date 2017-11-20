@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     public void Update()
     {
         m_invicibleTimer -= Time.deltaTime;
-         CharaterActions();
+        CharaterActions();
     }
 
     public bool IsDead()
@@ -43,7 +43,7 @@ public class Character : MonoBehaviour
     //Used to alter health
     public void ChangeHealth(int changeVal)
     {
-        if(changeVal<0) //Loosing health
+        if (changeVal < 0) //Loosing health
         {
             if (m_invicibleTimer <= 0.0f)//take damage from other sources
             {
@@ -55,7 +55,11 @@ public class Character : MonoBehaviour
                     GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", amp * Mathf.Sin(m_flashSpeed * Time.time) + vertShift);
             }
             else
-                GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", 1);
+            {
+                if (GetComponent<Player>() != null)
+                    GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", 1);
+            }
+
         }
         else // Gain health
         {
