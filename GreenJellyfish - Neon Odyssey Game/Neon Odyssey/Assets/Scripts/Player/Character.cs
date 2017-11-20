@@ -21,6 +21,17 @@ public class Character : MonoBehaviour
     {
         m_invicibleTimer -= Time.deltaTime;
         CharaterActions();
+
+        if (m_invicibleTimer >= 0.0f)//take damage from other sources
+        {
+            if (GetComponent<Player>() != null)
+                GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", amp * Mathf.Sin(m_flashSpeed * Time.time) + vertShift);
+        }
+        else
+        {
+            if (GetComponent<Player>() != null)
+                GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", 0);
+        }
     }
 
     public bool IsDead()
@@ -47,28 +58,23 @@ public class Character : MonoBehaviour
         {
             if (m_invicibleTimer <= 0.0f)//take damage from other sources
             {
-                m_health += changeVal;
                 m_invicibleTimer = m_invicibleTime;
+                m_health += changeVal;
+
+                //Keep health within bounds
                 if (m_health < 0)
                     m_health = 0;
-                if (GetComponent<Player>() != null)
-                    GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", amp * Mathf.Sin(m_flashSpeed * Time.time) + vertShift);
-            }
-            else
-            {
-                if (GetComponent<Player>() != null)
-                    GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", 0);
             }
 
         }
         else // Gain health
         {
             m_health += changeVal;
-        }
 
-        //Keep health within bounds
-        if (m_health > m_healthMax)
-            m_health = m_healthMax;
+            //Keep health within bounds
+            if (m_health > m_healthMax)
+                m_health = m_healthMax;
+        }
     }
 
     public virtual void CharaterActions()
