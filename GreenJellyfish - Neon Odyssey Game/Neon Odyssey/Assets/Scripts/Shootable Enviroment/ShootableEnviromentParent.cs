@@ -30,7 +30,6 @@ public class ShootableEnviromentParent : MonoBehaviour
                 Destroy(Instantiate(m_destroyEffect, transform.TransformPoint(m_destroyEffectOffset), Quaternion.identity),5.0f);
             if(m_ray != null)
                 Destroy(m_ray);
-            Destroy(this.gameObject);
         }
     }
 }
