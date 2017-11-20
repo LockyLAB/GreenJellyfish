@@ -452,13 +452,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112749542820594}
-  m_LocalRotation: {x: -0, y: -0, z: -0.9238787, w: 0.38268533}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.94331557, w: 0.33189732}
+  m_LocalPosition: {x: 0.0000009536743, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4921530394541716}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -141.23201}
 --- !u!4 &4413680586992908
 Transform:
   m_ObjectHideFlags: 1
@@ -643,7 +643,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1119994692864306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1800003, y: 2.19, z: -0.28982735}
+  m_LocalPosition: {x: -6.87, y: 2.19, z: -0.28982735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4413680586992908}
@@ -956,8 +956,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ray: {fileID: 1389522293543808}
-  m_destroyEffect: {fileID: 0}
-  m_destroyEffectOffset: {x: 0, y: 0, z: 0}
+  m_destroyEffect: {fileID: 1709571350622742, guid: 0e6f1bc19b9df09418922bf1d7c2676d,
+    type: 2}
+  m_destroyEffectOffset: {x: 0, y: 7, z: 0}
 --- !u!114 &114603540201703900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23878,7 +23879,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -460276221
+  randomSeed: 1668106469
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -251,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1424486198820060
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1632306133030812
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,8 +499,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549344658330544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -156, y: -369.09308, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -195, y: -349.33, z: 0.0000039513}
+  m_LocalScale: {x: 1.5002646, y: 1.5002646, z: 1.5002646}
   m_Children:
   - {fileID: 224401297793956700}
   - {fileID: 224702846665708888}
@@ -550,19 +550,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e2252afc37e5b469a9083f1506000e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player1HealthPos: {x: 100, y: 150, z: 0}
-  m_player2HealthPos: {x: 1130, y: 150, z: 0}
+  m_player1HealthPos: {x: 100, y: 75, z: 0}
+  m_player2HealthPos: {x: 1130, y: 75, z: 0}
   m_player1HealthGap: {x: 100, y: 0, z: 0}
   m_player2HealthGap: {x: 100, y: 0, z: 0}
-  m_player1HealthBarPos: {x: 250, y: 150, z: 0}
-  m_player2HealthBarPos: {x: 1280, y: 150, z: 0}
-  m_playerPurple: {fileID: 1311935942098512, guid: e5d26a2b88ed5694c852dbda6352969e,
-    type: 2}
-  m_playerOrange: {fileID: 1055535265494000, guid: 01dca96620771fb41a1c4c6e4f73b0cf,
-    type: 2}
-  m_playerGreen: {fileID: 1227643576982836, guid: 8488454325d7de84c813d8dd59377378,
-    type: 2}
-  m_playerPink: {fileID: 1516427390930016, guid: ed77441cb2f704449b22476c6362cc13,
+  m_player1HealthBarPos: {x: 250, y: 75, z: 0}
+  m_player2HealthBarPos: {x: 1280, y: 75, z: 0}
+  m_playerHealthIcon: {fileID: 1227643576982836, guid: 8488454325d7de84c813d8dd59377378,
     type: 2}
   m_playerPurpleBar: {fileID: 1390930535382590, guid: ee88aaf6e6d004542aaf8e8f89e45954,
     type: 2}
@@ -1021,10 +1015,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pickup:
   - {fileID: 1074328699840786, guid: db923f7f4dd6f0b419eba5bde4140080, type: 2}
-  - {fileID: 1200342975643390, guid: 72eeba5ee15cc26408cce002fccef661, type: 2}
   m_pickupRates:
   - 20
-  - 30
 --- !u!114 &114488234603479114
 MonoBehaviour:
   m_ObjectHideFlags: 1
