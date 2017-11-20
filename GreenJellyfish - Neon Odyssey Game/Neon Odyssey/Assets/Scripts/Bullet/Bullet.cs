@@ -48,6 +48,10 @@ public class Bullet : MonoBehaviour
             //if ENEMY bullet hits PLAYER, 
             if (other.gameObject.tag == "Player")
             {
+
+                if (other.gameObject.GetComponent<Player>().IsDead()) //Dont allow bullets to hit dead players
+                    return;
+
                 //if BULLET and PLAYER are DIFFERENT colours, 
                 if (other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Player>() != null)
                 {
