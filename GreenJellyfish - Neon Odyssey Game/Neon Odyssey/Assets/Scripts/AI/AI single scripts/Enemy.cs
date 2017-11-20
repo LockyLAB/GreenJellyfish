@@ -35,7 +35,7 @@ public class Enemy : Character
 
 	public Difficulty m_difficulty = Difficulty.Easy;
 
-	void Start ()
+	void Awake ()
 	{
 		//Get child with the renderer
 		for (int i = 0; i < this.gameObject.transform.childCount; i++) {
