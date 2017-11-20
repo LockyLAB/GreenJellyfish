@@ -19,10 +19,10 @@ public class PlayerHealth : MonoBehaviour
 	public float deathTimer = 0;
 	public float deathTime = 2;
 
-	public GameObject m_playerDeathEffect;
+	public List<GameObject> m_playerDeathEffect;
 	public Vector3 m_playerDeathEffectOffset = Vector3.zero;
 
-	public GameObject m_playerGhost = null;
+	public List<GameObject> m_playerGhost = null;
 	public Vector3 m_playerGhostOffset = Vector3.zero;
 	private GameObject m_playerGhostHolder = null;
 
@@ -50,16 +50,30 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (GetComponent<Player> ().IsDead () && m_playerGhostHolder == null) {
-			Destroy (Instantiate (m_playerDeathEffect, transform.TransformPoint (m_playerDeathEffectOffset), Quaternion.identity, transform), 5.0f);
-			m_playerGhostHolder = Instantiate (m_playerGhost, transform.TransformPoint (m_playerGhostOffset), Quaternion.identity, transform);
-			GetComponent<PlayerSounds> ().m_deathAudio.GetComponent<AudioSource> ().Play (); //Play death sound for player
-			//Set player to be transparent
-			this.gameObject.GetComponent<Player> ().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer> ().enabled = false;
-		} else if (!GetComponent<Player> ().IsDead () && m_playerGhostHolder != null) {
-			//Set player to not be transparent
-			this.gameObject.GetComponent<Player> ().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer> ().enabled = true;
-			Destroy (m_playerGhostHolder);
+        if (GetComponent<Player>().IsDead() && m_playerGhostHolder == null)
+        { 
+            //Decide which ghost to spawn
+            if (GetComponent<ColourController>().m_firstBulletSlot)
+            {
+                m_playerGhostHolder = Instantiate(m_playerGhost[0], transform.TransformPoint(m_playerGhostOffset), Quaternion.identity, transform); //Ghost
+                Destroy(Instantiate(m_playerDeathEffect[0], transform.TransformPoint(m_playerDeathEffectOffset), Quaternion.identity, transform), 5.0f); //Death effect
+            }
+            else
+            {
+                m_playerGhostHolder = Instantiate(m_playerGhost[1], transform.TransformPoint(m_playerGhostOffset), Quaternion.identity, transform); //Ghost
+                Destroy(Instantiate(m_playerDeathEffect[1], transform.TransformPoint(m_playerDeathEffectOffset), Quaternion.identity, transform), 5.0f); //Death effect
+            }
+
+            GetComponent<PlayerSounds> ().m_deathAudio.GetComponent<AudioSource> ().Play (); //Play death sound for player
+
+			this.gameObject.GetComponent<Player> ().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer> ().enabled = false; //Set player to be transparent
+
+        }
+        else if (!GetComponent<Player> ().IsDead () && m_playerGhostHolder != null)
+        {
+
+			this.gameObject.GetComponent<Player> ().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer> ().enabled = true;//Set player to not be transparent
+            Destroy (m_playerGhostHolder);
 		}
 
 		if (isReviving && XCI.GetButton ((XboxButton.X), controller) && !GetComponent<Player> ().IsDead () && m_otherPlayer.GetComponent<Player> ().IsDead ()) {
@@ -87,7 +101,6 @@ public class PlayerHealth : MonoBehaviour
 		if (m_otherPlayer != null) {
            
 			if (other.gameObject.tag == "Player" && m_otherPlayer.GetComponent<Player> ().IsDead ()) {
-				Debug.Log ("hitplayer");
 				isReviving = true;
 			}
 
