@@ -956,8 +956,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ray: {fileID: 1415711693488834}
-  m_destroyEffect: {fileID: 0}
-  m_destroyEffectOffset: {x: 0, y: 0, z: 0}
+  m_destroyEffect: {fileID: 1709571350622742, guid: 0e6f1bc19b9df09418922bf1d7c2676d,
+    type: 2}
+  m_destroyEffectOffset: {x: 0, y: 6.5, z: 0}
 --- !u!114 &114748174162006314
 MonoBehaviour:
   m_ObjectHideFlags: 1
