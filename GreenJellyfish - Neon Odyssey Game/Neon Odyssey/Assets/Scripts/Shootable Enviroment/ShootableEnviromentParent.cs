@@ -26,10 +26,12 @@ public class ShootableEnviromentParent : MonoBehaviour
     {
         if (m_children.Count == 0)
         {
-            if(m_destroyEffect!=null)
-                Destroy(Instantiate(m_destroyEffect, transform.TransformPoint(m_destroyEffectOffset), Quaternion.identity),5.0f);
             if(m_ray != null)
+            {
                 Destroy(m_ray);
+                if (m_destroyEffect != null)
+                    Destroy(Instantiate(m_destroyEffect, transform.TransformPoint(m_destroyEffectOffset), Quaternion.identity), 5.0f);
+            }
         }
     }
 }
