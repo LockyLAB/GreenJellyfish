@@ -5,7 +5,8 @@ using UnityEngine;
 public class RayshieldEntry : MonoBehaviour {
 
     public GameObject shield;
-    
+    public GameObject m_bossCameraSnap = null;
+
     private GameObject playerOne;
     private GameObject playerTwo;
 
@@ -35,7 +36,7 @@ public class RayshieldEntry : MonoBehaviour {
             }
 
             //Lock camera
-            GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<BossRoomSnap>().Activate();
+            m_bossCameraSnap.GetComponent<BossRoomSnap>().Activate();
         }
     }
 

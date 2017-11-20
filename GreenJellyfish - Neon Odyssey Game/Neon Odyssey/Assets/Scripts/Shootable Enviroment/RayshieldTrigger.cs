@@ -5,6 +5,9 @@ using UnityEngine;
 public class RayshieldTrigger : MonoBehaviour {
 
     public GameObject boss;
+
+    public GameObject m_bossCameraSnap = null;
+
     public GameObject shield;
     private bool triggered;
 
@@ -24,7 +27,7 @@ public class RayshieldTrigger : MonoBehaviour {
                 triggered = true;
 
                 //Lock camera
-                GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<BossRoomSnap>().Deactivate();
+                m_bossCameraSnap.GetComponent<BossRoomSnap>().Deactivate();
             }
         }
 	}
