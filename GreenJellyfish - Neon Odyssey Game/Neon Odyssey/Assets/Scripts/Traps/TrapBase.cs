@@ -26,14 +26,13 @@ public class TrapBase : MonoBehaviour {
     void Update ()
     {
         //Do nothing till intial delay is gone 
-        if(m_intialDelay>=0.0f)
-        {
-            m_intialDelay -= Time.deltaTime;
+        if(!m_triggered)
             return;
-        }
+
+        m_intialDelay -= Time.deltaTime;
 
         //On trigger start firing trap
-        if (m_triggered)
+        if (m_intialDelay >= 0.0f)
         {
             //Firing
             if (m_bulletCount > 0)
