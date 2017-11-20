@@ -655,7 +655,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645321335930210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 904, y: 29, z: -1}
+  m_LocalPosition: {x: 891, y: 29, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4329759764044312}
@@ -902,14 +902,11 @@ MonoBehaviour:
   deathTimer: 0
   deathTime: 2
   m_playerDeathEffect:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1273807587633074, guid: 80753b5727aa6e841a27cce73704af75, type: 2}
+  - {fileID: 1119021048048388, guid: 1bd1648dfe7043a4cb1b180ef23f4931, type: 2}
   m_playerDeathEffectOffset: {x: 0, y: 1, z: 0}
   m_playerGhost:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1341482646888078, guid: 1f53de6ad63086644be8fc07b0d2df00, type: 2}
   m_playerGhostOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114198500525022286
 MonoBehaviour:
@@ -985,7 +982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_healthMax: 4
-  m_invicibleTime: 1
+  m_invicibleTime: 2
+  m_flashSpeed: 50
+  m_characterRenderer: {fileID: 0}
   jumpHeight: 5
   timeToJumpApex: 0.35
   accelerationTimeAirborne: 0.2
