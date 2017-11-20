@@ -55,7 +55,7 @@ public class EnemyScorpion : Enemy
     private CoolDown m_actionLaserCooldown;
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         //Set health
         SetHealth(m_healthMax);
@@ -86,10 +86,7 @@ public class EnemyScorpion : Enemy
         m_actionLaserCooldown = gameObject.AddComponent<CoolDown>();
 
         //Set up get target
-        GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        if (players.Length == 1)
+        if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
             m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
         else
             m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();

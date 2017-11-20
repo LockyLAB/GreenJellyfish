@@ -49,7 +49,7 @@ public class EnemyBeetle : Enemy
     private MoveTowardsTarget m_actionMovetowards;
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         //Set health
         SetHealth(m_healthMax);
@@ -79,10 +79,7 @@ public class EnemyBeetle : Enemy
         m_actionMovetowards = gameObject.AddComponent<MoveTowardsTarget>();
 
         //Set up get target
-        GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        if (players.Length == 1)
+        if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
             m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
         else
             m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();

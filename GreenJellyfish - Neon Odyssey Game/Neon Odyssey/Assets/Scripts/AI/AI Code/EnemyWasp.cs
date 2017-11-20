@@ -44,7 +44,7 @@ public class EnemyWasp : Enemy
 	private MoveTowardsTargetFlying m_actionMovetowards;
 
 	// Use this for initialization
-	void Awake ()
+	void Start()
 	{
 		//Set health
 		SetHealth (m_healthMax);
@@ -65,12 +65,9 @@ public class EnemyWasp : Enemy
 		m_actionGetDisMovement = gameObject.AddComponent<IsTargetCloseEnoughX> ();
 		m_actionMovetowards = gameObject.AddComponent<MoveTowardsTargetFlying> ();
 
-		//Set up get target
-		GameObject[] players;
-		players = GameObject.FindGameObjectsWithTag ("Player");
-
-		if (players.Length == 1)
-			m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer> ();
+        //Set up get target
+        if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
+            m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer> ();
 		else
 			m_actionGetTarget = gameObject.AddComponent<GetTargetEasy> ();
 
