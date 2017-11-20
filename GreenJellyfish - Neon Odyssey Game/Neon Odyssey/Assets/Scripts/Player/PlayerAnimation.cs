@@ -77,15 +77,16 @@ public class PlayerAnimation : MonoBehaviour
 		if (Mathf.Abs (GetComponent<Player> ().velocity.x) > 0.1f && m_playerController.m_CollisionInfo.bottom) { //moving animation
 			m_animator.SetBool ("Moving", true);
 
-			//Play Audio for moving
-			if (!m_playerSounds.m_movementAudio.GetComponent<AudioSource> ().isPlaying)
-				m_playerSounds.m_movementAudio.GetComponent<AudioSource> ().Play ();
+			
+            if(m_playerSounds != null)//Play Audio for moving
+                if (!m_playerSounds.m_movementAudio.GetComponent<AudioSource>().isPlaying)
+				    m_playerSounds.m_movementAudio.GetComponent<AudioSource>().Play ();
 		} else {
 			m_animator.SetBool ("Moving", false);
 
-			//Need to stop playing audio for movement
-			if (m_playerSounds.m_movementAudio.GetComponent<AudioSource> ().isPlaying)
-				m_playerSounds.m_movementAudio.GetComponent<AudioSource> ().Stop ();
+            if (m_playerSounds != null) //Need to stop playing audio for movement
+                if (m_playerSounds.m_movementAudio.GetComponent<AudioSource>().isPlaying)
+				    m_playerSounds.m_movementAudio.GetComponent<AudioSource>().Stop ();
 		}
 
 		if (!m_playerController.m_CollisionInfo.bottom && !m_playerController.m_CollisionInfo.top && !m_playerController.m_CollisionInfo.left && !m_playerController.m_CollisionInfo.right)// Falling animation
@@ -102,6 +103,8 @@ public class PlayerAnimation : MonoBehaviour
 				m_currentHitWallEffect = Instantiate (m_hitWallEffect [0], transform.TransformPoint (m_hitWallEffectSpawnPos * wallDirection), Quaternion.identity);
 			else
 				m_currentHitWallEffect = Instantiate (m_hitWallEffect [1], transform.TransformPoint (m_hitWallEffectSpawnPos * wallDirection), Quaternion.identity);
+
+            //Start timer to cause effect to follow player
 			StartCoroutine (PauseEffectFollow (0.1f, m_currentHitWallEffect));
 		} else
 			m_hitWall = false;

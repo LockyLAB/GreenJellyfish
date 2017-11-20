@@ -27,7 +27,7 @@ public class FleeTarget : BehaviourBase
     public override BehaviourBase.BehaviourStatus Execute()
     {
 
-        Debug.Log("Fleeing");
+        //Debug.Log("Fleeing");
 
         //Ensure doesnt flee forever
         m_time -= Time.deltaTime;

@@ -103,7 +103,7 @@ public class CameraMove : MonoBehaviour {
 
     void CameraShake()
     {
-        Debug.Log("Camera Shaking");
+        //Debug.Log("Camera Shaking");
         m_shakeTimer -= Time.deltaTime;
         if(m_shakeTimer < 0.0f)
         {

@@ -24,7 +24,7 @@ public class EnemyShield : MonoBehaviour {
                     shieldPos.rotation,
                     transform);
         
-        Debug.Log("enemyShield");
+        //Debug.Log("enemyShield");
 	}
 	
 	// Update is called once per frame

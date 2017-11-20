@@ -34,7 +34,7 @@ public class CheckPoint : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             CPmanager.setCurrentCheckpoint(other.gameObject.transform.position);
-            Debug.Log("cp set " + pos);
+            //Debug.Log("cp set " + pos);
             //this.GetComponentInChildren<MeshRenderer>().material = cpMaterial[1]; //set alt colour when activated
         }
     }

@@ -24,7 +24,7 @@ public class InfrontOfLedge : BehaviourBase
         {
             return BehaviourStatus.FAILURE;
         }
-        Debug.Log("In front of ledge");
+        //Debug.Log("In front of ledge");
         return BehaviourStatus.SUCCESS;
     }
 }

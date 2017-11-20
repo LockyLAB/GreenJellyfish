@@ -13,14 +13,6 @@ public class Character : MonoBehaviour
     public void Update()
     {
         m_invicibleTimer -= Time.deltaTime;
-
-        //if (m_invicibleTimer >= 0.0f)//Used to change alpha
-        //{
-        //    Color playerColour = GetComponentInChildren<SkinnedMeshRenderer>().material.color;
-        //    playerColour.a = 0.2f * Mathf.Sin(m_invicibleTimer * 20) + 0.2f;
-
-        //    GetComponentInChildren<SkinnedMeshRenderer>().material.SetColor("_Color", playerColour);
-        //}
          CharaterActions();
     }
 
