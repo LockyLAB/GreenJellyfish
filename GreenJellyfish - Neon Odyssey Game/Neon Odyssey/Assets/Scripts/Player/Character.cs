@@ -19,10 +19,11 @@ public class Character : MonoBehaviour
 
     public void Update()
     {
-        m_invicibleTimer -= Time.deltaTime;
         CharaterActions();
 
-        if (m_invicibleTimer >= 0.0f)//take damage from other sources
+        //Invicibility 
+        m_invicibleTimer -= Time.deltaTime;
+        if (m_invicibleTimer > 0.0f)//take damage from other sources
         {
             if (GetComponent<Player>() != null)
                 GetComponent<Player>().m_childRenderer.GetComponentInChildren<SkinnedMeshRenderer>().material.SetFloat("_Clipping", amp * Mathf.Sin(m_flashSpeed * Time.time) + vertShift);
