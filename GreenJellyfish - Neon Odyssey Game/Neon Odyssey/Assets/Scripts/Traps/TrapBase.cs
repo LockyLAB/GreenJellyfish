@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class TrapBase : MonoBehaviour {
 
-    private bool m_triggered = false;
+    public bool m_triggered = false;
 
     public int m_numberOfBullets = 0;
     private int m_bulletCount = 0;
     public float m_bulletSpeed = 0.0f;
 
     public float m_timeBetweenShots = 0.0f;
-    private float m_firingTimer = 0.0f;
+    public float m_firingTimer = 0.0f;
 
     public float m_intialDelay = 0.0f;
+    public float m_intialDelayTimer = 0.0f;
 
     public float m_cooldown = 0.0f;
-    private float m_cooldownTimer = 0.0f;
+    public float m_cooldownTimer = 0.0f;
 
     public Vector3 m_bulletSpawnPos = Vector3.up;
 
@@ -29,31 +30,33 @@ public class TrapBase : MonoBehaviour {
         if(!m_triggered)
             return;
 
-        m_intialDelay -= Time.deltaTime;
+        m_intialDelayTimer += Time.deltaTime;
 
         //On trigger start firing trap
-        if (m_intialDelay >= 0.0f)
+        if (m_intialDelayTimer >= m_intialDelay)
         {
             //Firing
-            if (m_bulletCount > 0)
+            if (m_bulletCount < m_numberOfBullets)
             {
-                m_firingTimer -= Time.deltaTime;
-                if (m_firingTimer < 0.0f)
+                m_firingTimer += Time.deltaTime;
+                if (m_firingTimer > m_timeBetweenShots)
                 {
                     //Fire bullet
                     FireTrap();
-                    Debug.Log("Firing Trap");
-                    m_firingTimer = m_timeBetweenShots;
+                    m_firingTimer = 0.0f;
                     m_bulletCount--;
                 }
             }
-            //Cooldown
-            m_cooldownTimer -= Time.deltaTime;
-            if (m_cooldownTimer < 0.0f)
+            else
             {
-                //Fire bullet
-                m_bulletCount = m_numberOfBullets;
-                m_cooldownTimer = m_cooldown;
+                //Cooldown
+                m_cooldownTimer += Time.deltaTime;
+                if (m_cooldownTimer > m_cooldown)
+                {
+                    //Fire bullet
+                    m_bulletCount = m_numberOfBullets;
+                    m_cooldownTimer = 0.0f;
+                }
             }
         }
     }

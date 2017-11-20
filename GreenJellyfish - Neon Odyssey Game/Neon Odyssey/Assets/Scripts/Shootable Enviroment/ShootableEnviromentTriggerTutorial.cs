@@ -18,6 +18,8 @@ public class ShootableEnviromentTriggerTutorial : ShootableEnviromentTrigger
         
         Destroy(destructionEffect, m_destructionEffectDuration);
 
+        //Set to invisible
+        gameObject.SetActive(false);
         Invoke("RemoveFromParent", m_destructionEffectDuration);
     }
 

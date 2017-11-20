@@ -25,12 +25,17 @@ public class RayshieldEntry : MonoBehaviour {
     {
         if (p1trigger == true && p2trigger == true)
         {
+
+            //TO DO
             bothTriggeered = true;
             if (bothTriggeered == true)
             {
                 shield.SetActive(true);
                 bothTriggeered = false;
             }
+
+            //Lock camera
+            GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<BossRoomSnap>().Activate();
         }
     }
 

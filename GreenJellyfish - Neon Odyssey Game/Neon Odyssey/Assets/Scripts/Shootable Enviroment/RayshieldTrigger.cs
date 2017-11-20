@@ -22,6 +22,9 @@ public class RayshieldTrigger : MonoBehaviour {
             {
                 shield.SetActive(false);
                 triggered = true;
+
+                //Lock camera
+                GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<BossRoomSnap>().Deactivate();
             }
         }
 	}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossRoomSnap : MonoBehaviour
 {
     private CameraMove m_MainCameraScript = null;
+
 	// Use this for initialization
 	void Start ()
     {
