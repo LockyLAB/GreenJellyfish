@@ -79,22 +79,26 @@ public class CameraMove : MonoBehaviour {
 
             Vector3 cameraGoalDistance = cameraGoal - cameraPos;
 
-            //float zoomSpeed = 0.5f;
+            float zoomSpeed = 0.0f;
 
             //Compare distance to buffers
             if (Mathf.Abs(cameraGoalDistance.x) > m_horizontalBuffer) //Horizontal camera movement
             {
                 float xVal = Mathf.Abs(playerDis.x) - m_horizontalBuffer;
-                float zoomSpeed = 8 / (m_maxHorizontalDistance * m_maxHorizontalDistance);
+                zoomSpeed = 8 / (m_maxHorizontalDistance * m_maxHorizontalDistance);
                 cameraPos.x += ((zoomSpeed * (xVal * xVal)) + m_minZoomSpeed) * cameraGoalDistance.x * Time.deltaTime;
             }
 
             if (Mathf.Abs(cameraGoalDistance.y) > m_verticalBuffer) //Vertical camera movement
             {
                 float yVal = Mathf.Abs(playerDis.y) - m_verticalBuffer;
-                float zoomSpeed = 8 / (m_maxVerticalDistance * m_maxVerticalDistance);
+                zoomSpeed = 8 / (m_maxVerticalDistance * m_maxVerticalDistance);
                 cameraPos.y += ((zoomSpeed * (yVal * yVal)) + m_minZoomSpeed) * cameraGoalDistance.y * Time.deltaTime;
             }
+
+            //Always apply z movement
+            zoomSpeed = 0.05f;
+            cameraPos.z += (zoomSpeed + m_minZoomSpeed) * cameraGoalDistance.z * Time.deltaTime;
 
             transform.position = cameraPos;
         }

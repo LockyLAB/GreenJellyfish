@@ -9,6 +9,7 @@ using XboxCtrlrInput;
 public class GameManager : MonoBehaviour
 {
     public GameObject m_pausePanel;
+    public GameObject m_controlsPanel; 
     public GameObject m_gameoverPanel;
 
     public GameObject m_player1 = null;
@@ -115,8 +116,11 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0.0f;
         }
 
-        //Reset Scene
+        //Show controls
         if (XCI.GetButtonDown(XboxButton.Back))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        {
+            m_controlsPanel.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
     }
 }
