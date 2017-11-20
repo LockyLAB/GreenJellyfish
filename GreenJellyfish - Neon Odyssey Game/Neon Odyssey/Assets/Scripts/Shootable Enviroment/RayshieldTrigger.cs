@@ -27,7 +27,8 @@ public class RayshieldTrigger : MonoBehaviour {
                 triggered = true;
 
                 //Lock camera
-                m_bossCameraSnap.GetComponent<BossRoomSnap>().Deactivate();
+                if(m_bossCameraSnap!= null)
+                    m_bossCameraSnap.GetComponent<BossRoomSnap>().Deactivate();
             }
         }
 	}

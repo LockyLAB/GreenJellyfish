@@ -36,7 +36,8 @@ public class RayshieldEntry : MonoBehaviour {
             }
 
             //Lock camera
-            m_bossCameraSnap.GetComponent<BossRoomSnap>().Activate();
+            if (m_bossCameraSnap != null)
+                m_bossCameraSnap.GetComponent<BossRoomSnap>().Activate();
         }
     }
 
