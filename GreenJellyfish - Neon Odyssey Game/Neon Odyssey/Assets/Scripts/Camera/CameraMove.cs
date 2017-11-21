@@ -96,9 +96,12 @@ public class CameraMove : MonoBehaviour {
                 cameraPos.y += ((zoomSpeed * (yVal * yVal)) + m_minZoomSpeed) * cameraGoalDistance.y * Time.deltaTime;
             }
 
-            //Always apply z movement
-            zoomSpeed = 0.05f;
-            cameraPos.z += (zoomSpeed + m_minZoomSpeed) * cameraGoalDistance.z * Time.deltaTime;
+            //Apply z if players arent too far apart
+            if (Mathf.Abs(cameraGoalDistance.z) > playerDis.z) //Vertical camera movement
+            {
+                zoomSpeed = 0.05f;
+                cameraPos.z += (zoomSpeed + m_minZoomSpeed) * cameraGoalDistance.z * Time.deltaTime;
+            }
 
             transform.position = cameraPos;
         }

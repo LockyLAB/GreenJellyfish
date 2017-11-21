@@ -67,10 +67,6 @@ public class ControlScreenManager : MonoBehaviour
 
         if (m_fadeOut) //Fading out TODO
         {
-            //this.gameObject.SetActive(false);
-            //SetSpriteAlpha(1.0f);
-            //Time.timeScale = 1.0f;
-            //m_fadeOut = false;
 
             StartCoroutine(Clock(0.05f));
 
