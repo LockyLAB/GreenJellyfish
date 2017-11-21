@@ -10,11 +10,20 @@ public class Bullet : MonoBehaviour
 
     public enum TEAM {PLAYER, ENEMY }
 
-    public GameObject m_hitMarker = null;
     public Vector3 m_hitMarkerSpawnPos = Vector3.up * 0.5f;
-
+    public GameObject m_hitMarker = null;
     public GameObject explosionParticle;
+
     public bool isExplosive = false;
+    private bool triggered = false;
+
+    private float explosionRadius = 10.0f;
+    private Weapon wep;
+
+    private void Awake()
+    {
+       wep = GetComponent<Weapon>();
+    }
 
     public void SetTeam(TEAM team)
     {
@@ -29,7 +38,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         //destroy bullet if not visible on cameras
@@ -37,6 +45,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     //function called when object collides with other
@@ -48,7 +57,6 @@ public class Bullet : MonoBehaviour
             //if ENEMY bullet hits PLAYER, 
             if (other.gameObject.tag == "Player")
             {
-
                 if (other.gameObject.GetComponent<Player>().IsDead()) //Dont allow bullets to hit dead players
                     return;
 
@@ -79,10 +87,11 @@ public class Bullet : MonoBehaviour
                 {
                     other.gameObject.GetComponent<Enemy>().ChangeHealth(-1);
 
-                    if (isExplosive)
+                    while (isExplosive && !triggered)
                     {
-                        //ExplodeDamage(this.transform.position, GetComponent<Weapon>().launcherExplosionRadius, gameObject, other.gameObject);
                         Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
+                        ExplodeDamage(gameObject.transform.position, other.gameObject);
+                        //isExplosive = false;
                     }
 
                     Destroy(gameObject);
@@ -91,9 +100,11 @@ public class Bullet : MonoBehaviour
                 //if BULLET and ENEMY are different colours, destroy player bullet
                 if(other.gameObject.layer != gameObject.layer && other.gameObject.GetComponent<Bullet>() == null)
                 {
-                    if (isExplosive)
+                    while (isExplosive && !triggered)
                     {
                         Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
+                        ExplodeDamage(gameObject.transform.position, other.gameObject);
+                        //isExplosive = false;
                     }
 
                     Destroy(gameObject);
@@ -114,10 +125,12 @@ public class Bullet : MonoBehaviour
         //check bullet - wall collisions
         if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
         {
-            
-            if (isExplosive)
+
+            while (isExplosive && !triggered)
             {
                 Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
+                ExplodeDamage(gameObject.transform.position, other.gameObject);
+                //isExplosive = false;
             }
 
             Destroy(gameObject);
@@ -125,28 +138,34 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void ExplodeDamage(Vector3 center, float explosionRadius, GameObject playerGO, GameObject enemyGO)
-    {
-        Collider[] hitTargets = Physics.OverlapSphere(center, explosionRadius);
+    //void OnDestroy(GameObject other)
+    //{
+    //    ExplodeDamage(gameObject.transform.position, other.gameObject);
+    //}
+    //
 
-        foreach (Collider t in hitTargets)
+    void ExplodeDamage(Vector3 center, GameObject enemyGO)
+    {
+        LayerMask layerMask = 1 << 8;
+        LayerMask mask = ~(1 << 8);
+
+        Collider[] hitTargets = Physics.OverlapSphere(center, explosionRadius, mask);
+
+        for (int i = 0; i < hitTargets.Length; i++)
         {
-            if (t.tag == "Enemy" && playerGO.layer == enemyGO.layer)
+            float dist = (gameObject.transform.position - hitTargets[i].gameObject.transform.position).sqrMagnitude;
+            if (gameObject.layer == hitTargets[i].gameObject.layer && dist < explosionRadius && hitTargets[i].gameObject.activeInHierarchy)
             {
-                enemyGO.GetComponent<Enemy>().ChangeHealth(-1);
+                if (i == hitTargets.Length - 1)
+                {
+                    triggered = true;
+                    isExplosive = false;
+                }
+
+                hitTargets[i].gameObject.GetComponent<Enemy>().ChangeHealth(-1);  
+
             }
         }
-
-       // int i = 0;
-       // while (hitTargets != null)
-       // {
-       //     if (hitTargets[i].tag == "Enemy" && playerGO.layer == enemyGO.layer)
-       //     {
-       //         enemyGO.GetComponent<Enemy>().ChangeHealth(-1);
-       //     }
-       //
-       //     ++i;
-       // }
 
     }
 
