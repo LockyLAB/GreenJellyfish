@@ -5,16 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class ButtonScript : MonoBehaviour, ISelectHandler
-{
-    public Image m_selectedImg;
-
+{ 
     public void OnSelect(BaseEventData eventData)
     {
-        m_selectedImg.rectTransform.localScale = new Vector3(1.2f ,1.2f ,1.2f);
+        GetComponent<Image>().rectTransform.localScale = new Vector3(1.2f ,1.2f ,1.2f);
     }
 
     public void OnDeselect(BaseEventData data)
     {
-        m_selectedImg.rectTransform.localScale = new Vector3(1f, 1f, 1f);
+        GetComponent<Image>().rectTransform.localScale = new Vector3(1f, 1f, 1f);
     }
 }
