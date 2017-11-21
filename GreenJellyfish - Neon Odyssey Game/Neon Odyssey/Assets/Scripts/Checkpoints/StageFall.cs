@@ -5,27 +5,16 @@ using UnityEngine;
 public class StageFall : MonoBehaviour
 {
     //---------------------------------------------------
-    //-Attach this script to CHECKPOINT prefab
-    //-Plug in CHECKPOINT MANAGER gameobject from SCENE
+    // 1. Attach this script to CHECKPOINT prefab
+    // 2. Plug in CHECKPOINT MANAGER gameobject from SCENE
     //---------------------------------------------------
 
     public CheckPointManager CPmanager1;
 
-	// Use this for initialization
-	void Start ()
-    {
-
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
+    // spawn player at last touched checkpoint if they fall off stage
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<Player>())
         {
             other.gameObject.transform.position = CPmanager1.currentCheckpoint;
         }
