@@ -109,17 +109,35 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //Pausing Screen
-        if (Input.GetKeyDown(KeyCode.Escape) || XCI.GetButtonDown(XboxButton.Start))
+        if(m_singlePlayer)
         {
-            m_pausePanel.SetActive(true);
-            Time.timeScale = 0.0f;
-        }
+            //Pausing Screen
+            if (XCI.GetButtonDown(XboxButton.Start, m_player1.GetComponent<Player>().controller))
+            {
+                m_pausePanel.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
 
-        //Show controls
-        if (XCI.GetButtonDown(XboxButton.Back))
+            //Show controls
+            if (XCI.GetButtonDown(XboxButton.Back, m_player1.GetComponent<Player>().controller))
+            {
+                m_controlsPanel.SetActive(true);
+            }
+        }
+        else
         {
-            m_controlsPanel.SetActive(true);
+            //Pausing Screen
+            if (XCI.GetButtonDown(XboxButton.Start, m_player1.GetComponent<Player>().controller) || XCI.GetButtonDown(XboxButton.Start, m_player2.GetComponent<Player>().controller))
+            {
+                m_pausePanel.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
+
+            //Show controls
+            if (XCI.GetButtonDown(XboxButton.Back, m_player1.GetComponent<Player>().controller) || XCI.GetButtonDown(XboxButton.Back, m_player2.GetComponent<Player>().controller))
+            {
+                m_controlsPanel.SetActive(true);
+            }
         }
     }
 }
