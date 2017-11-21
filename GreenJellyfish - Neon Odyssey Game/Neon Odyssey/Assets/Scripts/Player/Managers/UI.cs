@@ -86,7 +86,7 @@ public class UI : MonoBehaviour
     //change health bar colour
     //
     // Param:
-    //		healthBarImageHolder: array containing the image displays
+    //		healthBarImageHolder: Current holder of health bar
     //		healthBarImage: the new health bar image
     //--------------------------------------------------------------------------------------
     private void ColourFlip(GameObject healthBarImageHolder, GameObject healthBarImage)

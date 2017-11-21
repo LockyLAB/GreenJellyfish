@@ -21,15 +21,10 @@ public class FireGun : BehaviourBase
     //--------------------------------------------------------------------------------------
     public override void BehaviourSetup()
     {
+        gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Firing
+
         m_bulletCount = 0;
         m_time = m_timeBetweenShots;
-
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, GetComponent<Rigidbody>().velocity.y, 0.0f);
-
-        gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
-
-        //Stop movement audio
-        GetComponent<Enemy>().m_movementAudio.GetComponent<AudioSource>().Stop();
     }
 
     //--------------------------------------------------------------------------------------
@@ -60,6 +55,7 @@ public class FireGun : BehaviourBase
         if (m_bulletCount < m_numberOfBullets)
             return BehaviourStatus.PENDING;
 
+        gameObject.GetComponent<Animator>().ResetTrigger("Firing");
         return BehaviourStatus.SUCCESS;
     }
 

@@ -11,6 +11,8 @@ public class MoveTowardsTargetX : BehaviourBase
     {
         if (!GetComponent<Enemy>().m_movementAudio.GetComponent<AudioSource>().isPlaying)
             GetComponent<Enemy>().m_movementAudio.GetComponent<AudioSource>().Play();
+
+        gameObject.GetComponent<Animator>().SetBool("Moving", true);
     }
 
     //--------------------------------------------------------------------------------------

@@ -120,7 +120,6 @@ public class GameManager : MonoBehaviour
         if (XCI.GetButtonDown(XboxButton.Back))
         {
             m_controlsPanel.SetActive(true);
-            Time.timeScale = 0.0f;
         }
     }
 }

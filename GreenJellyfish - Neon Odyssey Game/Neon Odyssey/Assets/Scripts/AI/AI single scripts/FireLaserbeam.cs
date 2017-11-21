@@ -23,13 +23,11 @@ public class FireLaserbeam : BehaviourBase
     public override void BehaviourSetup()
     {
         gameObject.GetComponent<Animator>().SetTrigger("Laserbeam"); // Animation
+
         //Fire Laser
         laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);
         m_laserbeamHolder = Instantiate(m_laserbeam, transform.TransformPoint(m_laserSpawnPos), Quaternion.identity);
         m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position);
-
-        //Stop movement audio
-        GetComponent<Enemy>().m_movementAudio.GetComponent<AudioSource>().Stop();
 
         m_time = 0.0f;
     }
@@ -50,6 +48,7 @@ public class FireLaserbeam : BehaviourBase
         FireLaser(laserDir, laserDir.magnitude);
 
         //Reset all varibles
+        gameObject.GetComponent<Animator>().ResetTrigger("Laserbeam");
         return BehaviourStatus.SUCCESS;
     }
 

@@ -28,11 +28,7 @@ public class CoolDown : BehaviourBase
         m_time -= Time.deltaTime;
 
         if (m_time < 0.0f)
-        {
-            gameObject.GetComponent<Animator>().ResetTrigger("Laserbeam");
-            gameObject.GetComponent<Animator>().ResetTrigger("Firing");
             return BehaviourStatus.SUCCESS;
-        }
         return BehaviourStatus.PENDING;
     }
 }

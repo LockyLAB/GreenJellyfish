@@ -36,7 +36,8 @@ public class EnemyWasp : Enemy
 	private BehaviourSequence m_sequenceMove;
 
 	private IsTargetCloseEnoughX m_actionGetDisCone;
-	private FireCone m_actionFireCone;
+
+    private FireCone m_actionFireCone;
 	private FleeTarget m_actionFlee;
 	private CoolDown m_actionConeCooldown;
 
@@ -54,15 +55,15 @@ public class EnemyWasp : Enemy
 		SetHealth (m_healthMax);
 
 		//Set up varibles
-		m_sequenceTop = gameObject.AddComponent<BehaviourSequence> ();
+		m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
 
-		m_selectorActions = gameObject.AddComponent<BehaviourSelector> ();
+		m_selectorActions = gameObject.AddComponent<BehaviourSelector>();
 
-		m_sequenceCone = gameObject.AddComponent<BehaviourSequence> ();
-		m_sequenceMove = gameObject.AddComponent<BehaviourSequence> ();
+		m_sequenceCone = gameObject.AddComponent<BehaviourSequence>();
+		m_sequenceMove = gameObject.AddComponent<BehaviourSequence>();
 
-		m_actionGetDisCone = gameObject.AddComponent<IsTargetCloseEnoughX> ();
-		m_actionFireCone = gameObject.AddComponent<FireCone> ();
+		m_actionGetDisCone = gameObject.AddComponent<IsTargetCloseEnoughX>();
+        m_actionFireCone = gameObject.AddComponent<FireCone> ();
 		m_actionFlee = gameObject.AddComponent<FleeTarget> ();
 		m_actionConeCooldown = gameObject.AddComponent<CoolDown> ();
 
@@ -103,9 +104,9 @@ public class EnemyWasp : Enemy
 		m_selectorActions.m_behaviourBranches.Add (m_sequenceMove);
 
 		m_sequenceCone.m_behaviourBranches.Add (m_actionGetDisCone);
-		m_sequenceCone.m_behaviourBranches.Add (m_actionFireCone);
+        m_sequenceCone.m_behaviourBranches.Add (m_actionFireCone);
 		m_sequenceCone.m_behaviourBranches.Add (m_actionFlee);
-		m_sequenceCone.m_behaviourBranches.Add (m_actionConeCooldown);
+        m_sequenceCone.m_behaviourBranches.Add (m_actionConeCooldown);
 
 		m_sequenceMove.m_behaviourBranches.Add (m_actionGetDisMovement);
 		m_sequenceMove.m_behaviourBranches.Add (m_actionMovetowards);

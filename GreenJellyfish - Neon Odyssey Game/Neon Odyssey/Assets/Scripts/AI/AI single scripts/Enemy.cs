@@ -72,29 +72,24 @@ public class Enemy : Character
 		if (IsDead ())
 			PlayDeath ();
 
-        //Rotaion of model 
+        //Movement functions
         if (m_childRenderer != null)
         {
-            if (GetComponent<EnemyBeetle>() != null)
+            if (GetComponent<EnemyBeetle>() != null || GetComponent<EnemyBeetleTutorial>() != null)
             { // Beetle model was wrong way.....
                 if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); //Face forwards
-                if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
+                else if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); // Face backwards
             }
             else
             {
                 if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); //Face forwards
-                if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
+                else if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); // Face backwards
             }
         }
-
-		if (Mathf.Abs (GetComponent<Rigidbody> ().velocity.x) > 0)
-			gameObject.GetComponent<Animator> ().SetBool ("Moving", true);
-		else
-			gameObject.GetComponent<Animator> ().SetBool ("Moving", false);
 	}
 
     //--------------------------------------------------------------------------------------

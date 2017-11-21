@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBeetleTutorial : EnemyBeetle
+public class EnemyBeetleTutorial : Enemy
 {
+    //Movement
+    public float m_moveTowardsRange = 0.0f;
+
     //Nodes
     private BehaviourSequence m_sequenceTop;
 

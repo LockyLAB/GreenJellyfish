@@ -42,6 +42,7 @@ public class EnemyBeetle : Enemy
     private BehaviourSelector m_selectorFiringGun;
     private IsTargetCloseEnough m_actionGetDisGun;
     private InfrontOfLedge m_actionInfrontOfLedge;
+    private StopMovement m_actionStopMovement;
     private FireGun m_actionFireGun;
     private CoolDown m_actionGunCooldown;
 
@@ -75,6 +76,7 @@ public class EnemyBeetle : Enemy
 
         m_actionGetDisGun = gameObject.AddComponent<IsTargetCloseEnough>();
         m_actionInfrontOfLedge = gameObject.AddComponent<InfrontOfLedge>();
+        m_actionStopMovement = gameObject.AddComponent<StopMovement>();
 
         m_actionFireGun = gameObject.AddComponent<FireGun>();
         m_actionGunCooldown = gameObject.AddComponent<CoolDown>();
@@ -124,6 +126,7 @@ public class EnemyBeetle : Enemy
         m_selectorFiringGun.m_behaviourBranches.Add(m_actionInfrontOfLedge);
 
         m_sequenceGun.m_behaviourBranches.Add(m_selectorFiringGun);
+        m_sequenceGun.m_behaviourBranches.Add(m_actionStopMovement);
         m_sequenceGun.m_behaviourBranches.Add(m_actionFireGun);
         m_sequenceGun.m_behaviourBranches.Add(m_actionGunCooldown);
 
