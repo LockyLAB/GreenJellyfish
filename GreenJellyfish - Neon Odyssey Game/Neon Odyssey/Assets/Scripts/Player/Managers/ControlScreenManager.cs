@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using XboxCtrlrInput;
 
 public class ControlScreenManager : MonoBehaviour
@@ -14,14 +15,14 @@ public class ControlScreenManager : MonoBehaviour
 
     private float m_fadeInGradiant = 0.0f;
 
-    private SpriteRenderer m_sprite = null;
+    private Image m_image = null;
 
     private void Awake()
     {
         m_fadeInGradiant = 1 / m_fadeTime;
-        m_sprite = GetComponentInChildren<SpriteRenderer>();
+        m_image = GetComponentInChildren<Image>();
 
-        SetSpriteAlpha(0.0f);
+        SetImageAlpha(0.0f);
     }
 
     //--------------------------------------------------------------------------------------
@@ -32,7 +33,7 @@ public class ControlScreenManager : MonoBehaviour
         m_fadeIn = true;
         m_fadeTimer = 0.05f;
 
-        SetSpriteAlpha(0.0f);
+        SetImageAlpha(0.0f);
     }
 
     //--------------------------------------------------------------------------------------
@@ -53,13 +54,13 @@ public class ControlScreenManager : MonoBehaviour
             if (m_fadeTimer < m_fadeTime)
             {
                 float fadePercent = m_fadeInGradiant * m_fadeTimer;
-                SetSpriteAlpha(fadePercent);
+                SetImageAlpha(fadePercent);
                 Time.timeScale = 1.0f - fadePercent;
             }
             else
             {
                 m_fadeIn = false;
-                SetSpriteAlpha(1.0f);
+                SetImageAlpha(1.0f);
                 m_fadeTimer = 0.05f;
                 Time.timeScale = 0.0f;
             }
@@ -73,13 +74,13 @@ public class ControlScreenManager : MonoBehaviour
             if (m_fadeTimer < m_fadeTime)
             {
                 float fadePercent = m_fadeInGradiant * m_fadeTimer;
-                SetSpriteAlpha(1.0f- fadePercent);
+                SetImageAlpha(1.0f- fadePercent);
                 Time.timeScale = fadePercent;
             }
             else
             {
                 m_fadeOut = false;
-                SetSpriteAlpha(0.0f);
+                SetImageAlpha(0.0f);
                 m_fadeTimer = 0.05f;
                 Time.timeScale = 1.0f;
                 gameObject.SetActive(false);
@@ -95,11 +96,11 @@ public class ControlScreenManager : MonoBehaviour
     //  param:
     //      alpha - Alpha to set sprite
     //--------------------------------------------------------------------------------------
-    private void SetSpriteAlpha(float alpha)
+    private void SetImageAlpha(float alpha)
     {
-        Color tempColor = m_sprite.color;
+        Color tempColor = m_image.color;
         tempColor.a = alpha;
-        m_sprite.color = tempColor;
+        m_image.color = tempColor;
     }
 
     //--------------------------------------------------------------------------------------
