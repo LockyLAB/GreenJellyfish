@@ -6,8 +6,8 @@ using XboxCtrlrInput;
 public class ColourController : MonoBehaviour
 {
     public XboxController controller;
-    float timeToSwitch = 0;
-
+    public float m_switchTime = 1.0f;
+    public float m_switchTimer = 0.0f;
     //All four materials, Purple, Pink, Orange, Green
     public Material[] playerMaterial;
 
@@ -25,13 +25,13 @@ public class ColourController : MonoBehaviour
         if (!GetComponent<Player>().IsDead())
         {
             //TOGGLE PLAYER COLOUR
-            timeToSwitch += Time.deltaTime;
+            m_switchTimer += Time.deltaTime;
 
-            if ((XCI.GetButton(XboxButton.Y, controller) || XCI.GetButton(XboxButton.RightBumper, controller) || XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) > 0 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) > 0) && timeToSwitch >= 0.3)
+            if ((XCI.GetButton(XboxButton.Y, controller) || XCI.GetButton(XboxButton.RightBumper, controller) || XCI.GetButton(XboxButton.LeftBumper, controller) || XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller) > 0 || XCI.GetAxisRaw(XboxAxis.RightTrigger, controller) > 0) && m_switchTimer >= m_switchTime)
             {
                 toggleColour();
+                m_switchTimer = 0.0f;
                 GameObject.FindWithTag("GameController").GetComponent<GameManager>().GetComponentsInChildren<UI>()[0].ChangeUIColour(GetComponent<Player>().isFirstPlayer, m_firstBulletSlot);
-                timeToSwitch = 0.0f;
             }
         }
     }
