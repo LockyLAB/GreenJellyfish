@@ -47,7 +47,7 @@ public class ControlScreenManager : MonoBehaviour
         m_fadeIn = true;
         m_fadeTimer = 0.05f;
 
-        SetImageAlpha(0.0f);
+        //SetImageAlpha(0.0f);
     }
 
     //--------------------------------------------------------------------------------------

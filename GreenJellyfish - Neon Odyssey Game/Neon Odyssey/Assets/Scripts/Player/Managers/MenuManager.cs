@@ -34,23 +34,34 @@ public class MenuManager : MonoBehaviour
             m_startFade = true;
         }
 
-        if(m_startFade && m_startFadeTimer > m_startFadeTime)
+        if(m_startFade && m_startFadeTimer < m_startFadeTime)
         {
             m_startFadeTimer += Time.deltaTime;
             float alpha = m_startFadeTimer / m_startFadeTime;
 
             SetAlpha(1 - alpha, m_startImg);
 
-            m_menuFade = true;
+            if(m_startFadeTimer > m_startFadeTime)
+            {
+                m_PlayBtnImg.gameObject.SetActive(true);
+                m_QuitBtnImg.gameObject.SetActive(true);
+                SetAlpha(0, m_PlayBtnImg);
+                SetAlpha(0, m_QuitBtnImg);
+                m_menuFade = true;
+
+                //Set up event System
+                GameObject eventSystem = GameObject.Find("EventSystem");
+                eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(m_PlayBtnImg.gameObject);
+            }
         }
 
-        if (m_menuFade && m_menuFadeTimer > m_menuFadeTime)
+        if (m_menuFade && m_menuFadeTimer < m_menuFadeTime)
         {
             m_menuFadeTimer += Time.deltaTime;
             float alpha = m_menuFadeTimer / m_menuFadeTime;
 
             SetAlpha(alpha, m_PlayBtnImg);
-            SetAlpha(alpha, m_ControllerBtnImg);
+            //SetAlpha(alpha, m_ControllerBtnImg);
             SetAlpha(alpha, m_QuitBtnImg);
         }
     }
