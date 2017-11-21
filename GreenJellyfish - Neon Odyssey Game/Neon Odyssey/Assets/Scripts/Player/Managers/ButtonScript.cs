@@ -10,15 +10,11 @@ public class ButtonScript : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        Color tempColor = m_selectedImg.color;
-        tempColor.a = 1.0f;
-        m_selectedImg.color = tempColor;
+        m_selectedImg.rectTransform.localScale = new Vector3(1.2f ,1.2f ,1.2f);
     }
 
     public void OnDeselect(BaseEventData data)
     {
-        Color tempColor = m_selectedImg.color;
-        tempColor.a = 0.0f;
-        m_selectedImg.color = tempColor;
+        m_selectedImg.rectTransform.localScale = new Vector3(1f, 1f, 1f);
     }
 }

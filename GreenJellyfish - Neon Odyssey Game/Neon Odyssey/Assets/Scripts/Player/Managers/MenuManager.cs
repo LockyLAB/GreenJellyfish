@@ -10,34 +10,48 @@ public class MenuManager : MonoBehaviour
 
     public string m_firstLevel = "";
 
-    public Image m_splashImage = null;
+    public Image m_startImg = null;
 
-    public float m_splashFadeTime = 2.0f;
-    private float m_splashFadeTimer = 0.0f;
+    public float m_startFadeTime = 2.0f;
+    private float m_startFadeTimer = 0.0f;
 
-    private bool m_splashFade = false;
+    private bool m_startFade = false;
+
+    public float m_menuFadeTime = 2.0f;
+    private float m_menuFadeTimer = 0.0f;
+    private bool m_menuFade = false;
 
     //Main menu stuff
     public Image m_PlayBtnImg;
+    public Image m_ControllerBtnImg;
     public Image m_QuitBtnImg;
-
-    public Button m_PlayBtn;
-    public Button m_QuitBtn;
 
     private void Update()
     {
         //Pausing Screen
         if (XCI.GetButtonDown(XboxButton.Start))
         {
-            m_splashFade = true;
+            m_startFade = true;
         }
 
-        if(m_splashFade && m_splashFadeTimer > m_splashFadeTime)
+        if(m_startFade && m_startFadeTimer > m_startFadeTime)
         {
-            float alpha = m_splashFadeTimer / m_splashFadeTime;
-            Color tempColor = m_splashImage.color;
-            tempColor.a = 1- alpha;
-            m_splashImage.color = tempColor;
+            m_startFadeTimer += Time.deltaTime;
+            float alpha = m_startFadeTimer / m_startFadeTime;
+
+            SetAlpha(1 - alpha, m_startImg);
+
+            m_menuFade = true;
+        }
+
+        if (m_menuFade && m_menuFadeTimer > m_menuFadeTime)
+        {
+            m_menuFadeTimer += Time.deltaTime;
+            float alpha = m_menuFadeTimer / m_menuFadeTime;
+
+            SetAlpha(alpha, m_PlayBtnImg);
+            SetAlpha(alpha, m_ControllerBtnImg);
+            SetAlpha(alpha, m_QuitBtnImg);
         }
     }
 
@@ -63,6 +77,13 @@ public class MenuManager : MonoBehaviour
     public void QuitBtn()
     {
         Application.Quit();
+    }
+
+    private void SetAlpha(float alpha, Image image)
+    {
+        Color tempColor = image.color;
+        tempColor.a = alpha;
+        image.color = tempColor;
     }
 
 }
