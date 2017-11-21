@@ -29,9 +29,14 @@ public class ControlScreenManager : MonoBehaviour
 
         m_DOFGradiant = m_apertureMax - 0.1f;
 
-        SetImageAlpha(0.0f);
-
         m_postProcess = GameObject.FindWithTag("MainCamera").GetComponent<PostProcessingBehaviour>().profile;
+
+        //Basic setup for post
+        var postSetting = m_postProcess.depthOfField.settings;
+        postSetting.aperture = -m_DOFGradiant * m_fadeTimer + m_apertureMax;
+        m_postProcess.depthOfField.settings = postSetting;
+
+        SetImageAlpha(0.0f);
     }
 
     //--------------------------------------------------------------------------------------
@@ -67,7 +72,7 @@ public class ControlScreenManager : MonoBehaviour
 
                 //Post Effects
                 var postSetting = m_postProcess.depthOfField.settings;
-                postSetting.aperture = -m_DOFGradiant * m_fadeTimer + 13.0f;
+                postSetting.aperture = -m_DOFGradiant * m_fadeTimer + m_apertureMax;
                 m_postProcess.depthOfField.settings = postSetting; 
 
                 Time.timeScale = 1.0f - fadePercent;
