@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XboxCtrlrInput;
+using UnityEngine.PostProcessing;
 
 public class ControlScreenManager : MonoBehaviour
 {
@@ -12,17 +13,25 @@ public class ControlScreenManager : MonoBehaviour
     private bool m_fadeIn = false;
     private bool m_fadeOut = false;
 
+    public float m_apertureMax = 4.0f;
+    private float m_DOFGradiant;
 
     private float m_fadeInGradiant = 0.0f;
 
     private Image m_image = null;
 
-    private void Awake()
+    private PostProcessingProfile m_postProcess;
+
+    private void Start()
     {
         m_fadeInGradiant = 1 / m_fadeTime;
         m_image = GetComponentInChildren<Image>();
 
+        m_DOFGradiant = m_apertureMax - 0.1f;
+
         SetImageAlpha(0.0f);
+
+        m_postProcess = GameObject.FindWithTag("MainCamera").GetComponent<PostProcessingBehaviour>().profile;
     }
 
     //--------------------------------------------------------------------------------------
@@ -55,6 +64,12 @@ public class ControlScreenManager : MonoBehaviour
             {
                 float fadePercent = m_fadeInGradiant * m_fadeTimer;
                 SetImageAlpha(fadePercent);
+
+                //Post Effects
+                var postSetting = m_postProcess.depthOfField.settings;
+                postSetting.aperture = -m_DOFGradiant * m_fadeTimer + 13.0f;
+                m_postProcess.depthOfField.settings = postSetting; 
+
                 Time.timeScale = 1.0f - fadePercent;
             }
             else
@@ -62,6 +77,12 @@ public class ControlScreenManager : MonoBehaviour
                 m_fadeIn = false;
                 SetImageAlpha(1.0f);
                 m_fadeTimer = 0.05f;
+
+                //Post Effects
+                var postSetting = m_postProcess.depthOfField.settings;
+                postSetting.aperture = 0.1f;
+                m_postProcess.depthOfField.settings = postSetting;
+
                 Time.timeScale = 0.0f;
             }
         }
@@ -75,6 +96,12 @@ public class ControlScreenManager : MonoBehaviour
             {
                 float fadePercent = m_fadeInGradiant * m_fadeTimer;
                 SetImageAlpha(1.0f- fadePercent);
+
+                //Post Effects
+                var postSetting = m_postProcess.depthOfField.settings;
+                postSetting.aperture = m_DOFGradiant * m_fadeTimer + 0.1f;
+                m_postProcess.depthOfField.settings = postSetting;
+
                 Time.timeScale = fadePercent;
             }
             else
@@ -82,6 +109,12 @@ public class ControlScreenManager : MonoBehaviour
                 m_fadeOut = false;
                 SetImageAlpha(0.0f);
                 m_fadeTimer = 0.05f;
+
+                //Post Effects
+                var postSetting = m_postProcess.depthOfField.settings;
+                postSetting.aperture = m_apertureMax;
+                m_postProcess.depthOfField.settings = postSetting;
+
                 Time.timeScale = 1.0f;
                 gameObject.SetActive(false);
             }
