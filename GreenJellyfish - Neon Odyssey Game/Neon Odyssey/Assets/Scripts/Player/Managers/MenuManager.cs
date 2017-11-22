@@ -26,6 +26,12 @@ public class MenuManager : MonoBehaviour
     public Image m_ControllerBtnImg;
     public Image m_QuitBtnImg;
 
+    private void Start()
+    {
+        //Set Cursor to not be visible
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         //Pausing Screen

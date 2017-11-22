@@ -42,4 +42,13 @@ public class PauseManager : MonoBehaviour {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Menu");
     }
+
+    //--------------------------------------------------------------------------------------
+    // Reload scene
+    //--------------------------------------------------------------------------------------
+    public void RetryLevelBtn()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

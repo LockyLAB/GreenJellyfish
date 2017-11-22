@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 	public List<GameObject> m_playerDeathEffect;
 	public Vector3 m_playerDeathEffectOffset = Vector3.zero;
 
-	public List<GameObject> m_playerGhost = null;
+	public GameObject m_playerGhost = null;
 	public Vector3 m_playerGhostOffset = Vector3.zero;
 	private GameObject m_playerGhostHolder = null;
 
@@ -55,12 +55,12 @@ public class PlayerHealth : MonoBehaviour
             //Decide which ghost to spawn
             if (GetComponent<ColourController>().m_firstBulletSlot)
             {
-                m_playerGhostHolder = Instantiate(m_playerGhost[0], transform.TransformPoint(m_playerGhostOffset), Quaternion.identity, transform); //Ghost
+                m_playerGhostHolder = Instantiate(m_playerGhost, transform.TransformPoint(m_playerGhostOffset), Quaternion.identity, transform); //Ghost
                 Destroy(Instantiate(m_playerDeathEffect[0], transform.TransformPoint(m_playerDeathEffectOffset), Quaternion.identity, transform), 5.0f); //Death effect
             }
             else
             {
-                m_playerGhostHolder = Instantiate(m_playerGhost[1], transform.TransformPoint(m_playerGhostOffset), Quaternion.identity, transform); //Ghost
+                m_playerGhostHolder = Instantiate(m_playerGhost, transform.TransformPoint(m_playerGhostOffset), Quaternion.identity, transform); //Ghost
                 Destroy(Instantiate(m_playerDeathEffect[1], transform.TransformPoint(m_playerDeathEffectOffset), Quaternion.identity, transform), 5.0f); //Death effect
             }
 
