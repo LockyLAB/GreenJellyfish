@@ -6,8 +6,6 @@ public class RayshieldTrigger : MonoBehaviour {
 
     public GameObject boss;
 
-    public GameObject m_bossCameraSnap = null;
-
     public GameObject shield;
     private bool triggered;
 
@@ -25,10 +23,6 @@ public class RayshieldTrigger : MonoBehaviour {
             {
                 shield.SetActive(false);
                 triggered = true;
-
-                //Lock camera
-                if(m_bossCameraSnap!= null)
-                    m_bossCameraSnap.GetComponent<BossRoomSnap>().Deactivate();
             }
         }
 	}

@@ -14,8 +14,7 @@ public class Character : MonoBehaviour
     private float amp = 0.25f;
     private float vertShift = 0.25f;
 
-
-    public SkinnedMeshRenderer m_characterRenderer = null;
+    public GameObject m_childRenderer = null; // gets renderer for child
 
     public void Update()
     {

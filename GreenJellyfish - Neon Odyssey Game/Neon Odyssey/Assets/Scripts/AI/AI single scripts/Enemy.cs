@@ -23,9 +23,6 @@ public class Enemy : Character
 	public GameObject m_deathEffect = null;
 	public Vector3 m_deathEffectSpawnPos = Vector3.up * 0.5f;
 
-	private GameObject m_childRenderer = null;
-	// gets renderer for child
-
 	public enum Difficulty
 	{
 		Easy,
@@ -41,12 +38,6 @@ public class Enemy : Character
     //--------------------------------------------------------------------------------------
     void Awake ()
 	{
-		//Get child with the renderer
-		for (int i = 0; i < this.gameObject.transform.childCount; i++) {
-			if (this.gameObject.transform.GetChild (i).GetComponentInChildren<Animator> () != null)
-				m_childRenderer = this.gameObject.transform.GetChild (i).gameObject;
-		}
-
 		//Set up audio
 		if (m_movementAudio != null)
 			m_movementAudio = Instantiate (m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
@@ -76,17 +67,17 @@ public class Enemy : Character
         if (m_childRenderer != null)
         {
             if (GetComponent<EnemyBeetle>() != null || GetComponent<EnemyBeetleTutorial>() != null)
-            { // Beetle model was wrong way.....
-                if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
+            { // Beetle model was wrong way.....  :(
+                if (GetComponent<Rigidbody>().velocity.x > 0.0f) // Rotates character 
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); //Face forwards
-                else if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
+                else if (GetComponent<Rigidbody>().velocity.x <= 0.0f) // rotates character
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); // Face backwards
             }
             else
             {
-                if (GetComponent<Rigidbody>().velocity.x > 0.01f) // Rotates character 
+                if (GetComponent<Rigidbody>().velocity.x > 0.0f) // Rotates character 
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 0, 0)); //Face forwards
-                else if (GetComponent<Rigidbody>().velocity.x < -0.01f) // rotates character
+                else if (GetComponent<Rigidbody>().velocity.x <= 0.0f) // rotates character
                     m_childRenderer.transform.rotation = (Quaternion.Euler(0, 180, 0)); // Face backwards
             }
         }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class RayshieldEntry : MonoBehaviour {
 
     public GameObject shield;
-    public GameObject m_bossCameraSnap = null;
 
     private GameObject playerOne;
     private GameObject playerTwo;
@@ -26,12 +25,8 @@ public class RayshieldEntry : MonoBehaviour {
     {
         if (p1trigger == true && p2trigger == true)
         {
-            //Lock camera
-            if (m_bossCameraSnap != null && !shield.activeSelf)
-                m_bossCameraSnap.GetComponent<BossRoomSnap>().Activate();
-
-                shield.SetActive(true);
-                bothTriggeered = false;       
+            shield.SetActive(true);
+            bothTriggeered = false;       
         }
     }
 

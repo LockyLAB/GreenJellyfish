@@ -17,7 +17,12 @@ public class CameraMove : MonoBehaviour {
     public float m_horizontalBuffer = 3.0f;
     public float m_verticalBuffer = 5.0f;
 
+    public float m_maxHorizontalDistanceDefault = 20.0f;
+    public float m_maxVerticalDistanceDefault = 14.0f;
+
+    [HideInInspector]
     public float m_maxHorizontalDistance = 20.0f;
+    [HideInInspector]
     public float m_maxVerticalDistance = 14.0f;
 
     //Camera shake 
