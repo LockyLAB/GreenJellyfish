@@ -47,9 +47,10 @@ public class FireGun : BehaviourBase
             FireBullet(bulletDir);
 
             if (m_bulletCount < m_numberOfBullets)
-                return BehaviourStatus.PENDING;
-            else
+            {
                 gameObject.GetComponent<Animator>().SetTrigger("Firing"); // Animation
+                return BehaviourStatus.PENDING;
+            }
         }
 
         if (m_bulletCount < m_numberOfBullets)
