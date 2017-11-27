@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public bool m_singlePlayer = false;
 
     [HideInInspector]
-    public bool m_inputOn = true;
+    public bool m_inputOn = false;
 
     float gameOverTimer = 0;
 

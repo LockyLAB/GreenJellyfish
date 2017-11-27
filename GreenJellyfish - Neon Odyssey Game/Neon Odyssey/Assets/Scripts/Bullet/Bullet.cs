@@ -20,11 +20,20 @@ public class Bullet : MonoBehaviour
     private float explosionRadius = 10.0f;
     private Weapon wep;
 
+    //--------------------------------------------------------------------------------------
+    // Set up references
+    //--------------------------------------------------------------------------------------
     private void Awake()
     {
        wep = GetComponent<Weapon>();
     }
 
+    //--------------------------------------------------------------------------------------
+    //  set bullet layer
+    //
+    // Param:
+    //		team: whic team is the bullet on, enemy or player layer
+    //--------------------------------------------------------------------------------------
     public void SetTeam(TEAM team)
     {
         switch (team)
@@ -38,6 +47,9 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    //--------------------------------------------------------------------------------------
+    // Destroy bullets no longer on screen
+    //--------------------------------------------------------------------------------------
     void Update()
     {
         //destroy bullet if not visible on cameras
@@ -45,14 +57,18 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
-    //function called when object collides with other
+    //--------------------------------------------------------------------------------------
+    // Decided what actions should occur whit bullet collisions
+    //
+    // Param:
+    //		other: collision bullet has interacted with
+    //--------------------------------------------------------------------------------------
     void OnTriggerEnter(Collider other)
     { 
         //check if other object is ENEMY or PLAYER, ignore collision layer
-        if (other.gameObject.tag != gameObject.tag && other.gameObject.layer != LayerMask.NameToLayer("Collisions"))
+        if (other.gameObject.tag != gameObject.tag && other.gameObject.layer != LayerMask.NameToLayer("Collisions") && other.gameObject.GetComponent<Bullet>() == null) // Only count collsions not againt other bullets, different team, not on collsion layer
         {
             //if ENEMY bullet hits PLAYER, 
             if (other.gameObject.tag == "Player")
@@ -90,7 +106,7 @@ public class Bullet : MonoBehaviour
                     while (isExplosive && !triggered)
                     {
                         Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
-                        ExplodeDamage(gameObject.transform.position, other.gameObject);
+                        ExplodeDamage(gameObject.transform.position);
                         //isExplosive = false;
                     }
 
@@ -103,7 +119,7 @@ public class Bullet : MonoBehaviour
                     while (isExplosive && !triggered)
                     {
                         Destroy(Instantiate(explosionParticle.gameObject, gameObject.transform.position, Quaternion.identity), 2.5f);
-                        ExplodeDamage(gameObject.transform.position, other.gameObject);
+                        ExplodeDamage(gameObject.transform.position);
                         //isExplosive = false;
                     }
 
@@ -129,7 +145,7 @@ public class Bullet : MonoBehaviour
             while (isExplosive && !triggered)
             {
                 Destroy(Instantiate(explosionParticle, gameObject.transform.position, Quaternion.identity), 2.5f);
-                ExplodeDamage(gameObject.transform.position, other.gameObject);
+                ExplodeDamage(gameObject.transform.position);
                 //isExplosive = false;
             }
 
@@ -138,13 +154,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    //void OnDestroy(GameObject other)
-    //{
-    //    ExplodeDamage(gameObject.transform.position, other.gameObject);
-    //}
+    //--------------------------------------------------------------------------------------
+    // Decided enemys to be affected in explosion, NOT IMPLEMENTED
     //
-
-    void ExplodeDamage(Vector3 center, GameObject enemyGO)
+    // Param:
+    //		center: center of explosion
+    //--------------------------------------------------------------------------------------
+    void ExplodeDamage(Vector3 center)
     {
         LayerMask layerMask = 1 << 8;
         LayerMask mask = ~(1 << 8);

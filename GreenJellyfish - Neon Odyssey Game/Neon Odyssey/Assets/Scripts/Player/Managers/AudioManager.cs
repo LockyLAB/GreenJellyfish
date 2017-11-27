@@ -7,7 +7,9 @@ public class AudioManager : MonoBehaviour
     public GameObject m_musicIntro = null;
     public GameObject m_musicLoop = null;
 
-    // Update is called once per frame
+    //--------------------------------------------------------------------------------------
+    // Play initial track, at end, play looping track, destroy object
+    //--------------------------------------------------------------------------------------
     void Update()
     {
         if(!m_musicIntro.GetComponent<AudioSource>().isPlaying)

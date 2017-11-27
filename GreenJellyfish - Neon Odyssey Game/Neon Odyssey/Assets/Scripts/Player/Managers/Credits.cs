@@ -8,7 +8,6 @@ public class Credits : MonoBehaviour
 {
     public string m_menu; //Next level
 
-
     public GameObject m_creditsLogo = null;
     public GameObject m_creditsScrollOver = null;
 
@@ -18,7 +17,6 @@ public class Credits : MonoBehaviour
     public float m_scrollSpeed = 1.0f;
 
     private bool m_creditsEnabled = false;
-
 
     // Update is called once per frame
     void Update ()
@@ -62,7 +60,7 @@ public class Credits : MonoBehaviour
 
     //--------------------------------------------------------------------------------------
     // On trigger enter
-    // Case of player load next level
+    // Start credits in case of player, disable movement
     //
     // Param:
     //		other: object player has collided with

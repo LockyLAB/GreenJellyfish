@@ -41,9 +41,11 @@ public class PlayerAnimation : MonoBehaviour
 		m_playerController = GetComponent<PlayerController> ();
 		m_player = GetComponent<Player> ();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    //--------------------------------------------------------------------------------------
+    // Play animation/sounds based of current inputs and outside varibles
+    //--------------------------------------------------------------------------------------
+    void Update ()
 	{
         //Disable player input
         if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn == false)

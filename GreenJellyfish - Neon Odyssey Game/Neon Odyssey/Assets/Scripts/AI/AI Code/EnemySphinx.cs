@@ -24,7 +24,8 @@ public class EnemySphinx : Enemy
     public bool m_laserFriendlyFire = false;
 
     //Nodes
-    private BehaviourSequence m_sequenceTop;
+    private BehaviourSelector m_selectorTop;
+    private BehaviourSequence m_gettingTarget;
 
     private BehaviourSelector m_selectorAction;
     private BehaviourBase m_actionGetTarget;
@@ -50,7 +51,9 @@ public class EnemySphinx : Enemy
         //Set health
         SetHealth(m_healthMax);
 
-        m_sequenceTop = gameObject.AddComponent<BehaviourSequence>();
+        m_selectorTop = gameObject.AddComponent<BehaviourSelector>();
+
+        m_gettingTarget = gameObject.AddComponent<BehaviourSequence>();
         m_selectorAction = gameObject.AddComponent<BehaviourSelector>();
         m_sequenceFiring = gameObject.AddComponent<BehaviourSequence>();
         m_sequenceLaser = gameObject.AddComponent<BehaviourSequence>();
@@ -69,10 +72,12 @@ public class EnemySphinx : Enemy
         else
             m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
 
+        m_selectorTop.m_behaviourBranches.Add(m_gettingTarget);
+        m_selectorTop.m_behaviourBranches.Add(m_jumpToPlatform);
 
-        m_sequenceTop.m_behaviourBranches.Add(m_actionGetTarget as BehaviourBase);
-        m_sequenceTop.m_behaviourBranches.Add(m_selectorAction);
-
+        m_gettingTarget.m_behaviourBranches.Add(m_actionGetTarget as BehaviourBase);
+        m_gettingTarget.m_behaviourBranches.Add(m_selectorAction);
+  
         m_selectorAction.m_behaviourBranches.Add(m_sequenceFiring);
 
         m_sequenceFiring.m_behaviourBranches.Add(m_sequenceLaser);
@@ -82,6 +87,7 @@ public class EnemySphinx : Enemy
         m_sequenceLaser.m_behaviourBranches.Add(m_actionGetDisLaser);
         m_sequenceLaser.m_behaviourBranches.Add(m_actionFireLaser);
         m_sequenceLaser.m_behaviourBranches.Add(m_actionLaserCooldown);
+        m_sequenceLaser.m_behaviourBranches.Add(m_jumpToPlatform);
 
         //Laser
         m_actionGetDisLaser.m_targetDistance = m_laserFireDistance;
@@ -98,6 +104,6 @@ public class EnemySphinx : Enemy
 
         m_landingCooldown.m_coolDown = m_landingTimer;
 
-        m_initalBehaviour = m_sequenceTop;
+        m_initalBehaviour = m_selectorTop;
     }
 }

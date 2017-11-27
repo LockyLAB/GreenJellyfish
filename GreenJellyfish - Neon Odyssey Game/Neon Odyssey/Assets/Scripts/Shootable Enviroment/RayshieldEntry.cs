@@ -11,7 +11,6 @@ public class RayshieldEntry : MonoBehaviour {
 
     private bool p1trigger = false;
     private bool p2trigger = false;
-    private bool bothTriggeered = false;
 
 	// Use this for initialization
 	void Start ()
@@ -25,8 +24,7 @@ public class RayshieldEntry : MonoBehaviour {
     {
         if (p1trigger == true && p2trigger == true)
         {
-            shield.SetActive(true);
-            bothTriggeered = false;       
+            shield.SetActive(true);  
         }
     }
 

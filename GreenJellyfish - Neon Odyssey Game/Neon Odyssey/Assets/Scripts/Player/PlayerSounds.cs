@@ -13,9 +13,6 @@ public class PlayerSounds : MonoBehaviour
 	public GameObject m_reviveAudio = null;
 	public GameObject m_respawnAudio = null;
 
-	PlayerController m_playerController = null;
-	Player m_player = null;
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -53,9 +50,5 @@ public class PlayerSounds : MonoBehaviour
             m_respawnAudio = Instantiate(m_respawnAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
             m_respawnAudio.transform.localPosition = Vector3.zero;
         }
-
-		//Set up shared components
-		m_playerController = GetComponent<PlayerController> ();
-		m_player = GetComponent<Player> ();
 	}
 }

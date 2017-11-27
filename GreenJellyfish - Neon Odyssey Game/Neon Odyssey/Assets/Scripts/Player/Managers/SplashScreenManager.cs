@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//NO LONGER IMPLEMENTED
+
 public class SplashScreenManager : MonoBehaviour {
 
     //--------------------------------------------------------------------------------------

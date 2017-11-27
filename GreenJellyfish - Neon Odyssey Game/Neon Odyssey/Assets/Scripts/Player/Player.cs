@@ -19,7 +19,6 @@ public class Player : Character
 
     public float wallSlideSpeedMax = 0; // Max wall slide speed
     public float wallStickTime = 0.0f; 
-    float timeToWallUnstick; // Float controlling time to unsticking to wall
 
     float gravity; // float that controls gravity
     float jumpVelocity; // speed for jump
@@ -32,6 +31,8 @@ public class Player : Character
 
     public XboxController controller; // Defines which xbox controller controls this script
     public XboxButton jumpButton = XboxButton.A;
+
+    private GameManager m_gameManager = null;
 
     void Start()
     {
@@ -48,12 +49,14 @@ public class Player : Character
             if (this.gameObject.transform.GetChild(i).GetComponentInChildren<SkinnedMeshRenderer>() != null)
                 m_childRenderer = this.gameObject.transform.GetChild(i).gameObject;
         }
+
+        m_gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
     public override void CharaterActions() // update function
     {
         //Stop crashes due to delta time being set to 0.0f
-        if (Time.timeScale == 0.0f || GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn == false)
+        if (Time.timeScale == 0.0f || m_gameManager.m_inputOn == false)
             return;
 
         Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller)); // Gets left and right input for player

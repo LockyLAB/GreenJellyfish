@@ -7,10 +7,14 @@ using XboxCtrlrInput;
 
 public class MenuManager : MonoBehaviour
 {
-
+    //String to load first level
     public string m_firstLevel = "";
 
-    public Image m_startImg = null;
+    //Music
+    public GameObject m_menuMusicLoop = null;
+    public GameObject m_playMusicLoop = null;
+
+    public Image m_startImg = null; //Splash Screen
 
     public float m_startFadeTime = 2.0f;
     private float m_startFadeTimer = 0.0f;
@@ -26,12 +30,20 @@ public class MenuManager : MonoBehaviour
     public Image m_ControllerBtnImg;
     public Image m_QuitBtnImg;
 
+    //Playing game setup 
+    private bool m_startGame = false;
+    public float m_startGameTime = 9.0f;
+    private float m_startGameTimer = 0.0f;
+
     private void Start()
     {
         //Set Cursor to not be visible
         Cursor.visible = false;
     }
 
+    //--------------------------------------------------------------------------------------
+    // Animation of fading in buttons
+    //--------------------------------------------------------------------------------------
     private void Update()
     {
         //Pausing Screen
@@ -40,14 +52,14 @@ public class MenuManager : MonoBehaviour
             m_startFade = true;
         }
 
-        if(m_startFade && m_startFadeTimer < m_startFadeTime)
+        if(m_startFade && m_startFadeTimer < m_startFadeTime) // Fading start button away 
         {
             m_startFadeTimer += Time.deltaTime;
             float alpha = m_startFadeTimer / m_startFadeTime;
 
             SetAlpha(1 - alpha, m_startImg);
 
-            if(m_startFadeTimer > m_startFadeTime)
+            if(m_startFadeTimer >= m_startFadeTime)
             {
                 m_PlayBtnImg.gameObject.SetActive(true);
                 m_QuitBtnImg.gameObject.SetActive(true);
@@ -61,14 +73,29 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        if (m_menuFade && m_menuFadeTimer < m_menuFadeTime)
+        if (m_menuFade && m_menuFadeTimer < m_menuFadeTime) // Fading play and quit buttons, fade in controller
         {
             m_menuFadeTimer += Time.deltaTime;
             float alpha = m_menuFadeTimer / m_menuFadeTime;
 
             SetAlpha(alpha, m_PlayBtnImg);
-            //SetAlpha(alpha, m_ControllerBtnImg);
             SetAlpha(alpha, m_QuitBtnImg);
+        }
+
+        if(m_startGame && m_startGameTimer < m_startGameTime) // Play music
+        {
+            m_startGameTimer += Time.deltaTime;
+
+            if(m_startGameTimer < 2.0f) //Fade in controller
+            {
+                float alpha = m_startGameTimer / 2.0f;
+                SetAlpha(alpha, m_ControllerBtnImg);
+            }
+
+            if (m_startGameTimer >= m_startGameTime)
+            {
+                SceneManager.LoadScene(m_firstLevel); // Load level after 9 seconds
+            }
         }
     }
 
@@ -77,15 +104,9 @@ public class MenuManager : MonoBehaviour
     //--------------------------------------------------------------------------------------
     public void PlayGameBtn()
     {
-        SceneManager.LoadScene(m_firstLevel);
-    }
-
-    //--------------------------------------------------------------------------------------
-    // Options menu TODO
-    //--------------------------------------------------------------------------------------
-    public void OptionsBtn()
-    {
-
+        m_startGame = true;
+        m_menuMusicLoop.GetComponent<AudioSource>().Stop();
+        m_playMusicLoop.GetComponent<AudioSource>().Play();
     }
 
     //--------------------------------------------------------------------------------------
