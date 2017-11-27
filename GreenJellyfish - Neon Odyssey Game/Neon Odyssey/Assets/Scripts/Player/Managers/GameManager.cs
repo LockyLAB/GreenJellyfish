@@ -29,30 +29,6 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        //GameObject[] players;
-        //players = GameObject.FindGameObjectsWithTag("Player");
-
-        ////Assign player 1
-        //if (players.Length > 1)
-        //{
-        //    //Assign player 1
-        //    if (players[0].GetComponent<Player>().isFirstPlayer)
-        //        m_player1 = players[0];
-        //    else if (players[1].GetComponent<Player>().isFirstPlayer)
-        //        m_player1 = players[1];
-
-        //    //Assign player 2
-        //    if (!players[0].GetComponent<Player>().isFirstPlayer)
-        //        m_player2 = players[0];
-        //    else if (!players[1].GetComponent<Player>().isFirstPlayer)
-        //        m_player2 = players[1];
-        //}
-        //else
-        //{
-        //    m_player1 = players[0];
-        //    m_singlePlayer = true;
-        //}
-
         if (m_player2==null)
             m_singlePlayer = true;
 

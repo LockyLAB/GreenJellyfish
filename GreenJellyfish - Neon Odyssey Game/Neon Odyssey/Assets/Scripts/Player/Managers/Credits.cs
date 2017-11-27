@@ -8,15 +8,11 @@ public class Credits : MonoBehaviour
 {
     public string m_menu; //Next level
 
-    public GameObject m_creditsBackground = null;
     public GameObject m_creditsLogo = null;
     public GameObject m_creditsScrollOver = null;
 
     public float m_backgroundFadeIn = 1.0f;
     private float m_backgroundFadeInTimer = 0.0f;
-
-    public float m_backgroundFadeOut = 1.0f;
-    private float m_backgroundFadeOutTimer = 0.0f;
 
     public float m_scrollSpeed = 1.0f;
 
@@ -26,23 +22,21 @@ public class Credits : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        Debug.Log("Screen Size:" + Screen.height + " Pos: " + m_creditsScrollOver.transform.position.y);
         if (m_creditsEnabled)
         {
-            if (m_backgroundFadeInTimer < m_backgroundFadeIn) //Fade in background and logo
+            if()//Jumping animation
+            {
+
+            }
+            else if (m_backgroundFadeInTimer < m_backgroundFadeIn) //Fade in background and logo
             {
                 m_backgroundFadeInTimer += Time.deltaTime;
 
                 //Set alpha
-                SetImageAlpha(m_creditsBackground, m_backgroundFadeInTimer / m_backgroundFadeIn);
-                SetImageAlpha(m_creditsLogo, m_backgroundFadeInTimer / m_backgroundFadeIn);
+                SetImageAlpha(m_creditsLogo, m_backgroundFadeInTimer / m_backgroundFadeIn * 2);
             }
-            else if (m_backgroundFadeOutTimer < m_backgroundFadeOut) //Fade Logo to 50%
-            {
-                m_backgroundFadeOutTimer += Time.deltaTime;
-
-                SetImageAlpha(m_creditsLogo, 1 - (m_backgroundFadeOutTimer / (m_backgroundFadeOut * 2)));
-            }
-            else if (m_creditsScrollOver.transform.position.y < 520) //Scroll text
+            else if (m_creditsScrollOver.transform.position.y < Screen.height + (m_creditsScrollOver.GetComponent<Image>().sprite.rect.height/2)) //Scroll text
             {
                 Vector3 creditsPos = m_creditsScrollOver.transform.position;
                 creditsPos.y += m_scrollSpeed * Time.deltaTime;
@@ -85,6 +79,7 @@ public class Credits : MonoBehaviour
 
             //Disable player input
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn = false;
+            GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = false;
         }
     }
 }

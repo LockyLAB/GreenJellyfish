@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMove : MonoBehaviour {
+public class CameraMove : MonoBehaviour
+{
+
+    public bool m_dynamicCamera = false;
 
     private bool m_singlePlayer = false;
 
+    //Players
     private GameObject m_player1 = null;
-
     private GameObject m_player2 = null;
 
+    //Camera offset, relitive to avg pos between places
     public Vector3 offset = new Vector3(6.0f, 4.0f, -20);
 
     public float m_minZoomSpeed = 0.1f;
@@ -69,46 +73,49 @@ public class CameraMove : MonoBehaviour {
     //-----------------------------------------------------
     void Update ()
     {
-        //Single player
-        if (m_singlePlayer)
-            transform.position = m_player1.transform.position + offset;
-        //Multiplayer
-        else
+        if(m_dynamicCamera)
         {
-            Vector3 cameraPos = transform.position;
-            Vector3 playerDis = m_player2.transform.position - m_player1.transform.position;
-            Vector3 cameraGoal = m_cameraLockPos;
-
-            if(!m_cameraLocked) // No Boss room camera lock
-                cameraGoal = ((m_player1.transform.position + m_player2.transform.position) / 2) + offset;
-
-            Vector3 cameraGoalDistance = cameraGoal - cameraPos;
-
-            float zoomSpeed = 0.0f;
-
-            //Compare distance to buffers
-            if (Mathf.Abs(cameraGoalDistance.x) > m_horizontalBuffer) //Horizontal camera movement
+            //Single player
+            if (m_singlePlayer)
+                transform.position = m_player1.transform.position + offset;
+            //Multiplayer
+            else
             {
-                float xVal = Mathf.Abs(playerDis.x) - m_horizontalBuffer;
-                zoomSpeed = 8 / (m_maxHorizontalDistance * m_maxHorizontalDistance);
-                cameraPos.x += ((zoomSpeed * (xVal * xVal)) + m_minZoomSpeed) * cameraGoalDistance.x * Time.deltaTime;
-            }
+                Vector3 cameraPos = transform.position;
+                Vector3 playerDis = m_player2.transform.position - m_player1.transform.position;
+                Vector3 cameraGoal = m_cameraLockPos;
 
-            if (Mathf.Abs(cameraGoalDistance.y) > m_verticalBuffer) //Vertical camera movement
-            {
-                float yVal = Mathf.Abs(playerDis.y) - m_verticalBuffer;
-                zoomSpeed = 8 / (m_maxVerticalDistance * m_maxVerticalDistance);
-                cameraPos.y += ((zoomSpeed * (yVal * yVal)) + m_minZoomSpeed) * cameraGoalDistance.y * Time.deltaTime;
-            }
+                if (!m_cameraLocked) // No Boss room camera lock
+                    cameraGoal = ((m_player1.transform.position + m_player2.transform.position) / 2) + offset;
 
-            //Apply z if players arent too far apart
-            if (Mathf.Abs(cameraGoalDistance.z) > playerDis.z) //Vertical camera movement
-            {
-                zoomSpeed = 0.05f;
-                cameraPos.z += (zoomSpeed + m_minZoomSpeed) * cameraGoalDistance.z * Time.deltaTime;
-            }
+                Vector3 cameraGoalDistance = cameraGoal - cameraPos;
 
-            transform.position = cameraPos;
+                float zoomSpeed = 0.0f;
+
+                //Compare distance to buffers
+                if (Mathf.Abs(cameraGoalDistance.x) > m_horizontalBuffer) //Horizontal camera movement
+                {
+                    float xVal = Mathf.Abs(playerDis.x) - m_horizontalBuffer;
+                    zoomSpeed = 8 / (m_maxHorizontalDistance * m_maxHorizontalDistance);
+                    cameraPos.x += ((zoomSpeed * (xVal * xVal)) + m_minZoomSpeed) * cameraGoalDistance.x * Time.deltaTime;
+                }
+
+                if (Mathf.Abs(cameraGoalDistance.y) > m_verticalBuffer) //Vertical camera movement
+                {
+                    float yVal = Mathf.Abs(playerDis.y) - m_verticalBuffer;
+                    zoomSpeed = 8 / (m_maxVerticalDistance * m_maxVerticalDistance);
+                    cameraPos.y += ((zoomSpeed * (yVal * yVal)) + m_minZoomSpeed) * cameraGoalDistance.y * Time.deltaTime;
+                }
+
+                //Apply z if players arent too far apart
+                if (Mathf.Abs(cameraGoalDistance.z) > playerDis.z) //Depth camera movement
+                {
+                    zoomSpeed = 0.05f;
+                    cameraPos.z += (zoomSpeed + m_minZoomSpeed) * cameraGoalDistance.z * Time.deltaTime;
+                }
+
+                transform.position = cameraPos;
+            }
         }
 
         if (m_shakeEnabled)
