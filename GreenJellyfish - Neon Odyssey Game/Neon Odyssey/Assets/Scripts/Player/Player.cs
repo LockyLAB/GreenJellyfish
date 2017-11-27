@@ -71,8 +71,6 @@ public class Player : Character
 
         int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1; // Checks which direction the player is colliding with wall
 
-        
-
         float targetVelocityX = input.x * moveSpeed; // sets target velocity from input and current velocity
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (pController.m_CollisionInfo.bottom) ? accelerationTimeGrounded : accelerationTimeAirborne); //sets acceleration in air and grounded
 

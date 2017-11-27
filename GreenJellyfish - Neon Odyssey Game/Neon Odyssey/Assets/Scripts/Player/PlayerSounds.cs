@@ -21,17 +21,38 @@ public class PlayerSounds : MonoBehaviour
 	{
 		//Set up audio
 		if (m_movementAudio != null)
-			m_movementAudio = Instantiate (m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_movementAudio = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_movementAudio.transform.localPosition = Vector3.zero;
+        }
 		if (m_jumpingAudio != null)
-			m_jumpingAudio = Instantiate (m_jumpingAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_jumpingAudio = Instantiate(m_jumpingAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_jumpingAudio.transform.localPosition = Vector3.zero;
+        }
 		if (m_firingGunAudio != null)
-			m_firingGunAudio = Instantiate (m_firingGunAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_firingGunAudio = Instantiate(m_firingGunAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_firingGunAudio.transform.localPosition = Vector3.zero;
+        }
+
 		if (m_deathAudio != null)
-			m_deathAudio = Instantiate (m_deathAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_deathAudio = Instantiate(m_deathAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_deathAudio.transform.localPosition = Vector3.zero;
+        }
+
 		if (m_reviveAudio != null)
-			m_reviveAudio = Instantiate (m_reviveAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
-		if (m_respawnAudio != null)
-			m_respawnAudio = Instantiate (m_respawnAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_reviveAudio = Instantiate(m_reviveAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_reviveAudio.transform.localPosition = Vector3.zero;
+        }
+
+        if (m_respawnAudio != null)
+        {
+            m_respawnAudio = Instantiate(m_respawnAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_respawnAudio.transform.localPosition = Vector3.zero;
+        }
 
 		//Set up shared components
 		m_playerController = GetComponent<PlayerController> ();
