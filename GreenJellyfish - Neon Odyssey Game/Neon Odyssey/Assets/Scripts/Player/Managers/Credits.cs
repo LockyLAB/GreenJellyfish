@@ -22,7 +22,6 @@ public class Credits : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Debug.Log("Screen Size:" + Screen.height + " Pos: " + m_creditsScrollOver.transform.position.y);
         if (m_creditsEnabled)
         {
             //if()//Jumping animation
