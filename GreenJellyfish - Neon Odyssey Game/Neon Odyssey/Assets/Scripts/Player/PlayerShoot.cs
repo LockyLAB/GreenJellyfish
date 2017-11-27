@@ -5,6 +5,7 @@ using XboxCtrlrInput;
 
 public class PlayerShoot : MonoBehaviour
 {
+    private PlayerSounds m_playerSounds = null;
 
     public float m_bulletSpeed = 1000;
     private float m_timeBetweenShots = 0;
@@ -16,6 +17,11 @@ public class PlayerShoot : MonoBehaviour
     public GameObject m_bullet2;
 
     public XboxController controller;
+
+    private void Start()
+    {
+        m_playerSounds = GetComponent<PlayerSounds>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,21 +45,24 @@ public class PlayerShoot : MonoBehaviour
 
                 if (GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= m_fireRate)
                 {
-                    GameObject newBullet = Instantiate(m_bullet1, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-                
-                    newBullet.GetComponent<Rigidbody>().AddForce(m_aim * m_bulletSpeed);
-                    newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
-                    m_timeBetweenShots = 0;
+                    CreateBullet(m_bullet1, m_aim + transform.position + up);
                 }
                 if (!GetComponent<ColourController>().m_firstBulletSlot && m_timeBetweenShots >= m_fireRate)
                 {
-                    GameObject newBullet = Instantiate(m_bullet2, m_aim + transform.position + up, Quaternion.Euler(m_aim)) as GameObject;
-
-                    newBullet.GetComponent<Rigidbody>().AddForce(m_aim * m_bulletSpeed);
-                    newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
-                    m_timeBetweenShots = 0;
+                    CreateBullet(m_bullet2, m_aim + transform.position + up);
                 }
             }
         }
+    }
+
+    private void CreateBullet(GameObject bullet, Vector3 spawnPos)
+    {
+        GameObject newBullet = Instantiate(bullet, spawnPos, Quaternion.Euler(m_aim)) as GameObject;
+
+        newBullet.GetComponent<Rigidbody>().AddForce(m_aim * m_bulletSpeed);
+        newBullet.GetComponent<Bullet>().SetTeam(Bullet.TEAM.PLAYER);
+        m_timeBetweenShots = 0;
+
+        m_playerSounds.m_firingGunAudio.GetComponent<AudioSource>().Play();
     }
 }
