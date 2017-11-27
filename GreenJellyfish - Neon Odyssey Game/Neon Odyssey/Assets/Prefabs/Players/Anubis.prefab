@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 114309528864420994}
   - component: {fileID: 114926282601774258}
   - component: {fileID: 114136403817056938}
+  - component: {fileID: 81831130079287502}
   m_Layer: 0
   m_Name: Anubis
   m_TagString: Player
@@ -735,6 +736,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!81 &81831130079287502
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634842271502378}
+  m_Enabled: 1
 --- !u!95 &95588258084569154
 Animator:
   serializedVersion: 3
@@ -943,6 +951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
+  m_switchTime: 1
+  m_switchTimer: 0
   playerMaterial:
   - {fileID: 2100000, guid: 1285760098b64eb48bf8ca5ef6e88b3d, type: 2}
   - {fileID: 2100000, guid: e592b7707667030469b6124908fbb930, type: 2}
@@ -961,7 +971,7 @@ MonoBehaviour:
   m_healthMax: 4
   m_invicibleTime: 2
   m_flashSpeed: 50
-  m_characterRenderer: {fileID: 0}
+  m_childRenderer: {fileID: 0}
   jumpHeight: 5
   timeToJumpApex: 0.35
   accelerationTimeAirborne: 0.2
@@ -975,7 +985,6 @@ MonoBehaviour:
   isFirstPlayer: 1
   controller: 1
   jumpButton: 0
-  m_childRenderer: {fileID: 0}
 --- !u!114 &114750957778340618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -997,10 +1006,10 @@ MonoBehaviour:
   m_playerDeathEffect:
   - {fileID: 1969770670699082, guid: 17209b398a387334ba97435204b17215, type: 2}
   - {fileID: 1420154586643138, guid: cf20a5dd1a6e7324fb56041fad88dde6, type: 2}
-  m_playerDeathEffectOffset: {x: 0, y: 1, z: 0}
-  m_playerGhost:
-  - {fileID: 1363075357346602, guid: 1afc289e859cd46489d603b0b3c3c211, type: 2}
-  m_playerGhostOffset: {x: -2, y: 0, z: 0}
+  m_playerDeathEffectOffset: {x: 0, y: 1, z: -1}
+  m_playerGhost: {fileID: 1363075357346602, guid: 1afc289e859cd46489d603b0b3c3c211,
+    type: 2}
+  m_playerGhostOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114926282601774258
 MonoBehaviour:
   m_ObjectHideFlags: 1

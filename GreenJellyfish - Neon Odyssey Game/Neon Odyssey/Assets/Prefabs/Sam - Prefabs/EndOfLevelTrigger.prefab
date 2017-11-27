@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4161384076005326}
   - component: {fileID: 65750811048010188}
   - component: {fileID: 54721634946451560}
-  - component: {fileID: 114880355659657390}
+  - component: {fileID: 114635077492730874}
   m_Layer: 0
   m_Name: EndOfLevelTrigger
   m_TagString: Untagged
@@ -157,7 +157,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114880355659657390
+--- !u!114 &114635077492730874
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -165,7 +165,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1877694906987710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8600731f3166ac54589897e0c2c037f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 76c2785d7f581b94cb76b2a363458d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nextLevel: Start Screen
+  m_menu: StartScreen
+  m_creditsBackground: {fileID: 0}
+  m_creditsLogo: {fileID: 0}
+  m_creditsScrollOver: {fileID: 0}
+  m_backgroundFadeIn: 1
+  m_backgroundFadeOut: 1
+  m_scrollSpeed: 150

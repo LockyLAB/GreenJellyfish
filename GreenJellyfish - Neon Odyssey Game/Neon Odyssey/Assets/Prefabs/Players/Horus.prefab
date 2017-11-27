@@ -904,9 +904,9 @@ MonoBehaviour:
   m_playerDeathEffect:
   - {fileID: 1273807587633074, guid: 80753b5727aa6e841a27cce73704af75, type: 2}
   - {fileID: 1119021048048388, guid: 1bd1648dfe7043a4cb1b180ef23f4931, type: 2}
-  m_playerDeathEffectOffset: {x: 0, y: 1, z: 0}
-  m_playerGhost:
-  - {fileID: 1341482646888078, guid: 1f53de6ad63086644be8fc07b0d2df00, type: 2}
+  m_playerDeathEffectOffset: {x: 0, y: 1, z: -1}
+  m_playerGhost: {fileID: 1341482646888078, guid: 1f53de6ad63086644be8fc07b0d2df00,
+    type: 2}
   m_playerGhostOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114198500525022286
 MonoBehaviour:
@@ -943,6 +943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 2
+  m_switchTime: 1
+  m_switchTimer: 0
   playerMaterial:
   - {fileID: 2100000, guid: 903b30eb6f6a2df43aa20faee15cbb90, type: 2}
   - {fileID: 2100000, guid: 96f2333b7af678b469bb66beb4bb2dd5, type: 2}
@@ -984,7 +986,7 @@ MonoBehaviour:
   m_healthMax: 4
   m_invicibleTime: 2
   m_flashSpeed: 50
-  m_characterRenderer: {fileID: 0}
+  m_childRenderer: {fileID: 0}
   jumpHeight: 5
   timeToJumpApex: 0.35
   accelerationTimeAirborne: 0.2
@@ -998,7 +1000,6 @@ MonoBehaviour:
   isFirstPlayer: 0
   controller: 2
   jumpButton: 0
-  m_childRenderer: {fileID: 0}
 --- !u!114 &114666079074807258
 MonoBehaviour:
   m_ObjectHideFlags: 1
