@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 
+// Script not implemented
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach script to player gameobject
+//-----------------------------------------------------------------------------
+
 public class Weapon : MonoBehaviour
 {   
     //XBOX INPUT
@@ -51,8 +61,8 @@ public class Weapon : MonoBehaviour
         Special_1 = 4
     }
 
+    //store current weapon
     public currentWeapon m_currentWeapon;
-
     private currentWeapon prevWeapon;
 
     //Setup Shotgun bullets
@@ -65,14 +75,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    // Use this for initialization
     void Start()
     {
         //set initial weapon
         m_currentWeapon = currentWeapon.Default;
     }
 
-    // Update is called once per frame
+    //get aim direction
     void Update()
     {
         if (!GetComponent<Player>().IsDead())
@@ -96,7 +105,6 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-
 
     public void fireWeapon(Vector3 up)
     {
@@ -127,7 +135,7 @@ public class Weapon : MonoBehaviour
 
     void FireDefault()
     {
-        Vector3 up = new Vector3(0, 0.9f);
+        Vector3 up = new Vector3(0, 0.9f); 
 
         if (GetComponent<ColourController>().m_firstBulletSlot && shotCooldown >= defaultFireRate)
         {

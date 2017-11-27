@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script not implemented
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach script to secondary homing missile prefab
+//-----------------------------------------------------------------------------
+
 public class HomingMissile2 : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)

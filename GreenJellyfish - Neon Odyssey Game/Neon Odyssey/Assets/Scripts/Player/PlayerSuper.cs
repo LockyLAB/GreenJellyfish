@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Script not implemented
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach script to player gameobject
+//-----------------------------------------------------------------------------
+
 public class PlayerSuper : MonoBehaviour {
 
     private float startCharge = 0f;
@@ -15,14 +25,12 @@ public class PlayerSuper : MonoBehaviour {
     private int p1;
     private int p2;
 
-	// Use this for initialization
 	void Start () {
 
         currentCharge = startCharge;
-
 	}
 	
-	// Update is called once per frame
+    //set charge UI to respective player
 	void Update () {
 
         if ( gameObject.GetComponent<Player>().isFirstPlayer == true )
@@ -38,6 +46,7 @@ public class PlayerSuper : MonoBehaviour {
         }
 	}
 
+    //update charge
     public void ChangeCharge(float num)
     {
         currentCharge += num;

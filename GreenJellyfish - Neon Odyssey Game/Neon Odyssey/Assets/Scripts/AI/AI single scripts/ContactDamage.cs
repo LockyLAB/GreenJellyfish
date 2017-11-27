@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script not implemented
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach script to enemy or trap gameObject (requires collider/rigidbody)
+//-----------------------------------------------------------------------------
 public class ContactDamage : MonoBehaviour
 {
-    //-----------------------------------------------------------------
-    //PLACE THIS SCRIPT ON OBJECT TO DEAL CONTACT DAMAGE
-    //ENEMY OBJECT NEEDS: TRIGGER COLLIDER, RIGIDBODY 
-    //-----------------------------------------------------------------
-
     //store colour of enemy
     private int enemyColour;
 

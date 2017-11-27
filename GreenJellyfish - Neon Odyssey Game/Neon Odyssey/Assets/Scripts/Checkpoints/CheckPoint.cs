@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//--------------------------------------------------------------
+// 1. Attach this script to CHECKPOINT prefab
+// 2. Plug in CHECKPOINT MANAGER gameobject from SCENE
+//--------------------------------------------------------------
+
 public class CheckPoint : MonoBehaviour
 {
-    //--------------------------------------------------------------
-    // 1. Attach this script to CHECKPOINT prefab
-    // 2. Plug in CHECKPOINT MANAGER gameobject from SCENE
-    //--------------------------------------------------------------
 
     public CheckPointManager CPmanager;
     public Vector3 pos;    
@@ -20,7 +26,7 @@ public class CheckPoint : MonoBehaviour
         Renderer rend = GetComponent<Renderer>();
 	}
     
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) //set current checkpoint to this
     {
         if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<Player>())
         {

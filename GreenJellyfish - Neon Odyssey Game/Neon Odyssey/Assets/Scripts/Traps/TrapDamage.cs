@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script not implemented
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach script to enemy or trap gameObject (requires collider)
+//-----------------------------------------------------------------------------
+
 public class TrapDamage : MonoBehaviour
 {
-    /* 
-    * ATTACH THIS SCRIPT ON THE TRAP OBJECTS "COLLIDER" CHILD
-    * "COLLIDER" OB  
-    */
 
     //store colour of trap
     int trapColour;
@@ -19,14 +25,8 @@ public class TrapDamage : MonoBehaviour
         trapColour = this.gameObject.layer;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        
-	}
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //If player touches trap/enemy of another colour, take damage
     {
-        //check if collided objects' parent is Player and is not same colour as trap
         if (other.transform.parent.gameObject.tag == "Player" && other.transform.parent.gameObject.layer != trapColour)
         {
             if (other.gameObject.GetComponent<Player>() != null)

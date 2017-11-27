@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//---------------------------------------------------
+// 1. Attach this script to CHECKPOINT prefab
+// 2. Plug in CHECKPOINT MANAGER gameobject from SCENE
+//---------------------------------------------------
+
 public class StageFall : MonoBehaviour
 {
-    //---------------------------------------------------
-    // 1. Attach this script to CHECKPOINT prefab
-    // 2. Plug in CHECKPOINT MANAGER gameobject from SCENE
-    //---------------------------------------------------
 
     public CheckPointManager CPmanager1;
 

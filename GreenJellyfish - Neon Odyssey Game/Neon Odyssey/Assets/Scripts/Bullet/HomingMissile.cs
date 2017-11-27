@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script not implemented
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach this script to primary homing missile prefab
+//-----------------------------------------------------------------------------
+
 public class HomingMissile : MonoBehaviour
 {
-
-    //-----------------------------------------------------------------------------
-    // Attach this script to homing missile prefabs
-    //-----------------------------------------------------------------------------
-
-    
+  
     Vector3 objectPos;
     public float homingRadius = 7.5f;
     public float bulletSpeed = 15.0f;
@@ -45,7 +50,7 @@ public class HomingMissile : MonoBehaviour
 
     }
 
-
+    //check for collisions, call detonate
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
@@ -59,11 +64,12 @@ public class HomingMissile : MonoBehaviour
         }
     }
 
+    //call detonation point
     private void Detonate(Vector3 pos, float homingRadius)
     {
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, homingRadius);
+        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, homingRadius); //stores enemy gameObjects within range into a list
         
-        foreach (Collider enemy in enemiesInRange)
+        foreach (Collider enemy in enemiesInRange) //iterate through list, if object is enemy and not a bullet, fire homing missiles
         {
             if (enemy.tag == "Enemy" && !enemy.GetComponent<Bullet>())
             {

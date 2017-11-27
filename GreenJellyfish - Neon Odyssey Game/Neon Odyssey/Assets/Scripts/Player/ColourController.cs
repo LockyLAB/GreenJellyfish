@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach script to player gameobject
+//-----------------------------------------------------------------------------
+
 public class ColourController : MonoBehaviour
 {
     public XboxController controller;
@@ -19,7 +28,6 @@ public class ColourController : MonoBehaviour
         toggleColour();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Disable player input

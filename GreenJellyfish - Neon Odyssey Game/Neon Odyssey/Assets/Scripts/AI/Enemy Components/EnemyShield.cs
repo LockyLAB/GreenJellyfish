@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//NOT IMPLEMENTED
 
+// Script not implemented
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// Attach to enemy gameObject
+//-----------------------------------------------------------------------------
 
 public class EnemyShield : MonoBehaviour {
-
-    //use if list size will vary
-    //public List<GameObject> shieldList = new List<GameObject>();
 
     //use if list size is static
     public GameObject[] shieldList = new GameObject[4];
@@ -26,7 +31,6 @@ public class EnemyShield : MonoBehaviour {
                     shieldPos.rotation,
                     transform);
         
-        //Debug.Log("enemyShield");
 	}
 	
 	// Update is called once per frame

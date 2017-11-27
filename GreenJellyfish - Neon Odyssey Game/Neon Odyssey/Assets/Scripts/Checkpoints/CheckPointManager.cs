@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Edward,
+//-contributors:
+//---------------------------------------------------------
+
+//--------------------------------------------------------------
+// Attach script to CHECKPOINT MANAGER prefab
+//--------------------------------------------------------------
+
 public class CheckPointManager : MonoBehaviour
 {
-    //--------------------------------------------------------------
-    // 1. Attach script to CHECKPOINT MANAGER prefab
-    //--------------------------------------------------------------
 
     public Vector3 currentCheckpoint = Vector3.zero;
 
