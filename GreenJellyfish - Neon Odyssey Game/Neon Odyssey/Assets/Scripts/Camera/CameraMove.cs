@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
 
-    public bool m_dynamicCamera = false;
+    public bool m_dynamicCamera = true;
 
     private bool m_singlePlayer = false;
 

@@ -25,11 +25,12 @@ public class Credits : MonoBehaviour
         Debug.Log("Screen Size:" + Screen.height + " Pos: " + m_creditsScrollOver.transform.position.y);
         if (m_creditsEnabled)
         {
-            if()//Jumping animation
-            {
+            //if()//Jumping animation
+            //{
 
-            }
-            else if (m_backgroundFadeInTimer < m_backgroundFadeIn) //Fade in background and logo
+            //}
+            //else 
+            if (m_backgroundFadeInTimer < m_backgroundFadeIn) //Fade in background and logo
             {
                 m_backgroundFadeInTimer += Time.deltaTime;
 
@@ -79,7 +80,7 @@ public class Credits : MonoBehaviour
 
             //Disable player input
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn = false;
-            GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = false;
+            //GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = false;
         }
     }
 }
