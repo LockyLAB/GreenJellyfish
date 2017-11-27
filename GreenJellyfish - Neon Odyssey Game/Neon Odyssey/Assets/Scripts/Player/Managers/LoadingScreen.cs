@@ -13,7 +13,7 @@ public class LoadingScreen : MonoBehaviour
     void Start ()
     {
         Invoke("EndLoadScreen", m_splashScreenTimer);
-        m_portalAnimation = GetComponent<Animation>();
+        //m_portalAnimation = GetComponent<Animation>();
     }
 
     private void Update()

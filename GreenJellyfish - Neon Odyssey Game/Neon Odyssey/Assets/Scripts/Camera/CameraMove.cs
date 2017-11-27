@@ -73,8 +73,8 @@ public class CameraMove : MonoBehaviour
     //-----------------------------------------------------
     void Update ()
     {
-        if(m_dynamicCamera)
-        {
+        //if(m_dynamicCamera)
+        //{
             //Single player
             if (m_singlePlayer)
                 transform.position = m_player1.transform.position + offset;
@@ -116,7 +116,7 @@ public class CameraMove : MonoBehaviour
 
                 transform.position = cameraPos;
             }
-        }
+        //}
 
         if (m_shakeEnabled)
             CameraShake();
