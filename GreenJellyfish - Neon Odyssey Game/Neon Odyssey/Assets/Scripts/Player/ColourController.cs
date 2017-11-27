@@ -22,6 +22,10 @@ public class ColourController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Disable player input
+        if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn == false)
+            return;
+
         if (!GetComponent<Player>().IsDead())
         {
             //TOGGLE PLAYER COLOUR

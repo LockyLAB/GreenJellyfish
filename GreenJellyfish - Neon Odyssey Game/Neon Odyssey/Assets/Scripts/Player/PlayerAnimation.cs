@@ -45,8 +45,12 @@ public class PlayerAnimation : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		//Landing animation
-		if (m_inAir) {
+        //Disable player input
+        if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn == false)
+            return;
+
+        //Landing animation
+        if (m_inAir) {
 			if (m_playerController.m_CollisionInfo.bottom) { // Hit ground
 				if (GetComponent<ColourController> ().m_firstBulletSlot)
 					m_currentLandingEffect = Instantiate (m_landingEffect [0], transform.TransformPoint (m_landingEffectSpawnPos), Quaternion.identity, transform);

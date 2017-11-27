@@ -53,7 +53,7 @@ public class Player : Character
     public override void CharaterActions() // update function
     {
         //Stop crashes due to delta time being set to 0.0f
-        if (Time.timeScale == 0.0f)
+        if (Time.timeScale == 0.0f || GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn == false)
             return;
 
         Vector2 input = new Vector2(XCI.GetAxisRaw(XboxAxis.LeftStickX, controller), XCI.GetAxisRaw(XboxAxis.LeftStickY, controller)); // Gets left and right input for player

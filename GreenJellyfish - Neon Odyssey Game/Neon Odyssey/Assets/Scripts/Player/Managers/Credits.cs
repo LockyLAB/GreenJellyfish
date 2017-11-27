@@ -22,10 +22,11 @@ public class Credits : MonoBehaviour
 
     private bool m_creditsEnabled = false;
 
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
-        if(m_creditsEnabled)
+        if (m_creditsEnabled)
         {
             if (m_backgroundFadeInTimer < m_backgroundFadeIn) //Fade in background and logo
             {
@@ -81,6 +82,9 @@ public class Credits : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             m_creditsEnabled = true;
+
+            //Disable player input
+            GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn = false;
         }
     }
 }

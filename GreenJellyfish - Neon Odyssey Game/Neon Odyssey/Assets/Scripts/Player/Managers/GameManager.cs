@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool m_singlePlayer = false;
 
+    [HideInInspector]
+    public bool m_inputOn = true;
+
     float gameOverTimer = 0;
 
     // Use this for initialization
