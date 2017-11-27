@@ -15,8 +15,8 @@ public class UI : MonoBehaviour
     public GameObject[] m_player1HealthHolder = new GameObject[4];
     public GameObject[] m_player2HealthHolder = new GameObject[4];
 
-    public GameObject m_player1HealthBarHolder = null;
-    public GameObject m_player2HealthBarHolder = null;
+    public GameObject[] m_player1HealthBarHolder = new GameObject[1];
+    public GameObject[] m_player2HealthBarHolder = new GameObject[1];
 
     private GameManager m_gameManagerRef;
 
@@ -89,12 +89,12 @@ public class UI : MonoBehaviour
     //		healthBarImageHolder: Current holder of health bar
     //		healthBarImage: the new health bar image
     //--------------------------------------------------------------------------------------
-    private void ColourFlip(GameObject healthBarImageHolder, GameObject healthBarImage)
+    private void ColourFlip(GameObject[] healthBarImageHolder, GameObject healthBarImage)
     {
         //Create new bar in flipped colour in location of old bar
-        GameObject newBar = Instantiate(healthBarImage, healthBarImageHolder.transform.position, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
+        GameObject newBar = Instantiate(healthBarImage, healthBarImageHolder[0].transform.position, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
 
-        Destroy(healthBarImageHolder);
-        healthBarImageHolder = newBar;
+        Destroy(healthBarImageHolder[0]);
+        healthBarImageHolder[0] = newBar;
     }
 }
