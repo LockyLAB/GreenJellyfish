@@ -57,8 +57,8 @@ public class CameraLockTrigger : MonoBehaviour
         { 
             if (!m_player1Inside && !m_player2Inside)
             {
-                m_Activated = true;
-                Activate();
+                m_Activated = false;
+                Deactivate();
             }
         }
     }

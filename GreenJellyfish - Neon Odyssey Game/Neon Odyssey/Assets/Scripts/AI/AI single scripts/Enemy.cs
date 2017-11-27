@@ -38,17 +38,32 @@ public class Enemy : Character
     //--------------------------------------------------------------------------------------
     void Awake ()
 	{
-		//Set up audio
-		if (m_movementAudio != null)
-			m_movementAudio = Instantiate (m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
-		if (m_jumpingAudio != null)
-			m_jumpingAudio = Instantiate (m_jumpingAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        //Set up audio
+        if (m_movementAudio != null)
+        {
+            m_movementAudio = Instantiate(m_movementAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_movementAudio.transform.localPosition = Vector3.zero;
+        }
+        if (m_jumpingAudio != null)
+        {
+            m_jumpingAudio = Instantiate(m_jumpingAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_jumpingAudio.transform.localPosition = Vector3.zero;
+        }
 		if (m_landingAudio != null)
-			m_landingAudio = Instantiate (m_landingAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_landingAudio = Instantiate(m_landingAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_landingAudio.transform.localPosition = Vector3.zero;
+        }
 		if (m_firingLaserAudio != null)
-			m_firingLaserAudio = Instantiate (m_firingLaserAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_firingLaserAudio = Instantiate(m_firingLaserAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_firingLaserAudio.transform.localPosition = Vector3.zero;
+        }
 		if (m_firingGunAudio != null)
-			m_firingGunAudio = Instantiate (m_firingGunAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+        {
+            m_firingGunAudio = Instantiate(m_firingGunAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_firingGunAudio.transform.localPosition = Vector3.zero;
+        }
 	}
 
     //--------------------------------------------------------------------------------------
