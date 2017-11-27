@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
 
     public Vector3 m_hitMarkerSpawnPos = Vector3.up * 0.5f;
     public GameObject m_hitMarker = null;
+    public GameObject m_hitMarkerOwnColour = null;
     public GameObject explosionParticle;
 
     public bool isExplosive = false;
@@ -90,6 +91,8 @@ public class Bullet : MonoBehaviour
                 //if enemy BULLET hits PLAYER of SAME colour, destroy bullet
                 else if (other.gameObject.layer == gameObject.layer && other.gameObject.GetComponent<Player>() != null)
                 {
+                    if (m_hitMarkerOwnColour != null)
+                        Destroy(Instantiate(m_hitMarkerOwnColour, other.gameObject.transform.TransformPoint(m_hitMarkerSpawnPos), Quaternion.identity, other.gameObject.transform), 5.0f);
                     Destroy(gameObject);
                     // +power charge
                 }
