@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RayshieldTrigger : MonoBehaviour {
 
     public GameObject boss;
-    public GameObject m_bossBar = null;
+    public List<GameObject> m_bossBarSections = new List<GameObject>();
 
     public GameObject shield;
     private bool triggered;
@@ -16,6 +16,7 @@ public class RayshieldTrigger : MonoBehaviour {
         //shield.SetActive(true);
         triggered = false;
     }
+
     // Update is called once per frame
     void Update () {
         
@@ -28,13 +29,27 @@ public class RayshieldTrigger : MonoBehaviour {
             }
             else //Update Boss UI
             {
-                //Scale UI health bar to health
-                if (m_bossBar != null)
+                //Set UI health bar to health
+                if (m_bossBarSections.Count == 3)
                 {
-                    Vector3 healthBarScale = m_bossBar.GetComponent<Image>().rectTransform.localScale;
-                    healthBarScale.x = (float)boss.GetComponent<Character>().GetHealth() / (float)boss.GetComponent<Character>().m_healthMax;
+                    int bossHealth = boss.GetComponent<Character>().GetHealth();
+                    int bossMaxHealth = boss.GetComponent<Character>().m_healthMax;
 
-                    m_bossBar.GetComponent<Image>().rectTransform.localScale = healthBarScale;
+                    //First health bar
+                    if ((bossHealth / 2) % 3 == 2)
+                    {
+                        m_bossBarSections[2].SetActive(false);
+                    }
+                    //Second health bar
+                    if((bossHealth/2) % 3 == 2)
+                    {
+                        m_bossBarSections[1].SetActive(false);
+                    }
+                    //third health bar
+                    if ((bossHealth / 2) % 3 == 0)
+                    {
+                        m_bossBarSections[0].SetActive(false);
+                    }
                 }
             }
         }
