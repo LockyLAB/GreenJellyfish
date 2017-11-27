@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour {
 
     public GameObject m_topButton = null;
+    public string m_menu; //Main menu
 
     //--------------------------------------------------------------------------------------
     // When game over screen displays, ensure button is initially selected
@@ -40,7 +41,7 @@ public class PauseManager : MonoBehaviour {
     public void GoToMenuBtn()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(m_menu);
     }
 
     //--------------------------------------------------------------------------------------
