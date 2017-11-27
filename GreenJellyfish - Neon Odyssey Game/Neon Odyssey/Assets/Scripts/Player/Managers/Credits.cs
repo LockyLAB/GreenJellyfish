@@ -8,6 +8,7 @@ public class Credits : MonoBehaviour
 {
     public string m_menu; //Next level
 
+
     public GameObject m_creditsLogo = null;
     public GameObject m_creditsScrollOver = null;
 
@@ -24,11 +25,6 @@ public class Credits : MonoBehaviour
     {
         if (m_creditsEnabled)
         {
-            //if()//Jumping animation
-            //{
-
-            //}
-            //else 
             if (m_backgroundFadeInTimer < m_backgroundFadeIn) //Fade in background and logo
             {
                 m_backgroundFadeInTimer += Time.deltaTime;
@@ -79,7 +75,6 @@ public class Credits : MonoBehaviour
 
             //Disable player input
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn = false;
-            //GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = false;
         }
     }
 }

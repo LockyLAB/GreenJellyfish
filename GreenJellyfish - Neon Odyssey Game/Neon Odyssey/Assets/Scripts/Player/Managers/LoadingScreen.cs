@@ -5,7 +5,6 @@ using UnityEngine;
 public class LoadingScreen : MonoBehaviour
 {
     public float m_splashScreenTimer = 2.0f;
-    public Animation m_portalAnimation;
 
     //--------------------------------------------------------------------------------------
     // False loading screen runiing for predetermined time
@@ -13,14 +12,6 @@ public class LoadingScreen : MonoBehaviour
     void Start ()
     {
         Invoke("EndLoadScreen", m_splashScreenTimer);
-        //m_portalAnimation = GetComponent<Animation>();
-    }
-
-    private void Update()
-    {
-        //if(!m_portalAnimation.isPlaying)
-
-            //GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = true;
     }
 
     //--------------------------------------------------------------------------------------
@@ -28,8 +19,7 @@ public class LoadingScreen : MonoBehaviour
     //--------------------------------------------------------------------------------------
     void EndLoadScreen()
     {
+        GameObject.FindWithTag("GameManager").GetComponent<IntroSequence>().enabled = true;
         gameObject.SetActive(false);
-        //m_portalAnimation = true;
-        //GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = true;
     }
 }
