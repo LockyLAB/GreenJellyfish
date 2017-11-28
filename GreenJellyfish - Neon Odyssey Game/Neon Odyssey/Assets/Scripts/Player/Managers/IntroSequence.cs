@@ -37,10 +37,6 @@ public class IntroSequence : MonoBehaviour
     {
         m_player1Animator.enabled = true;
         m_player2Animator.enabled = true;
-
-        GameObject activationSound = Instantiate(m_portalActivationSound, Vector3.zero, Quaternion.identity);
-        activationSound.GetComponent<AudioSource>().Play();
-        Destroy(activationSound, 5.0f);
     }
 
     //--------------------------------------------------------------------------------------
