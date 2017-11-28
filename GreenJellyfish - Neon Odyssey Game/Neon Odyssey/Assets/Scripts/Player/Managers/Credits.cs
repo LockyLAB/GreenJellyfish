@@ -59,6 +59,7 @@ public class Credits : MonoBehaviour
                     //Set alpha
                     SetImageAlpha(m_creditsFadeBack, m_backgroundFadeOutTimer / m_backgroundFadeOut);
                     SetImageAlpha(m_creditsLogo, 1 - (m_backgroundFadeOutTimer / m_backgroundFadeOut));
+
                 }
             }
             else
