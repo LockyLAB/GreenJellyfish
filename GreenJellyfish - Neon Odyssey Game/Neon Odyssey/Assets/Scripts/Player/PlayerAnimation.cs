@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 
+
+//---------------------------------------------------------
+//-written by: Sam,
+//-contributors: Edward,
+//---------------------------------------------------------
+
 public class PlayerAnimation : MonoBehaviour
 {
 	//Effects
@@ -14,7 +20,7 @@ public class PlayerAnimation : MonoBehaviour
 	private GameObject m_currentLandingEffect = null;
 	private GameObject m_currentHitWallEffect = null;
 
-	//store possible effects for wach player
+	//store possible effects for each player
 	public List<GameObject> m_landingEffect;
 	public List<GameObject> m_hitWallEffect;
 
@@ -51,7 +57,18 @@ public class PlayerAnimation : MonoBehaviour
         if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn == false)
             return;
 
-        //Landing animation
+        if (XCI.GetButtonDown(m_player.jumpButton, m_player.controller))
+        {
+            if (m_playerController.m_CollisionInfo.left || m_playerController.m_CollisionInfo.right)
+            {
+                if (!m_playerSounds.m_wallJumpAudio.GetComponent<AudioSource>().isPlaying)
+                    m_playerSounds.m_wallJumpAudio.GetComponent<AudioSource>().Play();
+            }
+
+        }
+
+
+            //Landing animation
         if (m_inAir) {
 			if (m_playerController.m_CollisionInfo.bottom) { // Hit ground
 				if (GetComponent<ColourController> ().m_firstBulletSlot)
@@ -63,13 +80,16 @@ public class PlayerAnimation : MonoBehaviour
 				m_inAir = false;
 			}
 		} else {
-			if (XCI.GetButtonDown (m_player.jumpButton, m_player.controller)) { //Just jumped
-				if (m_currentLandingEffect != null) {//If player is no longer grounded remove the following effect
-					m_currentLandingEffect.transform.parent = null;
-				}
-				//Play Audio for jumping
-				m_playerSounds.m_jumpingAudio.GetComponent<AudioSource> ().Play ();
-			}
+            if (XCI.GetButtonDown(m_player.jumpButton, m_player.controller))
+            { //Just jumped
+                if (m_currentLandingEffect != null)
+                {//If player is no longer grounded remove the following effect
+                    m_currentLandingEffect.transform.parent = null;
+                }
+                //Play Audio for jumping
+                m_playerSounds.m_jumpingAudio.GetComponent<AudioSource>().Play();
+
+            }
 			if (!m_playerController.m_CollisionInfo.bottom) {
 				if (GetComponent<ColourController> ().m_firstBulletSlot)
 					Destroy (Instantiate (m_jumpingEffect [0], transform.TransformPoint (m_jumpingEffectSpawnPos), Quaternion.identity, transform), 1.0f);
@@ -106,14 +126,32 @@ public class PlayerAnimation : MonoBehaviour
 			int wallDirection = (m_playerController.m_CollisionInfo.left) ? -1 : 1; // Checks which direction the player is colliding with wall
 
 			if (GetComponent<ColourController> ().m_firstBulletSlot)
+            {
 				m_currentHitWallEffect = Instantiate (m_hitWallEffect [0], transform.TransformPoint (m_hitWallEffectSpawnPos * wallDirection), Quaternion.identity);
+            }
 			else
+            {
 				m_currentHitWallEffect = Instantiate (m_hitWallEffect [1], transform.TransformPoint (m_hitWallEffectSpawnPos * wallDirection), Quaternion.identity);
+            }
+
+            //play wallSlide audio
+            if (!m_playerSounds.m_wallSlideAudio.GetComponent<AudioSource>().isPlaying)
+                m_playerSounds.m_wallSlideAudio.GetComponent<AudioSource>().Play();
 
             //Start timer to cause effect to follow player
-			StartCoroutine (PauseEffectFollow (0.1f, m_currentHitWallEffect));
-		} else
+            StartCoroutine (PauseEffectFollow (0.1f, m_currentHitWallEffect));
+		}
+
+        else
 			m_hitWall = false;
+
+        //stop wallSlide audio when not on walls
+        if((!m_playerController.m_CollisionInfo.left && !m_playerController.m_CollisionInfo.right) || m_playerController.m_CollisionInfo.bottom)
+        {
+            if (m_playerSounds.m_wallSlideAudio.GetComponent<AudioSource>().isPlaying)
+                m_playerSounds.m_wallSlideAudio.GetComponent<AudioSource>().Stop();
+        }
+            
 	}
 
     //--------------------------------------------------------------------------------------

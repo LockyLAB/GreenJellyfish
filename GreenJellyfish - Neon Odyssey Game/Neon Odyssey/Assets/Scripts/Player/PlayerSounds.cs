@@ -12,6 +12,8 @@ public class PlayerSounds : MonoBehaviour
 	public GameObject m_deathAudio = null;
 	public GameObject m_reviveAudio = null;
 	public GameObject m_respawnAudio = null;
+    public GameObject m_wallJumpAudio = null;
+    public GameObject m_wallSlideAudio = null;
 
 	// Use this for initialization
 	void Start ()
@@ -50,5 +52,17 @@ public class PlayerSounds : MonoBehaviour
             m_respawnAudio = Instantiate(m_respawnAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
             m_respawnAudio.transform.localPosition = Vector3.zero;
         }
-	}
+
+        if (m_wallJumpAudio != null)
+        {
+            m_wallJumpAudio = Instantiate(m_wallJumpAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_wallJumpAudio.transform.localPosition = Vector3.zero;
+        }
+
+        if (m_wallSlideAudio != null)
+        {
+            m_wallSlideAudio = Instantiate(m_wallSlideAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
+            m_wallSlideAudio.transform.localPosition = Vector3.zero;
+        }
+    }
 }
