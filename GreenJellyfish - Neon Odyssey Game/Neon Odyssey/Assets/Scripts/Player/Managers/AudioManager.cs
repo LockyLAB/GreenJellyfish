@@ -10,7 +10,6 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public GameObject m_musicIntro = null;
-    public GameObject m_musicLoop = null;
 
     public float m_musicStartDelay = 1.0f;
 
@@ -32,12 +31,6 @@ public class AudioManager : MonoBehaviour
         {
             m_musicFadeInTimer += Time.deltaTime;
             m_musicIntro.GetComponent<AudioSource>().volume = m_musicFadeInTimer/ m_musicFadeIn;
-        }
-
-        if(!m_musicIntro.GetComponent<AudioSource>().isPlaying)
-        {
-            m_musicLoop.GetComponent<AudioSource>().Play();
-            //Destroy(this);
         }
     }
 
