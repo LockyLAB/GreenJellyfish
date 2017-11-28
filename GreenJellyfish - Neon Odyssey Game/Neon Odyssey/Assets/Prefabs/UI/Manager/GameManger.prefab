@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 223514310435366388}
   - component: {fileID: 114056583460134744}
   - component: {fileID: 114430587901667842}
+  - component: {fileID: 114146032345239182}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -786,11 +787,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ea00ed62f7e764ebef78203e1af8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_player1Animator: {fileID: 0}
+  m_player2Animator: {fileID: 0}
+  m_cameraAnimator: {fileID: 0}
   m_portalWaterEffect: {fileID: 0}
-  m_portalPlayer2ActivateTime: 0
   m_portalWaterTime: 1
-  m_animationTime: 0
-  m_sequenceTime: 0
+  m_animationTime: 6
+  m_sequenceTime: 7
+--- !u!114 &114146032345239182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661178613647688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c2785d7f581b94cb76b2a363458d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_menu: 
+  m_UICanvas: {fileID: 1637689328229376}
+  m_creditsLogo: {fileID: 1864907351375156}
+  m_creditsScrollOver: {fileID: 1701076830872646}
+  m_backgroundFadeIn: 1
+  m_scrollSpeed: 150
 --- !u!114 &114166286708292050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -871,9 +891,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 114598952802800722}
+    m_SelectOnDown: {fileID: 114748036459302176}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -1110,9 +1130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 114936729802942134}
+    m_SelectOnDown: {fileID: 114558359352552666}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -1259,9 +1279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 114451155379170332}
+    m_SelectOnDown: {fileID: 114936729802942134}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -1312,9 +1332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 114748036459302176}
+    m_SelectOnDown: {fileID: 114208140938880394}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -1364,6 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863395ee81f5f948a45891a368659c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UICanvas: {fileID: 1637689328229376}
   m_topButton: {fileID: 1243729430216918}
   m_menu: StartScreen
 --- !u!114 &114644831436240764
@@ -1621,9 +1642,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 114208140938880394}
+    m_SelectOnDown: {fileID: 114598952802800722}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -1902,9 +1923,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 114558359352552666}
+    m_SelectOnDown: {fileID: 114451155379170332}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2

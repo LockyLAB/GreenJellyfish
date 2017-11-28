@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 114371249185959448}
   - component: {fileID: 114085195921502590}
   - component: {fileID: 114198500525022286}
+  - component: {fileID: 95320057966912668}
   m_Layer: 12
   m_Name: Horus
   m_TagString: Player
@@ -735,6 +736,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 2
+--- !u!95 &95320057966912668
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645321335930210}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a144bc319aa6b5b4b883f9234be7bf01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95563088182765580
 Animator:
   serializedVersion: 3
@@ -934,6 +952,10 @@ MonoBehaviour:
     type: 2}
   m_respawnAudio: {fileID: 1584531829114832, guid: 3b0ed3cf57db37c4bbe5145deac86268,
     type: 2}
+  m_wallJumpAudio: {fileID: 1706562424910010, guid: 8d4c6f4446e110043af3d40ddfdb9780,
+    type: 2}
+  m_wallSlideAudio: {fileID: 1285373094868586, guid: 575100443be3825438871ec518456efe,
+    type: 2}
 --- !u!114 &114332749057267926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -975,6 +997,7 @@ MonoBehaviour:
   - {fileID: 1055440395838386, guid: 76fac1dd185bbc44b850b595c1123928, type: 2}
   - {fileID: 1020591320571982, guid: a58d8c38a27d183468b12187c869c235, type: 2}
   m_jumpingEffectSpawnPos: {x: 0, y: 0.6, z: 0}
+  m_animator: {fileID: 95563088182765580}
 --- !u!114 &114395703970050262
 MonoBehaviour:
   m_ObjectHideFlags: 1

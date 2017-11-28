@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 114926282601774258}
   - component: {fileID: 114136403817056938}
   - component: {fileID: 81831130079287502}
+  - component: {fileID: 95196180281347096}
   m_Layer: 0
   m_Name: Anubis
   m_TagString: Player
@@ -743,6 +744,23 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634842271502378}
   m_Enabled: 1
+--- !u!95 &95196180281347096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634842271502378}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af3f761c17707964d9746e6c729b2a1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95588258084569154
 Animator:
   serializedVersion: 3
@@ -900,6 +918,10 @@ MonoBehaviour:
     type: 2}
   m_respawnAudio: {fileID: 1584531829114832, guid: 3b0ed3cf57db37c4bbe5145deac86268,
     type: 2}
+  m_wallJumpAudio: {fileID: 1706562424910010, guid: 8d4c6f4446e110043af3d40ddfdb9780,
+    type: 2}
+  m_wallSlideAudio: {fileID: 1285373094868586, guid: 575100443be3825438871ec518456efe,
+    type: 2}
 --- !u!114 &114239747044172402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -939,6 +961,7 @@ MonoBehaviour:
   - {fileID: 1139166413255476, guid: 6899ddf3351b109458238cdd7e8f7660, type: 2}
   - {fileID: 1240620072963214, guid: bf99d1238c4f160479a25a03b97556e1, type: 2}
   m_jumpingEffectSpawnPos: {x: 0, y: 0.6, z: 1}
+  m_animator: {fileID: 95588258084569154}
 --- !u!114 &114542884869435458
 MonoBehaviour:
   m_ObjectHideFlags: 1
