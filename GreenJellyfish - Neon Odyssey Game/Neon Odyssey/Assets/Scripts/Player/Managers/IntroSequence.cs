@@ -18,6 +18,9 @@ public class IntroSequence : MonoBehaviour
     public GameObject m_portalWaterEffect = null;
     public GameObject m_portalActivationSound = null;
 
+    public float m_portalEffectDelay = 1.0f;
+    private bool m_portalEffectActivated = false;
+
     private bool m_cameraEnabled = false;
 
     public float m_portalWaterTime = 1.0f;
@@ -46,19 +49,30 @@ public class IntroSequence : MonoBehaviour
     private void Update()
     {
         m_sequenceTimer += Time.deltaTime;
+
+        if (m_sequenceTimer > m_portalEffectDelay && !m_portalEffectActivated) // Activate portal water
+        {
+            GameObject activationSound = Instantiate(m_portalActivationSound, Vector3.zero, Quaternion.identity);
+            activationSound.GetComponent<AudioSource>().Play();
+            Destroy(activationSound, 5.0f);
+
+            m_portalEffectActivated = true;
+        }
+
         if (m_sequenceTimer > m_portalWaterTime && !m_portalWaterActivated) // Activate portal water
         {
             m_portalWaterEffect.SetActive(true);
             m_portalWaterActivated = true;
         }
 
-        else if (m_sequenceTimer > m_animationTime && !m_cameraEnabled)//Enable camera and player input at end of timer
+        if (m_sequenceTimer > m_animationTime && !m_cameraEnabled)//Enable camera and player input at end of timer
         {
             m_cameraEnabled = true;
             GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = true;
             Destroy(m_cameraAnimator);
         }
-        else if(m_sequenceTimer > m_sequenceTime) //Enable player montion at end of opening animation
+
+        if(m_sequenceTimer > m_sequenceTime) //Enable player montion at end of opening animation
         {
             //Remove animators
             Destroy(m_player1Animator);
