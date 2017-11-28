@@ -34,22 +34,21 @@ public class RayshieldTrigger : MonoBehaviour {
                 if (m_bossBarHealthSections.Count == 3 && m_bossBarDeathSections.Count == 3)
                 {
                     int bossHealth = boss.GetComponent<Character>().GetHealth();
-                    int bossMaxHealth = boss.GetComponent<Character>().m_healthMax;
 
                     //First health bar
-                    if ((bossHealth / 2) % 3 == 2)
+                    if (bossHealth == 4)
                     {
                         m_bossBarHealthSections[2].SetActive(false);
                         m_bossBarDeathSections[2].SetActive(true);
                     }
                     //Second health bar
-                    if((bossHealth/2) % 3 == 2)
+                    if(bossHealth == 2)
                     {
                         m_bossBarHealthSections[1].SetActive(false);
                         m_bossBarDeathSections[1].SetActive(true);
                     }
                     //third health bar
-                    if ((bossHealth / 2) % 3 == 0)
+                    if (bossHealth == 0)
                     {
                         m_bossBarHealthSections[0].SetActive(false);
                         m_bossBarDeathSections[0].SetActive(true);
