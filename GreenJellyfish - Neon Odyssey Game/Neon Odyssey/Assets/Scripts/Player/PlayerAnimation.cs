@@ -32,7 +32,7 @@ public class PlayerAnimation : MonoBehaviour
 	public Vector3 m_jumpingEffectSpawnPos = Vector3.up * 0.1f;
 
 	//Player components
-	Animator m_animator = null;
+	public Animator m_animator = null;
 	private PlayerSounds m_playerSounds = null;
 	PlayerController m_playerController = null;
 	Player m_player = null;
@@ -40,8 +40,6 @@ public class PlayerAnimation : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		m_animator = gameObject.GetComponentInChildren<Animator> ();
-
 		m_playerSounds = GetComponent<PlayerSounds> ();
 
 		m_playerController = GetComponent<PlayerController> ();
