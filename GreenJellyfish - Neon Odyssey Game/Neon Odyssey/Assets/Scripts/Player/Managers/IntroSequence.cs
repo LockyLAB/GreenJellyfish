@@ -17,6 +17,8 @@ public class IntroSequence : MonoBehaviour
     public Animator m_player1Animator = null;
     public Animator m_player2Animator = null;
 
+    public GameObject m_SphinxBossReference = null; //Used to turn off sphix landing sound
+
     public Animator m_cameraAnimator = null;
 
     public GameObject m_portalWaterEffect = null;
@@ -48,6 +50,8 @@ public class IntroSequence : MonoBehaviour
 
         m_player1.GetComponent<PlayerSounds>().DisableSound();
         m_player2.GetComponent<PlayerSounds>().DisableSound();
+
+        m_SphinxBossReference.GetComponent<Enemy>().DisableSound();
     }
 
     //--------------------------------------------------------------------------------------
@@ -87,6 +91,8 @@ public class IntroSequence : MonoBehaviour
 
             m_player1.GetComponent<PlayerSounds>().EnableSound();
             m_player2.GetComponent<PlayerSounds>().EnableSound();
+
+            m_SphinxBossReference.GetComponent<Enemy>().EnableSound();
 
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn = true;
             Destroy(this);

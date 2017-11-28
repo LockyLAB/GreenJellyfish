@@ -118,4 +118,42 @@ public class Enemy : Character
 		Destroy (deathSound, 5.0f);
 		Destroy (gameObject);
 	}
+
+    //--------------------------------------------------------------------------------------
+    // Turn player volume to 0
+    //--------------------------------------------------------------------------------------
+    public void DisableSound()
+    {
+        if (m_movementAudio != null)
+            m_movementAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_jumpingAudio != null)
+            m_jumpingAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_landingAudio != null)
+            m_landingAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_firingLaserAudio != null)
+            m_firingLaserAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_firingGunAudio != null)
+            m_firingGunAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_deathAudio != null)
+            m_deathAudio.GetComponent<AudioSource>().volume = 0;
+    }
+
+    //--------------------------------------------------------------------------------------
+    // Turn player sound volume to 1
+    //--------------------------------------------------------------------------------------
+    public void EnableSound()
+    {
+        if (m_movementAudio != null)
+            m_movementAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_jumpingAudio != null)
+            m_jumpingAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_landingAudio != null)
+            m_landingAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_firingLaserAudio != null)
+            m_firingLaserAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_firingGunAudio != null)
+            m_firingGunAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_deathAudio != null)
+            m_deathAudio.GetComponent<AudioSource>().volume = 1;
+    }
 }
