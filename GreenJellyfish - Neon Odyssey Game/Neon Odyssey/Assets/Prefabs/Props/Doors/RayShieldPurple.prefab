@@ -958,6 +958,8 @@ MonoBehaviour:
   m_parent: {fileID: 1079116711527584}
   m_destructionEffect: {fileID: 1444691844374180, guid: 6a3b314b1d417b542916514fe8f7fd42,
     type: 2}
+  m_destructionSound: {fileID: 1865100846752912, guid: 76fef2bf360ae4f47be610e8556ab229,
+    type: 2}
   m_destructionEffectDuration: 1
 --- !u!114 &114794041164318306
 MonoBehaviour:
@@ -971,6 +973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ray: {fileID: 1597610863604194}
+  m_destructionSound: {fileID: 1249894730106994, guid: 43cd3bb7b3af794468adc5849e173daa,
+    type: 2}
   m_destroyEffect: {fileID: 1709571350622742, guid: 0e6f1bc19b9df09418922bf1d7c2676d,
     type: 2}
   m_destroyEffectOffset: {x: 0, y: 7, z: 0}
