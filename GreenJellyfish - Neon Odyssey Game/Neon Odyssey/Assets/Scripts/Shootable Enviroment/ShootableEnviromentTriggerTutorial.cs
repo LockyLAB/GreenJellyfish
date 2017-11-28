@@ -6,6 +6,7 @@ public class ShootableEnviromentTriggerTutorial : ShootableEnviromentTrigger
 {
 
     public GameObject m_destructionEffect = null;
+    public GameObject m_destructionSound = null;
     public float m_destructionEffectDuration = 0.0f;
 
     //--------------------------------------------------------------------------------------
@@ -19,8 +20,11 @@ public class ShootableEnviromentTriggerTutorial : ShootableEnviromentTrigger
         GameObject destructionEffect = Instantiate(m_destructionEffect, transform.position, Quaternion.identity);
         //Face parent
         destructionEffect.transform.rotation = Quaternion.LookRotation(m_parent.transform.position - transform.position);
-        
-        Destroy(destructionEffect, m_destructionEffectDuration);
+
+        GameObject destructionSound = Instantiate(m_destructionSound, Vector3.zero, Quaternion.identity);
+        destructionSound.transform.localPosition = Vector3.zero;
+        destructionSound.GetComponent<AudioSource>().Play();
+        Destroy(destructionSound, 5.0f);
 
         //Set to invisible
         gameObject.SetActive(false);

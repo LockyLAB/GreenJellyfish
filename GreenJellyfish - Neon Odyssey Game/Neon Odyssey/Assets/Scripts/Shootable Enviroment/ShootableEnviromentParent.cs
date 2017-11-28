@@ -7,6 +7,8 @@ public class ShootableEnviromentParent : MonoBehaviour
     protected List<GameObject> m_children= new List<GameObject>();
     public GameObject m_ray = null;
 
+    public GameObject m_destructionSound = null;
+
     public GameObject m_destroyEffect = null;
     public Vector3 m_destroyEffectOffset = Vector3.zero;
 
@@ -46,6 +48,14 @@ public class ShootableEnviromentParent : MonoBehaviour
                 Destroy(m_ray);
                 if (m_destroyEffect != null)
                     Destroy(Instantiate(m_destroyEffect, transform.TransformPoint(m_destroyEffectOffset), Quaternion.identity), 5.0f);
+
+                if (m_destroyEffect != null)
+                {
+                    GameObject destructionSound = Instantiate(m_destructionSound, Vector3.zero, Quaternion.identity);
+                    destructionSound.transform.localPosition = Vector3.zero;
+                    destructionSound.GetComponent<AudioSource>().Play();
+                    Destroy(destructionSound, 5.0f);
+                }
             }
         }
     }
