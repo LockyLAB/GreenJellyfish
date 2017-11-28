@@ -88,17 +88,30 @@ public class MenuManager : MonoBehaviour
         {
             m_startGameTimer += Time.deltaTime;
 
-            if (m_startGameTimer < 1.4) //Fade in controller
+            if (m_startGameTimer < 1.4) //Fade in UI to 70%
             {
                 float alpha = m_startGameTimer / 2.0f;
                 SetAlpha(alpha, m_fadeImage);
                 SetAlpha(0.7f - alpha, m_startImg);
             }
+            else
+            {
+                SetAlpha(0.0f, m_fadeImage);
+                SetAlpha(0.7f, m_startImg);
+            }
 
-            if (m_startGameTimer < 2.0f) //Fade in controller
+            if (m_startGameTimer < 2.0f) //Fade in UI 100%
             {
                 float alpha = m_startGameTimer / 2.0f;
+                SetAlpha(1 - alpha, m_PlayBtnImg);
+                SetAlpha(1 - alpha, m_QuitBtnImg);
                 SetAlpha(alpha, m_ControllerBtnImg);
+            }
+            else
+            {
+                SetAlpha(0.0f, m_PlayBtnImg);
+                SetAlpha(0.0f, m_QuitBtnImg);
+                SetAlpha(1.0f, m_ControllerBtnImg);
             }
 
             if (m_startGameTimer >= m_startGameTime)
