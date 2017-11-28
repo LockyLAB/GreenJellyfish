@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c2785d7f581b94cb76b2a363458d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_menu: 
+  m_menu: StartScreen
   m_UICanvas: {fileID: 1637689328229376}
   m_creditsLogo: {fileID: 1864907351375156}
   m_creditsScrollOver: {fileID: 1701076830872646}

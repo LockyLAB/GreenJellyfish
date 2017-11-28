@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_rightClawPos: {x: -1, y: 0.5, z: 0.8}
   m_bulletPrefab: {fileID: 1086754928029554, guid: 8047e5b77a6bcb9459d31b8b9ede6f13,
     type: 2}
-  m_laserFireDistance: 10
+  m_laserFireDistance: 16
   m_laserChargeTime: 2
   m_laserCooldown: 2
   m_laserPos: {x: -0.5, y: 2, z: 0}
