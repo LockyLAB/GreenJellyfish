@@ -735,7 +735,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 8
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!81 &81831130079287502
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1010,6 +1010,9 @@ MonoBehaviour:
   m_playerGhost: {fileID: 1363075357346602, guid: 1afc289e859cd46489d603b0b3c3c211,
     type: 2}
   m_playerGhostOffset: {x: 0, y: 0, z: 0}
+  m_playerReviveEffect: {fileID: 1122323952728742, guid: 0e037c1a98d3220498201b3ede9e8730,
+    type: 2}
+  m_playerReviveEffectOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114926282601774258
 MonoBehaviour:
   m_ObjectHideFlags: 1

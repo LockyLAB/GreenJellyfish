@@ -734,7 +734,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 8
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &95563088182765580
 Animator:
   serializedVersion: 3
@@ -908,6 +908,9 @@ MonoBehaviour:
   m_playerGhost: {fileID: 1341482646888078, guid: 1f53de6ad63086644be8fc07b0d2df00,
     type: 2}
   m_playerGhostOffset: {x: 0, y: 0, z: 0}
+  m_playerReviveEffect: {fileID: 1122323952728742, guid: 0e037c1a98d3220498201b3ede9e8730,
+    type: 2}
+  m_playerReviveEffectOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114198500525022286
 MonoBehaviour:
   m_ObjectHideFlags: 1

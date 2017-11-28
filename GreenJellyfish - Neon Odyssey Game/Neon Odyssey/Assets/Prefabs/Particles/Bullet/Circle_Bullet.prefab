@@ -272,9 +272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd5af9e343359e49870f321d427ce35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_hitMarkerSpawnPos: {x: 0, y: 0.5, z: -0.5}
   m_hitMarker: {fileID: 1845121954688926, guid: 40919702f23abdb45bcd11cc8c66785d,
     type: 2}
-  m_hitMarkerSpawnPos: {x: 0, y: 0.5, z: -0.5}
+  m_hitMarkerOwnColour: {fileID: 1390860222202912, guid: cf8054d4434d94b4ab0deee3fa82215d,
+    type: 2}
   explosionParticle: {fileID: 198941038621313706, guid: 1b126c901d01abd4b95391db5e9f29f5,
     type: 2}
   isExplosive: 0
