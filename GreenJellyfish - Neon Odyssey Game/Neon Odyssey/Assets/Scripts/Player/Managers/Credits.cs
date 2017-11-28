@@ -25,17 +25,19 @@ public class Credits : MonoBehaviour
     {
         if (m_creditsEnabled)
         {
+            if (m_UICanvas.activeInHierarchy)
+                m_UICanvas.SetActive(false);
+
             if (m_backgroundFadeInTimer < m_backgroundFadeIn) //Fade in background and logo
             {
                 m_backgroundFadeInTimer += Time.deltaTime;
 
                 //Set alpha
                 SetImageAlpha(m_creditsLogo, m_backgroundFadeInTimer / m_backgroundFadeIn * 2);
+
             }
             else if (m_creditsScrollOver.transform.position.y < Screen.height + (m_creditsScrollOver.GetComponent<Image>().sprite.rect.height/2)) //Scroll text
             {
-                if (m_UICanvas.activeSelf)
-                    m_UICanvas.SetActive(false);
 
                 Vector3 creditsPos = m_creditsScrollOver.transform.position;
                 creditsPos.y += m_scrollSpeed * Time.deltaTime;

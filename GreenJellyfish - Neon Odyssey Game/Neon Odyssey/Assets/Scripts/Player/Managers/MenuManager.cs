@@ -98,8 +98,8 @@ public class MenuManager : MonoBehaviour
             }
             else
             {
-                SetAlpha(0.0f, m_fadeImage);
-                SetAlpha(0.7f, m_startImg);
+                SetAlpha(0.7f, m_fadeImage);
+                SetAlpha(0.0f, m_startImg);
             }
 
             if (m_startGameTimer < 2.0f) //Fade in UI 100%
