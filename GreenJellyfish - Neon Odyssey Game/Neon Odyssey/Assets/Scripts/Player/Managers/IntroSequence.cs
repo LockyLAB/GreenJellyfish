@@ -58,8 +58,10 @@ public class IntroSequence : MonoBehaviour
         else if(m_sequenceTimer > m_sequenceTime) //Enable player montion at end of opening animation
         {
             //Remove animators
-            Destroy(m_player1Animator);
-            Destroy(m_player2Animator);
+            //m_player1Animator.StopPlayback();
+            //m_player2Animator.StopPlayback();
+            //Destroy(m_player1Animator);
+            //Destroy(m_player2Animator);
 
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn = true;
             this.enabled = false;
