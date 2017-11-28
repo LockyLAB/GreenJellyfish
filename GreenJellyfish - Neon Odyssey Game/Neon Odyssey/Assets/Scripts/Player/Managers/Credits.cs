@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class Credits : MonoBehaviour
 {
     public string m_menu; //Next level

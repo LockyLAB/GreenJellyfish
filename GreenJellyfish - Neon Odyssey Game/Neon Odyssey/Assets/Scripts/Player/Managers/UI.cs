@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class UI : MonoBehaviour
 {
     //health bar
@@ -92,7 +97,7 @@ public class UI : MonoBehaviour
     private void ColourFlip(GameObject[] healthBarImageHolder, GameObject healthBarImage)
     {
         //Create new bar in flipped colour in location of old bar
-        GameObject newBar = Instantiate(healthBarImage, healthBarImageHolder[0].transform.position, Quaternion.identity, m_gameManagerRef.GetComponent<Canvas>().transform);
+        GameObject newBar = Instantiate(healthBarImage, healthBarImageHolder[0].transform.position, Quaternion.identity, gameObject.transform);
 
         Destroy(healthBarImageHolder[0]);
         healthBarImageHolder[0] = newBar;

@@ -22,8 +22,8 @@ public class PlayerSuper : MonoBehaviour {
     public Image powerBarFill;
     public Image powerBarBackground;
 
-    private int p1;
-    private int p2;
+    //private int p1;
+    //private int p2;
 
 	void Start () {
 

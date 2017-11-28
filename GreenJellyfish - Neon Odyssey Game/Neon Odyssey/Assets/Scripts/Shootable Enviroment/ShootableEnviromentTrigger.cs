@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class ShootableEnviromentTrigger : MonoBehaviour
 {
     public GameObject m_parent = null;

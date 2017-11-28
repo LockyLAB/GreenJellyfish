@@ -2,6 +2,11 @@
 using System.Collections;
 using XboxCtrlrInput;
 
+//---------------------------------------------------------
+//-written by: Nick
+//-contributors: Samuel
+//---------------------------------------------------------
+
 [RequireComponent(typeof(PlayerController))]
 public class Player : Character
 {

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Edward
+//-contributors:
+//---------------------------------------------------------
+
 public class RayshieldEntry : MonoBehaviour {
 
     public GameObject shield;

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class LoadingScreen : MonoBehaviour
 {
     public float m_splashScreenTimer = 2.0f;

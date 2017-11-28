@@ -15,7 +15,7 @@ using UnityEngine;
 public class HomingMissile : MonoBehaviour
 {
   
-    Vector3 objectPos;
+    Vector3 objectPos = Vector3.zero;
     public float homingRadius = 7.5f;
     public float bulletSpeed = 15.0f;
     public float detonateTimer = 1.5f;

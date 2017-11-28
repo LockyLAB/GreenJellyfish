@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class ShootableEnviromentTriggerTutorial : ShootableEnviromentTrigger
 {
 
@@ -22,7 +27,6 @@ public class ShootableEnviromentTriggerTutorial : ShootableEnviromentTrigger
         destructionEffect.transform.rotation = Quaternion.LookRotation(m_parent.transform.position - transform.position);
 
         GameObject destructionSound = Instantiate(m_destructionSound, Vector3.zero, Quaternion.identity);
-        destructionSound.transform.localPosition = Vector3.zero;
         destructionSound.GetComponent<AudioSource>().Play();
         Destroy(destructionSound, 5.0f);
 

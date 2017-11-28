@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class GameOverManager : MonoBehaviour
 {
     public GameObject m_UICanvas = null;
@@ -18,9 +23,8 @@ public class GameOverManager : MonoBehaviour
         if (m_UICanvas.activeSelf)
             m_UICanvas.SetActive(false);
 
-        GameObject eventSystem = GameObject.Find("EventSystem");
         if(m_topButton != null)
-            eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(m_topButton);
+            StartCoroutine(HighlightButton(m_topButton)); // Due to unity bug need to set higlighted at end of frame
     }
 
     //--------------------------------------------------------------------------------------
@@ -47,5 +51,22 @@ public class GameOverManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    //--------------------------------------------------------------------------------------
+    //  Set the current highlighted button
+    //  Due to unity bug need to set higlighted at end of frame
+    //
+    // Param:
+    //		team: whic team is the bullet on, enemy or player layer
+    //--------------------------------------------------------------------------------------
+    IEnumerator HighlightButton(GameObject button)
+    {
+        UnityEngine.EventSystems.EventSystem eventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
+
+        eventSystem.SetSelectedGameObject(null);
+
+        yield return new WaitForEndOfFrame();
+        eventSystem.SetSelectedGameObject(button);
     }
 }

@@ -23,7 +23,6 @@ public class CheckPoint : MonoBehaviour
     {
         //this.GetComponentInChildren<MeshRenderer>().material = cpMaterial[0]; //set default colour
         pos = this.transform.position; //set pos of this checkpoint
-        Renderer rend = GetComponent<Renderer>();
 	}
     
     void OnTriggerEnter(Collider other) //set current checkpoint to this

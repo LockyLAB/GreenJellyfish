@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class EnemySphinx : Enemy
 {
 
@@ -17,6 +22,8 @@ public class EnemySphinx : Enemy
     public float m_laserFireDistance = 0.0f;
     public float m_laserChargeTime = 0.0f;
     public float m_laserCooldown = 0.0f;
+
+    public bool m_laserFollowing = true;
 
     public Vector3 m_laserPos = Vector3.zero;
     public GameObject m_laserPrefab = null;
@@ -70,7 +77,26 @@ public class EnemySphinx : Enemy
         if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
             m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
         else
-            m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
+        {
+            switch (m_difficulty)
+            {
+                case Difficulty.Easy:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
+                        break;
+                    }
+                case Difficulty.Medium:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetMedium>();
+                        break;
+                    }
+                case Difficulty.Hard:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetHard>();
+                        break;
+                    }
+            }
+        }
 
         m_selectorTop.m_behaviourBranches.Add(m_gettingTarget);
         m_selectorTop.m_behaviourBranches.Add(m_jumpToPlatform);
@@ -94,6 +120,8 @@ public class EnemySphinx : Enemy
         m_actionFireLaser.m_chargeRate = m_laserChargeTime;
         m_actionFireLaser.m_laserSpawnPos = m_laserPos;
         m_actionFireLaser.m_laserFriendlyFire = m_laserFriendlyFire;
+        m_actionFireLaser.m_laserFollowing = m_laserFollowing;
+
         m_actionLaserCooldown.m_coolDown = m_laserCooldown;
 
         m_actionFireLaser.m_laserbeam = m_laserPrefab;

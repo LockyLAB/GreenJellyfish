@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //NO LONGER IMPLEMENTED
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
 
 public class SplashScreenManager : MonoBehaviour {
 

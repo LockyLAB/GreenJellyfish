@@ -5,6 +5,11 @@ using UnityEngine.UI;
 using XboxCtrlrInput;
 using UnityEngine.PostProcessing;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class ControlScreenManager : MonoBehaviour
 {
     public float m_fadeTime = 1.0f;

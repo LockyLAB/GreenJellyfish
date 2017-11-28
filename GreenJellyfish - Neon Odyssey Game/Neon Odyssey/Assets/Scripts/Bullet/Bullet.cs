@@ -4,7 +4,7 @@ using UnityEngine;
 
 //---------------------------------------------------------
 //-written by: Edward,
-//-contributors:
+//-contributors: Samuel
 //---------------------------------------------------------
 
 //-----------------------------------------------------------------------------
@@ -25,14 +25,14 @@ public class Bullet : MonoBehaviour
     private bool triggered = false;
 
     private float explosionRadius = 10.0f;
-    private Weapon wep;
+    //private Weapon wep;
 
     //--------------------------------------------------------------------------------------
     // Set up references
     //--------------------------------------------------------------------------------------
     private void Awake()
     {
-       wep = GetComponent<Weapon>();
+       //wep = GetComponent<Weapon>();
     }
 
     //--------------------------------------------------------------------------------------
@@ -171,7 +171,6 @@ public class Bullet : MonoBehaviour
     //--------------------------------------------------------------------------------------
     void ExplodeDamage(Vector3 center)
     {
-        LayerMask layerMask = 1 << 8;
         LayerMask mask = ~(1 << 8);
 
         Collider[] hitTargets = Physics.OverlapSphere(center, explosionRadius, mask);

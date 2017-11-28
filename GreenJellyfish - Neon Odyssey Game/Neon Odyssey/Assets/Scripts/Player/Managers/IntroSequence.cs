@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class IntroSequence : MonoBehaviour
 {
     //Players
@@ -11,6 +16,7 @@ public class IntroSequence : MonoBehaviour
     public Animator m_cameraAnimator = null;
 
     public GameObject m_portalWaterEffect = null;
+    public GameObject m_portalActivationSound = null;
 
     private bool m_cameraEnabled = false;
 
@@ -28,6 +34,10 @@ public class IntroSequence : MonoBehaviour
     {
         m_player1Animator.enabled = true;
         m_player2Animator.enabled = true;
+
+        GameObject activationSound = Instantiate(m_portalActivationSound, Vector3.zero, Quaternion.identity);
+        activationSound.GetComponent<AudioSource>().Play();
+        Destroy(activationSound, 5.0f);
     }
 
     //--------------------------------------------------------------------------------------

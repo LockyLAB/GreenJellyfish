@@ -5,7 +5,7 @@ using XboxCtrlrInput;
 
 
 //---------------------------------------------------------
-//-written by: Sam,
+//-written by: Samuel,
 //-contributors: Edward,
 //---------------------------------------------------------
 

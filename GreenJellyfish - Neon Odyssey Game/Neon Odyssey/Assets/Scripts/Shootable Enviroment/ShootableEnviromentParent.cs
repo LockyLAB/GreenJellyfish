@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class ShootableEnviromentParent : MonoBehaviour
 {
     protected List<GameObject> m_children= new List<GameObject>();
@@ -52,7 +57,8 @@ public class ShootableEnviromentParent : MonoBehaviour
                 if (m_destroyEffect != null)
                 {
                     GameObject destructionSound = Instantiate(m_destructionSound, Vector3.zero, Quaternion.identity);
-                    destructionSound.transform.localPosition = Vector3.zero;
+
+
                     destructionSound.GetComponent<AudioSource>().Play();
                     Destroy(destructionSound, 5.0f);
                 }

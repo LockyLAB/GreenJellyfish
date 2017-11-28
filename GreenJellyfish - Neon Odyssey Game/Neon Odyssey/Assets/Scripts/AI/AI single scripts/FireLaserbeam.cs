@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class FireLaserbeam : BehaviourBase
 {
 
-    public GameObject m_laserbeam;
-    public GameObject m_laserbeamHolder;
+    public GameObject m_laserbeam = null;
+    private GameObject m_laserbeamHolder = null;
+
+    public bool m_laserFollowing = false;
 
     public float m_chargeRate = 0.0f;
     private float m_time = 0.0f;
@@ -24,10 +31,17 @@ public class FireLaserbeam : BehaviourBase
     {
         gameObject.GetComponent<Animator>().SetTrigger("Laserbeam"); // Animation
 
-        //Fire Laser
+        //Laser Effects
         laserDir = (GetComponent<Enemy>().m_target.transform.position - transform.position);
-        m_laserbeamHolder = Instantiate(m_laserbeam, transform.TransformPoint(m_laserSpawnPos), Quaternion.identity);
+
+        if (m_laserbeamHolder != null)
+            Destroy(m_laserbeamHolder);
+
+        m_laserbeamHolder = Instantiate(m_laserbeam, transform.TransformPoint(m_laserSpawnPos), Quaternion.identity, gameObject.transform);
         m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position);
+
+        //Laser Sound
+        GetComponent<Enemy>().m_firingLaserAudio.GetComponent<AudioSource>().Play();
 
         m_time = 0.0f;
     }
@@ -42,13 +56,13 @@ public class FireLaserbeam : BehaviourBase
     {
         m_time += Time.deltaTime;
 
-        if (m_time > m_chargeRate)
+        m_laserbeamHolder.transform.LookAt(GetComponent<Enemy>().m_target.transform.position); // Following laser
+
+        if (m_time < m_chargeRate)
             return BehaviourStatus.PENDING;
 
         FireLaser(laserDir, laserDir.magnitude);
 
-        //Reset all varibles
-        gameObject.GetComponent<Animator>().ResetTrigger("Laserbeam");
         return BehaviourStatus.SUCCESS;
     }
 
@@ -61,7 +75,6 @@ public class FireLaserbeam : BehaviourBase
     //--------------------------------------------------------------------------------------
     void FireLaser(Vector3 laserDir, float laserMagnitude)
     {
-        GetComponent<Enemy>().m_firingLaserAudio.GetComponent<AudioSource>().Play();
         // Make ray cast to check if hit
         RaycastHit hit;
 
@@ -71,7 +84,6 @@ public class FireLaserbeam : BehaviourBase
             {
                 if (m_laserFriendlyFire)//Cases between frendly fire or not
                 {
-                    //!!!! UPDATE WHEN SINLGE ENTITIY CREATED!!!!!
                     hit.collider.GetComponent<Character>().ChangeHealth(-1);
                 }
                 else if (hit.collider.tag != this.tag)
@@ -80,8 +92,6 @@ public class FireLaserbeam : BehaviourBase
                         hit.collider.GetComponent<Character>().ChangeHealth(-1);
                 }
             }
-           
         }
-        Destroy(m_laserbeamHolder.gameObject);
     }
 }

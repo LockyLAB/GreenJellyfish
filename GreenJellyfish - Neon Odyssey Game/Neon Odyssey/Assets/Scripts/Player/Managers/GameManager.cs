@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using XboxCtrlrInput;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class GameManager : MonoBehaviour
 {
     public GameObject m_pausePanel;

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//---------------------------------------------------------
+//-written by: Edward
+//-contributors: Samuel
+//---------------------------------------------------------
+
 public class RayshieldTrigger : MonoBehaviour {
 
     public GameObject boss;

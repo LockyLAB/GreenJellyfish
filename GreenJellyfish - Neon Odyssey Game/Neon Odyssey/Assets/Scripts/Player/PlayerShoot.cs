@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class PlayerShoot : MonoBehaviour
 {
     private PlayerSounds m_playerSounds = null;

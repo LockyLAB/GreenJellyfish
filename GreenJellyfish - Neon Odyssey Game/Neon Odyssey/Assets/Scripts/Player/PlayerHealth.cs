@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 
+//---------------------------------------------------------
+//-written by: Nick
+//-contributors: Samuel
+//---------------------------------------------------------
+
+
 public class PlayerHealth : MonoBehaviour
 {
 	private GameObject m_otherPlayer = null;

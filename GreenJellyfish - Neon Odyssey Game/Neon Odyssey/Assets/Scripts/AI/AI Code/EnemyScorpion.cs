@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class EnemyScorpion : Enemy
 {
     //Gun
@@ -21,6 +26,8 @@ public class EnemyScorpion : Enemy
     public float m_laserChargeTime = 0.0f;
     public float m_laserCooldown = 0.0f;
 
+    public bool m_laserFollowing = true;
+
     public Vector3 m_laserPos = Vector3.zero;
     public GameObject m_laserPrefab = null;
 
@@ -34,8 +41,6 @@ public class EnemyScorpion : Enemy
     private BehaviourSequence m_sequenceLeftGun;
     private BehaviourSequence m_sequenceRightGun;
     private BehaviourSequence m_sequenceLaser;
-
-    private BehaviourBase m_endOfFiring;
 
     private BehaviourBase m_actionGetTarget;
 
@@ -93,7 +98,26 @@ public class EnemyScorpion : Enemy
         if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
             m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
         else
-            m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
+        {
+            switch(m_difficulty)
+            {
+                case Difficulty.Easy:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
+                        break;
+                    }
+                case Difficulty.Medium:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetMedium>();
+                        break;
+                    }
+                case Difficulty.Hard:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetHard>();
+                        break;
+                    }
+            }
+        }
 
         //Left gun
         m_actionGetDisGun.m_targetDistance = m_gunFireDistance;
@@ -119,9 +143,10 @@ public class EnemyScorpion : Enemy
         m_actionFireLaser.m_chargeRate = m_laserChargeTime;
         m_actionFireLaser.m_laserSpawnPos = m_laserPos;
         m_actionFireLaser.m_laserFriendlyFire = m_laserFriendlyFire;
-        m_actionLaserCooldown.m_coolDown = m_laserCooldown;
-
+        m_actionFireLaser.m_laserFollowing = m_laserFollowing;
         m_actionFireLaser.m_laserbeam = m_laserPrefab;
+
+        m_actionLaserCooldown.m_coolDown = m_laserCooldown;
 
         //Set up branches
         m_sequenceTop.m_behaviourBranches.Add(m_actionGetTarget as BehaviourBase);

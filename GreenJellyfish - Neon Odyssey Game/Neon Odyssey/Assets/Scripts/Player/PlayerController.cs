@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//---------------------------------------------------------
+//-written by: Nick
+//-contributors:
+//---------------------------------------------------------
+
 [RequireComponent(typeof(CapsuleCollider))]
 public class PlayerController : MonoBehaviour
 {

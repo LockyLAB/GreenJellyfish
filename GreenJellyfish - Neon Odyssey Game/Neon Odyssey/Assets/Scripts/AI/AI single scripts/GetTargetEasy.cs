@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class GetTargetEasy : BehaviourBase
 {
 
@@ -20,7 +25,7 @@ public class GetTargetEasy : BehaviourBase
 
     //--------------------------------------------------------------------------------------
     // Update behaviours - Get target
-    // Will aim for a player which can block the bullet
+    // Will aim for a player which can block the bullet, doesnt care about visibililty 
     //
     // Return:
     //		Returns a enum BehaviourStatus, current status of behaviour, Success, failed, pending
@@ -71,9 +76,6 @@ public class GetTargetEasy : BehaviourBase
     //--------------------------------------------------------------------------------------
     private float SetRank(GameObject player, float playerRank, float playerDistance)
     {
-        //Pick target it can see
-        if (Physics.Raycast(transform.position + transform.up * 0.5f, (player.transform.position - transform.position).normalized, playerDistance, LayerMask.GetMask("Collisions")))
-            playerRank -= 100.0f;
 
         //Pick target thats alive
         if(player.GetComponent<Player>().IsDead())

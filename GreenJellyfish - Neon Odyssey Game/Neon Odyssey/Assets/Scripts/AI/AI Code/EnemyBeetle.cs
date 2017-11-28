@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class EnemyBeetle : Enemy
 {
     //Movement
@@ -17,13 +22,6 @@ public class EnemyBeetle : Enemy
 
     public GameObject m_bulletPrefab = null;
 
-    //Laser
-    //public float m_laserFireDistance = 0.0f;
-    //public float m_laserChargeTime = 0.0f;
-    //public float m_laserCooldown = 0.0f;
-
-    //public GameObject m_laserPrefab = null;
-
     //Nodes
     private BehaviourSequence m_sequenceTop;
 
@@ -35,9 +33,6 @@ public class EnemyBeetle : Enemy
 
     private BehaviourBase m_actionGetTarget;
 
-    //private IsTargetCloseEnough m_actionGetDisLaser;
-    //private FireLaserbeam m_actionFireLaser;
-    //private CoolDown m_actionLaserCooldown;
 
     private BehaviourSelector m_selectorFiringGun;
     private IsTargetCloseEnough m_actionGetDisGun;
@@ -88,7 +83,26 @@ public class EnemyBeetle : Enemy
         if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
             m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
         else
-            m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
+        {
+            switch (m_difficulty)
+            {
+                case Difficulty.Easy:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
+                        break;
+                    }
+                case Difficulty.Medium:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetMedium>();
+                        break;
+                    }
+                case Difficulty.Hard:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetHard>();
+                        break;
+                    }
+            }
+        }
 
         //Gun
         m_actionGetDisGun.m_targetDistance = m_gunFireDistance;

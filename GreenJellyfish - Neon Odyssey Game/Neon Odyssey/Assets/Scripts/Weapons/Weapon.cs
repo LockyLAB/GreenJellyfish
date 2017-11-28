@@ -63,7 +63,7 @@ public class Weapon : MonoBehaviour
 
     //store current weapon
     public currentWeapon m_currentWeapon;
-    private currentWeapon prevWeapon;
+    //private currentWeapon prevWeapon;
 
     //Setup Shotgun bullets
     void Awake()

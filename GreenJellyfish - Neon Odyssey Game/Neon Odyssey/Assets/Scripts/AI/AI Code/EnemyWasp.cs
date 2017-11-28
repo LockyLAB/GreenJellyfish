@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class EnemyWasp : Enemy
 {
 
@@ -72,12 +77,31 @@ public class EnemyWasp : Enemy
 
         //Set up get target
         if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
-            m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer> ();
-		else
-			m_actionGetTarget = gameObject.AddComponent<GetTargetEasy> ();
+            m_actionGetTarget = gameObject.AddComponent<GetTargetSinglePlayer>();
+        else
+        {
+            switch (m_difficulty)
+            {
+                case Difficulty.Easy:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetEasy>();
+                        break;
+                    }
+                case Difficulty.Medium:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetMedium>();
+                        break;
+                    }
+                case Difficulty.Hard:
+                    {
+                        m_actionGetTarget = gameObject.AddComponent<GetTargetHard>();
+                        break;
+                    }
+            }
+        }
 
-		//Cone
-		m_actionGetDisCone.m_targetDistance = m_coneFireDistance;
+        //Cone
+        m_actionGetDisCone.m_targetDistance = m_coneFireDistance;
 
 		m_actionFireCone.m_numberOfBullets = m_coneNumberOfBursts;
 		m_actionFireCone.m_timeBetweenShots = m_coneTimeBetweenShots;

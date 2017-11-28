@@ -5,17 +5,24 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using XboxCtrlrInput;
 
+//---------------------------------------------------------
+//-written by: Samuel
+//-contributors:
+//---------------------------------------------------------
+
 public class MenuManager : MonoBehaviour
 {
     //String to load first level
     public string m_firstLevel = "";
 
-    //Music
+    //Music varibles
     public GameObject m_menuMusicLoop = null;
-    public GameObject m_playMusicLoop = null;
+    public float m_musicFadeIn = 1.0f;
+    public float m_musicFadeOut = 1.0f;
 
-    public Image m_startImg = null; //Splash Screen
+    private float m_musicFadeInTimer = 0.0f;
 
+    //Image varibles
     public float m_startFadeTime = 2.0f;
     private float m_startFadeTimer = 0.0f;
 
@@ -26,10 +33,12 @@ public class MenuManager : MonoBehaviour
     private bool m_menuFade = false;
 
     //Main menu stuff
+    public Image m_startBtnImg;
     public Image m_PlayBtnImg;
     public Image m_ControllerBtnImg;
     public Image m_QuitBtnImg;
 
+    public Image m_logoImg = null; //Splash Screen
     public Image m_fadeImage;
 
     //Playing game setup 
@@ -48,6 +57,13 @@ public class MenuManager : MonoBehaviour
     //--------------------------------------------------------------------------------------
     private void Update()
     {
+        //Fading in music
+        if (m_musicFadeInTimer < m_musicFadeIn) // Fading start button away 
+        {
+            m_musicFadeInTimer += Time.deltaTime;
+            m_menuMusicLoop.GetComponent<AudioSource>().volume = m_musicFadeInTimer / m_musicFadeIn;
+        }
+
         //Pausing Screen
         if (XCI.GetButtonDown(XboxButton.Start))
         {
@@ -59,7 +75,7 @@ public class MenuManager : MonoBehaviour
             m_startFadeTimer += Time.deltaTime;
             float alpha = m_startFadeTimer / m_startFadeTime;
 
-            SetAlpha(1 - alpha, m_startImg);
+            SetAlpha(1 - alpha, m_startBtnImg);
 
             if(m_startFadeTimer >= m_startFadeTime)
             {
@@ -71,9 +87,7 @@ public class MenuManager : MonoBehaviour
 
                 m_menuFade = true;
 
-                //Set up event System
-                GameObject eventSystem = GameObject.Find("EventSystem");
-                eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(m_PlayBtnImg.gameObject);
+                StartCoroutine(HighlightButton(m_PlayBtnImg.gameObject)); // Due to unity bug need to set higlighted at end of frame
             }
         }
 
@@ -94,12 +108,10 @@ public class MenuManager : MonoBehaviour
             {
                 float alpha = m_startGameTimer / 2.0f;
                 SetAlpha(alpha, m_fadeImage);
-                SetAlpha(0.7f - alpha, m_startImg);
             }
             else
             {
                 SetAlpha(0.7f, m_fadeImage);
-                SetAlpha(0.0f, m_startImg);
             }
 
             if (m_startGameTimer < 2.0f) //Fade in UI 100%
@@ -107,13 +119,21 @@ public class MenuManager : MonoBehaviour
                 float alpha = m_startGameTimer / 2.0f;
                 SetAlpha(1 - alpha, m_PlayBtnImg);
                 SetAlpha(1 - alpha, m_QuitBtnImg);
+                SetAlpha(0.7f - alpha, m_logoImg);
                 SetAlpha(alpha, m_ControllerBtnImg);
             }
             else
             {
                 SetAlpha(0.0f, m_PlayBtnImg);
                 SetAlpha(0.0f, m_QuitBtnImg);
+                SetAlpha(0.0f, m_logoImg);
                 SetAlpha(1.0f, m_ControllerBtnImg);
+            }
+
+            //Fading in music
+            if (m_startGameTimer > m_startGameTime - m_musicFadeOut) // Fading start button away 
+            {
+                m_menuMusicLoop.GetComponent<AudioSource>().volume = (m_startGameTime - m_startGameTimer) / m_musicFadeOut;
             }
 
             if (m_startGameTimer >= m_startGameTime)
@@ -129,8 +149,6 @@ public class MenuManager : MonoBehaviour
     public void PlayGameBtn()
     {
         m_startGame = true;
-        m_menuMusicLoop.GetComponent<AudioSource>().Stop();
-        m_playMusicLoop.GetComponent<AudioSource>().Play();
     }
 
     //--------------------------------------------------------------------------------------
@@ -141,6 +159,13 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    //--------------------------------------------------------------------------------------
+    //  Set image alpha
+    //
+    // Param:
+    //		alpha: alpha to set image to, between 0-1
+    //		image: image to change alpha of
+    //--------------------------------------------------------------------------------------
     private void SetAlpha(float alpha, Image image)
     {
         Color tempColor = image.color;
@@ -148,4 +173,21 @@ public class MenuManager : MonoBehaviour
         image.color = tempColor;
     }
 
+
+    //--------------------------------------------------------------------------------------
+    //  Set the current highlighted button
+    //  Due to unity bug need to set higlighted at end of frame
+    //
+    // Param:
+    //		team: whic team is the bullet on, enemy or player layer
+    //--------------------------------------------------------------------------------------
+    IEnumerator HighlightButton(GameObject button)
+    {
+        UnityEngine.EventSystems.EventSystem eventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
+
+        eventSystem.SetSelectedGameObject(null);
+
+        yield return new WaitForEndOfFrame();
+        eventSystem.SetSelectedGameObject(button);
+    }
 }
