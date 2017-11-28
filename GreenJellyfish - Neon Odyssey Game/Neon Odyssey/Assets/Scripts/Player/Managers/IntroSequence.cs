@@ -34,12 +34,6 @@ public class IntroSequence : MonoBehaviour
     public float m_sequenceTime = 3.0f;
     private float m_sequenceTimer = 0.0f;
 
-    private void Start()
-    {
-        //Assign players
-        m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
-        m_player2 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player2;
-    }
 
     //--------------------------------------------------------------------------------------
     // Start opening sequence
@@ -48,6 +42,9 @@ public class IntroSequence : MonoBehaviour
     {
         m_player1Animator.enabled = true;
         m_player2Animator.enabled = true;
+
+        m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
+        m_player2 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player2;
 
         m_player1.GetComponent<PlayerSounds>().DisableSound();
         m_player2.GetComponent<PlayerSounds>().DisableSound();
