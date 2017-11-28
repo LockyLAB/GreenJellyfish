@@ -65,8 +65,10 @@ public class MenuManager : MonoBehaviour
             {
                 m_PlayBtnImg.gameObject.SetActive(true);
                 m_QuitBtnImg.gameObject.SetActive(true);
+
                 SetAlpha(0, m_PlayBtnImg);
                 SetAlpha(0, m_QuitBtnImg);
+
                 m_menuFade = true;
 
                 //Set up event System
