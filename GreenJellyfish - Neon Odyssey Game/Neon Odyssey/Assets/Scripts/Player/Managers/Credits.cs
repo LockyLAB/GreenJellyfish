@@ -8,6 +8,8 @@ public class Credits : MonoBehaviour
 {
     public string m_menu; //Next level
 
+    public GameObject m_UICanvas = null;
+
     public GameObject m_creditsLogo = null;
     public GameObject m_creditsScrollOver = null;
 
@@ -32,6 +34,9 @@ public class Credits : MonoBehaviour
             }
             else if (m_creditsScrollOver.transform.position.y < Screen.height + (m_creditsScrollOver.GetComponent<Image>().sprite.rect.height/2)) //Scroll text
             {
+                if (m_UICanvas.activeSelf)
+                    m_UICanvas.SetActive(false);
+
                 Vector3 creditsPos = m_creditsScrollOver.transform.position;
                 creditsPos.y += m_scrollSpeed * Time.deltaTime;
                 m_creditsScrollOver.transform.position = creditsPos;
