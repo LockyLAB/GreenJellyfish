@@ -9,7 +9,6 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-
 	//Sound effects - store all sounds for use by other classes
 	public GameObject m_movementAudio = null;
 	public GameObject m_jumpingAudio = null;
@@ -69,5 +68,51 @@ public class PlayerSounds : MonoBehaviour
             m_wallSlideAudio = Instantiate(m_wallSlideAudio, Vector3.zero, Quaternion.identity, gameObject.transform);
             m_wallSlideAudio.transform.localPosition = Vector3.zero;
         }
+    }
+
+    //--------------------------------------------------------------------------------------
+    // Turn player volume to 0
+    //--------------------------------------------------------------------------------------
+    public void DisableSound()
+    {
+        if (m_movementAudio != null)
+            m_movementAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_jumpingAudio != null)
+            m_jumpingAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_firingGunAudio != null)
+            m_firingGunAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_deathAudio != null)
+            m_deathAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_reviveAudio != null)
+            m_reviveAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_respawnAudio != null)
+            m_respawnAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_wallJumpAudio != null)
+            m_wallJumpAudio.GetComponent<AudioSource>().volume = 0;
+        if (m_wallSlideAudio != null)
+            m_wallSlideAudio.GetComponent<AudioSource>().volume = 0;
+    }
+
+    //--------------------------------------------------------------------------------------
+    // Turn player sound volume to 1
+    //--------------------------------------------------------------------------------------
+    public void EnableSound()
+    {
+        if (m_movementAudio != null)
+            m_movementAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_jumpingAudio != null)
+            m_jumpingAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_firingGunAudio != null)
+            m_firingGunAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_deathAudio != null)
+            m_deathAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_reviveAudio != null)
+            m_reviveAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_respawnAudio != null)
+            m_respawnAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_wallJumpAudio != null)
+            m_wallJumpAudio.GetComponent<AudioSource>().volume = 1;
+        if (m_wallSlideAudio != null)
+            m_wallSlideAudio.GetComponent<AudioSource>().volume = 1;
     }
 }
