@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class RayshieldTrigger : MonoBehaviour {
 
     public GameObject boss;
-    public List<GameObject> m_bossBarSections = new List<GameObject>();
+    public List<GameObject> m_bossBarHealthSections = new List<GameObject>();
+    public List<GameObject> m_bossBarDeathSections = new List<GameObject>();
 
     public GameObject shield;
     private bool triggered;
@@ -30,7 +31,7 @@ public class RayshieldTrigger : MonoBehaviour {
             else //Update Boss UI
             {
                 //Set UI health bar to health
-                if (m_bossBarSections.Count == 3)
+                if (m_bossBarHealthSections.Count == 3 && m_bossBarDeathSections.Count == 3)
                 {
                     int bossHealth = boss.GetComponent<Character>().GetHealth();
                     int bossMaxHealth = boss.GetComponent<Character>().m_healthMax;
@@ -38,17 +39,20 @@ public class RayshieldTrigger : MonoBehaviour {
                     //First health bar
                     if ((bossHealth / 2) % 3 == 2)
                     {
-                        m_bossBarSections[2].SetActive(false);
+                        m_bossBarHealthSections[2].SetActive(false);
+                        m_bossBarDeathSections[2].SetActive(true);
                     }
                     //Second health bar
                     if((bossHealth/2) % 3 == 2)
                     {
-                        m_bossBarSections[1].SetActive(false);
+                        m_bossBarHealthSections[1].SetActive(false);
+                        m_bossBarDeathSections[1].SetActive(true);
                     }
                     //third health bar
                     if ((bossHealth / 2) % 3 == 0)
                     {
-                        m_bossBarSections[0].SetActive(false);
+                        m_bossBarHealthSections[0].SetActive(false);
+                        m_bossBarDeathSections[0].SetActive(true);
                     }
                 }
             }
