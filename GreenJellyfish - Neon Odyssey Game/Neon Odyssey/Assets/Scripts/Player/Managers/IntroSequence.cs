@@ -5,15 +5,12 @@ using UnityEngine;
 public class IntroSequence : MonoBehaviour
 {
     //Players
-    private GameObject m_player1 = null;
-    private GameObject m_player2 = null;
+    public Animator m_player1Animator = null;
+    public Animator m_player2Animator = null;
 
     private GameObject m_mainCamera = null;
 
     public GameObject m_portalWaterEffect = null;
-
-    public float m_portalPlayer2ActivateTime = 1.0f; //Time to start player 2 animation
-    private bool m_portalPlayer2Activated = false;
 
     private bool m_cameraEnabled = false;
 
@@ -29,17 +26,6 @@ public class IntroSequence : MonoBehaviour
     //--------------------------------------------------------------------------------------
     private void Start()
     {
-        //Assign players
-        if (GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_singlePlayer)
-        {
-            m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
-        }
-        else
-        {
-            m_player1 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player1;
-            m_player2 = GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_player2;
-        }
-
         m_mainCamera = GameObject.FindWithTag("MainCamera");
     }
 
@@ -48,8 +34,8 @@ public class IntroSequence : MonoBehaviour
     //--------------------------------------------------------------------------------------
     private void OnEnable()
     {
-        //m_player1.GetComponentInChildren<Animator>().SetTrigger("PortalJump");
-        //m_mainCamera.GetComponentInChildren<Animator>().SetTrigger("IntroPortal");
+        m_player1Animator.enabled = true;
+        m_player2Animator.enabled = true;
     }
 
     //--------------------------------------------------------------------------------------
@@ -64,11 +50,6 @@ public class IntroSequence : MonoBehaviour
             m_portalWaterActivated = true;
         }
 
-        if (m_sequenceTimer > m_portalPlayer2ActivateTime && !m_portalPlayer2Activated) // playing player 2 jumping animation
-        {
-            m_portalPlayer2Activated = true;
-            m_player2.gameObject.GetComponentInChildren<Animator>().SetTrigger("PortalJump");
-        }
         else if (m_sequenceTimer > m_animationTime && !m_cameraEnabled)//Enable camera and player input at end of timer
         {
             m_cameraEnabled = true;
@@ -76,6 +57,10 @@ public class IntroSequence : MonoBehaviour
         }
         else if(m_sequenceTimer > m_sequenceTime) //Enable player montion at end of opening animation
         {
+            //Remove animators
+            Destroy(m_player1Animator);
+            Destroy(m_player2Animator);
+
             GameObject.FindWithTag("GameController").GetComponent<GameManager>().m_inputOn = true;
             this.enabled = false;
         }
