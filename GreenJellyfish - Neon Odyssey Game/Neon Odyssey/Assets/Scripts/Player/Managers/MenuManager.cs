@@ -30,6 +30,8 @@ public class MenuManager : MonoBehaviour
     public Image m_ControllerBtnImg;
     public Image m_QuitBtnImg;
 
+    public Image m_fadeImage;
+
     //Playing game setup 
     private bool m_startGame = false;
     public float m_startGameTime = 9.0f;
@@ -86,7 +88,13 @@ public class MenuManager : MonoBehaviour
         {
             m_startGameTimer += Time.deltaTime;
 
-            if(m_startGameTimer < 2.0f) //Fade in controller
+            if (m_startGameTimer < 1.4) //Fade in controller
+            {
+                float alpha = m_startGameTimer / 2.0f;
+                SetAlpha(alpha, m_fadeImage);
+            }
+
+            if (m_startGameTimer < 2.0f) //Fade in controller
             {
                 float alpha = m_startGameTimer / 2.0f;
                 SetAlpha(alpha, m_ControllerBtnImg);

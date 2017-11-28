@@ -8,6 +8,8 @@ public class IntroSequence : MonoBehaviour
     public Animator m_player1Animator = null;
     public Animator m_player2Animator = null;
 
+    public Animator m_cameraAnimator = null;
+
     private GameObject m_mainCamera = null;
 
     public GameObject m_portalWaterEffect = null;
@@ -54,6 +56,7 @@ public class IntroSequence : MonoBehaviour
         {
             m_cameraEnabled = true;
             GameObject.FindWithTag("MainCamera").GetComponent<CameraMove>().m_dynamicCamera = true;
+            Destroy(m_cameraAnimator);
         }
         else if(m_sequenceTimer > m_sequenceTime) //Enable player montion at end of opening animation
         {
