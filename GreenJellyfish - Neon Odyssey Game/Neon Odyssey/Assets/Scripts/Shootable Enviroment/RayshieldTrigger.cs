@@ -50,8 +50,8 @@ public class RayshieldTrigger : MonoBehaviour {
                     //third health bar
                     if (bossHealth == 0)
                     {
-                        m_bossBarHealthSections[0].SetActive(false);
-                        m_bossBarDeathSections[0].SetActive(true);
+                        m_bossBarHealthSections.Clear();
+                        m_bossBarDeathSections.Clear();
                     }
                 }
             }
