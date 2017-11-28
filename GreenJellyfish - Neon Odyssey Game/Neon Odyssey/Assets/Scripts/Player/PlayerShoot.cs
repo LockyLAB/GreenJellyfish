@@ -18,15 +18,19 @@ public class PlayerShoot : MonoBehaviour
 
     public XboxController controller;
 
+    private GameManager m_gameManager = null;
+
     private void Start()
     {
         m_playerSounds = GetComponent<PlayerSounds>();
+
+        m_gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponent<Player>().IsDead())
+        if (!GetComponent<Player>().IsDead() && m_gameManager.m_inputOn)
         {
             Vector2 rightInput = new Vector2(XCI.GetAxisRaw(XboxAxis.RightStickX, controller), XCI.GetAxisRaw(XboxAxis.RightStickY, controller));
 

@@ -70,6 +70,7 @@ public class Player : Character
         {
             jumpDelayTimer = jumpDelay; // resets jump delay timer
         }
+
         jumpDelayTimer -= Time.deltaTime; // Updates jump delay timer
 
         int wallDirX = (pController.m_CollisionInfo.left) ? -1 : 1; // Checks which direction the player is colliding with wall

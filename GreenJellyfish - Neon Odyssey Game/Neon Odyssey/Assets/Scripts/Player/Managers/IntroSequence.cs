@@ -10,8 +10,6 @@ public class IntroSequence : MonoBehaviour
 
     public Animator m_cameraAnimator = null;
 
-    private GameObject m_mainCamera = null;
-
     public GameObject m_portalWaterEffect = null;
 
     private bool m_cameraEnabled = false;
@@ -22,14 +20,6 @@ public class IntroSequence : MonoBehaviour
     public float m_animationTime = 2.0f;
     public float m_sequenceTime = 3.0f;
     private float m_sequenceTimer = 0.0f;
-
-    //--------------------------------------------------------------------------------------
-    // Get players and camera refs
-    //--------------------------------------------------------------------------------------
-    private void Start()
-    {
-        m_mainCamera = GameObject.FindWithTag("MainCamera");
-    }
 
     //--------------------------------------------------------------------------------------
     // Start opening sequence
