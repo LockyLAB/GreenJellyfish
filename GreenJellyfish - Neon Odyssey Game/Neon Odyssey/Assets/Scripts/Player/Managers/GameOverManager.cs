@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    public GameObject m_UICanvas = null;
+
     public GameObject m_topButton = null;
     public string m_menu; //Main menu
 
@@ -13,6 +15,9 @@ public class GameOverManager : MonoBehaviour
     //--------------------------------------------------------------------------------------
     public void OnEnable()
     {
+        if (m_UICanvas.activeSelf)
+            m_UICanvas.SetActive(false);
+
         GameObject eventSystem = GameObject.Find("EventSystem");
         if(m_topButton != null)
             eventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(m_topButton);

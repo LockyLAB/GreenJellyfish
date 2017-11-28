@@ -90,6 +90,7 @@ public class MenuManager : MonoBehaviour
             {
                 float alpha = m_startGameTimer / 2.0f;
                 SetAlpha(alpha, m_ControllerBtnImg);
+                SetAlpha(1- alpha, m_startImg);
             }
 
             if (m_startGameTimer >= m_startGameTime)
