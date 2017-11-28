@@ -26,6 +26,8 @@ public class PlayerHealth : MonoBehaviour
 	public Vector3 m_playerGhostOffset = Vector3.zero;
 	private GameObject m_playerGhostHolder = null;
 
+    public GameObject m_playerReviveEffect = null;
+    public Vector3 m_playerReviveEffectOffset = Vector3.zero;
     //Player components
     private PlayerSounds m_playerSounds = null;
 
@@ -81,10 +83,15 @@ public class PlayerHealth : MonoBehaviour
 
 			if (timer >= reviveTime) {
 				timer = 0;
+
 				//Revivie other player, play sound
 				m_otherPlayer.GetComponent<Player> ().SetHealth (2);
 				m_otherPlayer.GetComponent<PlayerSounds> ().m_reviveAudio.GetComponent<AudioSource> ().Play ();
-			}
+
+                PlayerHealth otherPlayerHealth = m_otherPlayer.GetComponent<PlayerHealth>();
+
+                Destroy(Instantiate(otherPlayerHealth.m_playerReviveEffect, m_otherPlayer.transform.TransformPoint(otherPlayerHealth.m_playerReviveEffectOffset), Quaternion.identity, otherPlayerHealth.transform), 5.0f); //Death effect
+            }
 
 			//Play Audio for respawn
 			if (!m_playerSounds.m_respawnAudio.GetComponent<AudioSource> ().isPlaying)
