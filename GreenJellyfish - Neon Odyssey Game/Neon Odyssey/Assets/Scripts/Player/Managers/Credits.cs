@@ -16,10 +16,14 @@ public class Credits : MonoBehaviour
     public GameObject m_UICanvas = null;
 
     public GameObject m_creditsLogo = null;
+    public GameObject m_creditsFadeBack = null;
     public GameObject m_creditsScrollOver = null;
 
     public float m_backgroundFadeIn = 1.0f;
     private float m_backgroundFadeInTimer = 0.0f;
+
+    public float m_backgroundFadeOut = 1.0f;
+    private float m_backgroundFadeOutTimer = 0.0f;
 
     public float m_scrollSpeed = 1.0f;
 
@@ -38,15 +42,24 @@ public class Credits : MonoBehaviour
                 m_backgroundFadeInTimer += Time.deltaTime;
 
                 //Set alpha
-                SetImageAlpha(m_creditsLogo, m_backgroundFadeInTimer / m_backgroundFadeIn * 2);
-
+                SetImageAlpha(m_creditsLogo, m_backgroundFadeInTimer / m_backgroundFadeIn);
             }
             else if (m_creditsScrollOver.transform.position.y < Screen.height + (m_creditsScrollOver.GetComponent<Image>().sprite.rect.height/2)) //Scroll text
             {
-
+                //Scroll credits
                 Vector3 creditsPos = m_creditsScrollOver.transform.position;
                 creditsPos.y += m_scrollSpeed * Time.deltaTime;
                 m_creditsScrollOver.transform.position = creditsPos;
+
+                //Fade to black
+                if (m_backgroundFadeOutTimer < m_backgroundFadeOut) //Fade in background and logo
+                {
+                    m_backgroundFadeOutTimer += Time.deltaTime;
+
+                    //Set alpha
+                    SetImageAlpha(m_creditsFadeBack, m_backgroundFadeOutTimer / m_backgroundFadeOut);
+                    SetImageAlpha(m_creditsLogo, 1 - (m_backgroundFadeOutTimer / m_backgroundFadeOut));
+                }
             }
             else
             {
