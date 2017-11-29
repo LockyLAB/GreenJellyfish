@@ -4,8 +4,8 @@ using UnityEngine;
 using XboxCtrlrInput;
 
 //---------------------------------------------------------
-//-written by: Samuel
-//-contributors:
+//-written by: Nick
+//-contributors: Samuel
 //---------------------------------------------------------
 
 public class PlayerShoot : MonoBehaviour
