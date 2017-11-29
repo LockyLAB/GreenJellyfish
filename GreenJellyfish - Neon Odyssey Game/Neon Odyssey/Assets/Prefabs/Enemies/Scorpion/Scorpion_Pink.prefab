@@ -116,6 +116,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1115170414495914
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224793809692901010}
+  - component: {fileID: 222350552930693458}
+  - component: {fileID: 114899360307635828}
+  m_Layer: 0
+  m_Name: BossName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1122097236260758
 GameObject:
   m_ObjectHideFlags: 1
@@ -911,7 +928,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1532903297448476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 652.94, y: 48.995903, z: -1}
+  m_LocalPosition: {x: 652.9, y: 49, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4531514112964876}
@@ -1302,8 +1319,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
@@ -1564,7 +1581,7 @@ MonoBehaviour:
     type: 2}
   m_initalBehaviour: {fileID: 0}
   m_target: {fileID: 0}
-  m_deathEffect: {fileID: 1420154586643138, guid: cf20a5dd1a6e7324fb56041fad88dde6,
+  m_deathEffect: {fileID: 1119021048048388, guid: 1bd1648dfe7043a4cb1b180ef23f4931,
     type: 2}
   m_deathEffectSpawnPos: {x: 0, y: 0.5, z: 0}
   m_difficulty: 2
@@ -1580,10 +1597,38 @@ MonoBehaviour:
   m_laserFireDistance: 16
   m_laserChargeTime: 2
   m_laserCooldown: 2
+  m_laserFollowing: 1
   m_laserPos: {x: -0.5, y: 2, z: 0}
   m_laserPrefab: {fileID: 1781352199050298, guid: 57e07226ed7567f449d49f35d08e8528,
     type: 2}
   m_laserFriendlyFire: 0
+--- !u!114 &114899360307635828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115170414495914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 5e7943cf26aac234d8329688e0acf71b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &114901992972870338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11680,6 +11725,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411401291895060}
+--- !u!222 &222350552930693458
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115170414495914}
 --- !u!222 &222369096720709956
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -11801,6 +11852,7 @@ RectTransform:
   - {fileID: 224875648980528340}
   - {fileID: 224167605620611726}
   - {fileID: 224701780218786842}
+  - {fileID: 224793809692901010}
   m_Father: {fileID: 4352359461800820}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11844,6 +11896,24 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 7.057129, y: 4.480011}
   m_SizeDelta: {x: 3.1659, y: 14.8557}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224793809692901010
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115170414495914}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.10999942}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224403461254655778}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.42, y: 0.0000010729}
+  m_SizeDelta: {x: 4.234, y: 2.115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224875648980528340
 RectTransform:
